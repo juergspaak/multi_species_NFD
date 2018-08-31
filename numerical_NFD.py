@@ -2,6 +2,7 @@
 @author: J.W.Spaak
 Numerically compute ND and FD
 """
+
 import numpy as np
 from scipy.optimize import brentq, fsolve
 
@@ -32,6 +33,9 @@ def find_NFD(f, n_spec = 2, args = ()):
         Fitness difference
     c : ndarray (shape = (n_spec,n_spec))
         conversion factors from one species to the oter. 1/c = c.T
+        
+    Literature:
+    The unified Niche and Fitness definition, J.W.Spaak, F. deLaender
     """
     # obtain equilibria densities and invasion growth rates
     pars = preconditioner(f,n_spec, args)
@@ -156,6 +160,3 @@ def switch_niche(N,sp,c=0):
     N[sp[0]] += np.sum(c*N[sp[1:]])
     N[sp[1:]] = 0
     return N
-
-ND, NO, FD, c = find_NFD(test_f, n_spec)
-print(ND)
