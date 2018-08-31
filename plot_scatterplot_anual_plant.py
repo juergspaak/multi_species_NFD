@@ -3,55 +3,148 @@ differences for the annual plant model"""
 
 import matplotlib.pyplot as plt
 import numpy as np
+from scipy.optimize import brentq
 
-alpha = np.random.uniform(0,1,size = (2,2,100000))
-# remove alphas combinations with alpha[i,i]<alpha[i,j]
+rep = 50
 
-good = (alpha[0,0]>alpha[0,1]) * (alpha[1,1]>alpha[1,0])
-alpha = alpha[...,good]
+A11 = 1.2
+A22 = 1
+array = np.linspace(1e-2,1,rep)
+A12,A21 = np.meshgrid(array,array)
 
-# define growth rates
-f_0 = 1 # = f_i(0,0)
-r_i = 1-alpha[0,1]/alpha[1,1] # = f_i(0,N_j^*)
-f_N = 1-alpha[0,0]/alpha[1,1] # = f_i(N_j^*,0)
-r_i_cut = r_i.copy()
-cut = 1
-r_i_cut[r_i<np.percentile(r_i,cut)] = np.percentile(r_i,cut)
+lamb1 = 15
+lamb2 = 10
 
-ND_chesson = 1 - np.sqrt(alpha[0,1]*alpha[1,0]/(alpha[1,1]*alpha[0,0]))
-FD_chesson = np.sqrt(alpha[0,1]*alpha[0,0]/(alpha[1,0]*alpha[1,1]))
+ND = {}
+FD = {}
+ND_bound = {}
+FD_bound = {}
 
-ND_spaak3 = (r_i - f_N)/(f_0-f_N)
-FD_spaak3 = -f_N/(f_0-f_N)*(1-r_i/f_0)
+# Definition according to Adler et al. 2007
+key = "Adler et al."
+ND[key] = lamb2/(1+A12/A22*(lamb2-1))
+FD[key] = lamb1/lamb2*np.ones(A12.shape)
+ND_bound[key] = "large"
+FD_bound[key] = "norm"
 
-# check equality
-if not(r_i-(ND_spaak3-FD_spaak3)<1e-10).all():
-    print("Error spaak3")
+# Definition according to Godoy et al.
+key = "Godoy et al."
+ND[key] = 1-np.sqrt(A12*A21/(A22*A11))
+FD[key] = (lamb1-1)/(lamb2-1)*np.sqrt(A21*A22/(A11*A12))
+ND_bound[key] = "norm"
+FD_bound[key] = "norm"
+
+
+# Definitions by experimental methods
+# zero growth rate
+f_i_0 = np.log([lamb1,lamb2])
+
+# invasion growth rate
+r_i = np.array([np.log(lamb1/(1+A12/A22*(lamb2-1))),
+                np.log(lamb2/(1+A21/A11*(lamb1-1)))])
+
+# Definition according to Carroll et al.
+S_i = (f_i_0.reshape(-1,1,1)-r_i)/f_i_0.reshape(-1,1,1)
+key = "Carroll et al."
+ND[key] = 1-np.exp(np.mean(np.log(S_i),axis = 0))
+FD[key] = np.exp(np.var(np.log(S_i),axis = 0))
+ND_bound[key] = "norm"
+FD_bound[key] = "large"
+
+# Definition according to Zhao et al.
+key = "Zhao et al."
+ND[key] = np.sum(r_i, axis = 0)
+FD[key] = (np.log((lamb1-1)/A11)-np.log((lamb2-1)/A22))*np.ones(A12.shape)
+ND_bound[key] = "large"
+FD_bound[key] = "norm"
+
+# Definition according to Chesson
+key = "Chesson"
+phi_i = np.array([A11/lamb1,A22/lamb2])
+ND[key] = 0.5*np.sum(r_i/phi_i.reshape(-1,1,1),axis = 0)
+FD[key] = (r_i/phi_i.reshape(-1,1,1)-ND[key])[0]
+ND_bound[key] = "large"
+FD_bound[key] = "large"
+
+# Definition accoding to Spaak
+
+
+c = np.empty((rep,rep))
+denom = np.array([np.log(1+A12/A22*(lamb2-1)),
+                  np.log(1+A21/A11*(lamb1-1))])
+fac = np.array([A11/A22*(lamb2-1),A22/A11*(lamb1-1)])
+
+def NO_spaak(c,denom):
+    return np.array([denom[0]/np.log(1+c*fac[0]),denom[1]/np.log(1+fac[1]/c)])
+def NO_equate(c,denom):
+    NO = np.abs(NO_spaak(c,denom))
+    return NO[0]-NO[1]
+
+for k in range(rep):
+    for l in range(rep):
+        try:
+            c[l,k] = brentq(NO_equate,0,1e3, args = (denom[:,l,k]))
+        except ValueError:
+            c[l,k] = brentq(NO_equate,0,1e10, args = (denom[:,l,k]))
+key = "Spaak et al."   
+ND[key] = 1-NO_spaak(c, denom)[0]
+FD[key] = np.log(lamb1/(1+c*A11/A22*(lamb2-1)))/np.log(lamb1)
+ND_bound[key] = "norm"
+FD_bound[key] = "norm"
+
+
+fig, ax = plt.subplots(3,2, figsize = (9,9), sharex = True, sharey = True)
+keys = ["Chesson","Carroll et al.","Adler et al.", "Godoy et al.",
+        "Zhao et al.",   "Spaak et al."]
+
+for k,key in enumerate(keys):
+    axc = ax.flatten()[k]
     
-ND_spaak4 = (r_i - f_N)/(f_0-f_N)
-FD_spaak4 = -f_N/f_0
+    if ND_bound[key]=="norm":
+        vmin,vmax,cmap = 0,1,None
+    else:
+        vmin, vmax , cmap = 0, 10, "cool"
 
-# check equality
-if not(r_i-(ND_spaak4-FD_spaak4+ND_spaak4*FD_spaak4)<1e-10).all():
-    print("Error spaak4")
+    cl = axc.imshow(ND[key], origin  = "lower", vmin = vmin, vmax = vmax,
+                    cmap = cmap, extent = [0,1,0,1], aspect = "auto",
+                    interpolation = "bilinear")
+    plt.colorbar(cl, ax = axc)
+        
+    axc.set_title(key)
+
+fs = 14    
+ax[0,0].set_ylabel(r'$\alpha_{12}$', fontsize = fs)
+ax[1,0].set_ylabel(r'$\alpha_{12}$', fontsize = fs)
+ax[2,0].set_ylabel(r'$\alpha_{12}$', fontsize = fs)
+
+ax[2,0].set_xlabel(r'$\alpha_{21}$', fontsize = fs)
+ax[2,1].set_xlabel(r'$\alpha_{21}$', fontsize = fs)
+
+fig.savefig("ND,Annualplants_colorplot.pdf")
+
+fig, ax = plt.subplots(3,2, figsize = (9,9), sharex = True, sharey = True)
+plt.axis([0,1,0,1])
+for k,key in enumerate(keys):
+    axc = ax.flatten()[k]
     
-fig, ax = plt.subplots(2,2, figsize = (9,9),sharex = True, sharey = True)
+    if FD_bound[key]=="norm":
+        vmin,vmax,cmap = -0.5,2,None
+    else:
+        vmin, vmax , cmap = 0, 10, "cool"
 
-ND = np.linspace(0,1,100)
+    cl = axc.imshow(FD[key], origin  = "lower", vmin = vmin, vmax = vmax,
+                    cmap = cmap, extent = [0,1,0,1], aspect = "auto", 
+                    interpolation = "bilinear")
+    plt.colorbar(cl, ax = axc)
+        
+    axc.set_title(key)
 
-vmin,vmax = min(r_i), max(r_i)
-im = ax[0,0].scatter(ND_chesson, FD_chesson,c = r_i_cut,linewidth = 0)
-ax[0,0].plot(ND,1/(1-ND))
-ax[1,0].scatter(ND_spaak3, FD_spaak3,c = r_i_cut,linewidth = 0)
-ax[1,0].plot(ND,ND)
-ax[1,1].scatter(ND_spaak4, FD_spaak4,c = r_i_cut,linewidth = 0)
-ax[1,1].plot(ND,ND/(1-ND))
-ax[1,1].set_ylim([-1,10])
+fs = 14    
+ax[0,0].set_ylabel(r'$\alpha_{12}$', fontsize = fs)
+ax[1,0].set_ylabel(r'$\alpha_{12}$', fontsize = fs)
+ax[2,0].set_ylabel(r'$\alpha_{12}$', fontsize = fs)
 
-fig.subplots_adjust(right=0.8)
-cbar_ax = fig.add_axes([0.85, 0.15, 0.05, 0.7])
-fig.colorbar(im, cax=cbar_ax)
+ax[2,0].set_xlabel(r'$\alpha_{21}$', fontsize = fs)
+ax[2,1].set_xlabel(r'$\alpha_{21}$', fontsize = fs)
 
-ax[0,0].set_title("Chesson")
-ax[1,0].set_title("Spaak3")
-ax[1,1].set_title("Spaak4")
+fig.savefig("FD,Annualplants_colorplot.pdf")
