@@ -66,6 +66,14 @@ FD[key] = (r_i/phi_i.reshape(-1,1,1)-ND[key])[0]
 ND_bound[key] = "large"
 FD_bound[key] = "large"
 
+# Definition according to Bimler
+key = "Bimler et al."
+
+ND[key] = 1 - np.exp((A12-A11)/np.log(lamb1)+(A21-A22)/np.log(lamb2))
+FD[key] = np.exp(-(A12+A11)/np.log(lamb1)+(A21+A22)/np.log(lamb2))
+ND_bound[key] = "norm"
+FD_bound[key] = "norm"
+
 # Definition accoding to Spaak
 
 
@@ -94,8 +102,8 @@ FD_bound[key] = "norm"
 
 
 fig, ax = plt.subplots(3,2, figsize = (9,9), sharex = True, sharey = True)
-keys = ["Chesson","Carroll et al.","Adler et al.", "Godoy et al.",
-        "Zhao et al.",   "Spaak et al."]
+keys = ["Chesson","Carroll et al.", "Zhao et al.","Godoy et al.",
+        "Adler et al.",   "Bimler et al."]
 
 for k,key in enumerate(keys):
     axc = ax.flatten()[k]
