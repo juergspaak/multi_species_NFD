@@ -4,7 +4,7 @@ Example how to compute the ND and FD for a given differential equation setting
 """
 
 import numpy as np
-from Numerical_NFD import find_NFD, preconditioner
+from numerical_NFD import find_NFD, preconditioner
 
 # create the differential equation system
 n_spec = 2 # nuber of species in the system
@@ -47,7 +47,7 @@ print("c:\t", np.round(c[[0,1],[1,0]],prec), "\t", np.round(c_check,prec),
 ###############################################################################
 # Switching to multispecies case
 # create the differential equation system
-n_spec = 6 # nuber of species in the system
+n_spec = 10 # nuber of species in the system
 
 # Lotka-Volterra model
 A = np.random.uniform(0,1,(n_spec,n_spec)) # interaction matrix
