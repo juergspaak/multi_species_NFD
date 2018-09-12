@@ -18,8 +18,8 @@ def test_f(N):
     return mu - np.dot(A,N)
 
 # compute relevant parameters with software
-ND,NO,FD,c = find_NFD(test_f, n_spec)
-
+pars = find_NFD(test_f, n_spec)
+ND, NO, FD, c = pars["ND"], pars["NO"], pars["FD"], pars["c"]
 # manualy check results for the two species case
 # see appendix for proof of correctness
 NO_check = np.sqrt(np.array([A[0,1]*A[1,0]/A[1,1]/A[0,0],
@@ -56,7 +56,8 @@ mu = np.random.uniform(1,2,n_spec) # intrinsic growth rate
 def test_f(N):
     return mu - np.dot(A,N)
 
-pars = preconditioner(test_f,n_spec)
+pars = find_NFD(test_f, n_spec)
+ND, NO, FD, c = pars["ND"], pars["NO"], pars["FD"], pars["c"]
 
 NO_check_m = np.empty(n_spec)
 FD_check_m = np.empty(n_spec)
@@ -71,8 +72,6 @@ for i in range(n_spec):
     NO_check_m[i] = numerator/denominator
     FD_check_m[i] = 1-denominator/mu[i]
     
-ND_m,NO_m,FD_m,c_m = find_NFD(test_f, n_spec)
-
 # printing layout is optimized for 6 species
 def print_function(var, var_check, name):
     rel_diff = np.round(np.abs(var-var_check)/var_check,prec)

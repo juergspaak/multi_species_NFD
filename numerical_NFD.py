@@ -7,7 +7,7 @@ import numpy as np
 from scipy.optimize import brentq, fsolve
 from warnings import warn
 
-def find_NFD(f, n_spec = 2, args = (), pars = {}, monotone_f = True):
+def find_NFD(f, n_spec = 2, args = (), pars = None, monotone_f = True):
     """Compute the ND and FD for a differential equation f
     
     Compute the niche difference (ND), niche overlapp (NO), 
@@ -38,11 +38,13 @@ def find_NFD(f, n_spec = 2, args = (), pars = {}, monotone_f = True):
     Literature:
     The unified Niche and Fitness definition, J.W.Spaak, F. deLaender
     """
+    if pars is None:
+        pars = {}
     if (monotone_f is True) or monotone_f is False :
         monotone_f = np.full(n_spec, monotone_f, dtype = "bool" )
     f, pars = __input_check__(f, n_spec, args, pars)
     # obtain equilibria densities and invasion growth rates
-    if len(pars.keys()) == 0:
+    if len(pars.keys()) <2:
         pars = preconditioner(f,n_spec, args, pars)
     else:
         pars["f"] = f
@@ -69,7 +71,12 @@ def find_NFD(f, n_spec = 2, args = (), pars = {}, monotone_f = True):
         # compute NO and FD
         NO[i] = NO_fun(pars, c[i, sp[1:]], sp)
         FD[i] = FD_fun(pars, c[i, sp[1:]], sp)
-    return 1-NO, NO, FD, c
+    pars["NO"] = NO
+    pars["ND"] = 1-NO
+    pars["FD"] = FD
+    pars["c"] = c
+    pars["f0"] = f(np.zeros(n_spec))
+    return pars
   
 def __input_check__(f, n_spec, args, pars):
     # check input on corectness
@@ -84,7 +91,7 @@ def __input_check__(f, n_spec, args, pars):
         raise InputError("`f` must be a callable")
     except AttributeError:
         fold = f
-        f = lambda N, *args: fold(N, *args)
+        f = lambda N, *args: np.array(fold(N, *args))
         f0 = f(np.zeros(n_spec))
         warn("`f` does not return a proper `np.ndarray`")
     if min(f0)<0 or (not np.all(np.isfinite(f0))):
@@ -94,7 +101,7 @@ def __input_check__(f, n_spec, args, pars):
     for key in pars.keys():
         if not (pars[key].shape == shapes[key]):
             warn("pars[{}] must have shape {}.".format(key,shapes[key])
-                +" The {} values will be computed automatically".format(key))
+                +" The values will be computed automatically")
             return f, {}
     return f, pars
         
@@ -126,26 +133,28 @@ def preconditioner(f, n_spec, args = (), pars = {}):
         ``r_i`` : ndarray (shape = n_spec)
             invsaion growth rates of the species
     """
-    # equilibrium densities
-    N_star = np.empty((n_spec, n_spec))
-    N_star_pre = np.ones(n_spec-1)
-    # invasion growth rates
-    r_i = np.empty(n_spec)
+    if not ("N_star" in pars.keys()):
+        pars["N_star"] = np.ones((n_spec, n_spec), dtype = "float")
+    pars["r_i"] = np.zeros(n_spec)
+    
     for i in range(n_spec):
         # to set species i to 0
         ind = np.arange(n_spec) != i
         # solve for equilibrium, use equilibrium dens. of previous run
-        N_star_pre = fsolve(lambda N: f(np.insert(N,i,0))[ind], N_star_pre)
-        N_star[i] = np.insert(N_star_pre,i,0)
-
+        N_star_pre = fsolve(lambda N: f(np.insert(N,i,0))[ind],
+                            pars["N_star"][i,ind])
+        # still have to check, whether this is a stable equilibrium
+        # check stability of equilibrium
+        pars["N_star"][i] = np.insert(N_star_pre,i,0)
         # compute invasion growth rates
-        res_growth = f(N_star[i])
-        if np.amax(np.abs(res_growth[ind])/N_star[i,ind])>1e-10:
+        res_growth = f(pars["N_star"][i])
+
+        if np.amax(np.abs(res_growth[ind])/pars["N_star"][i,ind])>1e-10:
             raise InputError("Not able to find resident equilibrium density, "
                         + "with species {} absent.".format(i)
                         + " Please provide manually via the `pars` argument")
-        r_i[i] = f(N_star[i])[i]
-    pars = {"N_star": N_star, "r_i": r_i, "f": f}
+        pars["r_i"][i] = res_growth[i]
+    pars["f"] = f
     return pars
     
 def solve_c(pars, sp = [0,1], monotone_f = True):
@@ -164,7 +173,7 @@ def solve_c(pars, sp = [0,1], monotone_f = True):
     """
     sp = np.asarray(sp)
     def inter_fun(c):
-        # equation to be solves
+        # equation to be solved
         NO_ij = np.abs(NO_fun(pars,c, sp))
         NO_ji = np.abs(NO_fun(pars,1/c,sp[::-1]))
         return NO_ij-NO_ji
