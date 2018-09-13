@@ -4,7 +4,7 @@ Example how to compute the ND and FD for a given differential equation setting
 """
 
 import numpy as np
-from numerical_NFD import find_NFD, preconditioner
+from numerical_NFD import find_NFD
 
 # create the differential equation system
 n_spec = 2 # nuber of species in the system
@@ -57,7 +57,7 @@ def test_f(N):
     return mu - np.dot(A,N)
 
 pars = find_NFD(test_f, n_spec)
-ND, NO, FD, c = pars["ND"], pars["NO"], pars["FD"], pars["c"]
+ND_m, NO_m, FD_m, c_m = pars["ND"], pars["NO"], pars["FD"], pars["c"]
 
 NO_check_m = np.empty(n_spec)
 FD_check_m = np.empty(n_spec)

@@ -18,7 +18,7 @@ no_error = True
 # we first define the percapita growth rates
 # the (monoculture) percapita growth rates are polynomials of degree 3
 # figure 1 shows the per capita growth rate for the species in monoculutre
-x = np.array([[0,3,6,9],
+x = np.array([[0,3,6,9.0],
               [0,1,2,3]])
 y = np.array([[2,-0.1,1,0],
               [2,1,1.5,0]])
@@ -27,15 +27,12 @@ coef = np.array([np.polyfit(x[0],y[0],3), np.polyfit(x[1],y[1],3)]).T
 
 # interspecific competition is linear and chosen s.t. invasion growth rate 1.5
 roots = np.array([np.real(np.roots(coef[:,0])[-1]),x[1,3]])
-r_i = 1.5
+r_i = np.array([1.5,1.65])
 comp = (coef[-1]-r_i)/roots[::-1]
 
 # the percapita growth rate of the species
 def full_example(N):
     return coef[0]*N**3 +coef[1]*N**2 +coef[2]*N +coef[3] -comp*N[...,::-1]
-
-time = np.linspace(0,50,1001)
-sol = odeint(lambda N,t: fun(N)*N,[1,1],time)
 
 # plot the funciton in monoculture
 steps = 1000
@@ -78,7 +75,7 @@ if not no_error:
 # Note: N_star_approx[0] is the equilibrium density of species 1, as species 0
 # is absent
 N_star_approx = np.array([[0,roots[1]],
-                          [roots[0],0]], dtype = float)
+                          [2,0]], dtype = float)
 # compute ND etc.
 pars = find_NFD(full_example, pars = {"N_star": N_star_approx.copy()},
                 monotone_f = False)
@@ -118,3 +115,48 @@ print("To find other solutions we can pass the key 'c' to pars.\n\n\n")
 ###############################################################################
 # Now we want to find all possible solutions
 
+# compute ND etc.
+c = np.ones((2,2))
+c[0,1] = 0.5
+pars1 = find_NFD(full_example, monotone_f = False,
+                 pars = {"N_star": N_star_approx.copy(),"c":c})
+c[0,1] = 3
+pars2 = find_NFD(full_example, monotone_f = False,
+                 pars = {"N_star": N_star_approx.copy(),"c":c})
+
+N_star_approx[1,0] = 9
+# in this case we have to pass a starting value of c as an estimate aswell
+# furthermore there's only one c
+pars_new_eq = find_NFD(full_example, monotone_f = False,
+                 pars = {"N_star": N_star_approx.copy(),"c":c})
+
+plt.figure()
+x = np.linspace(0,1,100)
+plt.plot(x,x/(1-x), "red", label = "Coex. boundary")
+plt.axis([0,1,-1,2])
+
+plt.plot([pars["ND"][0],pars1["ND"][0], pars2["ND"][0]],
+         [-pars["FD"][0],-pars1["FD"][0], -pars2["FD"][0]],'bo',
+         label = "Species 1")
+plt.plot(x,(x-r_i[0]/coef[-1,0])/(1-x), ":b")
+
+plt.plot([pars["ND"][1],pars1["ND"][1], pars2["ND"][1]],
+         [-pars["FD"][1],-pars1["FD"][1], -pars2["FD"][1]],'go',
+         label = "Species 2")
+plt.plot(x,(x-r_i[1]/coef[-1,1])/(1-x), ":g")
+
+plt.plot(pars_new_eq["ND"][0], -pars_new_eq["FD"][0], 'b^')
+plt.plot(pars_new_eq["ND"][1], -pars_new_eq["FD"][1], 'g^')
+
+plt.legend(loc = "upper left")
+plt.title("Possible ND and FD choices")
+plt.xlabel("ND")
+plt.ylabel(r"$-FD$")
+plt.show()
+
+print("This system has 4 different (correct) values for ND and FD per species.")
+print("3 (dots) coming from the monoculture equilibria N1 ~ 2, N2 ~ 3.")
+print("The 4. (triangle) comes from the different monoculture equilibrium N1 ~ 9.")
+print("The ND-FD decomposition steming from the same invasion growth rate,"
+      + " i.e. from the same resident equilibria, ")
+print("will lie on the line -FD = ND/(1-ND)-r_i/f_i(0,0)/(1-ND)")

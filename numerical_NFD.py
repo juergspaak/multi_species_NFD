@@ -40,15 +40,34 @@ def find_NFD(f, n_spec = 2, args = (), pars = None, monotone_f = True):
     """
     if pars is None:
         pars = {}
-    if (monotone_f is True) or monotone_f is False :
-        monotone_f = np.full(n_spec, monotone_f, dtype = "bool" )
-    f, pars = __input_check__(f, n_spec, args, pars)
-    # obtain equilibria densities and invasion growth rates
-    if len(pars.keys()) <2:
-        pars = preconditioner(f,n_spec, args, pars)
-    else:
-        pars["f"] = f
+    pars_def = {"N_star": np.ones((n_spec, n_spec), dtype = "float"),
+                "c": np.ones((n_spec,n_spec)),
+                "r_i": np.zeros(n_spec)}
+    # fill pars
+    warn_string = "pars[{}] must be array with shape {}."\
+                +" The values will be computed automatically"
+    for key in pars_def.keys():
+        try:
+            if pars[key].shape == pars_def[key].shape:
+                pass
+            else:
+                pars[key] = pars_def[key]
+                warn(warn_string.format(key,pars_def[key].shape))
+        except KeyError:
+            pars[key] = pars_def[key]
+        except AttributeError:
+            pars[key] = pars_def[key]
+            warn(warn_string.format(key,pars_def[key].shape))
+    pars["f"] = lambda N: f(N,*args)
     
+    # obtain equilibria densities and invasion growth rates    
+    pars = preconditioner(n_spec, pars)        
+                
+        
+    if type(monotone_f) is bool:
+        monotone_f = np.full(n_spec, monotone_f, dtype = "bool" )
+    pars = __input_check__(n_spec, pars)
+        
     # list of all species
     l_spec = list(range(n_spec))
     
@@ -78,37 +97,32 @@ def find_NFD(f, n_spec = 2, args = (), pars = None, monotone_f = True):
     pars["f0"] = f(np.zeros(n_spec))
     return pars
   
-def __input_check__(f, n_spec, args, pars):
+def __input_check__(n_spec, pars):
     # check input on corectness
     if not isinstance(n_spec, int):
         raise InputError("Number of species (`n_spec`) must be an integer")
     
     try:
-        f0 = f(np.zeros(n_spec))
+        f0 = pars["f"](np.zeros(n_spec))
         if not (f0.shape == (n_spec,)):
             raise InputError("`f` must return an array of length `n_spec`")            
     except TypeError:
         raise InputError("`f` must be a callable")
     except AttributeError:
-        fold = f
-        f = lambda N, *args: np.array(fold(N, *args))
-        f0 = f(np.zeros(n_spec))
+        fold = pars["f"]
+        pars["f"] = lambda N, *args: np.array(fold(N, *args))
+        f0 = pars["f"](np.zeros(n_spec))
         warn("`f` does not return a proper `np.ndarray`")
     if min(f0)<0 or (not np.all(np.isfinite(f0))):
         raise InputError("All species must have positive monoculture growth"
                     +"i.e. `f(0)>0`. Especially this value must be defined")
-    shapes = {"N_star": (n_spec, n_spec), "r_i": (n_spec,)}
-    for key in pars.keys():
-        if not (pars[key].shape == shapes[key]):
-            warn("pars[{}] must have shape {}.".format(key,shapes[key])
-                +" The values will be computed automatically")
-            return f, {}
-    return f, pars
+
+    return pars
         
 class InputError(Exception):
     pass
         
-def preconditioner(f, n_spec, args = (), pars = {}):
+def preconditioner(n_spec, pars):
     """Returns equilibria densities and invasion growth rates for system `f`
     
     Parameters
@@ -132,29 +146,24 @@ def preconditioner(f, n_spec, args = (), pars = {}):
             i absent. The density of species i is set to 0.
         ``r_i`` : ndarray (shape = n_spec)
             invsaion growth rates of the species
-    """
-    if not ("N_star" in pars.keys()):
-        pars["N_star"] = np.ones((n_spec, n_spec), dtype = "float")
-    pars["r_i"] = np.zeros(n_spec)
-    
+    """ 
     for i in range(n_spec):
         # to set species i to 0
         ind = np.arange(n_spec) != i
         # solve for equilibrium, use equilibrium dens. of previous run
-        N_star_pre = fsolve(lambda N: f(np.insert(N,i,0))[ind],
+        N_star_pre = fsolve(lambda N: pars["f"](np.insert(N,i,0))[ind],
                             pars["N_star"][i,ind])
         # still have to check, whether this is a stable equilibrium
         # check stability of equilibrium
         pars["N_star"][i] = np.insert(N_star_pre,i,0)
         # compute invasion growth rates
-        res_growth = f(pars["N_star"][i])
+        res_growth = pars["f"](pars["N_star"][i])
 
         if np.amax(np.abs(res_growth[ind])/pars["N_star"][i,ind])>1e-10:
             raise InputError("Not able to find resident equilibrium density, "
                         + "with species {} absent.".format(i)
                         + " Please provide manually via the `pars` argument")
         pars["r_i"][i] = res_growth[i]
-    pars["f"] = f
     return pars
     
 def solve_c(pars, sp = [0,1], monotone_f = True):
@@ -179,14 +188,14 @@ def solve_c(pars, sp = [0,1], monotone_f = True):
         return NO_ij-NO_ji
     
     if not monotone_f:
-        c = fsolve(inter_fun,1)[0]
+        c = fsolve(inter_fun,pars["c"][sp[0],sp[1]])[0]
         if np.abs(inter_fun(c))>1e-10:
             raise ValueError("Not able to find c_{}^{}.".format(*sp) +
                 "Please pass a better guess for c_i^j via the `pars` argument")
         return c
 
     # find interval for brentq method
-    a = 1
+    a = pars["c"][sp[0],sp[1]]
     # find which species has higher NO for c =1
     direction = np.sign(inter_fun(a))
     fac = 2**direction
