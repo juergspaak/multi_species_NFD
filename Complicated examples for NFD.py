@@ -8,7 +8,6 @@ necessarily biologically meaningful.
 
 import numpy as np
 from numerical_NFD import find_NFD
-from scipy.integrate import odeint
 import matplotlib.pyplot as plt
 
 # to run without error change this variable to True
@@ -123,6 +122,14 @@ pars1 = find_NFD(full_example, monotone_f = False,
 c[0,1] = 3
 pars2 = find_NFD(full_example, monotone_f = False,
                  pars = {"N_star": N_star_approx.copy(),"c":c})
+
+if not no_error:
+    print('\033[31m'+
+        "Error created for illustration, set no_error to True\n\n\n")
+    N_star_approx[1,0] = 3
+    # will result in InputError, as equilibrium is not stable
+    find_NFD(full_example, monotone_f = False,
+             pars = {"N_star": N_star_approx.copy(),"c":c})
 
 N_star_approx[1,0] = 9
 # in this case we have to pass a starting value of c as an estimate aswell

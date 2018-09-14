@@ -51,7 +51,9 @@ n_spec = 10 # nuber of species in the system
 
 # Lotka-Volterra model
 A = np.random.uniform(0,1,(n_spec,n_spec)) # interaction matrix
-np.fill_diagonal(A,np.random.uniform(1,2,n_spec)) # to ensure coexistence
+
+# to ensure coexistence increase diagonal values
+np.fill_diagonal(A,np.random.uniform(n_spec,n_spec+1,n_spec)) 
 mu = np.random.uniform(1,2,n_spec) # intrinsic growth rate
 def test_f(N):
     return mu - np.dot(A,N)

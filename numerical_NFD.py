@@ -151,19 +151,31 @@ def preconditioner(n_spec, pars):
         # to set species i to 0
         ind = np.arange(n_spec) != i
         # solve for equilibrium, use equilibrium dens. of previous run
-        N_star_pre = fsolve(lambda N: pars["f"](np.insert(N,i,0))[ind],
-                            pars["N_star"][i,ind])
-        # still have to check, whether this is a stable equilibrium
-        # check stability of equilibrium
-        pars["N_star"][i] = np.insert(N_star_pre,i,0)
-        # compute invasion growth rates
-        res_growth = pars["f"](pars["N_star"][i])
-
-        if np.amax(np.abs(res_growth[ind])/pars["N_star"][i,ind])>1e-10:
+        N_pre,info,a ,b = fsolve(lambda N: pars["f"](np.insert(N,i,0))[ind],
+                            pars["N_star"][i,ind], full_output = True)
+        
+        # check whether we found equilibrium
+        if np.amax(np.abs(info["fvec"])/N_pre)>1e-10:
             raise InputError("Not able to find resident equilibrium density, "
                         + "with species {} absent.".format(i)
                         + " Please provide manually via the `pars` argument")
-        pars["r_i"][i] = res_growth[i]
+        
+        # Check stability of equilibrium
+        # Jacobian of system at equilibrium
+        r = np.zeros((n_spec-1, n_spec-1))
+        r[np.triu_indices(n_spec-1)] = info["r"]
+        jac = np.diag(N_pre).dot(info["fjac"]).dot(r)
+
+        # check whether real part of eigenvalues is negative
+        if max(np.real(np.linalg.eigvals(jac)))>0:
+            raise InputError("Found equilibrium is not stable, "
+                        + "with species {} absent.".format(i)
+                        + " Please provide manually via the `pars` argument")
+        
+            
+        # save equilibrium density and invasion growth rate
+        pars["N_star"][i] = np.insert(N_pre,i,0)
+        pars["r_i"][i] = pars["f"](pars["N_star"][i])[i]
     return pars
     
 def solve_c(pars, sp = [0,1], monotone_f = True):
