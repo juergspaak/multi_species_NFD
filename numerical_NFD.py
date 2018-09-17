@@ -7,7 +7,8 @@ import numpy as np
 from scipy.optimize import brentq, fsolve
 from warnings import warn
 
-def find_NFD(f, n_spec = 2, args = (), monotone_f = True, pars = None):
+def find_NFD(f, n_spec = 2, args = (), monotone_f = True, pars = None,
+             force = False):
     """Compute the ND and FD for a differential equation f
     
     Compute the niche difference (ND), niche overlapp (NO), 
@@ -68,8 +69,16 @@ def find_NFD(f, n_spec = 2, args = (), monotone_f = True, pars = None):
     # check input on correctness
     monotone_f = __input_check__(n_spec, f, args, monotone_f)
     
-    # obtain equilibria densities and invasion growth rates    
-    pars = preconditioner(f, args,n_spec, pars)          
+    if force:
+        if not ("c" in pars.keys()):
+            pars["c"] = np.ones((n_spec, n_spec))
+        if not ("r_i" in pars.keys()):
+            pars["r_i"] = np.array([f(pars["N_star"][i], *args)[i] 
+                        for i in range(n_spec)])
+        pars["f"] = lambda N: f(N, *args)
+    else:
+        # obtain equilibria densities and invasion growth rates    
+        pars = preconditioner(f, args,n_spec, pars)          
             
     # list of all species
     l_spec = list(range(n_spec))
