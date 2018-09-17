@@ -7,7 +7,7 @@ import numpy as np
 from scipy.optimize import brentq, fsolve
 from warnings import warn
 
-def find_NFD(f, n_spec = 2, args = (), pars = None, monotone_f = True):
+def find_NFD(f, n_spec = 2, args = (), monotone_f = True, pars = None):
     """Compute the ND and FD for a differential equation f
     
     Compute the niche difference (ND), niche overlapp (NO), 
@@ -23,51 +23,54 @@ def find_NFD(f, n_spec = 2, args = (), pars = None, monotone_f = True):
         number of species in the system
     args : tuple, optional
         Any extra arguments to `f
+    monotone_f : boolean or array of booleans (lenght: n_spec), default = True
+        Whether ``f_i(N_i,0)`` is monotonly decreasing in ``N_i``
+        Can be specified for each function separatly by passing an array.
+    pars : dict, default {}
+        A dictionary to pass arguments to help numerical solvers.
+        The entries of this dictionary might be changed during the computation
+        
+        ``N_star`` : ndarray (shape = (n_spec, n_spec))
+            N_star[i] starting guess for equilibrium density with species `i`
+            absent. N_star[i,i] is set to 0 
+        ``r_i`` : ndarray (shape = n_spec)
+            invsaion growth rates of the species
+        ``c`` : ndarray (shape = (n_spec, n_spec))
+            Starting guess for the conversion factors from one species to the
+            other. `c` is assumed to be symmetric an only the uper triangular
+            values are relevant
         
     Returns
     -------
-    ND : ndarray (shape = n_spec)
+    pars : dict
+        A dictionary with the following keys: 
+            
+    ``N_star`` : ndarray (shape = (n_spec, n_spec))
+        N_star[i] equilibrium density with species `i`
+        absent. N_star[i,i] is 0
+    ``r_i`` : ndarray (shape = n_spec)
+        invsaion growth rates of the species
+    ``c`` : ndarray (shape = (n_spec, n_spec))
+        The conversion factors from one species to the
+        other. 
+    ``ND`` : ndarray (shape = n_spec)
         Niche difference of the species to the other species
-    NO : ndarray (shape = n_spec)
+    ``NO`` : ndarray (shape = n_spec)
         Niche overlapp of the species (NO = 1-ND)
-    FD : ndarray (shape = n_spec)
+    ``FD`` : ndarray (shape = n_spec)
         Fitness difference
-    c : ndarray (shape = (n_spec,n_spec))
-        conversion factors from one species to the oter. 1/c = c.T
+    ``f0``: ndarray (shape = n_spec)
+        no-competition growth rate, f(0)
         
     Literature:
     The unified Niche and Fitness definition, J.W.Spaak, F. deLaender
-    """
-    if pars is None:
-        pars = {}
-    pars_def = {"N_star": np.ones((n_spec, n_spec), dtype = "float"),
-                "c": np.ones((n_spec,n_spec)),
-                "r_i": np.zeros(n_spec)}
-    # fill pars
-    warn_string = "pars[{}] must be array with shape {}."\
-                +" The values will be computed automatically"
-    for key in pars_def.keys():
-        try:
-            if pars[key].shape == pars_def[key].shape:
-                pass
-            else:
-                pars[key] = pars_def[key]
-                warn(warn_string.format(key,pars_def[key].shape))
-        except KeyError:
-            pars[key] = pars_def[key]
-        except AttributeError:
-            pars[key] = pars_def[key]
-            warn(warn_string.format(key,pars_def[key].shape))
-    pars["f"] = lambda N: f(N,*args)
+    """ 
+    # check input on correctness
+    monotone_f = __input_check__(n_spec, pars, monotone_f)
     
     # obtain equilibria densities and invasion growth rates    
-    pars = preconditioner(n_spec, pars)        
-                
-        
-    if type(monotone_f) is bool:
-        monotone_f = np.full(n_spec, monotone_f, dtype = "bool" )
-    pars = __input_check__(n_spec, pars)
-        
+    pars = preconditioner(f, args,n_spec, pars)          
+            
     # list of all species
     l_spec = list(range(n_spec))
     
@@ -75,7 +78,7 @@ def find_NFD(f, n_spec = 2, args = (), pars = None, monotone_f = True):
     c = np.ones((n_spec,n_spec))
     for i in l_spec:
         for j in l_spec:
-            if i>=j:
+            if i>=j: # c is assumed to be symmetric, c[i,i] = 1
                 continue
             c[i,j] = solve_c(pars,[i,j], monotone_f[i] and monotone_f[j])
             c[j,i] = 1/c[i,j]
@@ -85,11 +88,13 @@ def find_NFD(f, n_spec = 2, args = (), pars = None, monotone_f = True):
     FD = np.empty(n_spec)
     
     for i in l_spec:
-        # creat a list with i at the beginning
+        # creat a list with i at the beginning [i,0,1,...,i-1,i+1,...,n_spec-1]
         sp = np.array([i]+l_spec[:i]+l_spec[i+1:])
         # compute NO and FD
         NO[i] = NO_fun(pars, c[i, sp[1:]], sp)
         FD[i] = FD_fun(pars, c[i, sp[1:]], sp)
+    
+    # prepare returning values
     pars["NO"] = NO
     pars["ND"] = 1-NO
     pars["FD"] = FD
@@ -97,44 +102,40 @@ def find_NFD(f, n_spec = 2, args = (), pars = None, monotone_f = True):
     pars["f0"] = f(np.zeros(n_spec))
     return pars
   
-def __input_check__(n_spec, pars):
-    # check input on corectness
+def __input_check__(n_spec, f, args, monotone_f):
+    # check input on (semantical) correctness
     if not isinstance(n_spec, int):
         raise InputError("Number of species (`n_spec`) must be an integer")
     
+    # check whether `f` is a function and all species survive in monoculutre
     try:
-        f0 = pars["f"](np.zeros(n_spec))
-        if not (f0.shape == (n_spec,)):
+        f0 = f(np.zeros(n_spec), *args)
+        if f0.shape != (n_spec,):
             raise InputError("`f` must return an array of length `n_spec`")            
     except TypeError:
         raise InputError("`f` must be a callable")
     except AttributeError:
-        fold = pars["f"]
-        pars["f"] = lambda N, *args: np.array(fold(N, *args))
-        f0 = pars["f"](np.zeros(n_spec))
+        fold = f
+        f = lambda N, *args: np.array(fold(N, *args))
+        f0 = f(np.zeros(n_spec), *args)
         warn("`f` does not return a proper `np.ndarray`")
+        
     if min(f0)<0 or (not np.all(np.isfinite(f0))):
         raise InputError("All species must have positive monoculture growth"
                     +"i.e. `f(0)>0`. Especially this value must be defined")
-
-    return pars
+    
+    # broadcast monotone_f if necessary
+    return np.logical_and(monotone_f, np.full(n_spec, True, bool))
         
 class InputError(Exception):
     pass
         
-def preconditioner(n_spec, pars):
+def preconditioner(f, args, n_spec, pars):
     """Returns equilibria densities and invasion growth rates for system `f`
     
     Parameters
     -----------
-    f : callable ``f(N, *args)``
-        Percapita growth rate of the species.
-        1/N dN/dt = f(N)
-        f must take and return an array
-    n_spec : int, optional, default = 2
-        number of species in the system
-    args : tuple, optional
-        Any extra arguments to `f
+    same as `find_NFD`
             
     Returns
     -------
@@ -147,6 +148,31 @@ def preconditioner(n_spec, pars):
         ``r_i`` : ndarray (shape = n_spec)
             invsaion growth rates of the species
     """ 
+    if pars is None:
+        pars = {}
+
+    # expected shapes of pars
+    pars_def = {"N_star": np.ones((n_spec, n_spec), dtype = "float"),
+                "c": np.ones((n_spec,n_spec)),
+                "r_i": np.zeros(n_spec)}
+    
+    warn_string = "pars[{}] must be array with shape {}."\
+                +" The values will be computed automatically"
+    # check given keys of pars for correctness
+    for key in pars_def.keys():
+        try:
+            if pars[key].shape == pars_def[key].shape:
+                pass
+            else: # `pars` doesn't have expected shape
+                pars[key] = pars_def[key]
+                warn(warn_string.format(key,pars_def[key].shape))
+        except KeyError: # key not present in `pars`
+            pars[key] = pars_def[key]
+        except AttributeError: #`pars` isn't an array
+            pars[key] = pars_def[key]
+            warn(warn_string.format(key,pars_def[key].shape))
+    pars["f"] = lambda N: f(N,*args)
+    
     for i in range(n_spec):
         # to set species i to 0
         ind = np.arange(n_spec) != i
@@ -199,16 +225,21 @@ def solve_c(pars, sp = [0,1], monotone_f = True):
         NO_ji = np.abs(NO_fun(pars,1/c,sp[::-1]))
         return NO_ij-NO_ji
     
-    if not monotone_f:
+    # use a generic numerical solver when `f` is not montone
+    # potentially there are multiple solutions
+    if not monotone_f: 
         c = fsolve(inter_fun,pars["c"][sp[0],sp[1]])[0]
         if np.abs(inter_fun(c))>1e-10:
             raise ValueError("Not able to find c_{}^{}.".format(*sp) +
                 "Please pass a better guess for c_i^j via the `pars` argument")
         return c
-
+        
+    # if `f` is monotone then the solution is unique, findint it with a more
+    # robust method
+        
     # find interval for brentq method
     a = pars["c"][sp[0],sp[1]]
-    # find which species has higher NO for c =1
+    # find which species has higher NO for c0
     direction = np.sign(inter_fun(a))
     fac = 2**direction
     b = a*fac
