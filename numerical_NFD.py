@@ -66,7 +66,7 @@ def find_NFD(f, n_spec = 2, args = (), monotone_f = True, pars = None):
     The unified Niche and Fitness definition, J.W.Spaak, F. deLaender
     """ 
     # check input on correctness
-    monotone_f = __input_check__(n_spec, pars, monotone_f)
+    monotone_f = __input_check__(n_spec, f, args, monotone_f)
     
     # obtain equilibria densities and invasion growth rates    
     pars = preconditioner(f, args,n_spec, pars)          

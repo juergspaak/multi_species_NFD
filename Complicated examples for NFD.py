@@ -30,7 +30,8 @@ r_i = np.array([1.5,1.65])
 comp = (coef[-1]-r_i)/roots[::-1]
 
 # the percapita growth rate of the species
-def full_example(N):
+# the argument `coef` for demonstration of the args argument
+def full_example(N, coef = coef):
     return coef[0]*N**3 +coef[1]*N**2 +coef[2]*N +coef[3] -comp*N[...,::-1]
 
 # plot the funciton in monoculture
@@ -39,9 +40,8 @@ end = 10
 N_mono = np.zeros((steps,2))
 N_mono[:,0] = np.linspace(0,end,steps)
 
-fun = full_example
-percapita_mono = np.array([full_example(N_mono)[:,0], 
-                           full_example(N_mono[:,::-1])[:,1]])
+percapita_mono = np.array([full_example(N_mono, coef)[:,0], 
+                           full_example(N_mono[:,::-1], coef)[:,1]])
 
 # plot the per capita growth rate in monoculture
 plt.figure()
@@ -66,7 +66,7 @@ if not no_error:
     print('\033[31m'+
         "Error created for illustration, set no_error to True\n\n\n")
     # will result in InputError, as fsolve can't find equilibrium density
-    find_NFD(full_example)
+    find_NFD(full_example, args= (coef,))
        
 # Pass estimates of the equilibrium densities via the pars argument
 # These only have to be estimates, not the actual equilibrium values
@@ -77,7 +77,7 @@ N_star_approx = np.array([[0,roots[1]],
                           [2,0]], dtype = float)
 # compute ND etc.
 pars = find_NFD(full_example, pars = {"N_star": N_star_approx.copy()},
-                monotone_f = False)
+                monotone_f = False, args = (coef,))
 
 
 ###############################################################################
