@@ -8,3 +8,7 @@ data*
 
 *.pdf
 *.png
+
+.R
+.Rdata
+.Rhistory

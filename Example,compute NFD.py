@@ -7,7 +7,7 @@ import numpy as np
 from numerical_NFD import find_NFD
 
 # create the differential equation system
-n_spec = 2 # nuber of species in the system
+n_spec = 2 # number of species in the system
 np.random.seed(6) # set random seed for reproduce ability
 
 # Lotka-Volterra model

@@ -8,7 +8,7 @@ from scipy.optimize import brentq, fsolve
 from warnings import warn
 
 def find_NFD(f, n_spec = 2, args = (), monotone_f = True, pars = None,
-             force = False):
+             force = False, from_R = False):
     """Compute the ND and FD for a differential equation f
     
     Compute the niche difference (ND), niche overlapp (NO), 
@@ -19,7 +19,7 @@ def find_NFD(f, n_spec = 2, args = (), monotone_f = True, pars = None,
     f : callable ``f(N, *args)``
         Percapita growth rate of the species.
         1/N dN/dt = f(N)
-        f must take and return an array
+        
     n_spec : int, optional, default = 2
         number of species in the system
     args : tuple, optional
@@ -66,6 +66,17 @@ def find_NFD(f, n_spec = 2, args = (), monotone_f = True, pars = None,
     Literature:
     The unified Niche and Fitness definition, J.W.Spaak, F. deLaender
     """ 
+    if from_R:
+        if n_spec-int(n_spec) == 0:
+            n_spec = int(n_spec)
+        else:
+            raise InputError("Number of species (`n_spec`) must be an integer")
+        fold = f
+        #print(args[0], "mu")
+        #print(args[1], "A")
+        def f(N, *args):
+            # translate dataframes, matrices etc to np.array
+            return np.array(fold(N,*args)).reshape(-1)  
     # check input on correctness
     monotone_f = __input_check__(n_spec, f, args, monotone_f)
     
@@ -108,7 +119,7 @@ def find_NFD(f, n_spec = 2, args = (), monotone_f = True, pars = None,
     pars["ND"] = 1-NO
     pars["FD"] = FD
     pars["c"] = c
-    pars["f0"] = f(np.zeros(n_spec))
+    pars["f0"] = pars["f"](np.zeros(n_spec))
     return pars
   
 def __input_check__(n_spec, f, args, monotone_f):
@@ -120,16 +131,17 @@ def __input_check__(n_spec, f, args, monotone_f):
     try:
         f0 = f(np.zeros(n_spec), *args)
         if f0.shape != (n_spec,):
-            raise InputError("`f` must return an array of length `n_spec`")            
+            raise InputError("`f` must return an array of length `n_spec`")   
     except TypeError:
-        raise InputError("`f` must be a callable")
+        print("function call of `f` did not work properly")
+        raise
     except AttributeError:
         fold = f
         f = lambda N, *args: np.array(fold(N, *args))
         f0 = f(np.zeros(n_spec), *args)
         warn("`f` does not return a proper `np.ndarray`")
         
-    if min(f0)<0 or (not np.all(np.isfinite(f0))):
+    if min(f0)<=0 or (not np.all(np.isfinite(f0))):
         raise InputError("All species must have positive monoculture growth"
                     +"i.e. `f(0)>0`. Especially this value must be defined")
     
