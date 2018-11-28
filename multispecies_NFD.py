@@ -1,6 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
-from numerical_NFD import find_NFD
+
+from mpl_toolkits.mplot3d import Axes3D
 
 def find_real_communities(A_prime,r_prime):
     
@@ -16,7 +17,6 @@ def find_real_communities(A_prime,r_prime):
     
     # retain only feasible and stable communities
     A = A_prime[feasible & stable]
-    equi = equi_prime[feasible & stable]
     n_com = len(A)
     
     # compute equilibrium densities where one species is absent
@@ -41,7 +41,8 @@ def find_real_communities(A_prime,r_prime):
     
     real = feasible & stable
     real[real] = sub_feasible & sub_stable
-    return real, A_prime[real], equi, sub_equi[sub_feasible & sub_stable]
+    return (real, A_prime[real], equi_prime[real],
+                    sub_equi[sub_feasible & sub_stable])
     
 def NFD_LV_multispecies(A,sub_equi, r = 1):
     # compute the two species niche overlap
@@ -57,12 +58,14 @@ def NFD_LV_multispecies(A,sub_equi, r = 1):
 
 NO_all = []
 FD_all = []
-n_com_prime = 10000 # number of communities at the beginning
+equi_all = []
+n_com_prime = 1000 # number of communities at the beginning
+max_alpha = 0.2
 
 # number of species ranging from 2 to 7
 for n in range(2,11):
     # create random interaction matrices
-    A_prime = np.random.uniform(0,0.2,size = (n_com_prime,n,n))
+    A_prime = np.random.uniform(0,max_alpha,size = (n_com_prime,n,n))
     # intraspecific competition is assumed to be 1
     A_prime[:, np.diag_indices(n)[0], np.diag_indices(n)[1]] = 1
     # intrinsic growth rate
@@ -73,18 +76,10 @@ for n in range(2,11):
     print(len(NO),n)
     NO_all.append(NO)
     FD_all.append(FD)
-    
-plt.figure()
-plt.boxplot(NO_all, positions = range(2,11), showfliers = False)
-plt.xlabel("number of species")
-plt.ylabel("NO")
+    equi_all.append(equi)
 
-plt.figure()
-plt.boxplot(FD_all, positions = range(2,11), showfliers = False)
-plt.xlabel("number of species")
-plt.ylabel("FD")
-plt.ylim([-10,1])
-"""
+
+from numerical_NFD import find_NFD
 # check result with random index
 i = np.random.randint(len(A))
 def test_f(N):
@@ -94,4 +89,91 @@ pars = find_NFD(test_f, n)
 print(pars["NO"])
 print(NO[i])
 print(FD[i])
-print(pars["FD"])"""
+print(pars["FD"])
+
+###############################################################################
+# plot the results
+
+# NO and FD versus species richness    
+fig_box, ax = plt.subplots(2,1,sharex = True)
+ax[0].boxplot(NO_all, positions = range(2,11), showfliers = False)
+ax[0].set_ylabel(r"$\mathcal{NO}$")
+
+ax[1].boxplot(FD_all, positions = range(2,11), showfliers = False)
+ax[1].set_xlabel("number of species")
+ax[1].set_ylabel(r"$\mathcal{F}$", fontsize = 16)
+ax[1].set_ylim([-10,1])
+fig_box.savefig("Figure, species richness on NFD.pdf")
+
+# FD and NO and species equilibrium density
+fig, ax = plt.subplots(3,3, sharex = True, sharey = True, figsize = (9,9))
+x = np.linspace(0,1,1000)
+for i in range(len(NO_all)):
+    axc = ax.flatten()[i]
+    im = axc.scatter(1-NO_all[i][:,0], -FD_all[i][:,0], s = 5, linewidth = 0,
+                c = equi_all[i][:,0], vmin = 0.2, vmax = 1)
+    axc.set_title(i+2)
+    axc.plot(x,x/(1-x))
+axc.set_xlim(1-max_alpha, 1)
+axc.set_ylim(-1,10)
+ax[1,0].set_ylabel(r"$-\mathcal{F}$", fontsize = 20)
+ax[2,1].set_xlabel(r"$\mathcal{N}$", fontsize = 20)
+fig.subplots_adjust(right=0.8)
+cbar_ax = fig.add_axes([0.85, 0.15, 0.05, 0.7])
+fig.colorbar(im, cax=cbar_ax)
+fig.savefig("Figure, NFD effect on density.pdf")
+
+# same as above, but all in one figure
+fig = plt.figure()
+x = np.linspace(0,1,1000)
+for i in range(len(NO_all)):
+    im = plt.scatter(1-NO_all[i][:,0], -FD_all[i][:,0], s = 5, linewidth = 0,
+                c = equi_all[i][:,0], vmin = 0.2, vmax = 1)
+plt.plot(x,x/(1-x), color = "black")
+plt.xlim(1-max_alpha, 1)
+plt.ylim(-1,10)
+plt.ylabel(r"$-\mathcal{F}$", fontsize = 20)
+plt.xlabel(r"$\mathcal{N}$", fontsize = 20)
+plt.colorbar(im)
+fig.savefig("Figure, NFD effect on density_one plot.pdf")
+
+# prediction of equilibrium density via NFD
+fig = plt.figure()
+for i in range(len(NO_all)):
+    im = plt.scatter(1+NO_all[i]*(FD_all[i]-1), equi_all[i], s = 5, 
+                     linewidth = 0)
+plt.xlabel(r"$\mathcal{N}+\mathcal{F}-\mathcal{NF}$", fontsize = 16)
+plt.ylabel(r"$N^*_i$", fontsize = 16)
+fig.savefig("Figure, prediciton of N_star via NFD.pdf")
+
+# FD and equilibrium density in community
+fig, ax = plt.subplots(3,3, sharex = True, sharey = True, figsize = (9,9))
+x = np.linspace(0,1,1000)
+for i in range(len(NO_all)):
+    axc = ax.flatten()[i]
+    axc.scatter(np.average(1-NO_all[i], axis = -1), np.sum(equi_all[i], 
+                           axis = -1), s = 5, linewidth = 0)
+    axc.set_title(i+2)
+axc.set_xlim(1-max_alpha,1)
+ax[2,1].set_xlabel(r'$\overline{\mathcal{N}}$', fontsize = 20)
+ax[1,0].set_ylabel("EF", fontsize = 20)
+fig.savefig("Figure, ND effect on EF.pdf")
+
+# prediction of EF via ND and FD
+# FD and equilibrium density in community
+fig, ax = plt.subplots(3,3, sharex = True, sharey = True, figsize = (9,9))
+x = np.linspace(0,1,1000)
+for i in range(len(NO_all)):
+    axc = ax.flatten()[i]
+    axc.scatter(np.sum(1+NO_all[i]*(FD_all[i]-1), axis = -1), 
+                np.sum(equi_all[i], axis = -1), s = 5, linewidth = 0)
+    axc.set_title(i+2)
+ax[2,0].set_xlabel(r'$\overline{\mathcal{N}}+\overline{\mathcal{F}}-\overline{\mathcal{NF}}$', fontsize = 20)
+ax[2,2].set_xlabel(r'$=n\left(1-NO(1-F)+cov(NO,F)\right)$', fontsize = 20)
+ax[1,0].set_ylabel("EF", fontsize = 20)
+fig.savefig("Figure, NFD effect on EF.pdf")
+
+#what is the dimensionality of ND and FD in lV?
+
+fig = plt.figure()
+plt.scatter(*np.log(1-FD_all[1][:,:2].T), s = 9, c = np.log(1-FD_all[1][:,2]))
