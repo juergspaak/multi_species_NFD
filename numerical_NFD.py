@@ -1,18 +1,18 @@
 """
 @author: J.W.Spaak
-Numerically compute ND and FD
+Numerically compute ND and FD for a model
 """
 
 import numpy as np
 from scipy.optimize import brentq, fsolve
 from warnings import warn
 
-def find_NFD(f, n_spec = 2, args = (), monotone_f = True, pars = None,
+def NFD_model(f, n_spec = 2, args = (), monotone_f = True, pars = None,
              force = False, from_R = False):
     """Compute the ND and FD for a differential equation f
     
     Compute the niche difference (ND), niche overlapp (NO), 
-    fitnes difference(FD) and conversion factors (c) as defined in Spaak et al.
+    fitnes difference(FD) and conversion factors (c)
     
     Parameters
     -----------
@@ -65,6 +65,7 @@ def find_NFD(f, n_spec = 2, args = (), monotone_f = True, pars = None,
         
     Literature:
     The unified Niche and Fitness definition, J.W.Spaak, F. deLaender
+    DOI:
     """ 
     if from_R:
         if n_spec-int(n_spec) == 0:
@@ -72,8 +73,7 @@ def find_NFD(f, n_spec = 2, args = (), monotone_f = True, pars = None,
         else:
             raise InputError("Number of species (`n_spec`) must be an integer")
         fold = f
-        #print(args[0], "mu")
-        #print(args[1], "A")
+
         def f(N, *args):
             # translate dataframes, matrices etc to np.array
             return np.array(fold(N,*args)).reshape(-1)  
@@ -89,11 +89,9 @@ def find_NFD(f, n_spec = 2, args = (), monotone_f = True, pars = None,
         pars["f"] = lambda N: f(N, *args)
     else:
         # obtain equilibria densities and invasion growth rates    
-        pars = preconditioner(f, args,n_spec, pars)          
-            
+        pars = preconditioner(f, args,n_spec, pars)                  
     # list of all species
     l_spec = list(range(n_spec))
-    
     # compute conversion factors
     c = np.ones((n_spec,n_spec))
     for i in l_spec:
@@ -119,7 +117,6 @@ def find_NFD(f, n_spec = 2, args = (), monotone_f = True, pars = None,
     pars["ND"] = 1-NO
     pars["FD"] = FD
     pars["c"] = c
-    pars["f0"] = pars["f"](np.zeros(n_spec))
     return pars
   
 def __input_check__(n_spec, f, args, monotone_f):
@@ -223,6 +220,7 @@ def preconditioner(f, args, n_spec, pars):
         # save equilibrium density and invasion growth rate
         pars["N_star"][i] = np.insert(N_pre,i,0)
         pars["r_i"][i] = pars["f"](pars["N_star"][i])[i]
+        pars["f0"] = pars["f"](np.zeros(n_spec))
     return pars
     
 def solve_c(pars, sp = [0,1], monotone_f = True):
@@ -240,6 +238,7 @@ def solve_c(pars, sp = [0,1], monotone_f = True):
     c : float, the conversion factor c_sp[0]^sp[1]
     """
     sp = np.asarray(sp)
+    
     def inter_fun(c):
         # equation to be solved
         NO_ij = np.abs(NO_fun(pars,c, sp))
@@ -262,6 +261,9 @@ def solve_c(pars, sp = [0,1], monotone_f = True):
     a = pars["c"][sp[0],sp[1]]
     # find which species has higher NO for c0
     direction = np.sign(inter_fun(a))
+    
+    if direction == 0: # starting guess for c is correct
+        return a
     fac = 2**direction
     b = a*fac
     # change searching range to find c with changed size of NO
@@ -292,6 +294,6 @@ def FD_fun(pars, c, sp):
 def switch_niche(N,sp,c=0):
     # switch the niche of sp[1:] into niche of sp[0]
     N = N.copy()
-    N[sp[0]] += np.sum(c*N[sp[1:]])
+    N[sp[0]] += np.nansum(c*N[sp[1:]])
     N[sp[1:]] = 0
     return N
