@@ -26,12 +26,12 @@ ND_bound = {}
 FD_bound = {}
 
 # Definition according to Adler et al. 2007
-key = "Adler et al."
+key = "Adler et al. (2007)"
 ND[key] = np.log(lamb2/(1+A12/A22*(lamb2-1)))
 FD[key] = np.log(lamb1/lamb2*np.ones(A12.shape))
 
 # Definition according to Godoy et al.
-key = "Godoy et al."
+key = "Godoy & Levine (2014)"
 ND[key] = 1-np.sqrt(A12*A21/(A22*A11))
 FD[key] = (lamb1-1)/(lamb2-1)*np.sqrt(A21*A22/(A11*A12))
 
@@ -45,23 +45,23 @@ r_i = np.array([np.log(lamb1/(1+A12/A22*(lamb2-1))),
 
 # Definition according to Carroll et al.
 S_i = (f_i_0.reshape(-1,1)-r_i)/f_i_0.reshape(-1,1)
-key = "Carroll et al."
+key = "Carroll et al. (2011)"
 ND[key] = 1-np.exp(np.mean(np.log(S_i),axis = 0))
 FD[key] = np.exp(np.var(np.log(S_i),axis = 0))
 
 # Definition according to Zhao et al.
-key = "Zhao et al."
+key = "Zhao et al. (2016)"
 ND[key] = 1+np.sum(r_i, axis = 0)
 FD[key] = (np.log((lamb1-1)/A11)-np.log((lamb2-1)/A22))*np.ones(A12.shape)
     
 # Definition according to Chesson
-key = "Chesson"
+key = "Chesson (2003)"
 phi_i = np.array([A11/lamb1,A22/lamb2])
 ND[key] = 0.5*np.sum(r_i/phi_i.reshape(-1,1),axis = 0)
 FD[key] = (r_i/phi_i.reshape(-1,1)-ND[key])[0]
 
 # Definition according to Bimler
-key = "Bimler et al."
+key = "Bimler et al. (2018)"
 
 # change to alpha' according to Bimler et al
 A11_ = A11/(lamb1-1)
@@ -73,14 +73,14 @@ ND[key] = 1 - np.exp((A12_-A11_)+(A21_-A22_))
 FD[key] = np.exp(-(A12_+A11_)+(A21_+A22_))
 
 # Definition according to Saavedra
-key = "Saavedra et al."
+key = "Saavedra et al. (2017)"
 
 ND[key] = 2/np.pi*np.arcsin((A11*A22-A12*A21)/
                     (np.sqrt((A11**2+A21**2)*(A12**2+A22**2))))
 r = np.array([[lamb1-1], [lamb2-1]])
 rc = 0.5*(1/np.sqrt(A11**2+A21**2)*np.array([A11*np.ones(rep),A21])+
           1/np.sqrt(A12**2+A11**2)*np.array([A12,A22*np.ones(rep)]))
-FD[key] = np.arccos(np.sum(r*rc,axis = 0)/np.linalg.norm(r)
+FD[key] = 180/np.pi*np.arccos(np.sum(r*rc,axis = 0)/np.linalg.norm(r)
                                         /np.linalg.norm(rc,axis = 0))
 
 # Definition accoding to Spaak
@@ -106,15 +106,15 @@ key = "Spaak & DeLaender"
 ND[key] = 1-NO_spaak(c, denom)[0]
 FD[key] = np.log(lamb1/(1+c*A11/A22*(lamb2-1)))/np.log(lamb1)
 
-keys = ["Chesson","Carroll et al.", "Zhao et al.",
-        "Godoy et al.", "Adler et al.",   "Bimler et al.","Saavedra et al.",
-        "Spaak & DeLaender"]
+keys = ["Chesson (2003)","Carroll et al. (2011)", "Zhao et al. (2016)",
+        "Godoy & Levine (2014)", "Adler et al. (2007)", "Bimler et al. (2018)",
+        "Saavedra et al. (2017)", "Spaak & DeLaender"]
 
 colors =  {keys[i]: rainbow(np.linspace(0, 1, len(keys)))[i]
                 for i in range(len(keys))}
 ###############################################################################
 # plotting the results for ND
-fig = plt.figure(figsize = (9,9))
+fig = plt.figure(figsize = (10,10))
 
 ND_range = [-0.5,1.5]
 
@@ -155,8 +155,8 @@ plt.text(interspec[0]/2,ND_range[0]+offset_y,"positive",
 plt.text(sign*1/2,ND_range[0]+offset_y,
          "negative,\nweaker than\nintraspecific", 
          ha = "center",va = "center", fontsize = fs)
-plt.text((sign*1+interspec[-1])/2,ND_range[0]+offset_y,
-          "negative,\nstronger than\nintraspecific", backgroundcolor = "white",
+plt.text((sign*1+interspec[-1])/2-0.09,ND_range[0]+offset_y,
+          "negative,\nstronger than\nintraspecific",
          ha = "center",va = "center", fontsize = fs)
 
 
