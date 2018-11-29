@@ -23,30 +23,22 @@ def NFD_experiment(N_star, time_exp1, dens_exp1, time_exp2, dens_exp2,
     Parameters
     -----------
     N_star: ndarray (shape = 2)
-        Monoculture equilibrium density
+        Monoculture equilibrium density for both species
     time_exp1: array like
         Timepoints at which measurments of exp1 were taken in increasing order.
         If timepoints differ from species to species time_exp1 should be the
         union of all timepoints, and missing data should be indicated in
         exp1_data.
-    dens_exp2: ndarray (shape = (2, len(time_exp1)))
-        exp1_data[i,t] is the density of species i at time time_exp1[t]
+    dens_ex12: ndarray (shape = (2, len(time_exp1)))
+        exp1_data[i,t] is the density of species i at time time_exp1[t] in exp1
         np.nan are allowed in case not all species have the same timeline for
         exp1
     time_exp2, dens_exp2: Equivalent to exp1
     r_i: ndarray (shape = 2)
         Invasion growth rate of both species
-    interpolation: string or int, optional
-        Interpolation used between datapoints. Any argument that can be passed
-        to "scipy.interpolate.interp1d". Recommended are XXX
-        The interpolation must be continuous, "nearest" and "zero" will result
-        in an error.
-        Specifies the kind of interpolation as a string
-        ('linear', 'nearest', 'zero', 'slinear', 'quadratic, 'cubic'
-        where 'slinear', 'quadratic' and 'cubic' refer to a spline
-        interpolation of first, second or third order) or as an integer
-        specifying the order of the spline interpolator to use.
-        Default is 'linear'.
+    visualize: boolean, optional, default = True
+        If true, plot a graph of the growth rates and the percapita growth
+        rates of both species. `fig`and `ax` of this figure are returned
         
     Returns
     -------
@@ -69,35 +61,64 @@ def NFD_experiment(N_star, time_exp1, dens_exp1, time_exp2, dens_exp2,
         Fitness difference
     ``f0``: ndarray (shape = n_spec)
         no-competition growth rate, f(0)
+    fig: Matplotlib figure
+        only returned if visualize is True
+    ax: Matplotlib axes
+        only returned if visualize is True
         
     Literature:
     The unified Niche and Fitness definition, J.W.Spaak, F. deLaender
     DOI:
     """
-    # extend experiment data to avoid interpolation mistakes
+    # combine all data into lists
     times = [None,time_exp1, time_exp2]
     exps = [None,dens_exp1, dens_exp2]
     
+    # monoculture growth rate, assumes that growth rate is constant at
+    # the beginning
     f0 = np.log(dens_exp1[:,1]/dens_exp1[:,0])/(time_exp1[1]-time_exp1[0])
+    
+    # per capita growth rate for both species in monoculture
     f = per_capita_growth(times, exps, N_star,f0)
     
+    # compute the ND, FD etc. parameters
     pars = {"N_star": np.array([[0,N_star[1]],[N_star[0],0]]),
-            "r_i": r_i}
-    
+            "r_i": r_i}    
     pars = NFD_model(f, pars = pars, force = True)
+    pars["f"] = f
     
-    if visualize:
+    if visualize: # visualize results if necessary
         fig, ax = visualize_fun(f,times, exps, N_star, pars)
-        return f, pars, fig, ax
+        return pars, fig, ax
     
-    return f,pars
+    return pars
     
 def per_capita_growth(times, exps, N_star,f0):
+    """interpolate the per capita growth rate of the species
+    
+    times:
+        Timepoints of measurments
+    exps:
+        Densities of the species at timepoints times
+    N_star: float
+        equilibrium density of the species
+    f0: float
+        monoculture growth rate
+        
+    Returns
+    -------
+    f: callable
+        Per capita growth rate of species, fullfilling the differential
+        equation dN/dt=N*f(N)
+        Values below min(exps) are assumed to be f0, Values above max(exps)
+        are assumed to be f(max(exps))
+    """
+    # percapita growth rates for each of the experiments separately
     dict_subf = {"f_exp{}_spec{}".format(i,j):
                 dens_to_per_capita(times[i], exps[i][j])
                 for i in [1,2] for j in [0,1]}
     
-        
+    # interpolation for datas between the two experiments   
     inter_data0 = np.array([
             [exps[1][0,-1], dict_subf["f_exp1_spec0"](exps[1][0,-1])],
             [N_star[0],0],
@@ -108,23 +129,28 @@ def per_capita_growth(times, exps, N_star,f0):
             [N_star[1],0],
             [exps[2][1,-1], dict_subf["f_exp2_spec1"](exps[2][1,-1])]
             ])
+    # quadrativ interpolation
     dict_subf["f_mid_spec0"] = ius(*inter_data0.T, k = 2)
     dict_subf["f_mid_spec1"] = ius(*inter_data1.T, k = 2)
     
+    # per capita growth rate for each species, using different cases
     def f_spec(N,i):
-        if N<exps[1][i,1]:
+        if N<exps[1][i,1]: # below minimum, use f0
             return f0[i]
-        elif N<exps[1][i,-1]:
+        elif N<exps[1][i,-1]: # use values of exp1
             return dict_subf["f_exp1_spec"+str(i)](N)
-        elif N<exps[2][i,-1]:
+        elif N<exps[2][i,-1]: # values between the two experiments
             return dict_subf["f_mid_spec" +str(i)](N)
-        elif N<=exps[2][i,0]*0.99:
+        elif N<=exps[2][i,0]*0.99: # use values of exp2
             return dict_subf["f_exp2_spec"+str(i)](N)
-        else:
+        else: # above maximum
             return dict_subf["f_exp2_spec"+str(i)](exps[2][i,0]*0.99)
     
     def f(N):
-        # model for population growth, only for monoculture
+        """ per capita growth rate of species
+        
+        can only be used for monoculture, i.e. f(N,0) or f(0,N).
+        growth rate of non-focal species is set to np.nan"""
         if np.all(N==0):
             return np.array([f_spec(0,0), f_spec(0,1)])
         else:
@@ -132,18 +158,23 @@ def per_capita_growth(times, exps, N_star,f0):
         ret = np.full(2, np.nan)
         ret[spec_foc] = f_spec(max(N),spec_foc)
         return ret
+    
     return f
         
             
 def dens_to_per_capita(time, dens, k = 3):
     # convert densities over time to per capita growth rate
+    
     # remove nan's
     ind = np.isfinite(dens)
     time = time[ind]
     dens = dens[ind]
+    
+    # interpolate the data
     N_t = ius(time,dens,k=k)
-    dNdt = N_t.derivative()
+    dNdt = N_t.derivative() # differentiate
     def per_capita(N):
+        # search for t with N(t) = N
         try:
             t_N = brentq(lambda t: N_t(t)-N,time[0], time[-1])
         except ValueError:

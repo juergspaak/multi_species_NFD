@@ -4,7 +4,7 @@ Example how to compute the ND and FD for a given differential equation setting
 """
 
 import numpy as np
-from numerical_NFD import find_NFD
+from numerical_NFD import NFD_model
 
 # create the differential equation system
 n_spec = 2 # number of species in the system
@@ -18,7 +18,7 @@ def test_f(N):
     return mu - np.dot(A,N)
 
 # compute relevant parameters with software
-pars = find_NFD(test_f, n_spec)
+pars = NFD_model(test_f, n_spec)
 ND, NO, FD, c = pars["ND"], pars["NO"], pars["FD"], pars["c"]
 # manualy check results for the two species case
 # see appendix for proof of correctness
@@ -58,7 +58,7 @@ mu = np.random.uniform(1,2,n_spec) # intrinsic growth rate
 def test_f(N):
     return mu - np.dot(A,N)
 
-pars = find_NFD(test_f, n_spec)
+pars = NFD_model(test_f, n_spec)
 ND_m, NO_m, FD_m, c_m = pars["ND"], pars["NO"], pars["FD"], pars["c"]
 
 NO_check_m = np.empty(n_spec)
