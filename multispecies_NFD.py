@@ -46,13 +46,13 @@ def find_real_communities(A_prime,r_prime):
     
 def NFD_LV_multispecies(A,sub_equi, r = 1):
     # compute the two species niche overlap
-    NO_ij = np.sqrt(A*A.swapaxes(1,2))
+    NO_ij = np.sqrt(np.abs(A*A.swapaxes(1,2)))*np.sign(A)
     
     # NO is a weighted average of the two species NO
-    NO = np.average(NO_ij, axis = -1, 
-               weights = np.sqrt(A/A.swapaxes(1,2))*sub_equi)
+    NO = np.average(NO_ij,axis = -1,
+                    weights = np.sqrt(np.abs(A/A.swapaxes(1,2)))*sub_equi)
     
-    FD = 1- 1/r*np.sum(np.sqrt(A/A.swapaxes(1,2))*sub_equi, axis = -1)
+    FD = 1- 1/r*np.sum(np.sqrt(np.abs(A/A.swapaxes(1,2)))*sub_equi, axis = -1)
     
     return NO, FD
 
@@ -61,11 +61,12 @@ FD_all = []
 equi_all = []
 n_com_prime = 1000 # number of communities at the beginning
 max_alpha = 0.2
+min_alpha = 0
 
 # number of species ranging from 2 to 7
 for n in range(2,11):
     # create random interaction matrices
-    A_prime = np.random.uniform(0,max_alpha,size = (n_com_prime,n,n))
+    A_prime = np.random.uniform(-min_alpha,max_alpha,size = (n_com_prime,n,n))
     # intraspecific competition is assumed to be 1
     A_prime[:, np.diag_indices(n)[0], np.diag_indices(n)[1]] = 1
     # intrinsic growth rate
@@ -79,13 +80,13 @@ for n in range(2,11):
     equi_all.append(equi)
 
 
-from numerical_NFD import find_NFD
+from numerical_NFD import NFD_model
 # check result with random index
 i = np.random.randint(len(A))
 def test_f(N):
     return 1 - np.dot(A[i],N)
     
-pars = find_NFD(test_f, n)
+pars = NFD_model(test_f, n)
 print(pars["NO"])
 print(NO[i])
 print(FD[i])
@@ -111,10 +112,10 @@ x = np.linspace(0,1,1000)
 for i in range(len(NO_all)):
     axc = ax.flatten()[i]
     im = axc.scatter(1-NO_all[i][:,0], -FD_all[i][:,0], s = 5, linewidth = 0,
-                c = equi_all[i][:,0], vmin = 0.2, vmax = 1)
+                c = equi_all[i][:,0], vmin = 0.2, vmax = 2)
     axc.set_title(i+2)
     axc.plot(x,x/(1-x))
-axc.set_xlim(1-max_alpha, 1)
+axc.set_xlim(1-max_alpha, 1+min_alpha)
 axc.set_ylim(-1,10)
 ax[1,0].set_ylabel(r"$-\mathcal{F}$", fontsize = 20)
 ax[2,1].set_xlabel(r"$\mathcal{N}$", fontsize = 20)
@@ -128,9 +129,9 @@ fig = plt.figure()
 x = np.linspace(0,1,1000)
 for i in range(len(NO_all)):
     im = plt.scatter(1-NO_all[i][:,0], -FD_all[i][:,0], s = 5, linewidth = 0,
-                c = equi_all[i][:,0], vmin = 0.2, vmax = 1)
+                c = equi_all[i][:,0], vmin = 0.2, vmax = 2)
 plt.plot(x,x/(1-x), color = "black")
-plt.xlim(1-max_alpha, 1)
+plt.xlim(1-max_alpha, 1+min_alpha)
 plt.ylim(-1,10)
 plt.ylabel(r"$-\mathcal{F}$", fontsize = 20)
 plt.xlabel(r"$\mathcal{N}$", fontsize = 20)
@@ -140,7 +141,7 @@ fig.savefig("Figure, NFD effect on density_one plot.pdf")
 # prediction of equilibrium density via NFD
 fig = plt.figure()
 for i in range(len(NO_all)):
-    im = plt.scatter(1+NO_all[i]*(FD_all[i]-1), equi_all[i], s = 5, 
+    im = plt.scatter((1+NO_all[i]*(FD_all[i]-1))/(1-NO_all[i]**2), equi_all[i], s = 5, 
                      linewidth = 0)
 plt.xlabel(r"$\mathcal{N}+\mathcal{F}-\mathcal{NF}$", fontsize = 16)
 plt.ylabel(r"$N^*_i$", fontsize = 16)
@@ -154,7 +155,7 @@ for i in range(len(NO_all)):
     axc.scatter(np.average(1-NO_all[i], axis = -1), np.sum(equi_all[i], 
                            axis = -1), s = 5, linewidth = 0)
     axc.set_title(i+2)
-axc.set_xlim(1-max_alpha,1)
+axc.set_xlim(1-max_alpha,1+min_alpha)
 ax[2,1].set_xlabel(r'$\overline{\mathcal{N}}$', fontsize = 20)
 ax[1,0].set_ylabel("EF", fontsize = 20)
 fig.savefig("Figure, ND effect on EF.pdf")
@@ -165,7 +166,7 @@ fig, ax = plt.subplots(3,3, sharex = True, sharey = True, figsize = (9,9))
 x = np.linspace(0,1,1000)
 for i in range(len(NO_all)):
     axc = ax.flatten()[i]
-    axc.scatter(np.sum(1+NO_all[i]*(FD_all[i]-1), axis = -1), 
+    axc.scatter(np.sum((1+NO_all[i]*(FD_all[i]-1)), axis = -1), 
                 np.sum(equi_all[i], axis = -1), s = 5, linewidth = 0)
     axc.set_title(i+2)
 ax[2,0].set_xlabel(r'$\overline{\mathcal{N}}+\overline{\mathcal{F}}-\overline{\mathcal{NF}}$', fontsize = 20)
@@ -173,7 +174,21 @@ ax[2,2].set_xlabel(r'$=n\left(1-NO(1-F)+cov(NO,F)\right)$', fontsize = 20)
 ax[1,0].set_ylabel("EF", fontsize = 20)
 fig.savefig("Figure, NFD effect on EF.pdf")
 
+# imporved prediction of EF via ND and FD
+fig, ax = plt.subplots(3,3, sharex = True, sharey = True, figsize = (9,9))
+x = np.linspace(0,1,1000)
+for i in range(len(NO_all)):
+    axc = ax.flatten()[i]
+    axc.scatter(np.sum((1+NO_all[i]*(FD_all[i]-1))/(1-NO_all[i]**2), axis = -1), 
+                np.sum(equi_all[i], axis = -1), s = 5, linewidth = 0)
+    axc.set_title(i+2)
+ax[2,0].set_xlabel(r'$\overline{\mathcal{N}}+\overline{\mathcal{F}}-\overline{\mathcal{NF}}$', fontsize = 20)
+ax[2,2].set_xlabel(r'$=n\left(1-NO(1-F)+cov(NO,F)\right)$', fontsize = 20)
+ax[1,0].set_ylabel("EF", fontsize = 20)
+fig.savefig("Figure, NFD effect on EF, improved.pdf")
+
 #what is the dimensionality of ND and FD in lV?
 
 fig = plt.figure()
 plt.scatter(*np.log(1-FD_all[1][:,:2].T), s = 9, c = np.log(1-FD_all[1][:,2]))
+#"""
