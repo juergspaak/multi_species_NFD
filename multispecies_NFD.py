@@ -1,6 +1,8 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
+from NFD_code.numerical_NFD import NFD_model
+
 def find_real_communities(A_prime,r_prime):
     
     # compute equilibrium densities of entire community
@@ -107,7 +109,6 @@ for n in range(2,11):
 # compute relative yield
 ry = [equi_all[i]/equi_mono[i] for i in range(len(equi_all))]
 
-from numerical_NFD import NFD_model
 # check result with random index
 n_test = np.random.randint(len(A_all))
 test_ind = np.random.randint(len(A_all[n_test]))
