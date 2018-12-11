@@ -31,7 +31,7 @@ def find_real_communities(A_prime,lamb_prime):
     sub_feasible = np.sum(sub_equi>0, axis = (1,2)) == n*(n-1)
     
     feasible[feasible] = sub_feasible
-    return feasible, sub_equi[sub_feasible]
+    return feasible, sub_equi[sub_feasible], equi_prime[feasible]
     
 def diag_fill(A, values):
     n = A.shape[-1]
@@ -41,7 +41,7 @@ def diag_fill(A, values):
 def NFD_annual_plants(A,lamb,model):
     richness = A.shape[-1]
     # find which communities actually have a stable sub_community
-    feasible, sub_equi = find_real_communities(A,model.lamb_eq(lamb))
+    feasible, sub_equi, equi = find_real_communities(A,model.lamb_eq(lamb))
     sub_equi = model.N_eq(sub_equi)
     
     A = A[feasible]
@@ -61,4 +61,4 @@ def NFD_annual_plants(A,lamb,model):
             print(sub_equi[j],"sub_equi\n\n",A[j], "A\n\n", lamb[j], "lambda")
             raise
     print(sum(index))
-    return NO[index], FD[index]
+    return NO[index], FD[index], equi

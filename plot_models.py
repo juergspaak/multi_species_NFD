@@ -32,8 +32,8 @@ model_equations = [r"$(1+A\cdot N)^{-1}$",
                    r"$\exp(-A\cdot \log(N+1))$"] 
 n_models = len(models)     
 
-NO_all, FD_all = np.full((2,len(models),len(richness),n_com,richness[-1])
-                ,np.nan)
+NO_all, FD_all, equi_all = np.full((3,len(models),len(richness),
+                                    n_com,richness[-1]),np.nan)
 
 def diag_fill(A, values):
     n = A.shape[-1]
@@ -53,11 +53,12 @@ for r,n in enumerate(richness):
     lamb = np.random.uniform(min_lamb, max_lamb,(n_com,n))
     for m,model in enumerate(models):
         
-        NO,FD = NFD_annual_plants(A,lamb,model)
+        NO,FD, equi = NFD_annual_plants(A,lamb,model)
         print(m, "model", n, "richness", len(NO), len(FD), 
               sum(np.isfinite(NO)), sum(np.isfinite(FD)))
         NO_all[m,r,:len(NO),:n] = NO
         FD_all[m,r,:len(FD),:n] = FD
+        equi_all[m,r,:len(equi),:n] = equi
     print("\n\n")
         
 
@@ -68,14 +69,16 @@ fig = plt.figure(figsize = (11,11))
 for m in range(n_models):
     
     if m == 0:
-        ax_NO = fig.add_subplot(4,n_models,m+1)
-        ax_coex = fig.add_subplot(2,n_models,n_models + m + 1)
-        ax_FD = fig.add_subplot(4,n_models,m+n_models+1)
+        ax_NO = fig.add_subplot(6,n_models,m+1)
+        ax_FD = fig.add_subplot(6,n_models,m+n_models+1)
+        ax_coex = fig.add_subplot(3,n_models,n_models + m + 1)
+        ax_EF = fig.add_subplot(3,n_models,2*n_models + m + 1)
     else:
-        ax_NO = fig.add_subplot(4,n_models,m+1, sharey = ax_NO)
-        ax_FD = fig.add_subplot(4,n_models,m+n_models+1, sharey = ax_FD)
-        ax_coex = fig.add_subplot(2,n_models,n_models + m + 1, 
+        ax_NO = fig.add_subplot(6,n_models,m+1, sharey = ax_NO)
+        ax_FD = fig.add_subplot(6,n_models,m+n_models+1, sharey = ax_FD)
+        ax_coex = fig.add_subplot(3,n_models,n_models + m + 1, 
                                   sharey = ax_coex, sharex = ax_coex)
+        ax_EF = fig.add_subplot(3,n_models,2*n_models + m + 1)
     ax_NO.boxplot([NO[np.isfinite(NO)] for NO in NO_all[m,...,0]],
                   positions = richness,showfliers = False)
 
@@ -94,13 +97,21 @@ for m in range(n_models):
     
     x = np.linspace(0,1,1000)
     im = ax_coex.scatter(1-NO_all[m], FD_all[m], s = 5,linewidth = 0,
-                         c = richness.reshape(-1,1,1)*np.ones(NO_all[m].shape))
+                         c = equi_all[m])
+    fig.colorbar(im,ax = ax_coex)
     ax_coex.plot(x,-x/(1-x), color = "black")
     ax_coex.set_xlim(np.nanpercentile(1-NO_all,[1,99]))
     ax_coex.set_ylim(np.nanpercentile(FD_all,[1,99]))
     ax_coex.invert_yaxis()
     
     ax_coex.set_xlabel(r"$\mathcal{N}$", fontsize = fs)
+    
+    ax_EF.scatter(np.nansum(1-NO_all[m]*(1-FD_all[m]), axis = -1),
+                  np.nansum(equi_all[m],axis = -1),
+                c = richness[:,np.newaxis]*np.ones(n_com),s = 5)
+    ax_EF.set_xlabel(r'$\overline{\mathcal{N}}+\overline{\mathcal{F}}-'
+                  '\overline{\mathcal{NF}}$', fontsize = fs)
+    ax_EF.set_ylabel("EF")
     if m == 0:
         ax_NO.set_ylabel(r"$\mathcal{NO}$", fontsize = fs)     
         ax_FD.set_ylabel(r"$\mathcal{F}$", fontsize = fs)     
