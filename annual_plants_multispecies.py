@@ -1,5 +1,4 @@
 import numpy as np
-import matplotlib.pyplot as plt
 
 from NFD_code.numerical_NFD import NFD_model, InputError
 
