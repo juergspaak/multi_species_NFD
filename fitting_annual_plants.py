@@ -8,9 +8,8 @@ import matplotlib.pyplot as plt
 from scipy.integrate import odeint
 from scipy.optimize import curve_fit
 
-from NFD_code.numerical_NFD import NFD_model
-#from NFD_code.NFD_for_experiments import NFD_experiment
-
+from nfd_definitions.numerical_NFD import NFD_model
+from nfd_definitions.NFD_for_experiments import NFD_experiment
 ###############################################################################
 # create the differential equation system
 n_spec = 2 # number of species in the system
@@ -93,7 +92,7 @@ def A_ij_log_exp(lamb,A,r_i):
 models = {"stand": model_stand, "exp": model_exp, "log_exp": model_log_exp}
 # how to fit the interspecific interaction
 A_ij = {"stand": A_ij_stand, "exp": A_ij_exp, "log_exp": A_ij_log_exp}
-args = {} # the parameters for the models
+args = {"original": [np.exp(mu),A]} # the parameters for the models
 exp1_sp1 = {} # fitted densities for exp1, sp1
 exp1_sp2 = {} # fitted densities for exp1, sp2
 comp = {} # predicted densities during competition
@@ -196,3 +195,12 @@ ax_f1.axvline(N_star[0],linestyle = "dotted", color = "black")
 
 ax_f2.axhline(0,linestyle = "dotted", color = "black")
 ax_f2.axvline(N_star[1],linestyle = "dotted", color = "black")
+
+###############################################################################
+
+# for udnerstanding the differences between the model types
+A_norm = {}
+lamb_all = {}
+for key in args.keys():
+    lamb_all[key], A_temp = args[key]
+    A_norm[key] = A_temp/A_temp.diagonal()

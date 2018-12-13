@@ -4,11 +4,11 @@ import matplotlib.pyplot as plt
 from annual_plants_multispecies import NFD_annual_plants
 
 # parameters for running code
-n_com = 500 # number of communities at the beginning
+n_com = 200 # number of communities at the beginning
 max_alpha = 0.2 # maximal interspecific interaction strength
 min_alpha = 0 # minimal interspecific interaction strength
-min_lamb = 100 # minimal intrinsic growth rate
-max_lamb = 200 # maximal intrinsic growth rate
+min_lamb = 20 # minimal intrinsic growth rate
+max_lamb = 50 # maximal intrinsic growth rate
 richness = np.arange(2,11) # species richness
 
 diag_one = True # whether to set intraspecific competition to 1
@@ -16,18 +16,20 @@ symm = False # whether A should be symmetric
 
 class annual_plant(object):
     def __init__(self, F_fun, lamb_eq = lambda l:np.log(l), N_eq = lambda N:N):
-        self.model = lambda N,A,lamb: np.log(lamb*F_fun(N,A))
+        self.model = lambda N,A,lamb: np.log(lamb*F_fun(N,A,lamb))
         self.lamb_eq = lambda lamb: lamb_eq(lamb)
         self.N_eq = lambda N: N_eq(N)
         
-standard = annual_plant(lambda N,A: 1/(1+A.dot(N)), lambda lamb: lamb-1)   
+standard = annual_plant(lambda N,A, lamb: 1/(1+A.dot(N)), lambda lamb: lamb-1)   
 
-exponent = annual_plant(lambda N,A: np.exp(-A.dot(N)))
-exp_log = annual_plant(lambda  N,A: np.exp(-A.dot(np.log(N+1))),
+exponent = annual_plant(lambda N,A, lamb: np.exp(-A.dot(N)), lambda lamb: lamb-1)
+exp_sub = annual_plant(lambda N,A, lamb: np.exp(-(A*(np.log(lamb)/(lamb-1))[:,None]).dot(N)))
+exp_log = annual_plant(lambda  N,A, lamb: np.exp(-A.dot(np.log(N+1))),
                        N_eq = lambda N: np.exp(N)-1)
-models = [standard, exponent, exp_log]
-model_names = ["standard", "exponent", "exp_log"]
+models = [standard, exp_sub, exponent, exp_log]
+model_names = ["standard", "exponent_sub", "exponent", "exp_log"]
 model_equations = [r"$(1+A\cdot N)^{-1}$",
+                   r"$\exp(-A\cdot \log(\lambda)/(\lambda-1)\cdot N)$",
                    r"$\exp(-A\cdot N)$",
                    r"$\exp(-A\cdot \log(N+1))$"] 
 n_models = len(models)     
@@ -117,4 +119,4 @@ for m in range(n_models):
         ax_FD.set_ylabel(r"$\mathcal{F}$", fontsize = fs)     
         ax_coex.set_ylabel(r"$-\mathcal{F}$", fontsize = fs)
 fig.tight_layout()
-fig.savefig("multispecies_annual plants, low alpha.pdf")
+fig.savefig("multispecies_annual plants, low alpha, low_lambda.pdf")

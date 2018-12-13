@@ -1,6 +1,6 @@
 import numpy as np
 
-from NFD_code.numerical_NFD import NFD_model, InputError
+from nfd_definitions.numerical_NFD import NFD_model, InputError
 
 def find_real_communities(A_prime,lamb_prime):
     n = A_prime.shape[-1]
@@ -56,8 +56,7 @@ def NFD_annual_plants(A,lamb,model):
             FD[j] = pars["FD"]
         except InputError:
             index[j] = False
-            print(j, "j")
-            print(sub_equi[j],"sub_equi\n\n",A[j], "A\n\n", lamb[j], "lambda")
-            raise
-    print(sum(index))
+            #print(j, "j")
+            #print(sub_equi[j],"sub_equi\n\n",A[j], "A\n\n", lamb[j], "lambda")
+    print(len(index),sum(index))
     return NO[index], FD[index], equi
