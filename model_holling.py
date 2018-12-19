@@ -3,12 +3,7 @@
 """
 
 import numpy as np
-import matplotlib.pyplot as plt
-
-from scipy.integrate import simps,odeint
-
-from timeit import default_timer as timer
-
+from scipy.integrate import simps
 
 n_res = 101 # number of resources
 id_res, d_id = np.linspace(-1,2,n_res, retstep = True) # identity of resources

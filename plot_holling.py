@@ -1,76 +1,65 @@
 import numpy as np
-from scipy.integrate import simps
+import matplotlib.pyplot as plt
 
-import model_holling as mh
-from nfd_definitions.numerical_NFD import NFD_model, InputError
+from annual_plants_multispecies import NFD_annual_plants
 
-import sys
-from timeit import default_timer as timer
-start = timer()
-n_spec = int(sys.argv[1])
-n_com = 1000
+richness = np.arange(2,11)
+NO_all, FD_all = np.empty((2,3,len(richness),1000,max(richness)))
+for i in richness:
+    if i ==3:
+        NO_all[:,i-2] = np.nan
+        FD_all[:,i-2] = np.nan
+        continue
+    file = np.load("NFD_values,richness {}.npz".format(i))
+    NO_all[:,i-2,:,:i] = file["NO"].copy()
+    FD_all[:,i-2,:,:i] = file["FD"].copy()
+    print(np.sum(np.isfinite(file["NO"][...,0])),
+                             np.sum(np.isfinite(NO_all[:,i-2,:,0])),i)
 
+fs = 14    
+fig = plt.figure(figsize = (11,11))
 
-# to store NO and FD, for the 3 different models
-NO_all, FD_all = np.full((2,3,n_com,n_spec), np.nan)
-
-def LV_model(N,mu,A):
-    return mu-A.dot(N)
-
-def new_community(n_com, n_spec):
+n_models = 3
+model_names = ["LV", "holling 1", "holling 2"]
+for m in range(n_models):
     
-    traits = np.random.uniform(size = (n_com, n_spec, 1))
-    max_util = np.random.uniform(1,2,size = (n_com, n_spec, 1))
-    
-    util_width = np.random.uniform(0.1,0.2,size = (n_com,n_spec,1))
-    rel_util = np.exp(-(traits-mh.id_res)**2/(2*util_width**2))
-    H = 1 + np.exp(-(traits-mh.id_res)**2/(2*util_width**2))
-    
-    # utilisation function
-    util = rel_util * max_util
-    
-    min_m = max_util[...,0]*(np.sqrt(2)-1)*np.sqrt(np.pi)*util_width[...,0]
-    max_m = max_util[...,0]*max(mh.K)*np.sqrt(2*np.pi)*util_width[...,0]
-    m = min_m + np.random.uniform(0,0.1,n_spec)*(max_m - min_m)
+    if m == 0:
+        ax_NO = fig.add_subplot(6,n_models,m+1)
+        ax_FD = fig.add_subplot(6,n_models,m+n_models+1)
+        ax_coex = fig.add_subplot(3,n_models,n_models + m + 1)
+    else:
+        ax_NO = fig.add_subplot(6,n_models,m+1, sharey = ax_NO)
+        ax_FD = fig.add_subplot(6,n_models,m+n_models+1, sharey = ax_FD)
+        ax_coex = fig.add_subplot(3,n_models,n_models + m + 1, 
+                                  sharey = ax_coex, sharex = ax_coex)
+    ax_NO.boxplot([NO[np.isfinite(NO)] for NO in NO_all[m,...,0]],
+                  positions = richness,showfliers = False)
 
-    mu = simps(util*mh.K,axis = -1, dx = mh.d_id) - m
-    A = simps(util[:,np.newaxis]*util[:,:,np.newaxis]*mh.K/mh.r,
-              axis = -1, dx = mh.d_id)
-    return m,util,H, mu, A
-
-i = 0
-counter = 0 
-while counter<n_com or timer()-start >= 1800:
-    if i%n_com == 0:
-        i = 0
-        m,util,H, mu, A = new_community(n_com, n_spec)
-    try:
-        pars_LV = NFD_model(LV_model, n_spec, args = (mu[i],A[i]))
-        NO_all[0,counter,:n_spec] = pars_LV["NO"].copy()
-        FD_all[0,counter,:n_spec] = pars_LV["FD"].copy()
-    except InputError:
-        pass
-    try:
-        pars_type1 = NFD_model(mh.model,n_spec = n_spec, 
-                         args = (mh.holling_type1, m[i], (util[i],)),
-                                pars = pars_LV)
-        NO_all[1,counter,:n_spec] = pars_type1["NO"].copy()
-        FD_all[1,counter,:n_spec] = pars_type1["FD"].copy()
-    except InputError:
-        pass
-    try:
-        pars_type2 = NFD_model(mh.model,n_spec = n_spec, 
-                         args = (mh.holling_type2, m[i], (util[i],H[i])), 
-                                pars = pars_type1)
-        
-        NO_all[2,counter,:n_spec] = pars_type2["NO"]
-        FD_all[2,counter,:n_spec] = pars_type2["FD"]
-    except InputError:
-        pass
-    if np.any(np.isfinite(NO_all[:,counter])):
-        counter += 1
-    i += 1
+    
+    ax_FD.boxplot([FD[np.isfinite(FD)] for FD in FD_all[m,...,0]],
+                  positions = richness, showfliers = False)
+    ax_FD.set_xlabel("number of species")
+    ax_NO.set_title(model_names[m], fontsize = fs)
+    ax_n_com = ax_NO.twinx()
+    ax_n_com.plot(richness,np.sum(np.isfinite(NO_all[m,...,0]),axis = -1)
+                ,alpha = 0.5)
+    ax_n_com.set_ylim(0,1000)
     
     
     
-np.savez("NFD_values,richness {}".format(n_spec), NO = NO_all, FD = FD_all)
+    x = np.linspace(0,1,1000)
+    im = ax_coex.scatter(1-NO_all[m], FD_all[m], s = 5,linewidth = 0)
+    #fig.colorbar(im,ax = ax_coex)
+    ax_coex.plot(x,-x/(1-x), color = "black")
+    ax_coex.set_xlim(np.nanpercentile(1-NO_all,[1,99]))
+    ax_coex.set_ylim(np.nanpercentile(FD_all,[1,99]))
+    ax_coex.invert_yaxis()
+    
+    ax_coex.set_xlabel(r"$\mathcal{N}$", fontsize = fs)
+    
+    if m == 0:
+        ax_NO.set_ylabel(r"$\mathcal{NO}$", fontsize = fs)     
+        ax_FD.set_ylabel(r"$\mathcal{F}$", fontsize = fs)     
+        ax_coex.set_ylabel(r"$-\mathcal{F}$", fontsize = fs)
+fig.tight_layout()
+fig.savefig("holling types.pdf")
