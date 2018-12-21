@@ -1,7 +1,5 @@
 import numpy as np
-from scipy.integrate import simps
-
-import model_holling as mh
+import model_holling_discrete_res as mh
 from nfd_definitions.numerical_NFD import NFD_model, InputError
 
 import sys
@@ -10,6 +8,12 @@ start = timer()
 n_spec = int(sys.argv[1])
 n_com = 1000
 
+# resources
+n_res = 10 #max(n_spec) # number of resources
+id_res = np.arange(n_res) # identity of resources
+
+K = np.ones(n_res) # carrying capacity of the resources
+r = 2*np.ones(n_res) # regeneration speed of the resources
 
 # to store NO and FD, for the 3 different models
 NO_all, FD_all = np.full((2,3,n_com,n_spec), np.nan)
@@ -18,24 +22,21 @@ def LV_model(N,mu,A):
     return mu-A.dot(N)
 
 def new_community(n_com, n_spec):
+    # create new traits for a community
+    u = 1/(2*n_res)
+    util = np.full((n_com,n_spec, n_res), 1/(2*n_res))
+    util[:,np.arange(n_spec), np.arange(n_spec)] = 1
     
-    traits = np.random.uniform(size = (n_com, n_spec, 1))
-    max_util = np.random.uniform(1,2,size = (n_com, n_spec, 1))
+    H = np.full((n_com,n_spec, n_res), 2, dtype = "float")
+    H[:,np.arange(n_spec), np.arange(n_spec)] = 1
     
-    util_width = np.random.uniform(0.1,0.2,size = (n_com,n_spec,1))
-    rel_util = np.exp(-(traits-mh.id_res)**2/(2*util_width**2))
-    H = 1 + np.exp(-(traits-mh.id_res)**2/(2*util_width**2))
-    
-    # utilisation function
-    util = rel_util * max_util
-    
-    min_m = max_util[...,0]*(np.sqrt(2)-1)*np.sqrt(np.pi)*util_width[...,0]
-    max_m = max_util[...,0]*max(mh.K)*np.sqrt(2*np.pi)*util_width[...,0]
-    m = min_m + np.random.uniform(0,0.1,n_spec)*(max_m - min_m)
+    max_m = max(K)*(1+(n_res-1)*u)/2
+    min_m = max_m/2
+    m = min_m + np.random.uniform(0,0.1,(n_com,n_spec))*(max_m - min_m)
 
-    mu = simps(util*mh.K,axis = -1, dx = mh.d_id) - m
-    A = simps(util[:,np.newaxis]*util[:,:,np.newaxis]*mh.K/mh.r,
-              axis = -1, dx = mh.d_id)
+    mu = np.sum(util*K,axis = -1) - m
+    A = np.sum(util[:,np.newaxis]*util[:,:,np.newaxis]*K/r,
+              axis = -1)
     return m,util,H, mu, A
 
 i = 0
@@ -74,5 +75,5 @@ while counter<n_com and timer()-start <= 1800:
     i += 1
     
     
-    
-np.savez("NFD_values,richness {}".format(n_spec), NO = NO_all, FD = FD_all)
+print(np.sum(np.isfinite(NO_all), axis = -2))
+# np.savez("NFD_values,richness {}".format(n_spec), NO = NO_all, FD = FD_all)

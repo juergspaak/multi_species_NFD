@@ -6,10 +6,6 @@ from annual_plants_multispecies import NFD_annual_plants
 richness = np.arange(2,11)
 NO_all, FD_all = np.empty((2,3,len(richness),1000,max(richness)))
 for i in richness:
-    if i ==3:
-        NO_all[:,i-2] = np.nan
-        FD_all[:,i-2] = np.nan
-        continue
     file = np.load("NFD_values,richness {}.npz".format(i))
     NO_all[:,i-2,:,:i] = file["NO"].copy()
     FD_all[:,i-2,:,:i] = file["FD"].copy()
