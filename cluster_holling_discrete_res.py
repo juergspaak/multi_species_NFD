@@ -5,8 +5,8 @@ from nfd_definitions.numerical_NFD import NFD_model, InputError
 import sys
 from timeit import default_timer as timer
 start = timer()
-n_spec = int(sys.argv[1])
-n_com = 1000
+# n_spec = int(sys.argv[1])
+n_com = 10
 
 # resources
 n_res = 10 #max(n_spec) # number of resources
@@ -24,10 +24,10 @@ def LV_model(N,mu,A):
 def new_community(n_com, n_spec):
     # create new traits for a community
     u = 1/(2*n_res)
-    util = np.full((n_com,n_spec, n_res), 1/(2*n_res))
+    util = u*2**np.random.uniform(-1,1,size = (n_com, n_spec, n_res))
     util[:,np.arange(n_spec), np.arange(n_spec)] = 1
     
-    H = np.full((n_com,n_spec, n_res), 2, dtype = "float")
+    H = 2*2**np.random.uniform(-1,1,(n_com,n_spec, n_res))
     H[:,np.arange(n_spec), np.arange(n_spec)] = 1
     
     max_m = max(K)*(1+(n_res-1)*u)/2
@@ -76,4 +76,4 @@ while counter<n_com and timer()-start <= 1800:
     
     
 print(np.sum(np.isfinite(NO_all), axis = -2))
-# np.savez("NFD_values,richness {}".format(n_spec), NO = NO_all, FD = FD_all)
+np.savez("NFD_values,richness {}".format(n_spec), NO = NO_all, FD = FD_all)
