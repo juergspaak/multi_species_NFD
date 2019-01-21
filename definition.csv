@@ -1,0 +1,1303 @@
+Initial.Definition,Study,Zhao.ND.1,Zhao.FD.1,specie i,specie j,Kingdom,Treatment,a_ii_AP,a_jj_AP,a_ij_AP,a_ji_AP,Si,Sj,Lambdai,Lambdaj,gii,gjj,gij,gji,a_ii_LV,a_jj_LV,a_ij_LV,a_ji_LV,a_ii_AP_expo,a_jj_AP_expo,a_ij_AP_expo,a_ji_AP_expo,Model use
+Godoy,Godoy & al. 2014,,,AGHE,AGHE,Plant,Control,0.475220379,0.47522038,0.47522038,0.47522038,,,129.357223,129.3572233,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,AGHE,AGRE,Plant,Control,0.475220379,0.96370026,0.27564732,2.20863552,,,129.357223,328.68665,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,AGHE,AMME,Plant,Control,0.475220379,0.33221818,2.01071725,0.25229898,,,129.357223,42.80778823,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,AGHE,AR,Plant,Control,0.475220379,0.03991319,,,,,129.357223,2.393453498,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,AGHE,CEME,Plant,Control,0.475220379,2.11144129,10.0668455,0.41028924,,,129.357223,547.27085,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,AGHE,CLPU,Plant,Control,0.475220379,0.29194102,,0.76922593,,,129.357223,4.440791483,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,AGHE,ERBO,Plant,Control,0.475220379,5.42496308,5.66091252,,,,129.357223,1.318463047,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,AGHE,ERCI,Plant,Control,0.475220379,1.28296777,6.94744375,5.80883213,,,129.357223,279.5609977,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,AGHE,EUPE,Plant,Control,0.475220379,2.11653044,3.4885673,0.34792319,,,129.357223,39.06629977,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,AGHE,GECA,Plant,Control,0.475220379,0.33282495,3.27322959,,,,129.357223,2.665849213,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,AGHE,HECO,Plant,Control,0.475220379,1.88081094,1.19389148,0.5931778,,,129.357223,1044.834032,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,AGHE,LACA,Plant,Control,0.475220379,0.36019167,2.03038603,3.26331252,,,129.357223,22.45062579,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,AGHE,LOPU,Plant,Control,0.475220379,0.88435764,4.94437513,0.02983094,,,129.357223,19.56142037,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,AGHE,LOWR,Plant,Control,0.475220379,0.59860742,5.90601321,0.45940722,,,129.357223,163.2340547,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,AGHE,MEPO,Plant,Control,0.475220379,0.0875983,1.25971621,,,,129.357223,16.01276853,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,AGHE,AT,Plant,Control,0.475220379,2.01847529,0.77833563,0.49496842,,,129.357223,14.63143066,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,AGHE,PLER,Plant,Control,0.475220379,0.1395544,0.24121017,0.26637069,,,129.357223,350.2555682,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,AGHE,SACA,Plant,Control,0.475220379,0.57484513,2.35430185,0.75148057,,,129.357223,368.4726321,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,AGRE,AGHE,Plant,Control,0.963700263,0.47522038,2.20863552,0.27564732,,,328.68665,129.3572233,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,AGRE,AGRE,Plant,Control,0.963700263,0.96370026,0.96370026,0.96370026,,,328.68665,328.68665,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,AGRE,AMME,Plant,Control,0.963700263,0.33221818,,0.12677757,,,328.68665,42.80778823,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,AGRE,AR,Plant,Control,0.963700263,0.03991319,,,,,328.68665,2.393453498,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,AGRE,CEME,Plant,Control,0.963700263,2.11144129,,0.16185491,,,328.68665,547.27085,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,AGRE,CLPU,Plant,Control,0.963700263,0.29194102,,,,,328.68665,4.440791483,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,AGRE,ERBO,Plant,Control,0.963700263,5.42496308,,,,,328.68665,1.318463047,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,AGRE,ERCI,Plant,Control,0.963700263,1.28296777,,,,,328.68665,279.5609977,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,AGRE,EUPE,Plant,Control,0.963700263,2.11653044,3.65447097,,,,328.68665,39.06629977,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,AGRE,GECA,Plant,Control,0.963700263,0.33282495,,0.1947274,,,328.68665,2.665849213,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,AGRE,HECO,Plant,Control,0.963700263,1.88081094,,0.82245462,,,328.68665,1044.834032,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,AGRE,LACA,Plant,Control,0.963700263,0.36019167,,0.11567691,,,328.68665,22.45062579,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,AGRE,LOPU,Plant,Control,0.963700263,0.88435764,0.84713405,,,,328.68665,19.56142037,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,AGRE,LOWR,Plant,Control,0.963700263,0.59860742,,0.11401719,,,328.68665,163.2340547,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,AGRE,MEPO,Plant,Control,0.963700263,0.0875983,,,,,328.68665,16.01276853,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,AGRE,AT,Plant,Control,0.963700263,2.01847529,0.8497266,,,,328.68665,14.63143066,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,AGRE,PLER,Plant,Control,0.963700263,0.1395544,,0.61683903,,,328.68665,350.2555682,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,AGRE,SACA,Plant,Control,0.963700263,0.57484513,,0.00161911,,,328.68665,368.4726321,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,AMME,AGHE,Plant,Control,0.332218181,0.47522038,0.25229898,2.01071725,,,42.80778823,129.3572233,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,AMME,AGRE,Plant,Control,0.332218181,0.96370026,0.12677757,,,,42.80778823,328.68665,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,AMME,AMME,Plant,Control,0.332218181,0.33221818,0.33221818,0.33221818,,,42.80778823,42.80778823,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,AMME,AR,Plant,Control,0.332218181,0.03991319,0.11828928,,,,42.80778823,2.393453498,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,AMME,CEME,Plant,Control,0.332218181,2.11144129,0.61846243,0.65084459,,,42.80778823,547.27085,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,AMME,CLPU,Plant,Control,0.332218181,0.29194102,18.6172178,0.06564174,,,42.80778823,4.440791483,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,AMME,ERBO,Plant,Control,0.332218181,5.42496308,2.86442381,,,,42.80778823,1.318463047,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,AMME,ERCI,Plant,Control,0.332218181,1.28296777,1.85373466,,,,42.80778823,279.5609977,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,AMME,EUPE,Plant,Control,0.332218181,2.11653044,2.6438287,,,,42.80778823,39.06629977,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,AMME,GECA,Plant,Control,0.332218181,0.33282495,0.67440336,0.79325569,,,42.80778823,2.665849213,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,AMME,HECO,Plant,Control,0.332218181,1.88081094,0.50353844,2.91140888,,,42.80778823,1044.834032,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,AMME,LACA,Plant,Control,0.332218181,0.36019167,1.10190162,1.05862576,,,42.80778823,22.45062579,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,AMME,LOPU,Plant,Control,0.332218181,0.88435764,0.7648468,0.09533295,,,42.80778823,19.56142037,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,AMME,LOWR,Plant,Control,0.332218181,0.59860742,0.80794771,0.29117912,,,42.80778823,163.2340547,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,AMME,MEPO,Plant,Control,0.332218181,0.0875983,0.34278205,0.52327145,,,42.80778823,16.01276853,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,AMME,AT,Plant,Control,0.332218181,2.01847529,,1.24433172,,,42.80778823,14.63143066,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,AMME,PLER,Plant,Control,0.332218181,0.1395544,0.2101502,0.7045401,,,42.80778823,350.2555682,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,AMME,SACA,Plant,Control,0.332218181,0.57484513,0.10245453,0.30816101,,,42.80778823,368.4726321,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,AR,AGHE,Plant,Control,0.03991319,0.47522038,,,,,2.393453498,129.3572233,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,AR,AGRE,Plant,Control,0.03991319,0.96370026,,,,,2.393453498,328.68665,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,AR,AMME,Plant,Control,0.03991319,0.33221818,,0.11828928,,,2.393453498,42.80778823,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,AR,AR,Plant,Control,0.03991319,0.03991319,0.03991319,0.03991319,,,2.393453498,2.393453498,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,AR,CEME,Plant,Control,0.03991319,2.11144129,0.37744131,0.72311272,,,2.393453498,547.27085,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,AR,CLPU,Plant,Control,0.03991319,0.29194102,,0.1439588,,,2.393453498,4.440791483,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,AR,ERBO,Plant,Control,0.03991319,5.42496308,,,,,2.393453498,1.318463047,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,AR,ERCI,Plant,Control,0.03991319,1.28296777,0.05558841,,,,2.393453498,279.5609977,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,AR,EUPE,Plant,Control,0.03991319,2.11653044,,0.68267198,,,2.393453498,39.06629977,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,AR,GECA,Plant,Control,0.03991319,0.33282495,0.53761254,,,,2.393453498,2.665849213,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,AR,HECO,Plant,Control,0.03991319,1.88081094,0.15356431,6.190263,,,2.393453498,1044.834032,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,AR,LACA,Plant,Control,0.03991319,0.36019167,,2.44120125,,,2.393453498,22.45062579,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,AR,LOPU,Plant,Control,0.03991319,0.88435764,,,,,2.393453498,19.56142037,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,AR,LOWR,Plant,Control,0.03991319,0.59860742,0.20512515,1.46153847,,,2.393453498,163.2340547,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,AR,MEPO,Plant,Control,0.03991319,0.0875983,,2.5373964,,,2.393453498,16.01276853,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,AR,AT,Plant,Control,0.03991319,2.01847529,0.16592198,5.21760745,,,2.393453498,14.63143066,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,AR,PLER,Plant,Control,0.03991319,0.1395544,0.17904464,0.49218229,,,2.393453498,350.2555682,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,AR,SACA,Plant,Control,0.03991319,0.57484513,,0.19160985,,,2.393453498,368.4726321,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,CEME,AGHE,Plant,Control,2.11144129,0.47522038,0.41028924,10.0668455,,,547.27085,129.3572233,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,CEME,AGRE,Plant,Control,2.11144129,0.96370026,0.16185491,,,,547.27085,328.68665,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,CEME,AMME,Plant,Control,2.11144129,0.33221818,0.65084459,0.61846243,,,547.27085,42.80778823,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,CEME,AR,Plant,Control,2.11144129,0.03991319,0.72311272,0.37744131,,,547.27085,2.393453498,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,CEME,CEME,Plant,Control,2.11144129,2.11144129,2.11144129,2.11144129,,,547.27085,547.27085,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,CEME,CLPU,Plant,Control,2.11144129,0.29194102,0.9760486,0.17033849,,,547.27085,4.440791483,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,CEME,ERBO,Plant,Control,2.11144129,5.42496308,13.4271118,1.80575146,,,547.27085,1.318463047,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,CEME,ERCI,Plant,Control,2.11144129,1.28296777,1.75628656,7.86682941,,,547.27085,279.5609977,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,CEME,EUPE,Plant,Control,2.11144129,2.11653044,0.75241143,0.28201275,,,547.27085,39.06629977,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,CEME,GECA,Plant,Control,2.11144129,0.33282495,1.61440835,0.35126339,,,547.27085,2.665849213,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,CEME,HECO,Plant,Control,2.11144129,1.88081094,1.25082328,0.4855395,,,547.27085,1044.834032,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,CEME,LACA,Plant,Control,2.11144129,0.36019167,0.86859451,1.91270937,,,547.27085,22.45062579,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,CEME,LOPU,Plant,Control,2.11144129,0.88435764,2.18183074,2.57133149,,,547.27085,19.56142037,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,CEME,LOWR,Plant,Control,2.11144129,0.59860742,0.62295179,1.92393348,,,547.27085,163.2340547,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,CEME,MEPO,Plant,Control,2.11144129,0.0875983,0.1200172,2.62115002,,,547.27085,16.01276853,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,CEME,AT,Plant,Control,2.11144129,2.01847529,0.59006149,2.33656769,,,547.27085,14.63143066,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,CEME,PLER,Plant,Control,2.11144129,0.1395544,0.0837684,1.43553209,,,547.27085,350.2555682,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,CEME,SACA,Plant,Control,2.11144129,0.57484513,0.84189707,0.37092062,,,547.27085,368.4726321,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,CLPU,AGHE,Plant,Control,0.291941017,0.47522038,0.76922593,,,,4.440791483,129.3572233,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,CLPU,AGRE,Plant,Control,0.291941017,0.96370026,,,,,4.440791483,328.68665,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,CLPU,AMME,Plant,Control,0.291941017,0.33221818,0.06564174,18.6172178,,,4.440791483,42.80778823,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,CLPU,AR,Plant,Control,0.291941017,0.03991319,0.1439588,,,,4.440791483,2.393453498,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,CLPU,CEME,Plant,Control,0.291941017,2.11144129,0.17033849,0.9760486,,,4.440791483,547.27085,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,CLPU,CLPU,Plant,Control,0.291941017,0.29194102,0.29194102,0.29194102,,,4.440791483,4.440791483,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,CLPU,ERBO,Plant,Control,0.291941017,5.42496308,,,,,4.440791483,1.318463047,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,CLPU,ERCI,Plant,Control,0.291941017,1.28296777,2.07593827,,,,4.440791483,279.5609977,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,CLPU,EUPE,Plant,Control,0.291941017,2.11653044,0.33575532,1.09903175,,,4.440791483,39.06629977,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,CLPU,GECA,Plant,Control,0.291941017,0.33282495,0.94060273,,,,4.440791483,2.665849213,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,CLPU,HECO,Plant,Control,0.291941017,1.88081094,0.00659858,2.33838991,,,4.440791483,1044.834032,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,CLPU,LACA,Plant,Control,0.291941017,0.36019167,0.18287331,1.86926528,,,4.440791483,22.45062579,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,CLPU,LOPU,Plant,Control,0.291941017,0.88435764,,,,,4.440791483,19.56142037,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,CLPU,LOWR,Plant,Control,0.291941017,0.59860742,0.39743333,0.40357963,,,4.440791483,163.2340547,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,CLPU,MEPO,Plant,Control,0.291941017,0.0875983,,0.39635559,,,4.440791483,16.01276853,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,CLPU,AT,Plant,Control,0.291941017,2.01847529,0.2292499,,,,4.440791483,14.63143066,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,CLPU,PLER,Plant,Control,0.291941017,0.1395544,0.07708214,1.42006352,,,4.440791483,350.2555682,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,CLPU,SACA,Plant,Control,0.291941017,0.57484513,0.012113,,,,4.440791483,368.4726321,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,ERBO,AGHE,Plant,Control,5.424963081,0.47522038,,5.66091252,,,1.318463047,129.3572233,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,ERBO,AGRE,Plant,Control,5.424963081,0.96370026,,,,,1.318463047,328.68665,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,ERBO,AMME,Plant,Control,5.424963081,0.33221818,,2.86442381,,,1.318463047,42.80778823,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,ERBO,AR,Plant,Control,5.424963081,0.03991319,,,,,1.318463047,2.393453498,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,ERBO,CEME,Plant,Control,5.424963081,2.11144129,1.80575146,13.4271118,,,1.318463047,547.27085,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,ERBO,CLPU,Plant,Control,5.424963081,0.29194102,,,,,1.318463047,4.440791483,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,ERBO,ERBO,Plant,Control,5.424963081,5.42496308,5.42496308,5.42496308,,,1.318463047,1.318463047,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,ERBO,ERCI,Plant,Control,5.424963081,1.28296777,,1.2320289,,,1.318463047,279.5609977,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,ERBO,EUPE,Plant,Control,5.424963081,2.11653044,18.961925,0.50913261,,,1.318463047,39.06629977,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,ERBO,GECA,Plant,Control,5.424963081,0.33282495,3.52306173,,,,1.318463047,2.665849213,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,ERBO,HECO,Plant,Control,5.424963081,1.88081094,0.51642406,2.19709601,,,1.318463047,1044.834032,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,ERBO,LACA,Plant,Control,5.424963081,0.36019167,0.04290309,4.05849216,,,1.318463047,22.45062579,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,ERBO,LOPU,Plant,Control,5.424963081,0.88435764,,0.42408663,,,1.318463047,19.56142037,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,ERBO,LOWR,Plant,Control,5.424963081,0.59860742,0.07526283,9.35718548,,,1.318463047,163.2340547,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,ERBO,MEPO,Plant,Control,5.424963081,0.0875983,,0.82903353,,,1.318463047,16.01276853,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,ERBO,AT,Plant,Control,5.424963081,2.01847529,0.05325396,,,,1.318463047,14.63143066,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,ERBO,PLER,Plant,Control,5.424963081,0.1395544,5.39678505,2.50493298,,,1.318463047,350.2555682,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,ERBO,SACA,Plant,Control,5.424963081,0.57484513,0.29902257,4.56447212,,,1.318463047,368.4726321,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,ERCI,AGHE,Plant,Control,1.282967767,0.47522038,5.80883213,6.94744375,,,279.5609977,129.3572233,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,ERCI,AGRE,Plant,Control,1.282967767,0.96370026,,,,,279.5609977,328.68665,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,ERCI,AMME,Plant,Control,1.282967767,0.33221818,,1.85373466,,,279.5609977,42.80778823,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,ERCI,AR,Plant,Control,1.282967767,0.03991319,,0.05558841,,,279.5609977,2.393453498,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,ERCI,CEME,Plant,Control,1.282967767,2.11144129,7.86682941,1.75628656,,,279.5609977,547.27085,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,ERCI,CLPU,Plant,Control,1.282967767,0.29194102,,2.07593827,,,279.5609977,4.440791483,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,ERCI,ERBO,Plant,Control,1.282967767,5.42496308,1.2320289,,,,279.5609977,1.318463047,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,ERCI,ERCI,Plant,Control,1.282967767,1.28296777,1.28296777,1.28296777,,,279.5609977,279.5609977,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,ERCI,EUPE,Plant,Control,1.282967767,2.11653044,1.70373895,,,,279.5609977,39.06629977,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,ERCI,GECA,Plant,Control,1.282967767,0.33282495,1.70872925,0.10025636,,,279.5609977,2.665849213,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,ERCI,HECO,Plant,Control,1.282967767,1.88081094,0.38983644,5.91782631,,,279.5609977,1044.834032,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,ERCI,LACA,Plant,Control,1.282967767,0.36019167,,1.60754751,,,279.5609977,22.45062579,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,ERCI,LOPU,Plant,Control,1.282967767,0.88435764,0.06580624,2.27233272,,,279.5609977,19.56142037,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,ERCI,LOWR,Plant,Control,1.282967767,0.59860742,,0.99661904,,,279.5609977,163.2340547,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,ERCI,MEPO,Plant,Control,1.282967767,0.0875983,,3.72316928,,,279.5609977,16.01276853,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,ERCI,AT,Plant,Control,1.282967767,2.01847529,0.37801746,0.26305461,,,279.5609977,14.63143066,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,ERCI,PLER,Plant,Control,1.282967767,0.1395544,0.18940578,1.75677622,,,279.5609977,350.2555682,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,ERCI,SACA,Plant,Control,1.282967767,0.57484513,,3.53678047,,,279.5609977,368.4726321,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,EUPE,AGHE,Plant,Control,2.11653044,0.47522038,0.34792319,3.4885673,,,39.06629977,129.3572233,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,EUPE,AGRE,Plant,Control,2.11653044,0.96370026,,3.65447097,,,39.06629977,328.68665,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,EUPE,AMME,Plant,Control,2.11653044,0.33221818,,2.6438287,,,39.06629977,42.80778823,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,EUPE,AR,Plant,Control,2.11653044,0.03991319,0.68267198,,,,39.06629977,2.393453498,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,EUPE,CEME,Plant,Control,2.11653044,2.11144129,0.28201275,0.75241143,,,39.06629977,547.27085,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,EUPE,CLPU,Plant,Control,2.11653044,0.29194102,1.09903175,0.33575532,,,39.06629977,4.440791483,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,EUPE,ERBO,Plant,Control,2.11653044,5.42496308,0.50913261,18.961925,,,39.06629977,1.318463047,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,EUPE,ERCI,Plant,Control,2.11653044,1.28296777,,1.70373895,,,39.06629977,279.5609977,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,EUPE,EUPE,Plant,Control,2.11653044,2.11653044,2.11653044,2.11653044,,,39.06629977,39.06629977,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,EUPE,GECA,Plant,Control,2.11653044,0.33282495,0.75589411,,,,39.06629977,2.665849213,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,EUPE,HECO,Plant,Control,2.11653044,1.88081094,0.05034534,0.18461816,,,39.06629977,1044.834032,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,EUPE,LACA,Plant,Control,2.11653044,0.36019167,0.1317254,0.80598099,,,39.06629977,22.45062579,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,EUPE,LOPU,Plant,Control,2.11653044,0.88435764,1.05021842,0.30621921,,,39.06629977,19.56142037,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,EUPE,LOWR,Plant,Control,2.11653044,0.59860742,0.35064002,0.68814381,,,39.06629977,163.2340547,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,EUPE,MEPO,Plant,Control,2.11653044,0.0875983,0.38850778,0.12591497,,,39.06629977,16.01276853,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,EUPE,AT,Plant,Control,2.11653044,2.01847529,,2.44450064,,,39.06629977,14.63143066,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,EUPE,PLER,Plant,Control,2.11653044,0.1395544,0.09794046,0.89394137,,,39.06629977,350.2555682,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,EUPE,SACA,Plant,Control,2.11653044,0.57484513,0.0092792,0.46933559,,,39.06629977,368.4726321,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,GECA,AGHE,Plant,Control,0.332824946,0.47522038,,3.27322959,,,2.665849213,129.3572233,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,GECA,AGRE,Plant,Control,0.332824946,0.96370026,0.1947274,,,,2.665849213,328.68665,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,GECA,AMME,Plant,Control,0.332824946,0.33221818,0.79325569,0.67440336,,,2.665849213,42.80778823,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,GECA,AR,Plant,Control,0.332824946,0.03991319,,0.53761254,,,2.665849213,2.393453498,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,GECA,CEME,Plant,Control,0.332824946,2.11144129,0.35126339,1.61440835,,,2.665849213,547.27085,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,GECA,CLPU,Plant,Control,0.332824946,0.29194102,,0.94060273,,,2.665849213,4.440791483,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,GECA,ERBO,Plant,Control,0.332824946,5.42496308,,3.52306173,,,2.665849213,1.318463047,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,GECA,ERCI,Plant,Control,0.332824946,1.28296777,0.10025636,1.70872925,,,2.665849213,279.5609977,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,GECA,EUPE,Plant,Control,0.332824946,2.11653044,,0.75589411,,,2.665849213,39.06629977,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,GECA,GECA,Plant,Control,0.332824946,0.33282495,0.33282495,0.33282495,,,2.665849213,2.665849213,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,GECA,HECO,Plant,Control,0.332824946,1.88081094,0.01421385,2.01332123,,,2.665849213,1044.834032,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,GECA,LACA,Plant,Control,0.332824946,0.36019167,0.08564464,0.59563005,,,2.665849213,22.45062579,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,GECA,LOPU,Plant,Control,0.332824946,0.88435764,0.09617241,0.83209033,,,2.665849213,19.56142037,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,GECA,LOWR,Plant,Control,0.332824946,0.59860742,0.08172528,2.49842343,,,2.665849213,163.2340547,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,GECA,MEPO,Plant,Control,0.332824946,0.0875983,,0.89428643,,,2.665849213,16.01276853,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,GECA,AT,Plant,Control,0.332824946,2.01847529,0.16286353,3.9991667,,,2.665849213,14.63143066,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,GECA,PLER,Plant,Control,0.332824946,0.1395544,0.04381936,2.06522826,,,2.665849213,350.2555682,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,GECA,SACA,Plant,Control,0.332824946,0.57484513,0.03680607,0.95247786,,,2.665849213,368.4726321,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,HECO,AGHE,Plant,Control,1.880810943,0.47522038,0.5931778,1.19389148,,,1044.834032,129.3572233,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,HECO,AGRE,Plant,Control,1.880810943,0.96370026,0.82245462,,,,1044.834032,328.68665,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,HECO,AMME,Plant,Control,1.880810943,0.33221818,2.91140888,0.50353844,,,1044.834032,42.80778823,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,HECO,AR,Plant,Control,1.880810943,0.03991319,6.190263,0.15356431,,,1044.834032,2.393453498,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,HECO,CEME,Plant,Control,1.880810943,2.11144129,0.4855395,1.25082328,,,1044.834032,547.27085,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,HECO,CLPU,Plant,Control,1.880810943,0.29194102,2.33838991,0.00659858,,,1044.834032,4.440791483,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,HECO,ERBO,Plant,Control,1.880810943,5.42496308,2.19709601,0.51642406,,,1044.834032,1.318463047,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,HECO,ERCI,Plant,Control,1.880810943,1.28296777,5.91782631,0.38983644,,,1044.834032,279.5609977,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,HECO,EUPE,Plant,Control,1.880810943,2.11653044,0.18461816,0.05034534,,,1044.834032,39.06629977,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,HECO,GECA,Plant,Control,1.880810943,0.33282495,2.01332123,0.01421385,,,1044.834032,2.665849213,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,HECO,HECO,Plant,Control,1.880810943,1.88081094,1.88081094,1.88081094,,,1044.834032,1044.834032,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,HECO,LACA,Plant,Control,1.880810943,0.36019167,0.11472551,1.88405884,,,1044.834032,22.45062579,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,HECO,LOPU,Plant,Control,1.880810943,0.88435764,1.01687979,0.81384854,,,1044.834032,19.56142037,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,HECO,LOWR,Plant,Control,1.880810943,0.59860742,0.84832815,0.53886651,,,1044.834032,163.2340547,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,HECO,MEPO,Plant,Control,1.880810943,0.0875983,1.17212332,0.5443184,,,1044.834032,16.01276853,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,HECO,AT,Plant,Control,1.880810943,2.01847529,1.68722093,2.6155515,,,1044.834032,14.63143066,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,HECO,PLER,Plant,Control,1.880810943,0.1395544,0.0030074,0.38221142,,,1044.834032,350.2555682,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,HECO,SACA,Plant,Control,1.880810943,0.57484513,0.58294271,0.32761701,,,1044.834032,368.4726321,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,LACA,AGHE,Plant,Control,0.360191671,0.47522038,3.26331252,2.03038603,,,22.45062579,129.3572233,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,LACA,AGRE,Plant,Control,0.360191671,0.96370026,0.11567691,,,,22.45062579,328.68665,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,LACA,AMME,Plant,Control,0.360191671,0.33221818,1.05862576,1.10190162,,,22.45062579,42.80778823,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,LACA,AR,Plant,Control,0.360191671,0.03991319,2.44120125,,,,22.45062579,2.393453498,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,LACA,CEME,Plant,Control,0.360191671,2.11144129,1.91270937,0.86859451,,,22.45062579,547.27085,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,LACA,CLPU,Plant,Control,0.360191671,0.29194102,1.86926528,0.18287331,,,22.45062579,4.440791483,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,LACA,ERBO,Plant,Control,0.360191671,5.42496308,4.05849216,0.04290309,,,22.45062579,1.318463047,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,LACA,ERCI,Plant,Control,0.360191671,1.28296777,1.60754751,,,,22.45062579,279.5609977,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,LACA,EUPE,Plant,Control,0.360191671,2.11653044,0.80598099,0.1317254,,,22.45062579,39.06629977,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,LACA,GECA,Plant,Control,0.360191671,0.33282495,0.59563005,0.08564464,,,22.45062579,2.665849213,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,LACA,HECO,Plant,Control,0.360191671,1.88081094,1.88405884,0.11472551,,,22.45062579,1044.834032,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,LACA,LACA,Plant,Control,0.360191671,0.36019167,0.36019167,0.36019167,,,22.45062579,22.45062579,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,LACA,LOPU,Plant,Control,0.360191671,0.88435764,0.98076671,1.21581096,,,22.45062579,19.56142037,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,LACA,LOWR,Plant,Control,0.360191671,0.59860742,0.85963365,0.26229548,,,22.45062579,163.2340547,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,LACA,MEPO,Plant,Control,0.360191671,0.0875983,0.05143885,0.32088126,,,22.45062579,16.01276853,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,LACA,AT,Plant,Control,0.360191671,2.01847529,0.29186756,0.97643571,,,22.45062579,14.63143066,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,LACA,PLER,Plant,Control,0.360191671,0.1395544,0.0874147,0.47766928,,,22.45062579,350.2555682,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,LACA,SACA,Plant,Control,0.360191671,0.57484513,0.32439348,0.2336813,,,22.45062579,368.4726321,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,LOPU,AGHE,Plant,Control,0.884357638,0.47522038,0.02983094,4.94437513,,,19.56142037,129.3572233,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,LOPU,AGRE,Plant,Control,0.884357638,0.96370026,,0.84713405,,,19.56142037,328.68665,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,LOPU,AMME,Plant,Control,0.884357638,0.33221818,0.09533295,0.7648468,,,19.56142037,42.80778823,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,LOPU,AR,Plant,Control,0.884357638,0.03991319,,,,,19.56142037,2.393453498,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,LOPU,CEME,Plant,Control,0.884357638,2.11144129,2.57133149,2.18183074,,,19.56142037,547.27085,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,LOPU,CLPU,Plant,Control,0.884357638,0.29194102,,,,,19.56142037,4.440791483,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,LOPU,ERBO,Plant,Control,0.884357638,5.42496308,0.42408663,,,,19.56142037,1.318463047,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,LOPU,ERCI,Plant,Control,0.884357638,1.28296777,2.27233272,0.06580624,,,19.56142037,279.5609977,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,LOPU,EUPE,Plant,Control,0.884357638,2.11653044,0.30621921,1.05021842,,,19.56142037,39.06629977,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,LOPU,GECA,Plant,Control,0.884357638,0.33282495,0.83209033,0.09617241,,,19.56142037,2.665849213,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,LOPU,HECO,Plant,Control,0.884357638,1.88081094,0.81384854,1.01687979,,,19.56142037,1044.834032,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,LOPU,LACA,Plant,Control,0.884357638,0.36019167,1.21581096,0.98076671,,,19.56142037,22.45062579,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,LOPU,LOPU,Plant,Control,0.884357638,0.88435764,0.88435764,0.88435764,,,19.56142037,19.56142037,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,LOPU,LOWR,Plant,Control,0.884357638,0.59860742,0.27107459,0.44025141,,,19.56142037,163.2340547,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,LOPU,MEPO,Plant,Control,0.884357638,0.0875983,0.05405123,1.64318949,,,19.56142037,16.01276853,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,LOPU,AT,Plant,Control,0.884357638,2.01847529,0.03159867,0.59079335,,,19.56142037,14.63143066,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,LOPU,PLER,Plant,Control,0.884357638,0.1395544,0.15867224,1.08505642,,,19.56142037,350.2555682,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,LOPU,SACA,Plant,Control,0.884357638,0.57484513,0.15166162,1.38279793,,,19.56142037,368.4726321,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,LOWR,AGHE,Plant,Control,0.59860742,0.47522038,0.45940722,5.90601321,,,163.2340547,129.3572233,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,LOWR,AGRE,Plant,Control,0.59860742,0.96370026,0.11401719,,,,163.2340547,328.68665,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,LOWR,AMME,Plant,Control,0.59860742,0.33221818,0.29117912,0.80794771,,,163.2340547,42.80778823,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,LOWR,AR,Plant,Control,0.59860742,0.03991319,1.46153847,0.20512515,,,163.2340547,2.393453498,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,LOWR,CEME,Plant,Control,0.59860742,2.11144129,1.92393348,0.62295179,,,163.2340547,547.27085,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,LOWR,CLPU,Plant,Control,0.59860742,0.29194102,0.40357963,0.39743333,,,163.2340547,4.440791483,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,LOWR,ERBO,Plant,Control,0.59860742,5.42496308,9.35718548,0.07526283,,,163.2340547,1.318463047,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,LOWR,ERCI,Plant,Control,0.59860742,1.28296777,0.99661904,,,,163.2340547,279.5609977,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,LOWR,EUPE,Plant,Control,0.59860742,2.11653044,0.68814381,0.35064002,,,163.2340547,39.06629977,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,LOWR,GECA,Plant,Control,0.59860742,0.33282495,2.49842343,0.08172528,,,163.2340547,2.665849213,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,LOWR,HECO,Plant,Control,0.59860742,1.88081094,0.53886651,0.84832815,,,163.2340547,1044.834032,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,LOWR,LACA,Plant,Control,0.59860742,0.36019167,0.26229548,0.85963365,,,163.2340547,22.45062579,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,LOWR,LOPU,Plant,Control,0.59860742,0.88435764,0.44025141,0.27107459,,,163.2340547,19.56142037,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,LOWR,LOWR,Plant,Control,0.59860742,0.59860742,0.59860742,0.59860742,,,163.2340547,163.2340547,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,LOWR,MEPO,Plant,Control,0.59860742,0.0875983,,1.1819922,,,163.2340547,16.01276853,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,LOWR,AT,Plant,Control,0.59860742,2.01847529,0.4069974,0.19055029,,,163.2340547,14.63143066,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,LOWR,PLER,Plant,Control,0.59860742,0.1395544,0.08129662,0.78391647,,,163.2340547,350.2555682,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,LOWR,SACA,Plant,Control,0.59860742,0.57484513,0.78995508,0.74536638,,,163.2340547,368.4726321,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,MEPO,AGHE,Plant,Control,0.087598296,0.47522038,,1.25971621,,,16.01276853,129.3572233,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,MEPO,AGRE,Plant,Control,0.087598296,0.96370026,,,,,16.01276853,328.68665,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,MEPO,AMME,Plant,Control,0.087598296,0.33221818,0.52327145,0.34278205,,,16.01276853,42.80778823,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,MEPO,AR,Plant,Control,0.087598296,0.03991319,2.5373964,,,,16.01276853,2.393453498,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,MEPO,CEME,Plant,Control,0.087598296,2.11144129,2.62115002,0.1200172,,,16.01276853,547.27085,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,MEPO,CLPU,Plant,Control,0.087598296,0.29194102,0.39635559,,,,16.01276853,4.440791483,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,MEPO,ERBO,Plant,Control,0.087598296,5.42496308,0.82903353,,,,16.01276853,1.318463047,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,MEPO,ERCI,Plant,Control,0.087598296,1.28296777,3.72316928,,,,16.01276853,279.5609977,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,MEPO,EUPE,Plant,Control,0.087598296,2.11653044,0.12591497,0.38850778,,,16.01276853,39.06629977,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,MEPO,GECA,Plant,Control,0.087598296,0.33282495,0.89428643,,,,16.01276853,2.665849213,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,MEPO,HECO,Plant,Control,0.087598296,1.88081094,0.5443184,1.17212332,,,16.01276853,1044.834032,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,MEPO,LACA,Plant,Control,0.087598296,0.36019167,0.32088126,0.05143885,,,16.01276853,22.45062579,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,MEPO,LOPU,Plant,Control,0.087598296,0.88435764,1.64318949,0.05405123,,,16.01276853,19.56142037,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,MEPO,LOWR,Plant,Control,0.087598296,0.59860742,1.1819922,,,,16.01276853,163.2340547,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,MEPO,MEPO,Plant,Control,0.087598296,0.0875983,0.0875983,0.0875983,,,16.01276853,16.01276853,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,MEPO,AT,Plant,Control,0.087598296,2.01847529,0.6760231,1.13067864,,,16.01276853,14.63143066,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,MEPO,PLER,Plant,Control,0.087598296,0.1395544,0.04810565,0.3291022,,,16.01276853,350.2555682,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,MEPO,SACA,Plant,Control,0.087598296,0.57484513,0.20028639,0.33989876,,,16.01276853,368.4726321,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,AT,AGHE,Plant,Control,2.018475294,0.47522038,0.49496842,0.77833563,,,14.63143066,129.3572233,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,AT,AGRE,Plant,Control,2.018475294,0.96370026,,0.8497266,,,14.63143066,328.68665,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,AT,AMME,Plant,Control,2.018475294,0.33221818,1.24433172,,,,14.63143066,42.80778823,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,AT,AR,Plant,Control,2.018475294,0.03991319,5.21760745,0.16592198,,,14.63143066,2.393453498,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,AT,CEME,Plant,Control,2.018475294,2.11144129,2.33656769,0.59006149,,,14.63143066,547.27085,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,AT,CLPU,Plant,Control,2.018475294,0.29194102,,0.2292499,,,14.63143066,4.440791483,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,AT,ERBO,Plant,Control,2.018475294,5.42496308,,0.05325396,,,14.63143066,1.318463047,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,AT,ERCI,Plant,Control,2.018475294,1.28296777,0.26305461,0.37801746,,,14.63143066,279.5609977,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,AT,EUPE,Plant,Control,2.018475294,2.11653044,2.44450064,,,,14.63143066,39.06629977,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,AT,GECA,Plant,Control,2.018475294,0.33282495,3.9991667,0.16286353,,,14.63143066,2.665849213,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,AT,HECO,Plant,Control,2.018475294,1.88081094,2.6155515,1.68722093,,,14.63143066,1044.834032,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,AT,LACA,Plant,Control,2.018475294,0.36019167,0.97643571,0.29186756,,,14.63143066,22.45062579,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,AT,LOPU,Plant,Control,2.018475294,0.88435764,0.59079335,0.03159867,,,14.63143066,19.56142037,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,AT,LOWR,Plant,Control,2.018475294,0.59860742,0.19055029,0.4069974,,,14.63143066,163.2340547,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,AT,MEPO,Plant,Control,2.018475294,0.0875983,1.13067864,0.6760231,,,14.63143066,16.01276853,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,AT,AT,Plant,Control,2.018475294,2.01847529,2.01847529,2.01847529,,,14.63143066,14.63143066,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,AT,PLER,Plant,Control,2.018475294,0.1395544,0.70765285,0.14297765,,,14.63143066,350.2555682,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,AT,SACA,Plant,Control,2.018475294,0.57484513,0.47532437,0.41449731,,,14.63143066,368.4726321,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,PLER,AGHE,Plant,Control,0.139554401,0.47522038,0.26637069,0.24121017,,,350.2555682,129.3572233,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,PLER,AGRE,Plant,Control,0.139554401,0.96370026,0.61683903,,,,350.2555682,328.68665,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,PLER,AMME,Plant,Control,0.139554401,0.33221818,0.7045401,0.2101502,,,350.2555682,42.80778823,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,PLER,AR,Plant,Control,0.139554401,0.03991319,0.49218229,0.17904464,,,350.2555682,2.393453498,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,PLER,CEME,Plant,Control,0.139554401,2.11144129,1.43553209,0.0837684,,,350.2555682,547.27085,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,PLER,CLPU,Plant,Control,0.139554401,0.29194102,1.42006352,0.07708214,,,350.2555682,4.440791483,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,PLER,ERBO,Plant,Control,0.139554401,5.42496308,2.50493298,5.39678505,,,350.2555682,1.318463047,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,PLER,ERCI,Plant,Control,0.139554401,1.28296777,1.75677622,0.18940578,,,350.2555682,279.5609977,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,PLER,EUPE,Plant,Control,0.139554401,2.11653044,0.89394137,0.09794046,,,350.2555682,39.06629977,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,PLER,GECA,Plant,Control,0.139554401,0.33282495,2.06522826,0.04381936,,,350.2555682,2.665849213,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,PLER,HECO,Plant,Control,0.139554401,1.88081094,0.38221142,0.0030074,,,350.2555682,1044.834032,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,PLER,LACA,Plant,Control,0.139554401,0.36019167,0.47766928,0.0874147,,,350.2555682,22.45062579,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,PLER,LOPU,Plant,Control,0.139554401,0.88435764,1.08505642,0.15867224,,,350.2555682,19.56142037,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,PLER,LOWR,Plant,Control,0.139554401,0.59860742,0.78391647,0.08129662,,,350.2555682,163.2340547,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,PLER,MEPO,Plant,Control,0.139554401,0.0875983,0.3291022,0.04810565,,,350.2555682,16.01276853,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,PLER,AT,Plant,Control,0.139554401,2.01847529,0.14297765,0.70765285,,,350.2555682,14.63143066,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,PLER,PLER,Plant,Control,0.139554401,0.1395544,0.1395544,0.1395544,,,350.2555682,350.2555682,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,PLER,SACA,Plant,Control,0.139554401,0.57484513,0.17143129,0.33841809,,,350.2555682,368.4726321,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,SACA,AGHE,Plant,Control,0.574845128,0.47522038,0.75148057,2.35430185,,,368.4726321,129.3572233,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,SACA,AGRE,Plant,Control,0.574845128,0.96370026,0.00161911,,,,368.4726321,328.68665,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,SACA,AMME,Plant,Control,0.574845128,0.33221818,0.30816101,0.10245453,,,368.4726321,42.80778823,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,SACA,AR,Plant,Control,0.574845128,0.03991319,0.19160985,,,,368.4726321,2.393453498,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,SACA,CEME,Plant,Control,0.574845128,2.11144129,0.37092062,0.84189707,,,368.4726321,547.27085,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,SACA,CLPU,Plant,Control,0.574845128,0.29194102,,0.012113,,,368.4726321,4.440791483,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,SACA,ERBO,Plant,Control,0.574845128,5.42496308,4.56447212,0.29902257,,,368.4726321,1.318463047,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,SACA,ERCI,Plant,Control,0.574845128,1.28296777,3.53678047,,,,368.4726321,279.5609977,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,SACA,EUPE,Plant,Control,0.574845128,2.11653044,0.46933559,0.0092792,,,368.4726321,39.06629977,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,SACA,GECA,Plant,Control,0.574845128,0.33282495,0.95247786,0.03680607,,,368.4726321,2.665849213,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,SACA,HECO,Plant,Control,0.574845128,1.88081094,0.32761701,0.58294271,,,368.4726321,1044.834032,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,SACA,LACA,Plant,Control,0.574845128,0.36019167,0.2336813,0.32439348,,,368.4726321,22.45062579,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,SACA,LOPU,Plant,Control,0.574845128,0.88435764,1.38279793,0.15166162,,,368.4726321,19.56142037,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,SACA,LOWR,Plant,Control,0.574845128,0.59860742,0.74536638,0.78995508,,,368.4726321,163.2340547,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,SACA,MEPO,Plant,Control,0.574845128,0.0875983,0.33989876,0.20028639,,,368.4726321,16.01276853,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,SACA,AT,Plant,Control,0.574845128,2.01847529,0.41449731,0.47532437,,,368.4726321,14.63143066,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,SACA,PLER,Plant,Control,0.574845128,0.1395544,0.33841809,0.17143129,,,368.4726321,350.2555682,,,,,,,,,,,,,annual plant model
+Godoy,Godoy & al. 2014,,,SACA,SACA,Plant,Control,0.574845128,0.57484513,0.57484513,0.57484513,,,368.4726321,368.4726321,,,,,,,,,,,,,annual plant model
+Godoy,Cardiux & al.2018,,,Plantago alpi,Plantago alpi,Plant,diferent soil biota origin,0.21,0.21,0.22,0.22,,,321,252,,,,,,,,,,,,,annual plant model
+Godoy,Cardiux & al.2018,,,Plantago alpi,Plantago lanceolata,Plant,Control,0.19,0.07,0.28,0.23,,,252,179,,,,,,,,,,,,,annual plant model
+Godoy,Cardiux & al.2018,,,Plantago alpi,Poa alpi,Plant,diferent soil biota origin,0.21,2.82,4.72,0.07,,,321,4045,,,,,,,,,,,,,annual plant model
+Godoy,Cardiux & al.2018,,,Plantago alpi,Poa trivialis,Plant,Control,0.19,2.14,5.44,0.03,,,252,4740,,,,,,,,,,,,,annual plant model
+Godoy,Cardiux & al.2018,,,Poa alpi,Plantago alpi,Plant,Control,2.82,0.21,0.23,4724,,,4045,252,,,,,,,,,,,,,annual plant model
+Godoy,Cardiux & al.2018,,,Poa alpi,Plantago lanceolata,Plant,diferent soil biota origin,0.39,0.07,0.11,0.91,,,1715,179,,,,,,,,,,,,,annual plant model
+Godoy,Cardiux & al.2018,,,Poa alpi,Poa alpi,Plant,Control,2.82,2.82,6.8,6797,,,4045,4045,,,,,,,,,,,,,annual plant model
+Godoy,Cardiux & al.2018,,,Poa alpi,Poa trivialis,Plant,diferent soil biota origin,0.39,2.14,1.65,1752,,,1715,4740,,,,,,,,,,,,,annual plant model
+Godoy,Cardiux & al.2018,,,Plantago lanceolata,Plantago alpi,Plant,diferent soil biota origin,0.08,0.21,0.07,0.28,,,256,252,,,,,,,,,,,,,annual plant model
+Godoy,Cardiux & al.2018,,,Plantago lanceolata,Plantago lanceolata,Plant,Control,0.07,0.07,0.01,0.01,,,179,179,,,,,,,,,,,,,annual plant model
+Godoy,Cardiux & al.2018,,,Plantago lanceolata,Poa alpi,Plant,diferent soil biota origin,0.08,2.82,0.91,0.11,,,256,4045,,,,,,,,,,,,,annual plant model
+Godoy,Cardiux & al.2018,,,Plantago lanceolata,Poa trivialis,Plant,Control,0.07,2.14,0.27,0.03,,,179,4740,,,,,,,,,,,,,annual plant model
+Godoy,Cardiux & al.2018,,,Poa trivialis,Plantago alpi,Plant,Control,1.8,0.21,0.03,5436,,,4345,252,,,,,,,,,,,,,annual plant model
+Godoy,Cardiux & al.2018,,,Poa trivialis,Plantago lanceolata,Plant,diferent soil biota origin,2.14,0.07,0.03,0.27,,,4740,179,,,,,,,,,,,,,annual plant model
+Godoy,Cardiux & al.2018,,,Poa trivialis,Poa alpi,Plant,Control,1.8,2.82,1.75,1.65,,,4345,4045,,,,,,,,,,,,,annual plant model
+Godoy,Cardiux & al.2018,,,Poa trivialis,Poa trivialis,Plant,diferent soil biota origin,2.14,2.14,1.59,1.59,,,4740,4740,,,,,,,,,,,,,annual plant model
+Godoy,Godoy &Levine.2014,,,Bromus,Early Community,Plant,Control,0.1221,0.0018,0.0117,0.0132,,,646.5531225,3.795379538,,,,,,,,,,,,,annual plant model
+Godoy,Godoy &Levine.2014,,,Bromus,Middle Community,Plant,Control,0.1221,0.0065,0.1262,0.004,,,651.0412413,125.3932584,,,,,,,,,,,,,annual plant model
+Godoy,Godoy &Levine.2014,,,Bromus,Late Community,Plant,Control,0.1221,0.0236,0.0014,0.0009,,,655.5921053,291.7514811,,,,,,,,,,,,,annual plant model
+Godoy,Godoy &Levine.2014,,,Centaurea,Early Community,Plant,Control,0.7748,0.0018,0.1035,0.002,,,2809.033833,3.841870824,,,,,,,,,,,,,annual plant model
+Godoy,Godoy &Levine.2014,,,Centaurea,Middle Community,Plant,Control,0.7748,0.0065,0.1131,0.0177,,,2848.275862,126.1729791,,,,,,,,,,,,,annual plant model
+Godoy,Godoy &Levine.2014,,,Centaurea,Late Community,Plant,Control,0.7748,0.0236,0.0147,0.0158,,,2888.629842,294.7513812,,,,,,,,,,,,,annual plant model
+Godoy,Godoy &Levine.2014,,,Lactuca,Early Community,Plant,Control,0.0491,0.0018,0.3404,0.0025,,,4007.528958,3.88951522,,,,,,,,,,,,,annual plant model
+Godoy,Godoy &Levine.2014,,,Lactuca,Middle Community,Plant,Control,0.0491,0.0065,33,0.0071,,,4065.078329,126.9624573,,,,,,,,,,,,,annual plant model
+Godoy,Godoy &Levine.2014,,,Lactuca,Late Community,Plant,Control,0.0491,0.0236,0.015,0.1554,,,4124.304636,297.8136145,,,,,,,,,,,,,annual plant model
+Godoy,Godoy &Levine.2014,,,Early Community,Bromus,Plant,Control,0.0018,0.1221,0.0132,0.0117,,,3.795379538,646.5531225,,,,,,,,,,,,,annual plant model
+Godoy,Godoy &Levine.2014,,,Early Community,Centaurea,Plant,Control,0.0018,0.7748,0.004,0.1262,,,3.841870824,2809.033833,,,,,,,,,,,,,annual plant model
+Godoy,Godoy &Levine.2014,,,Early Community,Lactuca,Plant,Control,0.0018,0.0491,0.0009,0.0014,,,3.88951522,4007.528958,,,,,,,,,,,,,annual plant model
+Godoy,Godoy &Levine.2014,,,Middle Community,Bromus,Plant,Control,0.0065,0.1221,0.002,0.1035,,,125.3932584,651.0412413,,,,,,,,,,,,,annual plant model
+Godoy,Godoy &Levine.2014,,,Middle Community,Centaurea,Plant,Control,0.0065,0.7748,0.0177,0.1131,,,126.1729791,2848.275862,,,,,,,,,,,,,annual plant model
+Godoy,Godoy &Levine.2014,,,Middle Community,Lactuca,Plant,Control,0.0065,0.0491,0.0158,0.0147,,,126.9624573,4065.078329,,,,,,,,,,,,,annual plant model
+Godoy,Godoy &Levine.2014,,,Late Community,Bromus,Plant,Control,0.0236,0.1221,0.0025,0.3404,,,291.7514811,655.5921053,,,,,,,,,,,,,annual plant model
+Godoy,Godoy &Levine.2014,,,Late Community,Centaurea,Plant,Control,0.0236,0.7748,0.0071,32.678,,,294.7513812,2888.629842,,,,,,,,,,,,,annual plant model
+Godoy,Godoy &Levine.2014,,,Late Community,Lactuca,Plant,Control,0.0236,0.0491,0.1554,0.015,,,297.8136145,4124.304636,,,,,,,,,,,,,annual plant model
+Godoy,Wainwright. 2018,,,H. glabra,A. calendula,Plant,Control B,0.008125,1.98E-08,0.000153,0.00000847,,,0.524068518,0.61484145,,,,,,,,,,,,,annual plant model
+Godoy,Wainwright. 2018,,,T.cyanopetala,A. calendula,Plant,Control B,0.170994,1.98E-08,0.774829,0.0000273,,,8.164488608,0.61484145,,,,,,,,,,,,,annual plant model
+Godoy,Wainwright. 2018,,,W. acumita,A. calendula,Plant,Control B,0.027379,1.98E-08,0.000211,0.37996,,,27.760539,0.61484145,,,,,,,,,,,,,annual plant model
+Godoy,Wainwright. 2018,,,A. calendula,H. glabra,Plant,Control B,1.98E-08,0.008125,0.00000847,0.000153,,,0.61484145,0.524068518,,,,,,,,,,,,,annual plant model
+Godoy,Wainwright. 2018,,,T.cyanopetala,H. glabra,Plant,Control B,0.170994,0.008125,0.056513,0.000314,,,8.164488608,0.524068518,,,,,,,,,,,,,annual plant model
+Godoy,Wainwright. 2018,,,W. acumita,H. glabra,Plant,Control B,0.027379,0.008125,6.95E-09,0.039901,,,27.760539,0.524068518,,,,,,,,,,,,,annual plant model
+Godoy,Wainwright. 2018,,,A. calendula,T.cyanopetala,Plant,Control B,1.98E-08,0.170994,0.0000273,0.774829,,,0.61484145,8.164488608,,,,,,,,,,,,,annual plant model
+Godoy,Wainwright. 2018,,,H. glabra,T.cyanopetala,Plant,Control B,0.008125,0.170994,0.000314,0.056513,,,0.524068518,8.164488608,,,,,,,,,,,,,annual plant model
+Godoy,Wainwright. 2018,,,W. acumita,T.cyanopetala,Plant,Control B,0.027379,0.170994,0.002083,0.010127,,,27.760539,8.164488608,,,,,,,,,,,,,annual plant model
+Godoy,Wainwright. 2018,,,A. calendula,W. acumita,Plant,Control B,1.98E-08,0.027379,0.37996,0.000211,,,0.61484145,27.760539,,,,,,,,,,,,,annual plant model
+Godoy,Wainwright. 2018,,,H. glabra,W. acumita,Plant,Control B,0.008125,0.027379,0.039901,6.95E-09,,,0.524068518,27.760539,,,,,,,,,,,,,annual plant model
+Godoy,Wainwright. 2018,,,T.cyanopetala,W. acumita,Plant,Control B,0.170994,0.027379,0.010127,0.002083,,,8.164488608,27.760539,,,,,,,,,,,,,annual plant model
+Godoy,Wainwright. 2018,,,H. glabra,A. calendula,Plant,Control P,0.001012,0.000154,0.000444,0.000838,,,0.41154,0.539303786,,,,,,,,,,,,,annual plant model
+Godoy,Wainwright. 2018,,,T.cyanopetala,A. calendula,Plant,Control P,0.006493,0.000154,2.19E-16,0.00053,,,9.534283551,0.539303786,,,,,,,,,,,,,annual plant model
+Godoy,Wainwright. 2018,,,W. acumita,A. calendula,Plant,Control P,0.013964,0.000154,0.0000101,0.000576,,,28.71598,0.539303786,,,,,,,,,,,,,annual plant model
+Godoy,Wainwright. 2018,,,A. calendula,H. glabra,Plant,Control P,0.000154,0.001012,0.000838,0.000444,,,0.539303786,0.41154,,,,,,,,,,,,,annual plant model
+Godoy,Wainwright. 2018,,,T.cyanopetala,H. glabra,Plant,Control P,0.006493,0.001012,0.148252,0.006736,,,9.534283551,0.41154,,,,,,,,,,,,,annual plant model
+Godoy,Wainwright. 2018,,,W. acumita,H. glabra,Plant,Control P,0.013964,0.001012,0.126443,0.027912,,,28.71598,0.41154,,,,,,,,,,,,,annual plant model
+Godoy,Wainwright. 2018,,,A. calendula,T.cyanopetala,Plant,Control P,0.000154,0.006493,0.00053,2.19E-16,,,0.539303786,9.534283551,,,,,,,,,,,,,annual plant model
+Godoy,Wainwright. 2018,,,H. glabra,T.cyanopetala,Plant,Control P,0.001012,0.006493,0.006736,0.148252,,,0.41154,9.534283551,,,,,,,,,,,,,annual plant model
+Godoy,Wainwright. 2018,,,W. acumita,T.cyanopetala,Plant,Control P,0.013964,0.006493,0.00000941,0.036506,,,28.71598,9.534283551,,,,,,,,,,,,,annual plant model
+Godoy,Wainwright. 2018,,,A. calendula,W. acumita,Plant,Control P,0.000154,0.013964,0.000576,0.0000101,,,0.539303786,28.71598,,,,,,,,,,,,,annual plant model
+Godoy,Wainwright. 2018,,,H. glabra,W. acumita,Plant,Control P,0.001012,0.013964,0.027912,0.126443,,,0.41154,28.71598,,,,,,,,,,,,,annual plant model
+Godoy,Wainwright. 2018,,,T.cyanopetala,W. acumita,Plant,Control P,0.006493,0.013964,0.036506,0.00000941,,,9.534283551,28.71598,,,,,,,,,,,,,annual plant model
+Godoy,Wainwright. 2018,,,H. glabra,A. calendula,Plant,Watering B,0.007485,0.000363,0.00000208,0.0000441,,,0.672040805,0.414578806,,,,,,,,,,,,,annual plant model
+Godoy,Wainwright. 2018,,,T.cyanopetala,A. calendula,Plant,Watering B,0.0093,0.000363,0.057814,0.043432,,,5.735811617,0.414578806,,,,,,,,,,,,,annual plant model
+Godoy,Wainwright. 2018,,,W. acumita,A. calendula,Plant,Watering B,0.046765,0.000363,0.029374,0.010138,,,29.7825,0.414578806,,,,,,,,,,,,,annual plant model
+Godoy,Wainwright. 2018,,,A. calendula,H. glabra,Plant,Watering B,0.000363,0.007485,0.0000441,0.00000208,,,0.414578806,0.672040805,,,,,,,,,,,,,annual plant model
+Godoy,Wainwright. 2018,,,T.cyanopetala,H. glabra,Plant,Watering B,0.0093,0.007485,0.209493,2.66E-09,,,5.735811617,0.672040805,,,,,,,,,,,,,annual plant model
+Godoy,Wainwright. 2018,,,W. acumita,H. glabra,Plant,Watering B,0.046765,0.007485,0.143576,0.112709,,,29.7825,0.672040805,,,,,,,,,,,,,annual plant model
+Godoy,Wainwright. 2018,,,A. calendula,T.cyanopetala,Plant,Watering B,0.000363,0.0093,0.043432,0.057814,,,0.414578806,5.735811617,,,,,,,,,,,,,annual plant model
+Godoy,Wainwright. 2018,,,H. glabra,T.cyanopetala,Plant,Watering B,0.007485,0.0093,2.66E-09,0.209493,,,0.672040805,5.735811617,,,,,,,,,,,,,annual plant model
+Godoy,Wainwright. 2018,,,W. acumita,T.cyanopetala,Plant,Watering B,0.046765,0.0093,0.118724,0.000998,,,29.7825,5.735811617,,,,,,,,,,,,,annual plant model
+Godoy,Wainwright. 2018,,,A. calendula,W. acumita,Plant,Watering B,0.000363,0.046765,0.010138,0.029374,,,0.414578806,29.7825,,,,,,,,,,,,,annual plant model
+Godoy,Wainwright. 2018,,,H. glabra,W. acumita,Plant,Watering B,0.007485,0.046765,0.112709,0.143576,,,0.672040805,29.7825,,,,,,,,,,,,,annual plant model
+Godoy,Wainwright. 2018,,,T.cyanopetala,W. acumita,Plant,Watering B,0.0093,0.046765,0.000998,0.118724,,,5.735811617,29.7825,,,,,,,,,,,,,annual plant model
+Godoy,Wainwright. 2018,,,H. glabra,A. calendula,Plant,Watering P,0.084382,0.03772,0.08368,0.0000212,,,0.475437,1.366704708,,,,,,,,,,,,,annual plant model
+Godoy,Wainwright. 2018,,,T.cyanopetala,A. calendula,Plant,Watering P,0.075518,0.03772,2.50E-09,0.000973,,,24.63023251,1.366704708,,,,,,,,,,,,,annual plant model
+Godoy,Wainwright. 2018,,,W. acumita,A. calendula,Plant,Watering P,0.003594,0.03772,1.43E-09,0.187437,,,85.93788,1.366704708,,,,,,,,,,,,,annual plant model
+Godoy,Wainwright. 2018,,,A. calendula,H. glabra,Plant,Watering P,0.03772,0.08368,0.0000212,0.08368,,,1.366704708,0.475437,,,,,,,,,,,,,annual plant model
+Godoy,Wainwright. 2018,,,T.cyanopetala,H. glabra,Plant,Watering P,0.075518,0.08368,0.060212,0.010196,,,24.63023251,0.475437,,,,,,,,,,,,,annual plant model
+Godoy,Wainwright. 2018,,,W. acumita,H. glabra,Plant,Watering P,0.003594,0.08368,0.0000321,0.021464,,,85.93788,0.475437,,,,,,,,,,,,,annual plant model
+Godoy,Wainwright. 2018,,,A. calendula,T.cyanopetala,Plant,Watering P,0.03772,0.075518,0.000973,2.50E-09,,,1.366704708,24.63023251,,,,,,,,,,,,,annual plant model
+Godoy,Wainwright. 2018,,,H. glabra,T.cyanopetala,Plant,Watering P,0.084382,0.075518,0.010196,0.060212,,,0.475437,24.63023251,,,,,,,,,,,,,annual plant model
+Godoy,Wainwright. 2018,,,W. acumita,T.cyanopetala,Plant,Watering P,0.003594,0.075518,0.678191,0.061709,,,85.93788,24.63023251,,,,,,,,,,,,,annual plant model
+Godoy,Wainwright. 2018,,,A. calendula,W. acumita,Plant,Watering P,0.03772,0.003594,0.187437,1.43E-09,,,1.366704708,85.93788,,,,,,,,,,,,,annual plant model
+Godoy,Wainwright. 2018,,,H. glabra,W. acumita,Plant,Watering P,0.084382,0.003594,0.021464,0.0000321,,,0.475437,85.93788,,,,,,,,,,,,,annual plant model
+Godoy,Wainwright. 2018,,,T.cyanopetala,W. acumita,Plant,Watering P,0.075518,0.003594,0.061709,0.678191,,,24.63023251,85.93788,,,,,,,,,,,,,annual plant model
+Carroll,Narwani & al.2018,,,Chlorella sorokinia,Coelastrum microporum,Phytoplankton,Control,,,,,,,,,0.708516936,0.327181659,,,,,,,,,,,none
+Carroll,Narwani & al.2018,,,Chlorella sorokinia,Cosmarium turpinii,Phytoplankton,Control,,,,,,,,,0.708516936,0.790585273,0.010807245,0.093418726,,,,,,,,,none
+Carroll,Narwani & al.2018,,,Chlorella sorokinia,Elakatothrix viridis,Phytoplankton,Control,,,,,,,,,0.708516936,0.94002794,0.354031235,0.115607962,,,,,,,,,none
+Carroll,Narwani & al.2018,,,Chlorella sorokinia,Scenedesmus acumitus,Phytoplankton,Control,,,,,,,,,0.708516936,1.535167199,0.283804965,0.190659301,,,,,,,,,none
+Carroll,Narwani & al.2018,,,Chlorella sorokinia,Selestrum capricornutum,Phytoplankton,Control,,,,,,,,,0.708516936,0.762561314,0.04708163,-0.029142773,,,,,,,,,none
+Carroll,Narwani & al.2018,,,Chlorella sorokinia,Staurastrum punctulatum,Phytoplankton,Control,,,,,,,,,0.708516936,0.907069415,-0.01,0.128641356,,,,,,,,,none
+Carroll,Narwani & al.2018,,,Chlorella sorokinia,Tetraedron minimum,Phytoplankton,Control,,,,,,,,,0.708516936,0.889388547,0.021687062,0.178335731,,,,,,,,,none
+Carroll,Narwani & al.2018,,,Coelastrum microporum,Chlorella sorokinia,Phytoplankton,Control,,,,,,,,,0.327181659,0.708516936,,,,,,,,,,,none
+Carroll,Narwani & al.2018,,,Coelastrum microporum,Cosmarium turpinii,Phytoplankton,Control,,,,,,,,,0.327181659,0.790585273,0.239303378,-0.034358683,,,,,,,,,none
+Carroll,Narwani & al.2018,,,Coelastrum microporum,Elakatothrix viridis,Phytoplankton,Control,,,,,,,,,0.327181659,0.94002794,0.39,0.047436919,,,,,,,,,none
+Carroll,Narwani & al.2018,,,Coelastrum microporum,Scenedesmus acumitus,Phytoplankton,Control,,,,,,,,,0.327181659,1.535167199,-0.003529535,0.100103735,,,,,,,,,none
+Carroll,Narwani & al.2018,,,Coelastrum microporum,Selestrum capricornutum,Phytoplankton,Control,,,,,,,,,0.327181659,0.762561314,-0.048610481,0.150153878,,,,,,,,,none
+Carroll,Narwani & al.2018,,,Coelastrum microporum,Staurastrum punctulatum,Phytoplankton,Control,,,,,,,,,0.327181659,0.907069415,0.1,0.037063406,,,,,,,,,none
+Carroll,Narwani & al.2018,,,Coelastrum microporum,Tetraedron minimum,Phytoplankton,Control,,,,,,,,,0.327181659,0.889388547,0.33879641,-0.17244688,,,,,,,,,none
+Carroll,Narwani & al.2018,,,Cosmarium turpinii,Chlorella sorokinia,Phytoplankton,Control,,,,,,,,,0.790585273,0.708516936,0.093418726,0.010807245,,,,,,,,,none
+Carroll,Narwani & al.2018,,,Cosmarium turpinii,Coelastrum microporum,Phytoplankton,Control,,,,,,,,,0.790585273,0.327181659,-0.034358683,0.239303378,,,,,,,,,none
+Carroll,Narwani & al.2018,,,Cosmarium turpinii,Elakatothrix viridis,Phytoplankton,Control,,,,,,,,,0.790585273,0.94002794,-0.103310641,0.299535912,,,,,,,,,none
+Carroll,Narwani & al.2018,,,Cosmarium turpinii,Scenedesmus acumitus,Phytoplankton,Control,,,,,,,,,0.790585273,1.535167199,0.003947387,0.315945536,,,,,,,,,none
+Carroll,Narwani & al.2018,,,Cosmarium turpinii,Selestrum capricornutum,Phytoplankton,Control,,,,,,,,,0.790585273,0.762561314,0.10386494,0.225967587,,,,,,,,,none
+Carroll,Narwani & al.2018,,,Cosmarium turpinii,Staurastrum punctulatum,Phytoplankton,Control,,,,,,,,,0.790585273,0.907069415,0.047607208,0.151267241,,,,,,,,,none
+Carroll,Narwani & al.2018,,,Cosmarium turpinii,Tetraedron minimum,Phytoplankton,Control,,,,,,,,,0.790585273,0.889388547,0.118848975,-0.119318568,,,,,,,,,none
+Carroll,Narwani & al.2018,,,Elakatothrix viridis,Chlorella sorokinia,Phytoplankton,Control,,,,,,,,,0.94002794,0.708516936,0.115607962,0.354031235,,,,,,,,,none
+Carroll,Narwani & al.2018,,,Elakatothrix viridis,Coelastrum microporum,Phytoplankton,Control,,,,,,,,,0.94002794,0.327181659,0.047436919,0.39,,,,,,,,,none
+Carroll,Narwani & al.2018,,,Elakatothrix viridis,Cosmarium turpinii,Phytoplankton,Control,,,,,,,,,0.94002794,0.790585273,0.299535912,-0.103310641,,,,,,,,,none
+Carroll,Narwani & al.2018,,,Elakatothrix viridis,Scenedesmus acumitus,Phytoplankton,Control,,,,,,,,,0.94002794,1.535167199,0.154777447,0.354190666,,,,,,,,,none
+Carroll,Narwani & al.2018,,,Elakatothrix viridis,Selestrum capricornutum,Phytoplankton,Control,,,,,,,,,0.94002794,0.762561314,-0.051859922,0.090035321,,,,,,,,,none
+Carroll,Narwani & al.2018,,,Elakatothrix viridis,Staurastrum punctulatum,Phytoplankton,Control,,,,,,,,,0.94002794,0.907069415,-0.051374581,0.216937068,,,,,,,,,none
+Carroll,Narwani & al.2018,,,Elakatothrix viridis,Tetraedron minimum,Phytoplankton,Control,,,,,,,,,0.94002794,0.889388547,-0.064406118,-0.062873048,,,,,,,,,none
+Carroll,Narwani & al.2018,,,Scenedesmus acumitus,Chlorella sorokinia,Phytoplankton,Control,,,,,,,,,1.535167199,0.708516936,0.190659301,0.283804965,,,,,,,,,none
+Carroll,Narwani & al.2018,,,Scenedesmus acumitus,Coelastrum microporum,Phytoplankton,Control,,,,,,,,,1.535167199,0.327181659,0.100103735,-0.003529535,,,,,,,,,none
+Carroll,Narwani & al.2018,,,Scenedesmus acumitus,Cosmarium turpinii,Phytoplankton,Control,,,,,,,,,1.535167199,0.790585273,0.315945536,0.003947387,,,,,,,,,none
+Carroll,Narwani & al.2018,,,Scenedesmus acumitus,Elakatothrix viridis,Phytoplankton,Control,,,,,,,,,1.535167199,0.94002794,0.354190666,0.154777447,,,,,,,,,none
+Carroll,Narwani & al.2018,,,Scenedesmus acumitus,Selestrum capricornutum,Phytoplankton,Control,,,,,,,,,1.535167199,0.762561314,-0.075750674,-0.041895337,,,,,,,,,none
+Carroll,Narwani & al.2018,,,Scenedesmus acumitus,Staurastrum punctulatum,Phytoplankton,Control,,,,,,,,,1.535167199,0.907069415,0.148465803,-0.046259547,,,,,,,,,none
+Carroll,Narwani & al.2018,,,Scenedesmus acumitus,Tetraedron minimum,Phytoplankton,Control,,,,,,,,,1.535167199,0.889388547,0.289583008,0.174071138,,,,,,,,,none
+Carroll,Narwani & al.2018,,,Selestrum capricornutum,Chlorella sorokinia,Phytoplankton,Control,,,,,,,,,0.762561314,0.708516936,-0.029142773,0.04708163,,,,,,,,,none
+Carroll,Narwani & al.2018,,,Selestrum capricornutum,Coelastrum microporum,Phytoplankton,Control,,,,,,,,,0.762561314,0.327181659,0.150153878,-0.048610481,,,,,,,,,none
+Carroll,Narwani & al.2018,,,Selestrum capricornutum,Cosmarium turpinii,Phytoplankton,Control,,,,,,,,,0.762561314,0.790585273,0.225967587,0.10386494,,,,,,,,,none
+Carroll,Narwani & al.2018,,,Selestrum capricornutum,Elakatothrix viridis,Phytoplankton,Control,,,,,,,,,0.762561314,0.94002794,0.090035321,-0.051859922,,,,,,,,,none
+Carroll,Narwani & al.2018,,,Selestrum capricornutum,Scenedesmus acumitus,Phytoplankton,Control,,,,,,,,,0.762561314,1.535167199,-0.041895337,-0.075750674,,,,,,,,,none
+Carroll,Narwani & al.2018,,,Selestrum capricornutum,Staurastrum punctulatum,Phytoplankton,Control,,,,,,,,,0.762561314,0.907069415,-0.132478213,0.094990928,,,,,,,,,none
+Carroll,Narwani & al.2018,,,Selestrum capricornutum,Tetraedron minimum,Phytoplankton,Control,,,,,,,,,0.762561314,0.889388547,0.110372385,-0.154846625,,,,,,,,,none
+Carroll,Narwani & al.2018,,,Staurastrum punctulatum,Chlorella sorokinia,Phytoplankton,Control,,,,,,,,,0.907069415,0.708516936,0.128641356,-0.01,,,,,,,,,none
+Carroll,Narwani & al.2018,,,Staurastrum punctulatum,Coelastrum microporum,Phytoplankton,Control,,,,,,,,,0.907069415,0.327181659,0.037063406,0.1,,,,,,,,,none
+Carroll,Narwani & al.2018,,,Staurastrum punctulatum,Cosmarium turpinii,Phytoplankton,Control,,,,,,,,,0.907069415,0.790585273,0.151267241,0.047607208,,,,,,,,,none
+Carroll,Narwani & al.2018,,,Staurastrum punctulatum,Elakatothrix viridis,Phytoplankton,Control,,,,,,,,,0.907069415,0.94002794,0.216937068,-0.051374581,,,,,,,,,none
+Carroll,Narwani & al.2018,,,Staurastrum punctulatum,Scenedesmus acumitus,Phytoplankton,Control,,,,,,,,,0.907069415,1.535167199,-0.046259547,0.148465803,,,,,,,,,none
+Carroll,Narwani & al.2018,,,Staurastrum punctulatum,Selestrum capricornutum,Phytoplankton,Control,,,,,,,,,0.907069415,0.762561314,0.094990928,-0.132478213,,,,,,,,,none
+Carroll,Narwani & al.2018,,,Staurastrum punctulatum,Tetraedron minimum,Phytoplankton,Control,,,,,,,,,0.907069415,0.889388547,0.033368852,0.250166528,,,,,,,,,none
+Carroll,Narwani & al.2018,,,Tetraedron minimum,Chlorella sorokinia,Phytoplankton,Control,,,,,,,,,0.889388547,0.708516936,0.178335731,0.021687062,,,,,,,,,none
+Carroll,Narwani & al.2018,,,Tetraedron minimum,Coelastrum microporum,Phytoplankton,Control,,,,,,,,,0.889388547,0.327181659,-0.17244688,0.33879641,,,,,,,,,none
+Carroll,Narwani & al.2018,,,Tetraedron minimum,Cosmarium turpinii,Phytoplankton,Control,,,,,,,,,0.889388547,0.790585273,-0.119318568,0.118848975,,,,,,,,,none
+Carroll,Narwani & al.2018,,,Tetraedron minimum,Elakatothrix viridis,Phytoplankton,Control,,,,,,,,,0.889388547,0.94002794,-0.062873048,-0.064406118,,,,,,,,,none
+Carroll,Narwani & al.2018,,,Tetraedron minimum,Scenedesmus acumitus,Phytoplankton,Control,,,,,,,,,0.889388547,1.535167199,0.174071138,0.289583008,,,,,,,,,none
+Carroll,Narwani & al.2018,,,Tetraedron minimum,Selestrum capricornutum,Phytoplankton,Control,,,,,,,,,0.889388547,0.762561314,-0.154846625,0.110372385,,,,,,,,,none
+Carroll,Narwani & al.2018,,,Tetraedron minimum,Staurastrum punctulatum,Phytoplankton,Control,,,,,,,,,0.889388547,0.907069415,0.250166528,0.033368852,,,,,,,,,none
+Carroll,Ocampo & al. 2018,,,Azolla pinta,Azolla rubra,Plant,Control,,,,,1.18972746,0.4099419,,,0.037688564,0.023211679,0.022238443,-0.004403893,,,,,,,,,none
+Bimler,Bimler & al. 2018,,,W. acumita,T. cyanopetala,Plant,Control,,,,,,,207.7742837,61.07142857,,,,,,,,,-0.009634811,-0.020556212,-0.039629343,-0.000883661,Annual plant2
+Bimler,Bimler & al. 2018,,,W. acumita,H. glabra,Plant,Control,,,,,,,207.7742837,54.74232645,,,,,,,,,-0.009634811,-0.007863478,-0.008180509,-0.023263133,Annual plant2
+Bimler,Bimler & al. 2018,,,W. acumita,A. calendula,Plant,Control,,,,,,,207.7742837,65.66325758,,,,,,,,,-0.009634811,-0.007095139,-0.00106973,-0.026677345,Annual plant2
+Bimler,Bimler & al. 2018,,,T. cyanopetala,W. acumita,Plant,Control,,,,,,,61.07142857,207.7742837,,,,,,,,,-0.020556212,-0.009634811,-0.000883661,-0.039629343,Annual plant2
+Bimler,Bimler & al. 2018,,,T. cyanopetala,H. glabra,Plant,Control,,,,,,,61.07142857,54.74232645,,,,,,,,,-0.020556212,-0.007863478,-0.009071121,0.006202941,Annual plant2
+Bimler,Bimler & al. 2018,,,T. cyanopetala,A. calendula,Plant,Control,,,,,,,61.07142857,65.66325758,,,,,,,,,-0.020556212,-0.007095139,-0.043588059,-0.004288679,Annual plant2
+Bimler,Bimler & al. 2018,,,H. glabra,W. acumita,Plant,Control,,,,,,,54.74232645,207.7742837,,,,,,,,,-0.007863478,-0.009634811,-0.023263133,-0.008180509,Annual plant2
+Bimler,Bimler & al. 2018,,,H. glabra,T. Cyanopetala,Plant,Control,,,,,,,54.74232645,61.07142857,,,,,,,,,-0.007863478,-0.020556212,0.006202941,-0.009071121,Annual plant2
+Bimler,Bimler & al. 2018,,,H. glabra,A. calendula,Plant,Control,,,,,,,54.74232645,65.66325758,,,,,,,,,-0.007863478,-0.007095139,0.010570244,-0.004910892,Annual plant2
+Bimler,Bimler & al. 2018,,,A. calendula,W. acumita,Plant,Control,,,,,,,65.66325758,207.7742837,,,,,,,,,-0.007095139,-0.009634811,-0.009634811,-0.00106973,Annual plant2
+Bimler,Bimler & al. 2018,,,A. calendula,T. cyanopetala,Plant,Control,,,,,,,65.66325758,61.07142857,,,,,,,,,-0.007095139,-0.020556212,-0.004288679,-0.043588059,Annual plant2
+Bimler,Bimler & al. 2018,,,A. calendula,H. glabra,Plant,Control,,,,,,,65.66325758,54.74232645,,,,,,,,,-0.007095139,-0.007863478,-0.004910892,0.010570244,Annual plant2
+Bimler,Bimler & al. 2018,,,W. acumita,T. cyanopetala,Plant,Control,,,,,,,229.5399873,67.5,,,,,,,,,-0.009011429,-0.002802176,-0.003862883,-0.001155829,Annual plant2
+Bimler,Bimler & al. 2018,,,W. acumita,H. glabra,Plant,Control,,,,,,,229.5399873,56.08644607,,,,,,,,,-0.009011429,-0.007863478,-0.008239777,-0.02160148,Annual plant2
+Bimler,Bimler & al. 2018,,,W. acumita,A. calendula,Plant,Control,,,,,,,229.5399873,54.40669913,,,,,,,,,-0.009011429,-0.002898742,-0.000436123,-0.025003851,Annual plant2
+Bimler,Bimler & al. 2018,,,T. cyanopetala,W. acumita,Plant,Control,,,,,,,67.5,229.5399873,,,,,,,,,-0.002802176,-0.009011429,-0.001155829,-0.003862883,Annual plant2
+Bimler,Bimler & al. 2018,,,T. cyanopetala,H. glabra,Plant,Control,,,,,,,67.5,56.08644607,,,,,,,,,-0.002802176,-0.007863478,-0.01277773,0.000600285,Annual plant2
+Bimler,Bimler & al. 2018,,,T. cyanopetala,A. calendula,Plant,Control,,,,,,,67.5,54.40669913,,,,,,,,,-0.002802176,-0.002898742,-0.024851919,-0.000418921,Annual plant2
+Bimler,Bimler & al. 2018,,,H. glabra,W. acumita,Plant,Control,,,,,,,56.08644607,229.5399873,,,,,,,,,-0.007863478,-0.009011429,-0.02160148,-0.008239777,Annual plant2
+Bimler,Bimler & al. 2018,,,H. glabra,T. cyanopetala,Plant,Control,,,,,,,56.08644607,67.5,,,,,,,,,-0.007863478,-0.002802176,0.000600285,-0.01277773,Annual plant2
+Bimler,Bimler & al. 2018,,,H. glabra,A. calendula,Plant,Control,,,,,,,56.08644607,54.40669913,,,,,,,,,-0.007863478,-0.002898742,0.004278432,-0.004956891,Annual plant2
+Bimler,Bimler & al. 2018,,,A. calendula,W. acumita,Plant,Control,,,,,,,54.40669913,229.5399873,,,,,,,,,-0.002898742,-0.009011429,-0.025003851,-0.000436123,Annual plant2
+Bimler,Bimler & al. 2018,,,A. calendula,T. cyanopetala,Plant,Control,,,,,,,54.40669913,67.5,,,,,,,,,-0.002898742,-0.002802176,-0.000418921,-0.024851919,Annual plant2
+Bimler,Bimler & al. 2018,,,A. calendula,H. glabra,Plant,Control,,,,,,,54.40669913,56.08644607,,,,,,,,,-0.002898742,-0.007863478,-0.004956891,0.004278432,Annual plant2
+Zhao,Zhao.2016,-1.8233,0.101170219,A,AS1,Bacteria,sym,,,,,,,,,,,,,,,,,,,,,none
+Zhao,Zhao.2016,-2.1365,0.047504598,A,AS2,Bacteria,sym,,,,,,,,,,,,,,,,,,,,,none
+Zhao,Zhao.2016,-2.0398,0.054934798,A,AS3,Bacteria,sym,,,,,,,,,,,,,,,,,,,,,none
+Zhao,Zhao.2016,-2.4847,0.17518047,A,AS4,Bacteria,sym,,,,,,,,,,,,,,,,,,,,,none
+Zhao,Zhao.2016,-2.3664,0.005710149,A,AS5,Bacteria,sym,,,,,,,,,,,,,,,,,,,,,none
+Zhao,Zhao.2016,-2.6087,0.076325377,A,AS6,Bacteria,sym,,,,,,,,,,,,,,,,,,,,,none
+Zhao,Zhao.2016,-0.7733,0.150365992,A,AA1,Bacteria,allo,,,,,,,,,,,,,,,,,,,,,none
+Zhao,Zhao.2016,-2.1492,0.101878684,A,AA2,Bacteria,allo,,,,,,,,,,,,,,,,,,,,,none
+Zhao,Zhao.2016,-1.6047,0.198153134,A,AA3,Bacteria,allo,,,,,,,,,,,,,,,,,,,,,none
+Zhao,Zhao.2016,-2.3565,0.194786258,A,AA4,Bacteria,allo,,,,,,,,,,,,,,,,,,,,,none
+Zhao,Zhao.2016,-1.0795,0.07036153,A,AA5,Bacteria,allo,,,,,,,,,,,,,,,,,,,,,none
+Zhao,Zhao.2016,-1.6942,0.063001653,A,AA6,Bacteria,allo,,,,,,,,,,,,,,,,,,,,,none
+Zhao,Zhao.2016,-1.6783,0.306655523,B,BS1,Bacteria,sym,,,,,,,,,,,,,,,,,,,,,none
+Zhao,Zhao.2016,-3.1935,0.066247761,B,BS2,Bacteria,sym,,,,,,,,,,,,,,,,,,,,,none
+Zhao,Zhao.2016,-3.201,0.299568841,B,BS3,Bacteria,sym,,,,,,,,,,,,,,,,,,,,,none
+Zhao,Zhao.2016,-3.3911,0.29884255,B,BS4,Bacteria,sym,,,,,,,,,,,,,,,,,,,,,none
+Zhao,Zhao.2016,-4.7949,0.244117265,B,BS5,Bacteria,sym,,,,,,,,,,,,,,,,,,,,,none
+Zhao,Zhao.2016,-2.8666,0.352266334,B,BS6,Bacteria,sym,,,,,,,,,,,,,,,,,,,,,none
+Zhao,Zhao.2016,-1.5991,0.154649923,B,BA1,Bacteria,allo,,,,,,,,,,,,,,,,,,,,,none
+Zhao,Zhao.2016,-1.6734,0.066616653,B,BA2,Bacteria,allo,,,,,,,,,,,,,,,,,,,,,none
+Zhao,Zhao.2016,-2.3994,0.115019671,B,BA3,Bacteria,allo,,,,,,,,,,,,,,,,,,,,,none
+Zhao,Zhao.2016,-1.4408,0.014782016,B,BA4,Bacteria,allo,,,,,,,,,,,,,,,,,,,,,none
+Zhao,Zhao.2016,-1.3657,0.293901102,B,BA5,Bacteria,allo,,,,,,,,,,,,,,,,,,,,,none
+Zhao,Zhao.2016,-2.2036,0.132559049,B,BA6,Bacteria,allo,,,,,,,,,,,,,,,,,,,,,none
+Zhao,Zhao.2016,-2.116,0.444979126,C,CS1,Bacteria,sym,,,,,,,,,,,,,,,,,,,,,none
+Zhao,Zhao.2016,-2.5638,0.419838592,C,CS2,Bacteria,sym,,,,,,,,,,,,,,,,,,,,,none
+Zhao,Zhao.2016,-2.7435,0.309203859,C,CS3,Bacteria,sym,,,,,,,,,,,,,,,,,,,,,none
+Zhao,Zhao.2016,-2.2647,0.372351779,C,CS4,Bacteria,sym,,,,,,,,,,,,,,,,,,,,,none
+Zhao,Zhao.2016,-1.7458,0.275839095,C,CS5,Bacteria,sym,,,,,,,,,,,,,,,,,,,,,none
+Zhao,Zhao.2016,-2.9081,0.342238149,C,CS6,Bacteria,sym,,,,,,,,,,,,,,,,,,,,,none
+Zhao,Zhao.2016,-0.154,0.146246372,C,CA1,Bacteria,allo,,,,,,,,,,,,,,,,,,,,,none
+Zhao,Zhao.2016,-0.4032,0.125684819,C,CA2,Bacteria,allo,,,,,,,,,,,,,,,,,,,,,none
+Zhao,Zhao.2016,0.1829,0.17687542,C,CA3,Bacteria,allo,,,,,,,,,,,,,,,,,,,,,none
+Zhao,Zhao.2016,-0.1837,0.34573758,C,CA4,Bacteria,allo,,,,,,,,,,,,,,,,,,,,,none
+Zhao,Zhao.2016,-0.9122,0.274712706,C,CA5,Bacteria,allo,,,,,,,,,,,,,,,,,,,,,none
+Zhao,Zhao.2016,-0.7739,0.167324969,C,CA6,Bacteria,allo,,,,,,,,,,,,,,,,,,,,,none
+Zhao,Zhao.2016,-1.9124,0.103383615,D,DS1,Bacteria,sym,,,,,,,,,,,,,,,,,,,,,none
+Zhao,Zhao.2016,-2.5533,0.127927058,D,DS2,Bacteria,sym,,,,,,,,,,,,,,,,,,,,,none
+Zhao,Zhao.2016,-3.6596,0.200264458,D,DS3,Bacteria,sym,,,,,,,,,,,,,,,,,,,,,none
+Zhao,Zhao.2016,-3.7252,0.011656549,D,DS4,Bacteria,sym,,,,,,,,,,,,,,,,,,,,,none
+Zhao,Zhao.2016,-1.8858,0.058699901,D,DS5,Bacteria,sym,,,,,,,,,,,,,,,,,,,,,none
+Zhao,Zhao.2016,-2.2072,0.135842358,D,DS6,Bacteria,sym,,,,,,,,,,,,,,,,,,,,,none
+Zhao,Zhao.2016,-1.5909,0.150036193,D,DA1,Bacteria,allo,,,,,,,,,,,,,,,,,,,,,none
+Zhao,Zhao.2016,-0.1924,0.067463499,D,DA2,Bacteria,allo,,,,,,,,,,,,,,,,,,,,,none
+Zhao,Zhao.2016,-1.5145,0.03461686,D,DA3,Bacteria,allo,,,,,,,,,,,,,,,,,,,,,none
+Zhao,Zhao.2016,-0.4385,0.051146658,D,DA4,Bacteria,allo,,,,,,,,,,,,,,,,,,,,,none
+Zhao,Zhao.2016,-0.9876,0.117973082,D,DA5,Bacteria,allo,,,,,,,,,,,,,,,,,,,,,none
+Zhao,Zhao.2016,-0.8026,0.21786036,D,DA6,Bacteria,allo,,,,,,,,,,,,,,,,,,,,,none
+Zhao,Zhao.2016,-3.2345,0.056898166,E,ES1,Bacteria,sym,,,,,,,,,,,,,,,,,,,,,none
+Zhao,Zhao.2016,-3.082,0.422764521,E,ES2,Bacteria,sym,,,,,,,,,,,,,,,,,,,,,none
+Zhao,Zhao.2016,-2.928,0.141493677,E,ES3,Bacteria,sym,,,,,,,,,,,,,,,,,,,,,none
+Zhao,Zhao.2016,-2.9299,0.124496733,E,ES4,Bacteria,sym,,,,,,,,,,,,,,,,,,,,,none
+Zhao,Zhao.2016,-0.9469,0.094526532,E,ES5,Bacteria,sym,,,,,,,,,,,,,,,,,,,,,none
+Zhao,Zhao.2016,-2.108,0.270366378,E,ES6,Bacteria,sym,,,,,,,,,,,,,,,,,,,,,none
+Zhao,Zhao.2016,-3.5807,0.429595533,E,EA1,Bacteria,allo,,,,,,,,,,,,,,,,,,,,,none
+Zhao,Zhao.2016,-3.1137,0.328410148,E,EA2,Bacteria,allo,,,,,,,,,,,,,,,,,,,,,none
+Zhao,Zhao.2016,-2.2407,0.287479313,E,EA3,Bacteria,allo,,,,,,,,,,,,,,,,,,,,,none
+Zhao,Zhao.2016,-2.5504,0.23624657,E,EA4,Bacteria,allo,,,,,,,,,,,,,,,,,,,,,none
+Zhao,Zhao.2016,-3.237,0.260018273,E,EA5,Bacteria,allo,,,,,,,,,,,,,,,,,,,,,none
+Zhao,Zhao.2016,-2.603,0.150821707,E,EA6,Bacteria,allo,,,,,,,,,,,,,,,,,,,,,none
+Chesson 2012,Adler.2018,,,Eriophorum vagitum,rdus stricta,Plant,Grazing excluded,,,,,,,1,1,,,,,-0.08,-0.15,-0.08,-0.06,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Eriophorum vagitum,rdus stricta,Plant,With grazing,,,,,,,1,1,,,,,-0.12,-0.25,-0.25,-0.06,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,rdus stricta,Eriophorum vagitum,Plant,Grazing excluded,,,,,,,1,1,,,,,-0.15,-0.08,-0.06,-0.08,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,rdus stricta,Eriophorum vagitum,Plant,With grazing,,,,,,,1,1,,,,,-0.25,-0.12,-0.06,-0.25,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Acer pseudoplatanus,Fagus sylvatica,Plant,2004-2005 growth period diameter,,,,,,,1,1,,,,,-129,-129.3,-91.5,-97.6,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Acer pseudoplatanus,Fagus sylvatica,Plant,2006-2008 growth period diameter,,,,,,,1,1,,,,,-98.3,-103.1,-85.7,-67.4,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Acer pseudoplatanus,Fagus sylvatica,Plant,2006-2008 growth period height,,,,,,,1,1,,,,,-451.9,-132.5,-229.4,-202,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Fagus sylvatica,Acer pseudoplatanus,Plant,2004-2005 growth period diameter,,,,,,,1,1,,,,,-129.3,-129,-97.6,-91.5,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Fagus sylvatica,Acer pseudoplatanus,Plant,2004-2005 growth period height,,,,,,,1,1,,,,,101,-129,244.7,-91.5,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Fagus sylvatica,Acer pseudoplatanus,Plant,2006-2008 growth period diameter,,,,,,,1,1,,,,,-103.1,-98.3,-67.4,-85.7,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Fagus sylvatica,Acer pseudoplatanus,Plant,2006-2008 growth period height,,,,,,,1,1,,,,,-132.5,-451.9,-202,-229.4,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Abies balsamea,Populus tremuloides,Plant,,,,,,,,1,1,,,,,-1,-0.28,-1,-0.06,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Abies balsamea,Prunus pensylvanica,Plant,,,,,,,,1,1,,,,,-1,-0.99,-1,-0.33,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Abies balsamea,Betula papyrifera,Plant,,,,,,,,1,1,,,,,-1,-1,-0.8,-0.45,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Betula papyrifera,Prunus pensylvanica,Plant,,,,,,,,1,1,,,,,-1,-0.99,-0.01,-0.41,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Betula papyrifera,Abies balsamea,Plant,,,,,,,,1,1,,,,,-1,-1,-0.45,-0.8,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Betula papyrifera,Populus tremuloides,Plant,,,,,,,,1,1,,,,,-1,-0.28,-0.79,-0.09,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Populus tremuloides,Prunus pensylvanica,Plant,,,,,,,,1,1,,,,,-0.28,-0.99,0,-0.03,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Populus tremuloides,Betula papyrifera,Plant,,,,,,,,1,1,,,,,-0.28,-1,-0.09,-0.79,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Populus tremuloides,Abies balsamea,Plant,,,,,,,,1,1,,,,,-0.28,-1,-0.06,-1,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Prunus pensylvanica,Populus tremuloides,Plant,,,,,,,,1,1,,,,,-0.99,-0.28,-0.03,0,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Prunus pensylvanica,Betula papyrifera,Plant,,,,,,,,1,1,,,,,-0.99,-1,-0.41,-0.01,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Prunus pensylvanica,Abies balsamea,Plant,,,,,,,,1,1,,,,,-0.99,-1,-0.33,-1,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Carex pensylvanica,Schizachryium scoparium,Plant,Fall/spring seasol estimates for models without time lags,,,,,,,1,1,,,,,-0.029,-0.073,-0.071,-0.02,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Carex pensylvanica,Hieracium piloselloides,Plant,Fall/spring seasol estimates for models without time lags,,,,,,,1,1,,,,,-0.029,-0.156,-0.114,-0.005,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Carex pensylvanica,Hieracium piloselloides,Plant,Summer seasol estimates for models without time lags,,,,,,,1,1,,,,,0.012,,0.053,,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Carex pensylvanica,Danthonia spicata,Plant,Summer seasol estimates for models without time lags,,,,,,,1,1,,,,,0.012,,0.028,,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Carex pensylvanica,Schizachryium scoparium,Plant,Summer seasol estimates for models without time lags,,,,,,,1,1,,,,,0.012,,0.01,,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Danthonia spicata,Carex pensylvanica,Plant,Fall/spring seasol estimates for models without time lags,,,,,,,1,1,,,,,-0.013,,-0.019,,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Danthonia spicata,Hieracium piloselloides,Plant,Fall/spring seasol estimates for models without time lags,,,,,,,1,1,,,,,-0.013,-0.156,-0.023,0.103,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Danthonia spicata,Schizachryium scoparium,Plant,Fall/spring seasol estimates for models without time lags,,,,,,,1,1,,,,,-0.013,-0.073,-0.007,0.016,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Hieracium piloselloides,Schizachryium scoparium,Plant,Fall/spring seasol estimates for models without time lags,,,,,,,1,1,,,,,-0.156,-0.073,-0.267,-0.094,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Hieracium piloselloides,Danthonia spicata,Plant,Fall/spring seasol estimates for models without time lags,,,,,,,1,1,,,,,-0.156,-0.013,0.103,-0.023,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Hieracium piloselloides,Carex pensylvanica,Plant,Fall/spring seasol estimates for models without time lags,,,,,,,1,1,,,,,-0.156,-0.029,-0.005,-0.114,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Hieracium piloselloides,Danthonia spicata,Plant,Summer seasol estimates for models without time lags,,,,,,,1,1,,,,,-0.135,,0.027,,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Schizachryium scoparium,Danthonia spicata,Plant,Fall/spring seasol estimates for models without time lags,,,,,,,1,1,,,,,-0.073,-0.013,0.016,-0.007,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Schizachryium scoparium,Carex pensylvanica,Plant,Fall/spring seasol estimates for models without time lags,,,,,,,1,1,,,,,-0.073,-0.029,-0.02,-0.071,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Schizachryium scoparium,Hieracium piloselloides,Plant,Fall/spring seasol estimates for models without time lags,,,,,,,1,1,,,,,-0.073,-0.156,-0.094,-0.267,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Schizachryium scoparium,Danthonia spicata,Plant,Summer seasol estimates for models without time lags,,,,,,,1,1,,,,,-0.02,,0.032,,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Abies sachalinensis,Picea jexoensis,Plant,,,,,,,,1,1,,,,,-0.14,-0.33,-0.11,0,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Picea jexoensis,Abies sachalinensis,Plant,,,,,,,,1,1,,,,,-0.33,-0.14,0,-0.11,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Solanum carolinense,Solidago altissima,Plant,2007-2008 Growing Season,,,,,,,1,1,,,,,-0.01,-0.03,-0.0264,-0.0375,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Solanum carolinense,Solidago altissima,Plant,2008-2009 Growing Season,,,,,,,1,1,,,,,-0.015,-0.007,-0.00462,-0.00009,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Solanum carolinense,Solidago altissima,Plant,2009-2010 Growing Season,,,,,,,1,1,,,,,-0.001,-0.008,-0.00208,-0.0007808,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Solidago altissima,Solanum carolinense,Plant,2007-2008 Growing Season,,,,,,,1,1,,,,,-0.03,-0.01,-0.0375,-0.0264,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Solidago altissima,Solanum carolinense,Plant,2008-2009 Growing Season,,,,,,,1,1,,,,,-0.007,-0.015,-0.00009,-0.00462,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Solidago altissima,Solanum carolinense,Plant,2009-2010 Growing Season,,,,,,,1,1,,,,,-0.008,-0.001,-0.0007808,-0.00208,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Acer saccharum,Fagus grandifolia,Plant,,,,,,,,1,1,,,,,-0.878,N1,-0.78,N1,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Cerastium demidecandrum,Myosotis ramosissima,Plant,A,,,,,,,1,1,,,,,-1,-1,-0.0103,-0.0001,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Cerastium demidecandrum,Erophila ver,Plant,A,,,,,,,1,1,,,,,-1,-1,-0.0001,-0.1497,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Cerastium demidecandrum,Valerianella locusta,Plant,A,,,,,,,1,1,,,,,-1,-1,-0.042,-0.0001,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Cerastium demidecandrum,Valerianella locusta,Plant,B,,,,,,,1,1,,,,,-1,-1,-0.2008,-0.0069,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Cerastium demidecandrum,Myosotis ramosissima,Plant,B,,,,,,,1,1,,,,,-1,-1,-0.0137,-0.0766,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Cerastium demidecandrum,Erophila ver,Plant,B,,,,,,,1,1,,,,,-1,-1,-0.0001,-0.0001,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Erophila ver,Myosotis ramosissima,Plant,A,,,,,,,1,1,,,,,-1,-1,-0.0309,-0.0001,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Erophila ver,Cerastium demidecandrum,Plant,A,,,,,,,1,1,,,,,-1,-1,-0.1497,-0.0001,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Erophila ver,Valerianella locusta,Plant,A,,,,,,,1,1,,,,,-1,-1,-0.0001,-0.0816,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Erophila ver,Cerastium demidecandrum,Plant,B,,,,,,,1,1,,,,,-1,-1,-0.0001,-0.0001,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Erophila ver,Myosotis ramosissima,Plant,B,,,,,,,1,1,,,,,-1,-1,-0.0001,-0.1149,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Erophila ver,Valerianella locusta,Plant,B,,,,,,,1,1,,,,,-1,-1,-4.3975,-0.0001,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Myosotis ramosissima,Cerastium demidecandrum,Plant,A,,,,,,,1,1,,,,,-1,-1,-0.0001,-0.0103,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Myosotis ramosissima,Erophila ver,Plant,A,,,,,,,1,1,,,,,-1,-1,-0.0001,-0.0309,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Myosotis ramosissima,Valerianella locusta,Plant,A,,,,,,,1,1,,,,,-1,-1,-0.098,-0.3397,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Myosotis ramosissima,Erophila ver,Plant,B,,,,,,,1,1,,,,,-1,-1,-0.1149,-0.0001,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Myosotis ramosissima,Cerastium demidecandrum,Plant,B,,,,,,,1,1,,,,,-1,-1,-0.0766,-0.0137,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Myosotis ramosissima,Valerianella locusta,Plant,B,,,,,,,1,1,,,,,-1,-1,-0.5521,-0.0001,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Valerianella locusta,Myosotis ramosissima,Plant,A,,,,,,,1,1,,,,,-1,-1,-0.3397,-0.098,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Valerianella locusta,Erophila ver,Plant,A,,,,,,,1,1,,,,,-1,-1,-0.0816,-0.0001,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Valerianella locusta,Cerastium demidecandrum,Plant,A,,,,,,,1,1,,,,,-1,-1,-0.0001,-0.042,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Valerianella locusta,Erophila ver,Plant,B,,,,,,,1,1,,,,,-1,-1,-0.0001,-4.3975,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Valerianella locusta,Myosotis ramosissima,Plant,B,,,,,,,1,1,,,,,-1,-1,-0.0001,-0.5521,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Valerianella locusta,Cerastium demidecandrum,Plant,B,,,,,,,1,1,,,,,-1,-1,-0.0069,-0.2008,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Acacia mangium,Melastoma beccarianum,Plant,High Light,,,,,,,1,1,,,,,-0.137,-0.225,-0.122,-0.046,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Acacia mangium,Melastoma beccarianum,Plant,Low light,,,,,,,1,1,,,,,-0.083,-0.194,-0.089,-0.122,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Melastoma beccarianum,Acacia mangium,Plant,High Light,,,,,,,1,1,,,,,-0.225,-0.137,-0.046,-0.122,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Melastoma beccarianum,Acacia mangium,Plant,Low light,,,,,,,1,1,,,,,-0.194,-0.083,-0.122,-0.089,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Abies alba,Picea abies,Plant,,,,,,,,1,1,,,,,-0.026,,-0.00680108,,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Lolium rigidum,Trifolium subterraneum,Plant,first year estimates,,,,,,,1,1,,,,,-0.003,-0.01,-0.04184,-0.000001,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Lolium rigidum,Vulpia bromoides,Plant,first year estimates,,,,,,,1,1,,,,,-0.003,-0.013,-0.02203,-0.0039,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Lolium rigidum,Trifolium subterraneum,Plant,second year estimates,,,,,,,1,1,,,,,-0.003,-0.01,-0.00273,-0.000001,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Lolium rigidum,Vulpia bromoides,Plant,second year estimates,,,,,,,1,1,,,,,-0.003,-0.013,-0.02203,-0.0039,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Lolium rigidum,Vulpia bromoides,Plant,third year estimates,,,,,,,1,1,,,,,-0.003,-0.013,-0.02203,-0.000001,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Lolium rigidum,Trifolium subterraneum,Plant,third year estimates,,,,,,,1,1,,,,,-0.003,-0.01,-0.00273,-0.0039,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Trifolium subterraneum,Vulpia bromoides,Plant,first year estimates,,,,,,,1,1,,,,,-0.01,-0.013,-0.00238,-0.00034,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Trifolium subterraneum,Lolium rigidum,Plant,first year estimates,,,,,,,1,1,,,,,-0.01,-0.003,-0.000001,-0.04184,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Trifolium subterraneum,Lolium rigidum,Plant,second year estimates,,,,,,,1,1,,,,,-0.01,-0.003,-0.000001,-0.00273,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Trifolium subterraneum,Vulpia bromoides,Plant,second year estimates,,,,,,,1,1,,,,,-0.01,-0.013,-0.00238,-0.00034,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Trifolium subterraneum,Lolium rigidum,Plant,third year estimates,,,,,,,1,1,,,,,-0.01,-0.003,-0.000001,-0.02203,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Trifolium subterraneum,Vulpia bromoides,Plant,third year estimates,,,,,,,1,1,,,,,-0.01,-0.013,-0.00238,-0.00034,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Vulpia bromoides,Trifolium subterraneum,Plant,first year estimates,,,,,,,1,1,,,,,-0.013,-0.01,-0.00034,-0.00238,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Vulpia bromoides,Lolium rigidum,Plant,first year estimates,,,,,,,1,1,,,,,-0.013,-0.003,-0.0039,-0.02203,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Vulpia bromoides,Trifolium subterraneum,Plant,second year estimates,,,,,,,1,1,,,,,-0.013,-0.01,-0.00034,-0.00238,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Vulpia bromoides,Lolium rigidum,Plant,second year estimates,,,,,,,1,1,,,,,-0.013,-0.003,-0.0039,-0.02203,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Vulpia bromoides,Trifolium subterraneum,Plant,third year estimates,,,,,,,1,1,,,,,-0.013,-0.01,-0.00034,-0.00238,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Vulpia bromoides,Lolium rigidum,Plant,third year estimates,,,,,,,1,1,,,,,-0.013,-0.003,-0.0039,-0.00273,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Pinus sylvestris,Quercus petraea,Plant,,,,,,,,1,1,,,,,-0.086,,-0.094,,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Bromus tectorum,Centaurea solstitialis,Plant,Control,,,,,,,1,1,,,,,-0.32,-1.05,-0.19,-0.56,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Centaurea solstitialis,Bromus tectorum,Plant,Control,,,,,,,1,1,,,,,-1.05,-0.32,-0.56,-0.19,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Bouteloua curtipendula,Schizachryium scoparium,Plant,,,,,,,,1,1,,,,,-12.726,-1.547,-2.52537779,-8.9984452,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Bouteloua curtipendula,Bouteloua hirsuta,Plant,,,,,,,,1,1,,,,,-12.726,-12.647,-1.5974706,-9.14409165,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Bouteloua hirsuta,Bouteloua curtipendula,Plant,,,,,,,,1,1,,,,,-12.647,-12.726,-9.14409165,-1.5974706,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Bouteloua hirsuta,Schizachryium scoparium,Plant,,,,,,,,1,1,,,,,-12.647,-1.547,-13.56903005,-15.8161805,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Schizachryium scoparium,Bouteloua curtipendula,Plant,,,,,,,,1,1,,,,,-1.547,-12.726,-8.9984452,-2.52537779,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Schizachryium scoparium,Bouteloua hirsuta,Plant,,,,,,,,1,1,,,,,-1.547,-12.647,-15.8161805,-13.56903005,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Ammophila areria,Ammophila breviligulata,Plant,104 days high sand,,,,,,,1,1,,,,,-1,-1,0.03027,-0.14021,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Ammophila areria,Elymus mollis,Plant,104 days high sand,,,,,,,1,1,,,,,-1,-1,4.53254,-0.73712,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Ammophila areria,Ammophila breviligulata,Plant,104 days low sand,,,,,,,1,1,,,,,-1,-1,0.59469,0.22502,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Ammophila areria,Elymus mollis,Plant,104 days low sand,,,,,,,1,1,,,,,-1,-1,0.77372,-0.68281,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Ammophila areria,Ammophila breviligulata,Plant,104 days mid sand,,,,,,,1,1,,,,,-1,-1,0.59003,-0.07518,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Ammophila areria,Elymus mollis,Plant,104 days mid sand,,,,,,,1,1,,,,,-1,-1,0.01004,0.23207,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Ammophila areria,Ammophila breviligulata,Plant,120 days high sand,,,,,,,1,1,,,,,-1,-1,0.02377,-0.32339,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Ammophila areria,Elymus mollis,Plant,120 days high sand,,,,,,,1,1,,,,,-1,-1,2.20272,2.05534,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Ammophila areria,Elymus mollis,Plant,120 days low sand,,,,,,,1,1,,,,,-1,-1,0.05101,-0.36164,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Ammophila areria,Ammophila breviligulata,Plant,120 days low sand,,,,,,,1,1,,,,,-1,-1,0.41901,0.10321,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Ammophila areria,Elymus mollis,Plant,120 days mid sand,,,,,,,1,1,,,,,-1,-1,-0.29004,0.87675,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Ammophila areria,Ammophila breviligulata,Plant,120 days mid sand,,,,,,,1,1,,,,,-1,-1,0.75015,-0.15931,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Ammophila areria,Elymus mollis,Plant,136 days high sand,,,,,,,1,1,,,,,-1,-1,2.06519,0.63168,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Ammophila areria,Ammophila breviligulata,Plant,136 days high sand,,,,,,,1,1,,,,,-1,-1,0.00507,-0.32182,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Ammophila areria,Ammophila breviligulata,Plant,136 days low sand,,,,,,,1,1,,,,,-1,-1,0.8963,0.12197,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Ammophila areria,Elymus mollis,Plant,136 days low sand,,,,,,,1,1,,,,,-1,-1,-0.56846,0.09903,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Ammophila areria,Elymus mollis,Plant,136 days mid sand,,,,,,,1,1,,,,,-1,-1,-0.12814,1.5562,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Ammophila areria,Ammophila breviligulata,Plant,136 days mid sand,,,,,,,1,1,,,,,-1,-1,0.76469,-0.04886,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Ammophila areria,Elymus mollis,Plant,152 days high sand,,,,,,,1,1,,,,,-1,-1,1.44814,-0.96556,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Ammophila areria,Ammophila breviligulata,Plant,152 days high sand,,,,,,,1,1,,,,,-1,-1,0.0061,0.05109,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Ammophila areria,Elymus mollis,Plant,152 days low sand,,,,,,,1,1,,,,,-1,-1,0.33781,-3.8907,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Ammophila areria,Ammophila breviligulata,Plant,152 days low sand,,,,,,,1,1,,,,,-1,-1,0.31164,0.25946,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Ammophila areria,Elymus mollis,Plant,152 days mid sand,,,,,,,1,1,,,,,-1,-1,-2.1287,1.15169,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Ammophila areria,Ammophila breviligulata,Plant,152 days mid sand,,,,,,,1,1,,,,,-1,-1,0.92336,0.02881,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Ammophila areria,Ammophila breviligulata,Plant,168 days high sand,,,,,,,1,1,,,,,-1,-1,0.02823,0.54759,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Ammophila areria,Elymus mollis,Plant,168 days high sand,,,,,,,1,1,,,,,-1,-1,-4.69716,-2.64168,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Ammophila areria,Elymus mollis,Plant,168 days low sand,,,,,,,1,1,,,,,-1,-1,-0.08882,-1.3087,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Ammophila areria,Ammophila breviligulata,Plant,168 days low sand,,,,,,,1,1,,,,,-1,-1,0.35827,0.21407,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Ammophila areria,Ammophila breviligulata,Plant,168 days mid sand,,,,,,,1,1,,,,,-1,-1,0.26476,0.45495,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Ammophila areria,Elymus mollis,Plant,168 days mid sand,,,,,,,1,1,,,,,-1,-1,-0.12879,4.6417,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Ammophila areria,Ammophila breviligulata,Plant,24 days high sand,,,,,,,1,1,,,,,-1,-1,0.00998,-0.19274,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Ammophila areria,Elymus mollis,Plant,24 days high sand,,,,,,,1,1,,,,,-1,-1,1.30015,3.10387,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Ammophila areria,Ammophila breviligulata,Plant,24 days low sand,,,,,,,1,1,,,,,-1,-1,0.05362,0.81819,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Ammophila areria,Elymus mollis,Plant,24 days low sand,,,,,,,1,1,,,,,-1,-1,-1.34165,-0.3725,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Ammophila areria,Elymus mollis,Plant,24 days mid sand,,,,,,,1,1,,,,,-1,-1,0.35421,15.43597,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Ammophila areria,Ammophila breviligulata,Plant,24 days mid sand,,,,,,,1,1,,,,,-1,-1,1.24268,-1.22919,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Ammophila areria,Ammophila breviligulata,Plant,40 days high sand,,,,,,,1,1,,,,,-1,-1,0.10777,0.01728,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Ammophila areria,Elymus mollis,Plant,40 days high sand,,,,,,,1,1,,,,,-1,-1,5.39485,-8.4674,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Ammophila areria,Elymus mollis,Plant,40 days low sand,,,,,,,1,1,,,,,-1,-1,2.46668,-0.23011,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Ammophila areria,Ammophila breviligulata,Plant,40 days low sand,,,,,,,1,1,,,,,-1,-1,0.18987,0.68218,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Ammophila areria,Ammophila breviligulata,Plant,40 days mid sand,,,,,,,1,1,,,,,-1,-1,1.36454,0.44492,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Ammophila areria,Elymus mollis,Plant,40 days mid sand,,,,,,,1,1,,,,,-1,-1,0.21882,7.9643,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Ammophila areria,Ammophila breviligulata,Plant,56 days high sand,,,,,,,1,1,,,,,-1,-1,0.06163,-0.12808,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Ammophila areria,Elymus mollis,Plant,56 days high sand,,,,,,,1,1,,,,,-1,-1,-4.40414,3.8417,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Ammophila areria,Ammophila breviligulata,Plant,56 days low sand,,,,,,,1,1,,,,,-1,-1,0.06363,0.54456,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Ammophila areria,Elymus mollis,Plant,56 days low sand,,,,,,,1,1,,,,,-1,-1,-0.2964,-0.49178,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Ammophila areria,Ammophila breviligulata,Plant,56 days mid sand,,,,,,,1,1,,,,,-1,-1,1.60756,-0.02696,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Ammophila areria,Elymus mollis,Plant,56 days mid sand,,,,,,,1,1,,,,,-1,-1,-1.62473,10.84995,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Ammophila areria,Ammophila breviligulata,Plant,72 days high sand,,,,,,,1,1,,,,,-1,-1,0.01787,-0.30762,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Ammophila areria,Elymus mollis,Plant,72 days high sand,,,,,,,1,1,,,,,-1,-1,2.0408,-0.10191,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Ammophila areria,Ammophila breviligulata,Plant,72 days low sand,,,,,,,1,1,,,,,-1,-1,0.78611,0.09229,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Ammophila areria,Elymus mollis,Plant,72 days low sand,,,,,,,1,1,,,,,-1,-1,0.23087,-0.13834,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Ammophila areria,Elymus mollis,Plant,72 days mid sand,,,,,,,1,1,,,,,-1,-1,0.23573,-1.47262,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Ammophila areria,Ammophila breviligulata,Plant,72 days mid sand,,,,,,,1,1,,,,,-1,-1,2.18118,0.2116,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Ammophila areria,Elymus mollis,Plant,88 days high sand,,,,,,,1,1,,,,,-1,-1,4.55629,3.58175,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Ammophila areria,Ammophila breviligulata,Plant,88 days high sand,,,,,,,1,1,,,,,-1,-1,0.02962,-1.15451,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Ammophila areria,Ammophila breviligulata,Plant,88 days low sand,,,,,,,1,1,,,,,-1,-1,0.34516,0.09994,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Ammophila areria,Elymus mollis,Plant,88 days low sand,,,,,,,1,1,,,,,-1,-1,0.50863,-0.20699,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Ammophila areria,Elymus mollis,Plant,88 days mid sand,,,,,,,1,1,,,,,-1,-1,0.40051,4.76545,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Ammophila areria,Ammophila breviligulata,Plant,88 days mid sand,,,,,,,1,1,,,,,-1,-1,0.68427,-0.71686,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Ammophila breviligulata,Ammophila areria,Plant,104 days high sand,,,,,,,1,1,,,,,-1,-1,-0.14021,0.03027,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Ammophila breviligulata,Elymus mollis,Plant,104 days high sand,,,,,,,1,1,,,,,-1,-1,-0.98066,2.21577,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Ammophila breviligulata,Elymus mollis,Plant,104 days low sand,,,,,,,1,1,,,,,-1,-1,-0.66125,0.12791,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Ammophila breviligulata,Ammophila areria,Plant,104 days low sand,,,,,,,1,1,,,,,-1,-1,0.22502,0.59469,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Ammophila breviligulata,Ammophila areria,Plant,104 days mid sand,,,,,,,1,1,,,,,-1,-1,-0.07518,0.59003,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Ammophila breviligulata,Elymus mollis,Plant,104 days mid sand,,,,,,,1,1,,,,,-1,-1,0.17602,1.09162,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Ammophila breviligulata,Elymus mollis,Plant,120 days high sand,,,,,,,1,1,,,,,-1,-1,-0.8935,2.56651,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Ammophila breviligulata,Ammophila areria,Plant,120 days high sand,,,,,,,1,1,,,,,-1,-1,-0.32339,0.02377,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Ammophila breviligulata,Elymus mollis,Plant,120 days low sand,,,,,,,1,1,,,,,-1,-1,0.06148,-0.18956,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Ammophila breviligulata,Ammophila areria,Plant,120 days low sand,,,,,,,1,1,,,,,-1,-1,0.10321,0.41901,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Ammophila breviligulata,Elymus mollis,Plant,120 days mid sand,,,,,,,1,1,,,,,-1,-1,0.18322,0.42357,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Ammophila breviligulata,Ammophila areria,Plant,120 days mid sand,,,,,,,1,1,,,,,-1,-1,-0.15931,0.75015,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Ammophila breviligulata,Ammophila areria,Plant,136 days high sand,,,,,,,1,1,,,,,-1,-1,-0.32182,0.00507,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Ammophila breviligulata,Elymus mollis,Plant,136 days high sand,,,,,,,1,1,,,,,-1,-1,-0.88302,0.83593,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Ammophila breviligulata,Ammophila areria,Plant,136 days low sand,,,,,,,1,1,,,,,-1,-1,0.12197,0.8963,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Ammophila breviligulata,Elymus mollis,Plant,136 days low sand,,,,,,,1,1,,,,,-1,-1,0.59228,-0.24845,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Ammophila breviligulata,Elymus mollis,Plant,136 days mid sand,,,,,,,1,1,,,,,-1,-1,0.07507,0.33242,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Ammophila breviligulata,Ammophila areria,Plant,136 days mid sand,,,,,,,1,1,,,,,-1,-1,-0.04886,0.76469,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Ammophila breviligulata,Elymus mollis,Plant,152 days high sand,,,,,,,1,1,,,,,-1,-1,-0.47457,3.19748,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Ammophila breviligulata,Ammophila areria,Plant,152 days high sand,,,,,,,1,1,,,,,-1,-1,0.05109,0.0061,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Ammophila breviligulata,Elymus mollis,Plant,152 days low sand,,,,,,,1,1,,,,,-1,-1,-0.26012,-1.4297,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Ammophila breviligulata,Ammophila areria,Plant,152 days low sand,,,,,,,1,1,,,,,-1,-1,0.25946,0.31164,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Ammophila breviligulata,Ammophila areria,Plant,152 days mid sand,,,,,,,1,1,,,,,-1,-1,0.02881,0.92336,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Ammophila breviligulata,Elymus mollis,Plant,152 days mid sand,,,,,,,1,1,,,,,-1,-1,0.02177,4.2414,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Ammophila breviligulata,Ammophila areria,Plant,168 days high sand,,,,,,,1,1,,,,,-1,-1,0.54759,0.02823,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Ammophila breviligulata,Elymus mollis,Plant,168 days high sand,,,,,,,1,1,,,,,-1,-1,2.83866,3.60576,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Ammophila breviligulata,Ammophila areria,Plant,168 days low sand,,,,,,,1,1,,,,,-1,-1,0.21407,0.35827,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Ammophila breviligulata,Elymus mollis,Plant,168 days low sand,,,,,,,1,1,,,,,-1,-1,0.13934,-3.7025,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Ammophila breviligulata,Ammophila areria,Plant,168 days mid sand,,,,,,,1,1,,,,,-1,-1,0.45495,0.26476,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Ammophila breviligulata,Elymus mollis,Plant,168 days mid sand,,,,,,,1,1,,,,,-1,-1,0.20768,0.20768,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Ammophila breviligulata,Ammophila areria,Plant,24 days high sand,,,,,,,1,1,,,,,-1,-1,-0.19274,0.00998,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Ammophila breviligulata,Elymus mollis,Plant,24 days high sand,,,,,,,1,1,,,,,-1,-1,-0.55157,5.06083,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Ammophila breviligulata,Ammophila areria,Plant,24 days low sand,,,,,,,1,1,,,,,-1,-1,0.81819,0.05362,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Ammophila breviligulata,Elymus mollis,Plant,24 days low sand,,,,,,,1,1,,,,,-1,-1,0.45252,-0.40189,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Ammophila breviligulata,Ammophila areria,Plant,24 days mid sand,,,,,,,1,1,,,,,-1,-1,-1.22919,1.24268,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Ammophila breviligulata,Elymus mollis,Plant,24 days mid sand,,,,,,,1,1,,,,,-1,-1,-0.48685,-0.49859,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Ammophila breviligulata,Elymus mollis,Plant,40 days high sand,,,,,,,1,1,,,,,-1,-1,-1.66682,16.70079,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Ammophila breviligulata,Ammophila areria,Plant,40 days high sand,,,,,,,1,1,,,,,-1,-1,0.01728,0.10777,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Ammophila breviligulata,Ammophila areria,Plant,40 days low sand,,,,,,,1,1,,,,,-1,-1,0.68218,0.18987,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Ammophila breviligulata,Elymus mollis,Plant,40 days low sand,,,,,,,1,1,,,,,-1,-1,-1.94335,-0.20539,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Ammophila breviligulata,Elymus mollis,Plant,40 days mid sand,,,,,,,1,1,,,,,-1,-1,-0.40844,0.82013,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Ammophila breviligulata,Ammophila areria,Plant,40 days mid sand,,,,,,,1,1,,,,,-1,-1,0.44492,1.36454,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Ammophila breviligulata,Ammophila areria,Plant,56 days high sand,,,,,,,1,1,,,,,-1,-1,-0.12808,0.06163,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Ammophila breviligulata,Elymus mollis,Plant,56 days high sand,,,,,,,1,1,,,,,-1,-1,1.96758,9.02738,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Ammophila breviligulata,Ammophila areria,Plant,56 days low sand,,,,,,,1,1,,,,,-1,-1,0.54456,0.06363,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Ammophila breviligulata,Elymus mollis,Plant,56 days low sand,,,,,,,1,1,,,,,-1,-1,0.3728,-0.14503,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Ammophila breviligulata,Ammophila areria,Plant,56 days mid sand,,,,,,,1,1,,,,,-1,-1,-0.02696,1.60756,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Ammophila breviligulata,Elymus mollis,Plant,56 days mid sand,,,,,,,1,1,,,,,-1,-1,0.42326,-2.43479,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Ammophila breviligulata,Ammophila areria,Plant,72 days high sand,,,,,,,1,1,,,,,-1,-1,-0.30762,0.01787,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Ammophila breviligulata,Elymus mollis,Plant,72 days high sand,,,,,,,1,1,,,,,-1,-1,-0.54648,1.64622,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Ammophila breviligulata,Ammophila areria,Plant,72 days low sand,,,,,,,1,1,,,,,-1,-1,0.09229,0.78611,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Ammophila breviligulata,Elymus mollis,Plant,72 days low sand,,,,,,,1,1,,,,,-1,-1,-0.16388,-0.23914,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Ammophila breviligulata,Elymus mollis,Plant,72 days mid sand,,,,,,,1,1,,,,,-1,-1,0.13775,0.29067,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Ammophila breviligulata,Ammophila areria,Plant,72 days mid sand,,,,,,,1,1,,,,,-1,-1,0.2116,2.18118,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Ammophila breviligulata,Ammophila areria,Plant,88 days high sand,,,,,,,1,1,,,,,-1,-1,-1.15451,0.02962,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Ammophila breviligulata,Elymus mollis,Plant,88 days high sand,,,,,,,1,1,,,,,-1,-1,-1.9945,2.79514,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Ammophila breviligulata,Ammophila areria,Plant,88 days low sand,,,,,,,1,1,,,,,-1,-1,0.09994,0.34516,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Ammophila breviligulata,Elymus mollis,Plant,88 days low sand,,,,,,,1,1,,,,,-1,-1,-0.36964,-0.24449,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Ammophila breviligulata,Ammophila areria,Plant,88 days mid sand,,,,,,,1,1,,,,,-1,-1,-0.71686,0.68427,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Ammophila breviligulata,Elymus mollis,Plant,88 days mid sand,,,,,,,1,1,,,,,-1,-1,-0.3791,1.06377,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Elymus mollis,Ammophila areria,Plant,104 days high sand,,,,,,,1,1,,,,,-1,-1,-0.73712,4.53254,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Elymus mollis,Ammophila breviligulata,Plant,104 days high sand,,,,,,,1,1,,,,,-1,-1,2.21577,-0.98066,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Elymus mollis,Ammophila areria,Plant,104 days low sand,,,,,,,1,1,,,,,-1,-1,-0.68281,0.77372,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Elymus mollis,Ammophila breviligulata,Plant,104 days low sand,,,,,,,1,1,,,,,-1,-1,0.12791,-0.66125,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Elymus mollis,Ammophila breviligulata,Plant,104 days mid sand,,,,,,,1,1,,,,,-1,-1,1.09162,0.17602,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Elymus mollis,Ammophila areria,Plant,104 days mid sand,,,,,,,1,1,,,,,-1,-1,0.23207,0.01004,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Elymus mollis,Ammophila areria,Plant,120 days high sand,,,,,,,1,1,,,,,-1,-1,2.05534,2.20272,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Elymus mollis,Ammophila breviligulata,Plant,120 days high sand,,,,,,,1,1,,,,,-1,-1,2.56651,-0.8935,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Elymus mollis,Ammophila breviligulata,Plant,120 days low sand,,,,,,,1,1,,,,,-1,-1,-0.18956,0.06148,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Elymus mollis,Ammophila areria,Plant,120 days low sand,,,,,,,1,1,,,,,-1,-1,-0.36164,0.05101,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Elymus mollis,Ammophila areria,Plant,120 days mid sand,,,,,,,1,1,,,,,-1,-1,0.87675,-0.29004,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Elymus mollis,Ammophila breviligulata,Plant,120 days mid sand,,,,,,,1,1,,,,,-1,-1,0.42357,0.18322,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Elymus mollis,Ammophila areria,Plant,136 days high sand,,,,,,,1,1,,,,,-1,-1,0.63168,2.06519,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Elymus mollis,Ammophila breviligulata,Plant,136 days high sand,,,,,,,1,1,,,,,-1,-1,0.83593,-0.88302,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Elymus mollis,Ammophila areria,Plant,136 days low sand,,,,,,,1,1,,,,,-1,-1,0.09903,-0.56846,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Elymus mollis,Ammophila breviligulata,Plant,136 days low sand,,,,,,,1,1,,,,,-1,-1,-0.24845,0.59228,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Elymus mollis,Ammophila breviligulata,Plant,136 days mid sand,,,,,,,1,1,,,,,-1,-1,0.33242,0.07507,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Elymus mollis,Ammophila areria,Plant,136 days mid sand,,,,,,,1,1,,,,,-1,-1,1.5562,-0.12814,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Elymus mollis,Ammophila areria,Plant,152 days high sand,,,,,,,1,1,,,,,-1,-1,-0.96556,1.44814,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Elymus mollis,Ammophila breviligulata,Plant,152 days high sand,,,,,,,1,1,,,,,-1,-1,3.19748,-0.47457,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Elymus mollis,Ammophila areria,Plant,152 days low sand,,,,,,,1,1,,,,,-1,-1,-3.8907,0.33781,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Elymus mollis,Ammophila breviligulata,Plant,152 days low sand,,,,,,,1,1,,,,,-1,-1,-1.4297,-0.26012,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Elymus mollis,Ammophila breviligulata,Plant,152 days mid sand,,,,,,,1,1,,,,,-1,-1,4.2414,0.02177,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Elymus mollis,Ammophila areria,Plant,152 days mid sand,,,,,,,1,1,,,,,-1,-1,1.15169,-2.1287,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Elymus mollis,Ammophila areria,Plant,168 days high sand,,,,,,,1,1,,,,,-1,-1,-2.64168,-4.69716,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Elymus mollis,Ammophila breviligulata,Plant,168 days high sand,,,,,,,1,1,,,,,-1,-1,3.60576,2.83866,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Elymus mollis,Ammophila breviligulata,Plant,168 days low sand,,,,,,,1,1,,,,,-1,-1,-3.7025,0.13934,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Elymus mollis,Ammophila areria,Plant,168 days low sand,,,,,,,1,1,,,,,-1,-1,-1.3087,-0.08882,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Elymus mollis,Ammophila areria,Plant,168 days mid sand,,,,,,,1,1,,,,,-1,-1,4.6417,-0.12879,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Elymus mollis,Ammophila breviligulata,Plant,168 days mid sand,,,,,,,1,1,,,,,-1,-1,2.4884,0.20768,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Elymus mollis,Ammophila breviligulata,Plant,24 days high sand,,,,,,,1,1,,,,,-1,-1,5.06083,-0.55157,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Elymus mollis,Ammophila areria,Plant,24 days high sand,,,,,,,1,1,,,,,-1,-1,3.10387,1.30015,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Elymus mollis,Ammophila areria,Plant,24 days low sand,,,,,,,1,1,,,,,-1,-1,-0.3725,-1.34165,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Elymus mollis,Ammophila breviligulata,Plant,24 days low sand,,,,,,,1,1,,,,,-1,-1,-0.40189,0.45252,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Elymus mollis,Ammophila breviligulata,Plant,24 days mid sand,,,,,,,1,1,,,,,-1,-1,-0.49859,-0.48685,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Elymus mollis,Ammophila areria,Plant,24 days mid sand,,,,,,,1,1,,,,,-1,-1,15.43597,0.35421,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Elymus mollis,Ammophila breviligulata,Plant,40 days high sand,,,,,,,1,1,,,,,-1,-1,16.70079,-1.66682,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Elymus mollis,Ammophila areria,Plant,40 days high sand,,,,,,,1,1,,,,,-1,-1,-8.4674,5.39485,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Elymus mollis,Ammophila areria,Plant,40 days low sand,,,,,,,1,1,,,,,-1,-1,-0.23011,2.46668,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Elymus mollis,Ammophila breviligulata,Plant,40 days low sand,,,,,,,1,1,,,,,-1,-1,-0.20539,-1.94335,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Elymus mollis,Ammophila breviligulata,Plant,40 days mid sand,,,,,,,1,1,,,,,-1,-1,0.82013,-0.40844,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Elymus mollis,Ammophila areria,Plant,40 days mid sand,,,,,,,1,1,,,,,-1,-1,7.9643,0.21882,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Elymus mollis,Ammophila areria,Plant,56 days high sand,,,,,,,1,1,,,,,-1,-1,3.8417,-4.40414,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Elymus mollis,Ammophila breviligulata,Plant,56 days high sand,,,,,,,1,1,,,,,-1,-1,9.02738,1.96758,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Elymus mollis,Ammophila breviligulata,Plant,56 days low sand,,,,,,,1,1,,,,,-1,-1,-0.14503,0.3728,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Elymus mollis,Ammophila areria,Plant,56 days low sand,,,,,,,1,1,,,,,-1,-1,-0.49178,-0.2964,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Elymus mollis,Ammophila areria,Plant,56 days mid sand,,,,,,,1,1,,,,,-1,-1,10.84995,-1.62473,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Elymus mollis,Ammophila breviligulata,Plant,56 days mid sand,,,,,,,1,1,,,,,-1,-1,-2.43479,0.42326,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Elymus mollis,Ammophila breviligulata,Plant,72 days high sand,,,,,,,1,1,,,,,-1,-1,1.64622,-0.54648,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Elymus mollis,Ammophila areria,Plant,72 days high sand,,,,,,,1,1,,,,,-1,-1,-0.10191,2.0408,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Elymus mollis,Ammophila areria,Plant,72 days low sand,,,,,,,1,1,,,,,-1,-1,-0.13834,0.23087,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Elymus mollis,Ammophila breviligulata,Plant,72 days low sand,,,,,,,1,1,,,,,-1,-1,-0.23914,-0.16388,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Elymus mollis,Ammophila areria,Plant,72 days mid sand,,,,,,,1,1,,,,,-1,-1,-1.47262,0.23573,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Elymus mollis,Ammophila breviligulata,Plant,72 days mid sand,,,,,,,1,1,,,,,-1,-1,0.29067,0.13775,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Elymus mollis,Ammophila areria,Plant,88 days high sand,,,,,,,1,1,,,,,-1,-1,3.58175,4.55629,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Elymus mollis,Ammophila breviligulata,Plant,88 days high sand,,,,,,,1,1,,,,,-1,-1,2.79514,-1.9945,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Elymus mollis,Ammophila breviligulata,Plant,88 days low sand,,,,,,,1,1,,,,,-1,-1,-0.24449,-0.36964,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Elymus mollis,Ammophila areria,Plant,88 days low sand,,,,,,,1,1,,,,,-1,-1,-0.20699,0.50863,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Elymus mollis,Ammophila areria,Plant,88 days mid sand,,,,,,,1,1,,,,,-1,-1,4.76545,0.40051,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Elymus mollis,Ammophila breviligulata,Plant,88 days mid sand,,,,,,,1,1,,,,,-1,-1,1.06377,-0.3791,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Ailanthus altissima,Robinia pseudoacacia,Plant,Control,,,,,,,1,1,,,,,-0.013,-0.014,0.029,0.026,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Robinia pseudoacacia,Ailanthus altissima,Plant,Control,,,,,,,1,1,,,,,-0.014,-0.013,0.026,0.029,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Artemisia tripartita,Hesperostipa comata,Plant,,,,,,,,1,1,,,,,-0.002,-0.096,-0.0002,0.0264,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Artemisia tripartita,Pseudoroegneria spicata,Plant,,,,,,,,1,1,,,,,-0.002,-0.045,-0.0002,0.0037,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Artemisia tripartita,Poa secunda,Plant,,,,,,,,1,1,,,,,-0.002,-0.11,0,0.0148,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Hesperostipa comata,Pseudoroegneria spicata,Plant,,,,,,,,1,1,,,,,-0.096,-0.045,-0.00039,-0.0026,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Hesperostipa comata,Poa secunda,Plant,,,,,,,,1,1,,,,,-0.096,-0.096,0.0118,-0.006,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Hesperostipa comata,Artemisia tripartita,Plant,,,,,,,,1,1,,,,,-0.096,-0.002,0.0264,-0.0002,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Poa secunda,Pseudoroegneria spicata,Plant,,,,,,,,1,1,,,,,-0.11,-0.045,-0.0016,0.0052,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Poa secunda,Artemisia tripartita,Plant,,,,,,,,1,1,,,,,-0.11,-0.002,0.0148,0,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Poa secunda,Hesperostipa comata,Plant,,,,,,,,1,1,,,,,-0.11,-0.096,-0.006,0.0118,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Pseudoroegneria spicata,Artemisia tripartita,Plant,,,,,,,,1,1,,,,,-0.045,-0.002,0.0037,-0.0002,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Pseudoroegneria spicata,Poa secunda,Plant,,,,,,,,1,1,,,,,-0.045,-0.11,0.0052,-0.0016,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Pseudoroegneria spicata,Hesperostipa comata,Plant,,,,,,,,1,1,,,,,-0.045,-0.096,-0.0026,-0.00039,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Artemisia tripartita,Hesperostipa comata,Plant,,,,,,,,1,1,,,,,-0.073,-0.547,0.0224,-0.2425,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Artemisia tripartita,Pseudoroegneria spicata,Plant,,,,,,,,1,1,,,,,-0.073,-0.601,0.0389,-0.036,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Artemisia tripartita,Poa secunda,Plant,,,,,,,,1,1,,,,,-0.073,-1.111,0.0041,-0.2911,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Hesperostipa comata,Pseudoroegneria spicata,Plant,,,,,,,,1,1,,,,,-0.547,-0.601,-0.133,-0.0541,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Hesperostipa comata,Artemisia tripartita,Plant,,,,,,,,1,1,,,,,-0.547,-0.073,-0.2425,0.0224,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Hesperostipa comata,Poa secunda,Plant,,,,,,,,1,1,,,,,-0.547,-1.111,-0.1155,-0.2035,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Poa secunda,Pseudoroegneria spicata,Plant,,,,,,,,1,1,,,,,-1.111,-0.601,-0.1576,-0.0032,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Poa secunda,Artemisia tripartita,Plant,,,,,,,,1,1,,,,,-1.111,-0.073,-0.2911,0.0041,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Poa secunda,Hesperostipa comata,Plant,,,,,,,,1,1,,,,,-1.111,-0.547,-0.2035,-0.1155,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Pseudoroegneria spicata,Poa secunda,Plant,,,,,,,,1,1,,,,,-0.601,-1.111,-0.0032,-0.1576,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Pseudoroegneria spicata,Artemisia tripartita,Plant,,,,,,,,1,1,,,,,-0.601,-0.073,-0.036,0.0389,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Pseudoroegneria spicata,Hesperostipa comata,Plant,,,,,,,,1,1,,,,,-0.601,-0.547,-0.0541,-0.133,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Artemisia tripartita,Hesperostipa comata,Plant,,,,,,,,1,1,,,,,-0.023,-0.947,-0.018,-0.018,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Artemisia tripartita,Poa secunda,Plant,,,,,,,,1,1,,,,,-0.023,-1.028,0.0217,0.0217,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Artemisia tripartita,Pseudoroegneria spicata,Plant,,,,,,,,1,1,,,,,-0.023,-0.167,1.62,0.0162,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Hesperostipa comata,Artemisia tripartita,Plant,,,,,,,,1,1,,,,,-0.947,-0.023,-0.018,-0.018,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Hesperostipa comata,Pseudoroegneria spicata,Plant,,,,,,,,1,1,,,,,-0.947,-0.167,-0.0016,0.0064,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Hesperostipa comata,Poa secunda,Plant,,,,,,,,1,1,,,,,-0.947,-1.028,-0.0193,0.0197,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Poa secunda,Hesperostipa comata,Plant,,,,,,,,1,1,,,,,-1.028,-0.947,0.0197,-0.0193,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Poa secunda,Pseudoroegneria spicata,Plant,,,,,,,,1,1,,,,,-1.028,-0.167,0.0216,0.0121,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Poa secunda,Artemisia tripartita,Plant,,,,,,,,1,1,,,,,-1.028,-0.023,0.0217,0.0217,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Pseudoroegneria spicata,Artemisia tripartita,Plant,,,,,,,,1,1,,,,,-0.167,-0.023,0.0162,1.62,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Pseudoroegneria spicata,Hesperostipa comata,Plant,,,,,,,,1,1,,,,,-0.167,-0.947,0.0064,-0.0016,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Pseudoroegneria spicata,Poa secunda,Plant,,,,,,,,1,1,,,,,-0.167,-1.028,0.0121,0.0216,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Aira praecox,Erodium cicutarium,Plant,Year1,,,,,,,1,1,,,,,-5.9,-1.14,-1.1,-0.09,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Aira praecox,Erodium cicutarium,Plant,Year2,,,,,,,1,1,,,,,-5.36,-1.69,-3.55,0,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Aira praecox,Erodium cicutarium,Plant,Year3,,,,,,,1,1,,,,,-0.15,-3.21,-3.58,0,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Erodium cicutarium,Aira praecox,Plant,Year1,,,,,,,1,1,,,,,-1.14,-5.9,-0.09,-1.1,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Erodium cicutarium,Aira praecox,Plant,Year2,,,,,,,1,1,,,,,-1.69,-5.36,0,-3.55,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Erodium cicutarium,Aira praecox,Plant,Year3,,,,,,,1,1,,,,,-3.21,-0.15,0,-3.58,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Elymus elymoides,Taeniatherum caput-medusae,Plant,1 leaf,,,,,,,1,1,,,,,0.583,0.262,-0.0556,-0.3369,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Elymus elymoides,Taeniatherum caput-medusae,Plant,2 tillers,,,,,,,1,1,,,,,1.569,0.15,-0.0417,-0.7112,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Elymus elymoides,Taeniatherum caput-medusae,Plant,3 leaves,,,,,,,1,1,,,,,1.306,0.187,-0.0833,-0.5989,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Elymus elymoides,Taeniatherum caput-medusae,Plant,Seed,,,,,,,1,1,,,,,0.236,0.318,-0.0139,-0.0187,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Taeniatherum caput-medusae,Elymus elymoides,Plant,1 leaf,,,,,,,1,1,,,,,0.262,0.583,-0.3369,-0.0556,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Taeniatherum caput-medusae,Elymus elymoides,Plant,2 tillers,,,,,,,1,1,,,,,0.15,1.569,-0.7112,-0.0417,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Taeniatherum caput-medusae,Elymus elymoides,Plant,3 leaves,,,,,,,1,1,,,,,0.187,1.306,-0.5989,-0.0833,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Taeniatherum caput-medusae,Elymus elymoides,Plant,Seed,,,,,,,1,1,,,,,0.318,0.236,-0.0187,-0.0139,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Andropogon gerardii,Elymus cadensis,Plant,Control,,,,,,,1,1,,,,,-0.16,-0.13,-0.11,-0.09,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Andropogon gerardii,Elymus cadensis,Plant,Fertilized,,,,,,,1,1,,,,,-0.03,-0.13,-0.07,-0.18,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Andropogon gerardii,Elymus cadensis,Plant,Fertilized.no mycorrhizae,,,,,,,1,1,,,,,-0.12,-0.07,-0.01,-0.12,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Andropogon gerardii,Elymus cadensis,Plant,No mycorrhizae,,,,,,,1,1,,,,,0,-0.09,-0.04,-0.04,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Elymus cadensis,Andropogon gerardii,Plant,Control,,,,,,,1,1,,,,,-0.13,-0.16,-0.09,-0.11,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Elymus cadensis,Andropogon gerardii,Plant,Fertilized,,,,,,,1,1,,,,,-0.13,-0.03,-0.18,-0.07,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Elymus cadensis,Andropogon gerardii,Plant,Fertilized.no mycorrhizae,,,,,,,1,1,,,,,-0.07,-0.12,-0.12,-0.01,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Elymus cadensis,Andropogon gerardii,Plant,No mycorrhizae,,,,,,,1,1,,,,,-0.09,0,-0.04,-0.04,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Agropyron cristatum,Bromus tectorum,Plant,Control,,,,,,,1,1,,,,,-1.52,-1.56,-0.59,-1.16,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Bromus tectorum,Agropyron cristatum,Plant,Control,,,,,,,1,1,,,,,-1.56,-1.52,-1.16,-0.59,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Carex elata,Lycopus europaeus,Plant,,,,,,,,1,1,,,,,-2.098,-1.792,-0.396,-2.609,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Carex elata,Carex flava,Plant,,,,,,,,1,1,,,,,-2.098,-2.725,-0.355,-2.2,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Carex elata,Mentha aquatica,Plant,,,,,,,,1,1,,,,,-2.098,-1.459,-0.219,-0.884,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Carex elata,Lysimachia vulgaris,Plant,,,,,,,,1,1,,,,,-2.098,-0.552,-0.284,-1.849,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Carex flava,Carex elata,Plant,,,,,,,,1,1,,,,,-2.725,-2.098,-2.2,-0.355,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Carex flava,Mentha aquatica,Plant,,,,,,,,1,1,,,,,-2.725,-1.459,-0.014,-0.379,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Carex flava,Lysimachia vulgaris,Plant,,,,,,,,1,1,,,,,-2.725,-0.552,-0.11,-0.325,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Carex flava,Lycopus europaeus,Plant,,,,,,,,1,1,,,,,-2.725,-1.792,-0.748,-0.421,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Lycopus europaeus,Carex elata,Plant,,,,,,,,1,1,,,,,-1.792,-2.098,-2.609,-0.396,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Lycopus europaeus,Lysimachia vulgaris,Plant,,,,,,,,1,1,,,,,-1.792,-0.552,-0.254,-0.36,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Lycopus europaeus,Mentha aquatica,Plant,,,,,,,,1,1,,,,,-1.792,-1.459,-0.177,-0.794,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Lycopus europaeus,Carex flava,Plant,,,,,,,,1,1,,,,,-1.792,-2.725,-0.421,-0.748,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Lysimachia vulgaris,Lycopus europaeus,Plant,,,,,,,,1,1,,,,,-0.552,-1.792,-0.36,-0.254,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Lysimachia vulgaris,Carex flava,Plant,,,,,,,,1,1,,,,,-0.552,-2.725,-0.325,-0.11,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Lysimachia vulgaris,Carex elata,Plant,,,,,,,,1,1,,,,,-0.552,-2.098,-1.849,-0.284,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Lysimachia vulgaris,Mentha aquatica,Plant,,,,,,,,1,1,,,,,-0.552,-1.459,-0.229,0.276,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Mentha aquatica,Carex flava,Plant,,,,,,,,1,1,,,,,-1.459,-2.098,-0.884,-0.219,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Mentha aquatica,Carex elata,Plant,,,,,,,,1,1,,,,,-1.459,-2.725,-0.379,-0.014,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Mentha aquatica,Lysimachia vulgaris,Plant,,,,,,,,1,1,,,,,-1.459,-0.552,0.276,-0.229,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Mentha aquatica,Lycopus europaeus,Plant,,,,,,,,1,1,,,,,-1.459,-1.792,-0.794,-0.177,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Aristida adscenciois,Plantago nivea,Plant,,,,,,,,1,1,,,,,-0.17,-0.11,-0.113,-0.275,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Aristida adscenciois,Microchloa kuntha,Plant,,,,,,,,1,1,,,,,-0.17,-0.205,-0.0002,,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Bulbostylis tenuifolia,Plantago nivea,Plant,,,,,,,,1,1,,,,,-0.015,-0.11,-0.003,-0.002,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Crusea diversifolia,Microchloa kuntha,Plant,,,,,,,,1,1,,,,,-0.122,-0.205,0,,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Crusea diversifolia,Bouteloua polymorpha,Plant,,,,,,,,1,1,,,,,-0.122,,-0.483,,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Crusea diversifolia,Bouteloua chronodrosioides,Plant,,,,,,,,1,1,,,,,-0.122,,-0.002,,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Crusea diversifolia,Thymophylla autantiaca,Plant,,,,,,,,1,1,,,,,-0.122,-0.228,0,-0.0135,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Crusea diversifolia,Plantago nivea,Plant,,,,,,,,1,1,,,,,-0.122,-0.11,-0.063,-0.001,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Cyperus seslerioides,Plantago nivea,Plant,,,,,,,,1,1,,,,,-0.326,-0.11,-0.016,0,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Cyperus seslerioides,Oxalis lumulata,Plant,,,,,,,,1,1,,,,,-0.326,-0.416,0,,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Cyperus seslerioides,Thymophylla autantiaca,Plant,,,,,,,,1,1,,,,,-0.326,-0.228,-0.051,,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Cyperus seslerioides,Microchloa kuntha,Plant,,,,,,,,1,1,,,,,-0.326,-0.205,0,-0.002,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Cyperus seslerioides,Bouteloua polymorpha,Plant,,,,,,,,1,1,,,,,-0.326,,0,,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Microchloa kuntha,Stevia ephemera,Plant,,,,,,,,1,1,,,,,-0.205,-0.397,-0.002,-1,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Microchloa kuntha,Bouteloua chronodrosioides,Plant,,,,,,,,1,1,,,,,-0.205,,-0.307,,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Microchloa kuntha,Plantago nivea,Plant,,,,,,,,1,1,,,,,-0.205,-0.11,-0.001,-0.001,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Microchloa kuntha,Cyperus seslerioides,Plant,,,,,,,,1,1,,,,,-0.205,-0.326,-0.002,0,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Microchloa kuntha,Tridax coropifolia,Plant,,,,,,,,1,1,,,,,-0.205,-0.003,-0.003,-0.266,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Microchloa kuntha,Bouteloua polymorpha,Plant,,,,,,,,1,1,,,,,-0.205,,0,,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Microchloa kuntha,Tripogon spicatus,Plant,,,,,,,,1,1,,,,,-0.205,,0,,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Microchloa kuntha,Thymophylla autantiaca,Plant,,,,,,,,1,1,,,,,-0.205,-0.228,-2,-0.002,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Microchloa kuntha,Heterosperma pintum,Plant,,,,,,,,1,1,,,,,-0.205,,0,,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Microchloa kuntha,Richardia tricocca,Plant,,,,,,,,1,1,,,,,-0.205,-0.89,-0.002,-0.001,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Microchloa kuntha,Vines,Plant,,,,,,,,1,1,,,,,-0.205,,-0.002,,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Microchloa kuntha,Sporobolus tenuissimus,Plant,,,,,,,,1,1,,,,,-0.205,-0.057,-0.001,-0.001,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Oxalis lumulata,Bouteloua polymorpha,Plant,,,,,,,,1,1,,,,,-0.416,,-0.059,,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Oxalis lumulata,Plantago nivea,Plant,,,,,,,,1,1,,,,,-0.416,,-0.002,,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Oxalis lumulata,Microchloa kuntha,Plant,,,,,,,,1,1,,,,,-0.416,-0.205,-0.005,,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Plantago nivea,Bulbostylis tenuifolia,Plant,,,,,,,,1,1,,,,,-0.11,-0.015,-0.002,-0.003,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Plantago nivea,Tridax coropifolia,Plant,,,,,,,,1,1,,,,,-0.11,,0,,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Plantago nivea,Bouteloua chronodrosioides,Plant,,,,,,,,1,1,,,,,-0.11,,-0.52,,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Plantago nivea,Microchloa kuntha,Plant,,,,,,,,1,1,,,,,-0.11,-0.205,-0.001,-0.001,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Plantago nivea,Aristida adscenciois,Plant,,,,,,,,1,1,,,,,-0.11,-0.17,-0.275,-0.113,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Plantago nivea,Bouteloua polymorpha,Plant,,,,,,,,1,1,,,,,-0.11,,0,,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Plantago nivea,Crusea diversifolia,Plant,,,,,,,,1,1,,,,,-0.11,-0.122,-0.001,-0.063,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Plantago nivea,Cyperus seslerioides,Plant,,,,,,,,1,1,,,,,-0.11,-0.326,0,-0.016,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Plantago nivea,Stevia ephemera,Plant,,,,,,,,1,1,,,,,-0.11,,-0.296,,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Plantago nivea,Thymophylla autantiaca,Plant,,,,,,,,1,1,,,,,-0.11,-0.228,-0.006,-0.002,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Rare bulb rosettes,Microchloa kuntha,Plant,,,,,,,,1,1,,,,,-1.389,-0.205,-0.003,,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Rare bulb rosettes,Plantago nivea,Plant,,,,,,,,1,1,,,,,-1.389,-0.11,-1.282,,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Rare forbs,Crusea diversifolia,Plant,,,,,,,,1,1,,,,,-4.523,,-0.001,,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Rare mats,Microchloa kuntha,Plant,,,,,,,,1,1,,,,,-0.683,-0.205,0,,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Rare mats,Plantago nivea,Plant,,,,,,,,1,1,,,,,-0.683,,0,,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Richardia tricocca,Microchloa kuntha,Plant,,,,,,,,1,1,,,,,-0.89,-0.205,-0.001,-0.002,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Richardia tricocca,Crusea diversifolia,Plant,,,,,,,,1,1,,,,,-0.89,-0.122,0,,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Richardia tricocca,Plantago nivea,Plant,,,,,,,,1,1,,,,,-0.89,-0.11,-0.703,,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Richardia tricocca,Bouteloua chronodrosioides,Plant,,,,,,,,1,1,,,,,-0.89,,-0.01,,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Sporobolus tenuissimus,Microchloa kuntha,Plant,,,,,,,,1,1,,,,,-0.057,-0.205,-0.001,-0.001,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Sporobolus tenuissimus,Bouteloua polymorpha,Plant,,,,,,,,1,1,,,,,-0.057,,-0.003,,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Stevia ephemera,Microchloa kuntha,Plant,,,,,,,,1,1,,,,,-0.397,-0.205,-1,-0.002,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Tagets micrantha,Plantago nivea,Plant,,,,,,,,1,1,,,,,-0.091,-0.11,-0.048,,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Thymophylla autantiaca,Microchloa kuntha,Plant,,,,,,,,1,1,,,,,-0.228,-0.205,-0.002,-2,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Thymophylla autantiaca,Plantago nivea,Plant,,,,,,,,1,1,,,,,-0.228,,-0.002,-0.006,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Thymophylla autantiaca,Bouteloua polymorpha,Plant,,,,,,,,1,1,,,,,-0.228,,-0.002,,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Thymophylla autantiaca,Richardia tricocca,Plant,,,,,,,,1,1,,,,,-0.228,-0.89,0,,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Thymophylla autantiaca,Sporobolus tenuissimus,Plant,,,,,,,,1,1,,,,,-0.228,,-0.0497,,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Thymophylla autantiaca,Crusea diversifolia,Plant,,,,,,,,1,1,,,,,-0.228,-0.122,-0.0135,0,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Tridax coropifolia,Microchloa kuntha,Plant,,,,,,,,1,1,,,,,-0.003,-0.205,-0.266,-0.003,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Bromus tectorum,Centaurea solstitialis,Plant,Control,,,,,,,1,1,,,,,-6.26,-5.3,-0.307,-2.69,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Centaurea solstitialis,Bromus tectorum,Plant,Control,,,,,,,1,1,,,,,-5.3,-6.26,-2.69,-0.307,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Bromus hordeaceus,Microseris douglasii,Plant,Control,,,,,,,1,1,,,,,0,0,-0.0000026,-0.0000026,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Bromus hordeaceus,Plantago erecta,Plant,Control,,,,,,,1,1,,,,,0,0,-0.0000012,-0.0000079,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Bromus hordeaceus,Calycadenia multiglandulosa,Plant,Control,,,,,,,1,1,,,,,0,0,-0.0000017,-0.0000122,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Calycadenia multiglandulosa,Plantago erecta,Plant,Control,,,,,,,1,1,,,,,0,0,-0.0000043,-0.0000019,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Calycadenia multiglandulosa,Bromus hordeaceus,Plant,Control,,,,,,,1,1,,,,,0,0,-0.0000122,-0.0000017,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Calycadenia multiglandulosa,Microseris douglasii,Plant,Control,,,,,,,1,1,,,,,0,0,-0.0000186,-0.0000046,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Microseris douglasii,Calycadenia multiglandulosa,Plant,Control,,,,,,,1,1,,,,,0,0,-0.0000046,-0.0000186,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Microseris douglasii,Bromus hordeaceus,Plant,Control,,,,,,,1,1,,,,,0,0,-0.0000026,-0.0000026,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Microseris douglasii,Plantago erecta,Plant,Control,,,,,,,1,1,,,,,0,0,-0.0000036,-0.0000079,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Plantago erecta,Calycadenia multiglandulosa,Plant,Control,,,,,,,1,1,,,,,0,0,-0.0000019,-0.0000043,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Plantago erecta,Bromus hordeaceus,Plant,Control,,,,,,,1,1,,,,,0,0,-0.0000079,-0.0000012,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Plantago erecta,Microseris douglasii,Plant,Control,,,,,,,1,1,,,,,0,0,-0.0000079,-0.0000036,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,tive grasses,Bromus tectorum,Plant,137 mg/kg N added,,,,,,,1,1,,,,,-0.001,,-0.001,,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,tive grasses,Bromus tectorum,Plant,280 mg/kg N added,,,,,,,1,1,,,,,-0.001,,-0.0015,,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,tive grasses,Bromus tectorum,Plant,Control,,,,,,,1,1,,,,,0,,-0.007,,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Aphanes,Sherardia,Plant,,,,,,,,1,1,,,,,-0.887,-0.566,-0.2070076,-0.00001902,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Aphanes,Cerastium demidecandrum,Plant,,,,,,,,1,1,,,,,-0.887,-0.566,-0.3072787,-0.00003589,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Aphanes,Saxifraga,Plant,,,,,,,,1,1,,,,,-0.887,-0.249,-0.5379444,-0.9185123,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Aphanes,Geranium,Plant,,,,,,,,1,1,,,,,-0.887,-0.701,-0.3848121,-0.8780954,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Aphanes,Veronica,Plant,,,,,,,,1,1,,,,,-0.887,-0.242,-0.1394569,-0.0000003,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Aphanes,Areria,Plant,,,,,,,,1,1,,,,,-0.887,-0.819,-0.4025242,-0.1652989,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Areria,Sherardia,Plant,,,,,,,,1,1,,,,,-0.819,-0.566,-0.0009303,-0.1444243,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Areria,Veronica,Plant,,,,,,,,1,1,,,,,-0.819,-0.242,-0.00015375,-0.4965853,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Areria,Cerastium demidecandrum,Plant,,,,,,,,1,1,,,,,-0.819,-0.566,-0.07189237,-0.4025242,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Areria,Saxifraga,Plant,,,,,,,,1,1,,,,,-0.819,-0.249,-0.5168513,-0.01246289,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Areria,Aphanes,Plant,,,,,,,,1,1,,,,,-0.819,-0.887,-0.1652989,-0.4025242,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Areria,Geranium,Plant,,,,,,,,1,1,,,,,-0.819,-0.701,-0.726149,-0.5975006,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Cerastium demidecandrum,Sherardia,Plant,,,,,,,,1,1,,,,,-0.566,-0.566,0,-0.00951391,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Cerastium demidecandrum,Areria,Plant,,,,,,,,1,1,,,,,-0.566,-0.819,-0.4025242,-0.07189237,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Cerastium demidecandrum,Veronica,Plant,,,,,,,,1,1,,,,,-0.566,-0.242,-0.00673795,-0.3057462,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Cerastium demidecandrum,Aphanes,Plant,,,,,,,,1,1,,,,,-0.566,-0.887,-0.00003589,-0.3072787,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Cerastium demidecandrum,Saxifraga,Plant,,,,,,,,1,1,,,,,-0.566,-0.249,-0.00079673,-0.1720449,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Cerastium demidecandrum,Geranium,Plant,,,,,,,,1,1,,,,,-0.566,-0.701,-0.5246625,-0.5142735,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Geranium,Veronica,Plant,,,,,,,,1,1,,,,,-0.701,-0.242,-0.02387317,-0.6636503,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Geranium,Areria,Plant,,,,,,,,1,1,,,,,-0.701,-0.819,-0.5975006,-0.726149,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Geranium,Sherardia,Plant,,,,,,,,1,1,,,,,-0.701,-0.566,-0.7408182,0,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Geranium,Aphanes,Plant,,,,,,,,1,1,,,,,-0.701,-0.887,-0.8780954,-0.3848121,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Geranium,Cerastium demidecandrum,Plant,,,,,,,,1,1,,,,,-0.701,-0.566,-0.5142735,-0.5246625,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Geranium,Saxifraga,Plant,,,,,,,,1,1,,,,,-0.701,-0.249,-0.4653339,-0.03111703,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Saxifraga,Veronica,Plant,,,,,,,,1,1,,,,,-0.249,-0.242,-0.04573003,-0.3072787,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Saxifraga,Aphanes,Plant,,,,,,,,1,1,,,,,-0.249,-0.887,-0.9185123,-0.5379444,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Saxifraga,Areria,Plant,,,,,,,,1,1,,,,,-0.249,-0.819,-0.01246289,-0.5168513,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Saxifraga,Geranium,Plant,,,,,,,,1,1,,,,,-0.249,-0.701,-0.03111703,-0.4653339,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Saxifraga,Cerastium demidecandrum,Plant,,,,,,,,1,1,,,,,-0.249,-0.566,-0.1720449,-0.00079673,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Saxifraga,Sherardia,Plant,,,,,,,,1,1,,,,,-0.249,-0.566,-0.2808316,-0.1401559,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Sherardia,Cerastium demidecandrum,Plant,,,,,,,,1,1,,,,,-0.566,-0.566,-0.00951391,0,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Sherardia,Areria,Plant,,,,,,,,1,1,,,,,-0.566,-0.819,-0.1444243,-0.0009303,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Sherardia,Saxifraga,Plant,,,,,,,,1,1,,,,,-0.566,-0.249,-0.1401559,-0.2808316,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Sherardia,Veronica,Plant,,,,,,,,1,1,,,,,-0.566,-0.242,-0.6156972,-0.3230333,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Sherardia,Geranium,Plant,,,,,,,,1,1,,,,,-0.566,-0.701,0,-0.7408182,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Sherardia,Aphanes,Plant,,,,,,,,1,1,,,,,-0.566,-0.887,-0.00001902,-0.2070076,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Veronica,Sherardia,Plant,,,,,,,,1,1,,,,,-0.242,-0.566,-0.3230333,-0.6156972,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Veronica,Geranium,Plant,,,,,,,,1,1,,,,,-0.242,-0.701,-0.6636503,-0.02387317,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Veronica,Areria,Plant,,,,,,,,1,1,,,,,-0.242,-0.819,-0.4965853,-0.00015375,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Veronica,Cerastium demidecandrum,Plant,,,,,,,,1,1,,,,,-0.242,-0.566,-0.3057462,-0.00673795,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Veronica,Aphanes,Plant,,,,,,,,1,1,,,,,-0.242,-0.887,-0.0000003,-0.1394569,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Veronica,Saxifraga,Plant,,,,,,,,1,1,,,,,-0.242,-0.249,-0.3072787,-0.04573003,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Agrostis stolonifera,Trifolium pratense,Plant,fall,,,,,,,1,1,,,,,-1.28,-0.8,-0.39,-0.16,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Agrostis stolonifera,Phleum pratense,Plant,fall,,,,,,,1,1,,,,,-1.28,-0.41,-0.38,-0.76,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Agrostis stolonifera,Lolium perenne,Plant,fall,,,,,,,1,1,,,,,-1.28,-0.64,-0.03,0.15,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Agrostis stolonifera,Plantago lanceolata,Plant,fall,,,,,,,1,1,,,,,-1.28,-0.72,0.52,0.22,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Agrostis stolonifera,Trifolium repens,Plant,fall,,,,,,,1,1,,,,,-1.28,-0.79,-0.24,10.2,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Agrostis stolonifera,Phleum pratense,Plant,spring,,,,,,,1,1,,,,,-1.28,-0.41,-0.38,0.1,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Agrostis stolonifera,Plantago lanceolata,Plant,spring,,,,,,,1,1,,,,,-1.28,-0.31,0.95,0.22,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Agrostis stolonifera,Trifolium pratense,Plant,spring,,,,,,,1,1,,,,,-1.28,-0.8,-0.39,-0.16,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Agrostis stolonifera,Lolium perenne,Plant,spring,,,,,,,1,1,,,,,-1.28,-0.14,0.13,0.15,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Agrostis stolonifera,Trifolium repens,Plant,spring,,,,,,,1,1,,,,,-1.28,-0.56,-0.02,0.12,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Agrostis stolonifera,Lolium perenne,Plant,summer,,,,,,,1,1,,,,,-1.36,-0.64,-0.03,-0.04,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Agrostis stolonifera,Trifolium repens,Plant,summer,,,,,,,1,1,,,,,-1.36,-0.79,-0.24,0.04,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Agrostis stolonifera,Phleum pratense,Plant,summer,,,,,,,1,1,,,,,-1.36,-0.26,-0.24,-0.21,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Agrostis stolonifera,Plantago lanceolata,Plant,summer,,,,,,,1,1,,,,,-1.36,-0.44,0.82,0.15,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Agrostis stolonifera,Trifolium pratense,Plant,summer,,,,,,,1,1,,,,,-1.36,-1.03,-0.61,-0.204,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Lolium perenne,Plantago lanceolata,Plant,fall,,,,,,,1,1,,,,,-0.64,-0.72,-0.67,-0.44,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Lolium perenne,Agrostis stolonifera,Plant,fall,,,,,,,1,1,,,,,-0.64,-1.28,0.15,-0.03,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Lolium perenne,Phleum pratense,Plant,fall,,,,,,,1,1,,,,,-0.64,-0.41,0.06,-0.51,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Lolium perenne,Trifolium pratense,Plant,fall,,,,,,,1,1,,,,,-0.64,-0.8,-0.15,-0.15,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Lolium perenne,Trifolium repens,Plant,fall,,,,,,,1,1,,,,,-0.64,-0.79,-0.48,-0.17,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Lolium perenne,Trifolium pratense,Plant,spring,,,,,,,1,1,,,,,-0.14,-0.8,-0.15,0.03,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Lolium perenne,Trifolium repens,Plant,spring,,,,,,,1,1,,,,,-0.14,-0.56,-0.18,0,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Lolium perenne,Agrostis stolonifera,Plant,spring,,,,,,,1,1,,,,,-0.14,-1.28,0.15,0.13,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Lolium perenne,Plantago lanceolata,Plant,spring,,,,,,,1,1,,,,,-0.14,-0.31,-0.07,-0.09,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Lolium perenne,Phleum pratense,Plant,spring,,,,,,,1,1,,,,,-0.14,-0.41,-0.3,-0.12,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Lolium perenne,Plantago lanceolata,Plant,summer,,,,,,,1,1,,,,,-0.64,-0.44,-0.26,-0.31,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Lolium perenne,Trifolium repens,Plant,summer,,,,,,,1,1,,,,,-0.64,-0.79,-0.48,-0.17,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Lolium perenne,Agrostis stolonifera,Plant,summer,,,,,,,1,1,,,,,-0.64,-1.36,-0.04,-0.03,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Lolium perenne,Phleum pratense,Plant,summer,,,,,,,1,1,,,,,-0.64,-0.26,-0.33,-0.51,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Lolium perenne,Trifolium pratense,Plant,summer,,,,,,,1,1,,,,,-0.64,-1.03,-0.44,0.105,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Phleum pratense,Trifolium pratense,Plant,fall,,,,,,,1,1,,,,,-0.41,-0.8,-0.82,-0.15,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Phleum pratense,Lolium perenne,Plant,fall,,,,,,,1,1,,,,,-0.41,-0.64,-0.51,0.06,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Phleum pratense,Agrostis stolonifera,Plant,fall,,,,,,,1,1,,,,,-0.41,-1.28,-0.76,-0.38,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Phleum pratense,Plantago lanceolata,Plant,fall,,,,,,,1,1,,,,,-0.41,-0.72,-0.83,-0.36,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Phleum pratense,Trifolium repens,Plant,fall,,,,,,,1,1,,,,,-0.41,-0.79,-0.5,-0.11,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Phleum pratense,Trifolium repens,Plant,spring,,,,,,,1,1,,,,,-0.41,-0.56,-0.05,-0.11,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Phleum pratense,Agrostis stolonifera,Plant,spring,,,,,,,1,1,,,,,-0.41,-1.28,0.1,-0.38,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Phleum pratense,Plantago lanceolata,Plant,spring,,,,,,,1,1,,,,,-0.41,-0.31,-0.36,-0.36,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Phleum pratense,Trifolium pratense,Plant,spring,,,,,,,1,1,,,,,-0.41,-0.8,-0.82,-0.15,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Phleum pratense,Lolium perenne,Plant,spring,,,,,,,1,1,,,,,-0.41,-0.14,-0.12,-0.3,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Phleum pratense,Lolium perenne,Plant,summer,,,,,,,1,1,,,,,-0.26,-0.64,-0.51,-0.33,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Phleum pratense,Agrostis stolonifera,Plant,summer,,,,,,,1,1,,,,,-0.26,-1.36,-0.21,-0.24,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Phleum pratense,Plantago lanceolata,Plant,summer,,,,,,,1,1,,,,,-0.26,-0.44,-0.5,-0.23,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Phleum pratense,Trifolium repens,Plant,summer,,,,,,,1,1,,,,,-0.26,-0.79,-0.5,0.04,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Phleum pratense,Trifolium pratense,Plant,summer,,,,,,,1,1,,,,,-0.26,-1.03,-1.05,0,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Plantago lanceolata,Lolium perenne,Plant,fall,,,,,,,1,1,,,,,-0.72,-0.64,-0.44,-0.67,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Plantago lanceolata,Trifolium repens,Plant,fall,,,,,,,1,1,,,,,-0.72,-0.79,-0.72,-0.79,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Plantago lanceolata,Agrostis stolonifera,Plant,fall,,,,,,,1,1,,,,,-0.72,-1.28,0.22,0.52,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Plantago lanceolata,Trifolium pratense,Plant,fall,,,,,,,1,1,,,,,-0.72,-0.8,-0.72,3.14,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Plantago lanceolata,Phleum pratense,Plant,fall,,,,,,,1,1,,,,,-0.72,-0.41,-0.36,-0.83,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Plantago lanceolata,Lolium perenne,Plant,spring,,,,,,,1,1,,,,,-0.31,-0.14,-0.09,-0.07,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Plantago lanceolata,Agrostis stolonifera,Plant,spring,,,,,,,1,1,,,,,-0.31,-1.28,0.22,0.95,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Plantago lanceolata,Phleum pratense,Plant,spring,,,,,,,1,1,,,,,-0.31,-0.41,-0.36,-0.36,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Plantago lanceolata,Trifolium pratense,Plant,spring,,,,,,,1,1,,,,,-0.31,-0.8,-0.72,3.6,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Plantago lanceolata,Trifolium repens,Plant,spring,,,,,,,1,1,,,,,-0.31,-0.56,-0.13,-0.34,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Plantago lanceolata,Agrostis stolonifera,Plant,summer,,,,,,,1,1,,,,,-0.44,-1.36,0.15,0.82,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Plantago lanceolata,Lolium perenne,Plant,summer,,,,,,,1,1,,,,,-0.44,-0.64,-0.31,-0.26,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Plantago lanceolata,Trifolium pratense,Plant,summer,,,,,,,1,1,,,,,-0.44,-1.03,-0.92,3.46,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Plantago lanceolata,Phleum pratense,Plant,summer,,,,,,,1,1,,,,,-0.44,-0.26,-0.23,-0.5,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Plantago lanceolata,Trifolium repens,Plant,summer,,,,,,,1,1,,,,,-0.44,-0.79,-0.72,-0.48,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Trifolium pratense,Phleum pratense,Plant,fall,,,,,,,1,1,,,,,-0.8,-0.41,-0.15,-0.82,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Trifolium pratense,Plantago lanceolata,Plant,fall,,,,,,,1,1,,,,,-0.8,-0.72,3.14,-0.72,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Trifolium pratense,Lolium perenne,Plant,fall,,,,,,,1,1,,,,,-0.8,-0.64,-0.15,-0.15,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Trifolium pratense,Agrostis stolonifera,Plant,fall,,,,,,,1,1,,,,,-0.8,-1.28,-0.16,-0.39,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Trifolium pratense,Trifolium repens,Plant,fall,,,,,,,1,1,,,,,-0.8,-0.79,-0.81,-0.1,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Trifolium pratense,Trifolium repens,Plant,spring,,,,,,,1,1,,,,,-0.8,-0.56,-0.57,0.78,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Trifolium pratense,Phleum pratense,Plant,spring,,,,,,,1,1,,,,,-0.8,-0.41,-0.15,-0.82,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Trifolium pratense,Plantago lanceolata,Plant,spring,,,,,,,1,1,,,,,-0.8,-0.31,3.6,-0.72,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Trifolium pratense,Lolium perenne,Plant,spring,,,,,,,1,1,,,,,-0.8,-0.14,0.03,-0.15,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Trifolium pratense,Agrostis stolonifera,Plant,spring,,,,,,,1,1,,,,,-0.8,-1.28,-0.16,-0.39,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Trifolium pratense,Trifolium repens,Plant,summer,,,,,,,1,1,,,,,-1.03,-0.79,-1.13,-0.32,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Trifolium pratense,Agrostis stolonifera,Plant,summer,,,,,,,1,1,,,,,-1.03,-1.36,-0.204,-0.61,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Trifolium pratense,Lolium perenne,Plant,summer,,,,,,,1,1,,,,,-1.03,-0.64,0.105,-0.48,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Trifolium pratense,Plantago lanceolata,Plant,summer,,,,,,,1,1,,,,,-1.03,-0.44,3.46,-0.92,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Trifolium pratense,Phleum pratense,Plant,summer,,,,,,,1,1,,,,,-1.03,-0.26,0,-1.05,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Trifolium repens,Lolium perenne,Plant,fall,,,,,,,1,1,,,,,-0.79,-0.64,-0.17,-0.48,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Trifolium repens,Plantago lanceolata,Plant,fall,,,,,,,1,1,,,,,-0.79,-0.72,-0.79,-0.72,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Trifolium repens,Trifolium pratense,Plant,fall,,,,,,,1,1,,,,,-0.79,-0.8,-0.1,-0.81,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Trifolium repens,Phleum pratense,Plant,fall,,,,,,,1,1,,,,,-0.79,-0.41,-0.11,-0.5,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Trifolium repens,Agrostis stolonifera,Plant,fall,,,,,,,1,1,,,,,-0.79,-1.28,10.2,-0.24,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Trifolium repens,Plantago lanceolata,Plant,spring,,,,,,,1,1,,,,,-0.56,-0.31,-0.34,-0.13,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Trifolium repens,Trifolium pratense,Plant,spring,,,,,,,1,1,,,,,-0.56,-0.8,0.78,-0.57,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Trifolium repens,Agrostis stolonifera,Plant,spring,,,,,,,1,1,,,,,-0.56,-1.28,0.12,-0.02,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Trifolium repens,Lolium perenne,Plant,spring,,,,,,,1,1,,,,,-0.56,-0.14,0,-0.18,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Trifolium repens,Phleum pratense,Plant,spring,,,,,,,1,1,,,,,-0.56,-0.41,-0.11,-0.05,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Trifolium repens,Agrostis stolonifera,Plant,summer,,,,,,,1,1,,,,,-0.79,-1.36,0.04,-0.24,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Trifolium repens,Trifolium pratense,Plant,summer,,,,,,,1,1,,,,,-0.79,-1.03,-0.32,-1.13,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Trifolium repens,Lolium perenne,Plant,summer,,,,,,,1,1,,,,,-0.79,-0.64,-0.17,-0.48,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Trifolium repens,Plantago lanceolata,Plant,summer,,,,,,,1,1,,,,,-0.79,-0.44,-0.48,-0.72,,,,,Lotka-Volterra
+Chesson 2012,Adler.2018,,,Trifolium repens,Phleum pratense,Plant,summer,,,,,,,1,1,,,,,-0.79,-0.26,0.04,-0.5,,,,,Lotka-Volterra
+Carroll,Venail.2016,,,Chlorella,Closteriopsis,Phytoplankton,Control,,,,,,,,,0.258666667,0.452333333,0.205666667,-0.049,,,,,,,,,none
+Carroll,Venail.2016,,,Chlorella,Cosmarium,Phytoplankton,Control,,,,,,,,,0.322777778,0.229333333,0.271333333,-0.049,,,,,,,,,none
+Carroll,Venail.2016,,,Chlorella,Pandori,Phytoplankton,Control,,,,,,,,,0.321333333,0.228,0.353545455,-0.049,,,,,,,,,none
+Carroll,Venail.2016,,,Chlorella,Scenedesmus,Phytoplankton,Control,,,,,,,,,0.228,0.315666667,-0.049,0.07,,,,,,,,,none
+Carroll,Venail.2016,,,Chlorella,Selestrum,Phytoplankton,Control,,,,,,,,,0.2634,0.562666667,0.106533333,0.009,,,,,,,,,none
+Carroll,Venail.2016,,,Chlorella,Staurastrum,Phytoplankton,Control,,,,,,,,,0.288,0.101,0.477666667,-0.02,,,,,,,,,none
+Carroll,Venail.2016,,,Chlorella,Tetraedron,Phytoplankton,Control,,,,,,,,,0.288,0.157666667,0.492,0.026,,,,,,,,,none
+Carroll,Venail.2016,,,Closteriopsis,Chlorella,Phytoplankton,Control,,,,,,,,,0.452333333,0.258666667,-0.049,0.205666667,,,,,,,,,none
+Carroll,Venail.2016,,,Closteriopsis,Cosmarium,Phytoplankton,Control,,,,,,,,,0.229333333,0.229333333,-0.049,-0.049,,,,,,,,,none
+Carroll,Venail.2016,,,Closteriopsis,Pandori,Phytoplankton,Control,,,,,,,,,0.39,0.228,0.336545455,0,,,,,,,,,none
+Carroll,Venail.2016,,,Closteriopsis,Scenedesmus,Phytoplankton,Control,,,,,,,,,0.314666667,0.315666667,0.061666667,0.231333333,,,,,,,,,none
+Carroll,Venail.2016,,,Closteriopsis,Selestrum,Phytoplankton,Control,,,,,,,,,0.3046,0.562666667,0.103466667,0.043,,,,,,,,,none
+Carroll,Venail.2016,,,Closteriopsis,Staurastrum,Phytoplankton,Control,,,,,,,,,0.452333333,0.101,0.408666667,-0.049,,,,,,,,,none
+Carroll,Venail.2016,,,Closteriopsis,Tetraedron,Phytoplankton,Control,,,,,,,,,0.452333333,0.157666667,0.0715,0.028333333,,,,,,,,,none
+Carroll,Venail.2016,,,Cosmarium,Chlorella,Phytoplankton,Control,,,,,,,,,0.229333333,0.322777778,-0.049,0.271333333,,,,,,,,,none
+Carroll,Venail.2016,,,Cosmarium,Closteriopsis,Phytoplankton,Control,,,,,,,,,0.229333333,0.332,-0.049,0.494333333,,,,,,,,,none
+Carroll,Venail.2016,,,Cosmarium,Pandori,Phytoplankton,Control,,,,,,,,,0.302166667,0.228,0.261636364,-0.02,,,,,,,,,none
+Carroll,Venail.2016,,,Cosmarium,Scenedesmus,Phytoplankton,Control,,,,,,,,,0.255733333,0.315666667,0.049444444,0.522666667,,,,,,,,,none
+Carroll,Venail.2016,,,Cosmarium,Selestrum,Phytoplankton,Control,,,,,,,,,0.2604,0.562666667,0.090333333,0.158666667,,,,,,,,,none
+Carroll,Venail.2016,,,Cosmarium,Staurastrum,Phytoplankton,Control,,,,,,,,,0.229333333,0.101,0.02,0.0425,,,,,,,,,none
+Carroll,Venail.2016,,,Cosmarium,Tetraedron,Phytoplankton,Control,,,,,,,,,0.229333333,0.157666667,-0.02,0.001,,,,,,,,,none
+Carroll,Venail.2016,,,Pandori,Chlorella,Phytoplankton,Control,,,,,,,,,0.228,0.321333333,-0.049,0.353545455,,,,,,,,,none
+Carroll,Venail.2016,,,Pandori,Closteriopsis,Phytoplankton,Control,,,,,,,,,0.228,0.39,0,0.336545455,,,,,,,,,none
+Carroll,Venail.2016,,,Pandori,Cosmarium,Phytoplankton,Control,,,,,,,,,0.452333333,0.302166667,0.0715,0.261636364,,,,,,,,,none
+Carroll,Venail.2016,,,Pandori,Scenedesmus,Phytoplankton,Control,,,,,,,,,0.2414,0.315666667,0.042090909,0.467666667,,,,,,,,,none
+Carroll,Venail.2016,,,Pandori,Selestrum,Phytoplankton,Control,,,,,,,,,0.277888889,0.562666667,0.100285714,0.377,,,,,,,,,none
+Carroll,Venail.2016,,,Pandori,Staurastrum,Phytoplankton,Control,,,,,,,,,0.228,0.101,0.079,0.097333333,,,,,,,,,none
+Carroll,Venail.2016,,,Pandori,Tetraedron,Phytoplankton,Control,,,,,,,,,0.228,0.157666667,0.079,0.165,,,,,,,,,none
+Carroll,Venail.2016,,,Scenedesmus,Chlorella,Phytoplankton,Control,,,,,,,,,0.315666667,0.352066667,0.07,0.0951,,,,,,,,,none
+Carroll,Venail.2016,,,Scenedesmus,Closteriopsis,Phytoplankton,Control,,,,,,,,,0.315666667,0.314666667,0.231333333,0.061666667,,,,,,,,,none
+Carroll,Venail.2016,,,Scenedesmus,Cosmarium,Phytoplankton,Control,,,,,,,,,0.315666667,0.255733333,0.522666667,0.049444444,,,,,,,,,none
+Carroll,Venail.2016,,,Scenedesmus,Pandori,Phytoplankton,Control,,,,,,,,,0.315666667,0.2414,0.467666667,0.042090909,,,,,,,,,none
+Carroll,Venail.2016,,,Scenedesmus,Selestrum,Phytoplankton,Control,,,,,,,,,0.287866667,0.562666667,0.100285714,0.069,,,,,,,,,none
+Carroll,Venail.2016,,,Scenedesmus,Staurastrum,Phytoplankton,Control,,,,,,,,,0.315666667,0.101,0.354666667,-0.049,,,,,,,,,none
+Carroll,Venail.2016,,,Scenedesmus,Tetraedron,Phytoplankton,Control,,,,,,,,,0.315666667,0.157666667,0.354,0.109,,,,,,,,,none
+Carroll,Venail.2016,,,Selestrum,Chlorella,Phytoplankton,Control,,,,,,,,,0.562666667,0.2634,0.009,0.106533333,,,,,,,,,none
+Carroll,Venail.2016,,,Selestrum,Closteriopsis,Phytoplankton,Control,,,,,,,,,0.562666667,0.3046,0.043,0.103466667,,,,,,,,,none
+Carroll,Venail.2016,,,Selestrum,Cosmarium,Phytoplankton,Control,,,,,,,,,0.562666667,0.2604,0.158666667,0.090333333,,,,,,,,,none
+Carroll,Venail.2016,,,Selestrum,Pandori,Phytoplankton,Control,,,,,,,,,0.562666667,0.277888889,0.377,0.100285714,,,,,,,,,none
+Carroll,Venail.2016,,,Selestrum,Scenedesmus,Phytoplankton,Control,,,,,,,,,0.562666667,0.287866667,0.069,0.100285714,,,,,,,,,none
+Carroll,Venail.2016,,,Selestrum,Staurastrum,Phytoplankton,Control,,,,,,,,,0.315666667,0.276066667,0.354,0.019538462,,,,,,,,,none
+Carroll,Venail.2016,,,Selestrum,Tetraedron,Phytoplankton,Control,,,,,,,,,0.562666667,0.157666667,0.136,0.009,,,,,,,,,none
+Carroll,Venail.2016,,,Staurastrum,Chlorella,Phytoplankton,Control,,,,,,,,,0.101,0.288,-0.02,0.477666667,,,,,,,,,none
+Carroll,Venail.2016,,,Staurastrum,Closteriopsis,Phytoplankton,Control,,,,,,,,,0.101,0.452333333,-0.049,0.408666667,,,,,,,,,none
+Carroll,Venail.2016,,,Staurastrum,Cosmarium,Phytoplankton,Control,,,,,,,,,0.101,0.229333333,0.0425,0.02,,,,,,,,,none
+Carroll,Venail.2016,,,Staurastrum,Pandori,Phytoplankton,Control,,,,,,,,,0.101,0.228,0.097333333,0.079,,,,,,,,,none
+Carroll,Venail.2016,,,Staurastrum,Scenedesmus,Phytoplankton,Control,,,,,,,,,0.101,0.315666667,-0.049,0.354666667,,,,,,,,,none
+Carroll,Venail.2016,,,Staurastrum,Selestrum,Phytoplankton,Control,,,,,,,,,0.315666667,0.562666667,0.354,0.081333333,,,,,,,,,none
+Carroll,Venail.2016,,,Staurastrum,Tetraedron,Phytoplankton,Control,,,,,,,,,0.101,0.157666667,0.159,0.079,,,,,,,,,none
+Carroll,Venail.2016,,,Tetraedron,Chlorella,Phytoplankton,Control,,,,,,,,,0.157666667,0.288,0.026,0.492,,,,,,,,,none
+Carroll,Venail.2016,,,Tetraedron,Closteriopsis,Phytoplankton,Control,,,,,,,,,0.157666667,0.452333333,0.028333333,0.0715,,,,,,,,,none
+Carroll,Venail.2016,,,Tetraedron,Cosmarium,Phytoplankton,Control,,,,,,,,,0.157666667,0.229333333,0.001,-0.02,,,,,,,,,none
+Carroll,Venail.2016,,,Tetraedron,Pandori,Phytoplankton,Control,,,,,,,,,0.157666667,0.228,0.165,0.051,,,,,,,,,none
+Carroll,Venail.2016,,,Tetraedron,Scenedesmus,Phytoplankton,Control,,,,,,,,,0.157666667,0.315666667,0.109,0.354,,,,,,,,,none
+Carroll,Venail.2016,,,Tetraedron,Selestrum,Phytoplankton,Control,,,,,,,,,0.157666667,0.562666667,0.009,0.136,,,,,,,,,none
+Carroll,Venail.2016,,,Tetraedron,Staurastrum,Phytoplankton,Control,,,,,,,,,0.157666667,0.101,0.079,0.159,,,,,,,,,none
+Godoy,Germain.2018,,,B. caritus,H.depressum,Plant,dry,2.176,0.036,0.001,1.291,,,563.2992314,137.9630874,563.2992314,137.9630874,95.45380911,0.412137423,,,,,,,,,annual plant model
+Godoy,Germain.2018,,,B. caritus,H. vulgare,Plant,dry,2.176,0.266,2.85,0.005,,,563.2992314,15.70244623,563.2992314,15.70244623,3.55226744,7.031612977,,,,,,,,,annual plant model
+Godoy,Germain.2018,,,B. caritus,H. depressum,Plant,wet,0.175,0.138,0.001,0.795,,,78.97080631,155.1424261,78.97080631,155.1424261,40.7339964,0.436198762,,,,,,,,,annual plant model
+Godoy,Germain.2018,,,B. caritus,H. vulgare,Plant,wet,0.175,0.227,0.623,0.006,,,78.97080631,22.83211361,78.97080631,22.83211361,1.297531639,6.414056178,,,,,,,,,annual plant model
+Godoy,Germain.2018,,,C. berlandieri,C. perfoliata,Plant,dry,0.267,0.022,0.001,0.072,,,44.13286107,14.49937381,44.13286107,14.49937381,33.77668469,1.14283091,,,,,,,,,annual plant model
+Godoy,Germain.2018,,,C. berlandieri,P. oleracea,Plant,dry,0.267,0.017,0.001,221.85,,,44.13286107,331.1030703,44.13286107,331.1030703,2.842445117,0.009238254,,,,,,,,,annual plant model
+Godoy,Germain.2018,,,C. berlandieri,C. perfoliata,Plant,wet,0.223,0.007,0.001,0.065,,,69.36218002,8.600155873,69.36218002,8.600155873,60.68696739,0.407550642,,,,,,,,,annual plant model
+Godoy,Germain.2018,,,C. berlandieri,P. oleracea,Plant,wet,0.223,279.72,0.001,219.9,,,69.36218002,509.2097484,69.36218002,509.2097484,69.33929899,0.007543458,,,,,,,,,annual plant model
+Godoy,Germain.2018,,,E. caespitosa,E. californica,Plant,dry,0.01,3.091,9.309,0.002,,,100.9254373,52.21988315,100.9254373,52.21988315,0.650049769,2.534611553,,,,,,,,,annual plant model
+Godoy,Germain.2018,,,E. caespitosa,P. dubium,Plant,dry,0.01,0.829,56.02,0.004,,,100.9254373,617.4048895,100.9254373,617.4048895,0.002423198,15.53925465,,,,,,,,,annual plant model
+Godoy,Germain.2018,,,E. caespitosa,E. californica,Plant,wet,0.004,0.012,3.573,2.388,,,66.97036263,53.69986106,66.97036263,53.69986106,0.004273225,0.001377151,,,,,,,,,annual plant model
+Godoy,Germain.2018,,,E. caespitosa,P. dubium,Plant,wet,0.004,0.705,15.1,0.008,,,66.97036263,947.353981,66.97036263,947.353981,0.003300212,7.58937748,,,,,,,,,annual plant model
+Godoy,Germain.2018,,,L. bicolor,L. purshianus,Plant,dry,3.983,3.551,2.158,0.003,,,7.095253122,13.05308761,7.095253122,13.05308761,0.852184675,13.00015753,,,,,,,,,annual plant model
+Godoy,Germain.2018,,,L. bicolor,T. incartum,Plant,dry,3.983,13.42,8.221,0.009,,,7.095253122,392.7636335,7.095253122,392.7636335,0.029455362,387.2970392,,,,,,,,,annual plant model
+Godoy,Germain.2018,,,L. bicolor,L. purshianus,Plant,wet,0.563,12.01,0.796,0.096,,,4.275229065,58.41365743,4.275229065,58.41365743,0.890314862,37.48708591,,,,,,,,,annual plant model
+Godoy,Germain.2018,,,L. bicolor,T. incartum,Plant,wet,0.563,20.18,7.845,0.945,,,4.275229065,1136.343099,4.275229065,1136.343099,0.009666297,174.8309548,,,,,,,,,annual plant model
+Godoy,Germain.2018,,,L. glabrata,L. californica,Plant,dry,0.157,0.214,0.042,0.105,,,468.7002988,1.559079988,468.7002988,1.559079988,432.2870167,0.000757847,,,,,,,,,annual plant model
+Godoy,Germain.2018,,,L. glabrata,C. melitensis,Plant,dry,0.157,0.438,0.066,0.689,,,468.7002988,666.3099555,468.7002988,666.3099555,3.569785196,2.127304358,,,,,,,,,annual plant model
+Godoy,Germain.2018,,,L. glabrata,L. californica,Plant,wet,0.054,0.098,0.003,0.219,,,389.8048936,1.827997622,389.8048936,1.827997622,387.9419673,0.00034726,,,,,,,,,annual plant model
+Godoy,Germain.2018,,,L. glabrata,C. melitensis,Plant,wet,0.054,0.18,0.001,0.728,,,389.8048936,839.0377604,389.8048936,839.0377604,17.23043508,0.529715518,,,,,,,,,annual plant model
+Godoy,Germain.2018,,,M. nuttallia,A. patula,Plant,dry,0.045,0.001,0.611,0.001,,,1148.434898,0.063973852,1148.434898,0.063973852,1148.434898,0.006583782,,,,,,,,,annual plant model
+Godoy,Germain.2018,,,M. nuttallia,S. gallica,Plant,dry,0.045,0.153,8.303,0.001,,,1148.434898,923.8187876,1148.434898,923.8187876,0.022871524,168.0031446,,,,,,,,,annual plant model
+Godoy,Germain.2018,,,M. nuttallia,A. patula,Plant,wet,0.263,0.001,0.003,0.001,,,587.4785529,,587.4785529,,587.4785529,0.035724416,,,,,,,,,annual plant model
+Godoy,Germain.2018,,,M. nuttallia,S. gallica,Plant,wet,0.263,0.119,8.227,0.001,,,587.4785529,989.3649172,587.4785529,989.3649172,0.008584383,740.2216498,,,,,,,,,annual plant model
+Godoy,Germain.2018,,,P. campanularia,N. menziesii,Plant,dry,0.361,0.009,0.006,0.026,,,103.9463466,303.2388866,103.9463466,303.2388866,22.17602188,290.6052517,,,,,,,,,annual plant model
+Godoy,Germain.2018,,,P. campanularia,M. arvensis,Plant,dry,0.361,0.136,0.002,0.001,,,103.9463466,3.770466774,103.9463466,3.770466774,35.02929627,0.454833567,,,,,,,,,annual plant model
+Godoy,Germain.2018,,,P. campanularia,N. menziesii,Plant,wet,0.142,0.14,0.006,0.004,,,63.62757549,352.4263714,63.62757549,352.4263714,4.574225683,327.2134556,,,,,,,,,annual plant model
+Godoy,Germain.2018,,,P. campanularia,M. arvensis,Plant,wet,0.142,0.107,0.004,0.001,,,63.62757549,9.64658715,63.62757549,9.64658715,46.86925245,3.331893381,,,,,,,,,annual plant model
+Godoy,Germain.2018,,,S. columbariae,C. heterophylla,Plant,dry,0.13,0.518,0.847,0.001,,,305.330364,124.2947153,305.330364,124.2947153,1.507130574,67.06180047,,,,,,,,,annual plant model
+Godoy,Germain.2018,,,S. columbariae,S. viridis,Plant,dry,0.13,0.177,0.444,0.038,,,305.330364,69.75130129,305.330364,69.75130129,1.762742998,0.769042301,,,,,,,,,annual plant model
+Godoy,Germain.2018,,,S. columbariae,C. heterophylla,Plant,wet,0.231,2.358,0.403,0.001,,,318.9454214,727.9251865,318.9454214,727.9251865,2.547284204,375.7555465,,,,,,,,,annual plant model
+Godoy,Germain.2018,,,S. columbariae,S. viridis,Plant,wet,0.231,0.126,0.128,0.07,,,318.9454214,75.61914781,318.9454214,75.61914781,4.141666873,0.775953382,,,,,,,,,annual plant model
+Godoy,Germain.2018,,,U. lindleyi,M. elegans,Plant,dry,0.505,3.608,0.001,0.005,,,38.31930864,166.9184055,38.31930864,166.9184055,31.41416219,150.1373293,,,,,,,,,annual plant model
+Godoy,Germain.2018,,,U. lindleyi,C. capillaris,Plant,dry,0.505,0.855,0.001,0.002,,,38.31930864,120.262073,38.31930864,120.262073,37.50098446,88.17400433,,,,,,,,,annual plant model
+Godoy,Germain.2018,,,U. lindleyi,M. elegans,Plant,wet,0.384,1.271,0.069,0.001,,,35.92896999,323.6258081,35.92896999,323.6258081,20.41770151,276.2792263,,,,,,,,,annual plant model
+Godoy,Germain.2018,,,U. lindleyi,C. capillaris,Plant,wet,0.384,1.342,0.003,0.002,,,35.92896999,75.51290382,35.92896999,75.51290382,7.084492911,71.13282567,,,,,,,,,annual plant model
+Godoy,Germain.2018,,,V. microstachys,V. octoflora,Plant,dry,0.082,0.515,0.002,0.574,,,152.9453598,677.3039502,152.9453598,677.3039502,0.573209584,16.50569653,,,,,,,,,annual plant model
+Godoy,Germain.2018,,,V. microstachys,V. myuros,Plant,dry,0.082,0.248,0.097,0.022,,,152.9453598,1126.948291,152.9453598,1126.948291,26.15477956,1.059516759,,,,,,,,,annual plant model
+Godoy,Germain.2018,,,V. microstachys,V. octoflora,Plant,wet,0.099,0.456,0.083,0.302,,,235.8198309,314.7871783,235.8198309,314.7871783,0.66234605,49.12549228,,,,,,,,,annual plant model
+Godoy,Germain.2018,,,V. microstachys,V. myuros,Plant,wet,0.099,0.2,0.227,0.002,,,235.8198309,923.8102097,235.8198309,923.8102097,1.396429958,1.284960909,,,,,,,,,annual plant model
+Godoy,Lanuza.2018,,,Chamaemelum fuscatum,Beta macrocarpa,Plant,control,0.1825,0.0201,0.1333,0,,,487.2054,72.1887,,,,,,,,,,,,,annual plant model
+Godoy,Lanuza.2018,,,Leontodon maroccanus,Beta macrocarpa,Plant,control,0.0891,0.0201,0.0266,0,,,130.1155,72.1887,,,,,,,,,,,,,annual plant model
+Godoy,Lanuza.2018,,,Melilotus elengans,Beta macrocarpa,Plant,control,0,0.0201,0,0.001,,,26.896,72.1887,,,,,,,,,,,,,annual plant model
+Godoy,Lanuza.2018,,,Melilotus sulcatus,Beta macrocarpa,Plant,control,0.0915,0.0201,0.05,0.0007,,,154.4548,72.1887,,,,,,,,,,,,,annual plant model
+Godoy,Lanuza.2018,,,Pulicaria paludosa,Beta macrocarpa,Plant,control,0.0001,0.0201,0.0001,0,,,1402.8764,72.1887,,,,,,,,,,,,,annual plant model
+Godoy,Lanuza.2018,,,Beta macrocarpa,Chamaemelum fuscatum,Plant,control,0.0201,0.1825,0,0.1333,,,72.1887,487.2054,,,,,,,,,,,,,annual plant model
+Godoy,Lanuza.2018,,,Leontodon maroccanus,Chamaemelum fuscatum,Plant,control,0.0891,0.1825,0.0267,0.128,,,130.1155,487.2054,,,,,,,,,,,,,annual plant model
+Godoy,Lanuza.2018,,,Melilotus elengans,Chamaemelum fuscatum,Plant,control,0,0.1825,0,0.187,,,26.896,487.2054,,,,,,,,,,,,,annual plant model
+Godoy,Lanuza.2018,,,Melilotus sulcatus,Chamaemelum fuscatum,Plant,control,0.0915,0.1825,0.0538,0.2608,,,154.4548,487.2054,,,,,,,,,,,,,annual plant model
+Godoy,Lanuza.2018,,,Pulicaria paludosa,Chamaemelum fuscatum,Plant,control,0.0001,0.1825,0.0429,0.0001,,,1402.8764,487.2054,,,,,,,,,,,,,annual plant model
+Godoy,Lanuza.2018,,,Beta macrocarpa,Leontodon maroccanus,Plant,control,0.0201,0.0891,0,0.0266,,,72.1887,130.1155,,,,,,,,,,,,,annual plant model
+Godoy,Lanuza.2018,,,Chamaemelum fuscatum,Leontodon maroccanus,Plant,control,0.1825,0.0891,0.128,0.0267,,,487.2054,130.1155,,,,,,,,,,,,,annual plant model
+Godoy,Lanuza.2018,,,Melilotus sulcatus,Leontodon maroccanus,Plant,control,0.0915,0.0891,0.5076,0.0267,,,154.4548,130.1155,,,,,,,,,,,,,annual plant model
+Godoy,Lanuza.2018,,,Pulicaria paludosa,Leontodon maroccanus,Plant,control,0.0001,0.0891,0.039,0.0691,,,1402.8764,130.1155,,,,,,,,,,,,,annual plant model
+Godoy,Lanuza.2018,,,Beta macrocarpa,Melilotus elengans,Plant,control,0.0201,0,0.001,0.0267,,,72.1887,130.1155,,,,,,,,,,,,,annual plant model
+Godoy,Lanuza.2018,,,Chamaemelum fuscatum,Melilotus elengans,Plant,control,0.1825,0,0.187,0,,,487.2054,26.896,,,,,,,,,,,,,annual plant model
+Godoy,Lanuza.2018,,,Leontodon maroccanus,Melilotus elengans,Plant,control,0.0891,0,0.0267,0,,,130.1155,26.896,,,,,,,,,,,,,annual plant model
+Godoy,Lanuza.2018,,,Melilotus elengans,Melilotus elengans,Plant,control,0,0,0,0,,,26.896,26.896,,,,,,,,,,,,,annual plant model
+Godoy,Lanuza.2018,,,Melilotus sulcatus,Melilotus elengans,Plant,control,0.0915,0,0.0477,0.1244,,,154.4548,26.896,,,,,,,,,,,,,annual plant model
+Godoy,Lanuza.2018,,,Pulicaria paludosa,Melilotus elengans,Plant,control,0.0001,0,0.0429,0.0286,,,1402.8764,26.896,,,,,,,,,,,,,annual plant model
+Godoy,Lanuza.2018,,,Beta macrocarpa,Melilotus sulcatus,Plant,control,0.0201,0.0915,0.0007,0.05,,,72.1887,154.4548,,,,,,,,,,,,,annual plant model
+Godoy,Lanuza.2018,,,Chamaemelum fuscatum,Melilotus sulcatus,Plant,control,0.1825,0.0915,0.2608,0.0538,,,487.2054,154.4548,,,,,,,,,,,,,annual plant model
+Godoy,Lanuza.2018,,,Leontodon maroccanus,Melilotus sulcatus,Plant,control,0.0891,0.0915,0.0691,0.5076,,,130.1155,154.4548,,,,,,,,,,,,,annual plant model
+Godoy,Lanuza.2018,,,Melilotus elengans,Melilotus sulcatus,Plant,control,0,0.0915,0.1244,0.0477,,,26.896,154.4548,,,,,,,,,,,,,annual plant model
+Godoy,Lanuza.2018,,,Pulicaria paludosa,Melilotus sulcatus,Plant,control,0.0001,0.0915,0.0001,0.05,,,1402.8764,154.4548,,,,,,,,,,,,,annual plant model
+Godoy,Lanuza.2018,,,Beta macrocarpa,Pulicaria paludosa,Plant,control,0.0201,0.0001,0,0.0001,,,72.1887,1402.8764,,,,,,,,,,,,,annual plant model
+Godoy,Lanuza.2018,,,Chamaemelum fuscatum,Pulicaria paludosa,Plant,control,0.1825,0.0001,0.0001,0.0429,,,487.2054,1402.8764,,,,,,,,,,,,,annual plant model
+Godoy,Lanuza.2018,,,Leontodon maroccanus,Pulicaria paludosa,Plant,control,0.0891,0.0001,0.0267,0.039,,,130.1155,1402.8764,,,,,,,,,,,,,annual plant model
+Godoy,Lanuza.2018,,,Melilotus elengans,Pulicaria paludosa,Plant,control,0,0.0001,0.0286,0.0429,,,26.896,1402.8764,,,,,,,,,,,,,annual plant model
+Godoy,Lanuza.2018,,,Melilotus sulcatus,Pulicaria paludosa,Plant,control,0.0915,0.0001,0.05,0.0001,,,154.4548,1402.8764,,,,,,,,,,,,,annual plant model
+Chesson 2012,Verseglou.2018,,,Agrotis,Cynosyrus,Plant,control,,,,,,,1,1,,,,,0.719,0.787,0.72,0.72,,,,,Lotka-Volterra
+Chesson 2012,Verseglou.2018,,,Agrotis,Fragaria,Plant,control,,,,,,,1,1,,,,,0.719,0.649,0.86,0.86,,,,,Lotka-Volterra
+Chesson 2012,Verseglou.2018,,,Agrotis,Pjleum,Plant,control,,,,,,,1,1,,,,,0.719,0.374,0.348,0.348,,,,,Lotka-Volterra
+Chesson 2012,Verseglou.2018,,,Agrotis,Plantago,Plant,control,,,,,,,1,1,,,,,0.719,0.434,0.299,0.299,,,,,Lotka-Volterra
+Chesson 2012,Verseglou.2018,,,Agrotis,Prunella,Plant,control,,,,,,,1,1,,,,,0.719,0.378,0.608,0.608,,,,,Lotka-Volterra
+Chesson 2012,Verseglou.2018,,,Agrotis,Rumex,Plant,control,,,,,,,1,1,,,,,0.719,0.454,0.369,0.369,,,,,Lotka-Volterra
+Chesson 2012,Verseglou.2018,,,Agrotis,Stellaria,Plant,control,,,,,,,1,1,,,,,0.719,0.691,0.803,0.803,,,,,Lotka-Volterra
+Chesson 2012,Verseglou.2018,,,Cynosyrus,Agrotis,Plant,control,,,,,,,1,1,,,,,0.787,0.719,0.72,0.72,,,,,Lotka-Volterra
+Chesson 2012,Verseglou.2018,,,Cynosyrus,Fragaria,Plant,control,,,,,,,1,1,,,,,0.787,0.649,0.104,0.104,,,,,Lotka-Volterra
+Chesson 2012,Verseglou.2018,,,Cynosyrus,Pjleum,Plant,control,,,,,,,1,1,,,,,0.787,0.374,0.384,0.384,,,,,Lotka-Volterra
+Chesson 2012,Verseglou.2018,,,Cynosyrus,Plantago,Plant,control,,,,,,,1,1,,,,,0.787,0.434,0.35,0.35,,,,,Lotka-Volterra
+Chesson 2012,Verseglou.2018,,,Cynosyrus,Prunella,Plant,control,,,,,,,1,1,,,,,0.787,0.378,0.492,0.492,,,,,Lotka-Volterra
+Chesson 2012,Verseglou.2018,,,Cynosyrus,Rumex,Plant,control,,,,,,,1,1,,,,,0.787,0.454,0.381,0.381,,,,,Lotka-Volterra
+Chesson 2012,Verseglou.2018,,,Cynosyrus,Stellaria,Plant,control,,,,,,,1,1,,,,,0.787,0.691,0.476,0.476,,,,,Lotka-Volterra
+Chesson 2012,Verseglou.2018,,,Fragaria,Agrotis,Plant,control,,,,,,,1,1,,,,,0.649,0.719,0.86,0.86,,,,,Lotka-Volterra
+Chesson 2012,Verseglou.2018,,,Fragaria,Cynosyrus,Plant,control,,,,,,,1,1,,,,,0.649,0.787,0.104,0.104,,,,,Lotka-Volterra
+Chesson 2012,Verseglou.2018,,,Fragaria,Pjleum,Plant,control,,,,,,,1,1,,,,,0.649,0.374,0.307,0.307,,,,,Lotka-Volterra
+Chesson 2012,Verseglou.2018,,,Fragaria,Plantago,Plant,control,,,,,,,1,1,,,,,0.649,0.434,0.315,0.315,,,,,Lotka-Volterra
+Chesson 2012,Verseglou.2018,,,Fragaria,Prunella,Plant,control,,,,,,,1,1,,,,,0.649,0.378,0.502,0.502,,,,,Lotka-Volterra
+Chesson 2012,Verseglou.2018,,,Fragaria,Rumex,Plant,control,,,,,,,1,1,,,,,0.649,0.454,0.372,0.372,,,,,Lotka-Volterra
+Chesson 2012,Verseglou.2018,,,Fragaria,Stellaria,Plant,control,,,,,,,1,1,,,,,0.649,0.691,0.325,0.325,,,,,Lotka-Volterra
+Chesson 2012,Verseglou.2018,,,Pjleum,Agrotis,Plant,control,,,,,,,1,1,,,,,0.374,0.719,0.348,0.348,,,,,Lotka-Volterra
+Chesson 2012,Verseglou.2018,,,Pjleum,Cynosyrus,Plant,control,,,,,,,1,1,,,,,0.374,0.787,0.384,0.384,,,,,Lotka-Volterra
+Chesson 2012,Verseglou.2018,,,Pjleum,Fragaria,Plant,control,,,,,,,1,1,,,,,0.374,0.649,0.307,0.307,,,,,Lotka-Volterra
+Chesson 2012,Verseglou.2018,,,Pjleum,Plantago,Plant,control,,,,,,,1,1,,,,,0.374,0.434,0.278,0.278,,,,,Lotka-Volterra
+Chesson 2012,Verseglou.2018,,,Pjleum,Prunella,Plant,control,,,,,,,1,1,,,,,0.374,0.378,0.265,0.265,,,,,Lotka-Volterra
+Chesson 2012,Verseglou.2018,,,Pjleum,Rumex,Plant,control,,,,,,,1,1,,,,,0.374,0.454,0.34,0.34,,,,,Lotka-Volterra
+Chesson 2012,Verseglou.2018,,,Pjleum,Stellaria,Plant,control,,,,,,,1,1,,,,,0.374,0.691,0.397,0.397,,,,,Lotka-Volterra
+Chesson 2012,Verseglou.2018,,,Plantago,Agrotis,Plant,control,,,,,,,1,1,,,,,0.434,0.719,0.299,0.299,,,,,Lotka-Volterra
+Chesson 2012,Verseglou.2018,,,Plantago,Cynosyrus,Plant,control,,,,,,,1,1,,,,,0.434,0.787,0.35,0.35,,,,,Lotka-Volterra
+Chesson 2012,Verseglou.2018,,,Plantago,Fragaria,Plant,control,,,,,,,1,1,,,,,0.434,0.649,0.315,0.315,,,,,Lotka-Volterra
+Chesson 2012,Verseglou.2018,,,Plantago,Pjleum,Plant,control,,,,,,,1,1,,,,,0.434,0.374,0.278,0.278,,,,,Lotka-Volterra
+Chesson 2012,Verseglou.2018,,,Plantago,Prunella,Plant,control,,,,,,,1,1,,,,,0.434,0.378,0.331,0.331,,,,,Lotka-Volterra
+Chesson 2012,Verseglou.2018,,,Plantago,Rumex,Plant,control,,,,,,,1,1,,,,,0.434,0.454,0.328,0.328,,,,,Lotka-Volterra
+Chesson 2012,Verseglou.2018,,,Plantago,Stellaria,Plant,control,,,,,,,1,1,,,,,0.434,0.691,0.325,0.325,,,,,Lotka-Volterra
+Chesson 2012,Verseglou.2018,,,Prunella,Agrotis,Plant,control,,,,,,,1,1,,,,,0.378,0.719,0.608,0.608,,,,,Lotka-Volterra
+Chesson 2012,Verseglou.2018,,,Prunella,Cynosyrus,Plant,control,,,,,,,1,1,,,,,0.378,0.787,0.492,0.492,,,,,Lotka-Volterra
+Chesson 2012,Verseglou.2018,,,Prunella,Fragaria,Plant,control,,,,,,,1,1,,,,,0.378,0.649,0.502,0.502,,,,,Lotka-Volterra
+Chesson 2012,Verseglou.2018,,,Prunella,Pjleum,Plant,control,,,,,,,1,1,,,,,0.378,0.374,0.265,0.265,,,,,Lotka-Volterra
+Chesson 2012,Verseglou.2018,,,Prunella,Plantago,Plant,control,,,,,,,1,1,,,,,0.378,0.434,0.331,0.331,,,,,Lotka-Volterra
+Chesson 2012,Verseglou.2018,,,Prunella,Rumex,Plant,control,,,,,,,1,1,,,,,0.378,0.454,0.695,0.695,,,,,Lotka-Volterra
+Chesson 2012,Verseglou.2018,,,Prunella,Stellaria,Plant,control,,,,,,,1,1,,,,,0.378,0.691,0.573,0.573,,,,,Lotka-Volterra
+Chesson 2012,Verseglou.2018,,,Rumex,Agrotis,Plant,control,,,,,,,1,1,,,,,0.454,0.719,0.369,0.369,,,,,Lotka-Volterra
+Chesson 2012,Verseglou.2018,,,Rumex,Cynosyrus,Plant,control,,,,,,,1,1,,,,,0.454,0.787,0.381,0.381,,,,,Lotka-Volterra
+Chesson 2012,Verseglou.2018,,,Rumex,Fragaria,Plant,control,,,,,,,1,1,,,,,0.454,0.649,0.372,0.372,,,,,Lotka-Volterra
+Chesson 2012,Verseglou.2018,,,Rumex,Pjleum,Plant,control,,,,,,,1,1,,,,,0.454,0.374,0.34,0.34,,,,,Lotka-Volterra
+Chesson 2012,Verseglou.2018,,,Rumex,Plantago,Plant,control,,,,,,,1,1,,,,,0.454,0.434,0.328,0.328,,,,,Lotka-Volterra
+Chesson 2012,Verseglou.2018,,,Rumex,Prunella,Plant,control,,,,,,,1,1,,,,,0.454,0.378,0.695,0.695,,,,,Lotka-Volterra
+Chesson 2012,Verseglou.2018,,,Rumex,Stellaria,Plant,control,,,,,,,1,1,,,,,0.454,0.691,0.407,0.407,,,,,Lotka-Volterra
+Chesson 2012,Verseglou.2018,,,Stellaria,Agrotis,Plant,control,,,,,,,1,1,,,,,0.691,0.719,0.803,0.803,,,,,Lotka-Volterra
+Chesson 2012,Verseglou.2018,,,Stellaria,Cynosyrus,Plant,control,,,,,,,1,1,,,,,0.691,0.787,0.476,0.476,,,,,Lotka-Volterra
+Chesson 2012,Verseglou.2018,,,Stellaria,Fragaria,Plant,control,,,,,,,1,1,,,,,0.691,0.649,0.325,0.325,,,,,Lotka-Volterra
+Chesson 2012,Verseglou.2018,,,Stellaria,Pjleum,Plant,control,,,,,,,1,1,,,,,0.691,0.374,0.397,0.397,,,,,Lotka-Volterra
+Chesson 2012,Verseglou.2018,,,Stellaria,Plantago,Plant,control,,,,,,,1,1,,,,,0.691,0.434,0.325,0.325,,,,,Lotka-Volterra
+Chesson 2012,Verseglou.2018,,,Stellaria,Prunella,Plant,control,,,,,,,1,1,,,,,0.691,0.378,0.573,0.573,,,,,Lotka-Volterra
+Chesson 2012,Verseglou.2018,,,Stellaria,Rumex,Plant,control,,,,,,,1,1,,,,,0.691,0.454,0.407,0.407,,,,,Lotka-Volterra

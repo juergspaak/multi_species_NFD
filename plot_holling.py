@@ -1,14 +1,15 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-from annual_plants_multispecies import NFD_annual_plants
-
 richness = np.arange(2,11)
-NO_all, FD_all = np.empty((2,3,len(richness),1000,max(richness)))
+NO_all, FD_all = np.empty((2,3,len(richness),100,max(richness)))
 for i in richness:
     file = np.load("NFD_values,richness {}.npz".format(i))
-    NO_all[:,i-2,:,:i] = file["NO"].copy()
-    FD_all[:,i-2,:,:i] = file["FD"].copy()
+    try:
+        NO_all[:,i-2,:,:i] = file["NO"].copy()
+        FD_all[:,i-2,:,:i] = file["FD"].copy()
+    except:
+        pass
     print(np.sum(np.isfinite(file["NO"][...,0])),
                              np.sum(np.isfinite(NO_all[:,i-2,:,0])),i)
 
