@@ -1,3 +1,8 @@
+"""see exting_res.py
+Try to find a community structure, which feeds on resources.
+Depending on the regeneration speed of the resources (r)
+the 3 species community has consistently lower or higher ND values"""
+
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt

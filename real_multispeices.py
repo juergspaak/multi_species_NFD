@@ -1,3 +1,8 @@
+"""compute the NFD for real multispecies communities
+Data are taken from:
+    Godoy and Levine 2014 for the annual plant community
+    Fort and Segure 2018 for the Lotka volterra community"""
+
 import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd

@@ -1,3 +1,10 @@
+"""
+compute the difference in NFD values for the mac Arthur resource model and
+compare it to the NFD values of the corresponding LV -model
+
+Resources may go extinct in the macArthur model, not however in the LV 
+model, this is where the difference comes from"""
+
 import numpy as np
 import model_holling_discrete_res as mh
 from nfd_definitions.numerical_NFD import NFD_model, InputError
