@@ -84,7 +84,6 @@ for n_spec in range(2, max_spec+1):
     def_pars = {"ND": np.full(n_spec, np.nan), "FD": np.full(n_spec, np.nan),
                 "c": np.full((n_spec, n_spec), np.nan)}
     for i,A in enumerate(LV_pars["matrix"][n_spec]):
-        print(n_spec, i)
         try:
             if (A!=0).all():
                 pars = NFD_model(LV_model, n_spec, args = (A,))
