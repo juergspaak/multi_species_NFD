@@ -12,13 +12,17 @@ from nfd_definitions.numerical_NFD import NFD_model, InputError
 
 # load real LV communities        
 fort_2_spec = pd.read_csv("LV_param_fort2018.csv")
-fort_multi_spec = pd.read_csv("LV_param_fort2018_multispecies.csv")
-huisman = fort_multi_spec.iloc[:4,1:5].values
-neill = fort_multi_spec.iloc[5:9,1:5].values
-vandermeer = fort_multi_spec.iloc[10:14,1:5].values
-picasso = fort_multi_spec.iloc[15:,1:].values
+LV_multi_spec = pd.read_csv("LV_multispec.csv")
 
-max_spec = 7
+# load all matrices
+matrices = {}
+ind = np.where(np.isfinite(LV_multi_spec.n_spec))[0]
+max_spec = int(np.nanmax(LV_multi_spec.n_spec))
+for i in ind:
+    n_spec = int(LV_multi_spec.n_spec[i])
+    matrices[LV_multi_spec.Source[i]] = LV_multi_spec.iloc[i+1:i+n_spec+1,
+            2:2+n_spec].values
+
 LV_pars = {} # stores all parameters for LV systems
 
 # adding keywords to the dictionary
@@ -37,13 +41,13 @@ LV_pars["matrix"][2] = list(A)
 LV_pars["origin"][2] = len(A)*["Fort et al. 2 spec"]
 LV_pars["species"][2] = [[i,i] for i in range(len(A))]
 
-names = ["huisman", "neill", "vandermeer", "picasso"]
-for i,multi in enumerate([huisman, neill, vandermeer, picasso]):
+for key in matrices.keys():
+    multi = matrices[key]
     cur_spec = len(multi)
     for n_spec in range(2, cur_spec+1):
         for comb in np.array(list(combinations(range(cur_spec), n_spec))):
             LV_pars["matrix"][n_spec].append(multi[comb[:,None], comb])
-            LV_pars["origin"][n_spec].append(names[i])
+            LV_pars["origin"][n_spec].append(key)
             LV_pars["species"][n_spec].append(comb)
 
 # convert everything into np.arrays
