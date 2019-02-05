@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-from NFD_code.numerical_NFD import NFD_model
+from nfd_definitions.numerical_NFD import NFD_model
 
 def find_real_communities(A_prime,r_prime):
     
@@ -72,8 +72,8 @@ A_all = []
 equi_all = []
 equi_mono = []
 n_com_prime = 1000 # number of communities at the beginning
-max_alpha = 0.2
-min_alpha = -0.2
+max_alpha = 0.5
+min_alpha = 0
 mu = 1
 
 diag_one = True
@@ -138,18 +138,18 @@ fs = 14
 
 # NO and FD versus species richness    
 fig = plt.figure(figsize = (11,11))
-ax_NO = fig.add_subplot(4,2,1)
+ax_NO = fig.add_subplot(2,2,1)
 ax_NO.boxplot(NO_all, positions = range(2,11), showfliers = False)
 ax_NO.set_ylabel(r"$\mathcal{NO}$")
 
-ax_FD = fig.add_subplot(4,2,3, sharex = ax_NO)
+ax_FD = fig.add_subplot(2,2,3, sharex = ax_NO)
 ax_FD.boxplot(FD_all, positions = range(2,11), showfliers = False)
 ax_FD.set_xlabel("number of species")
 ax_FD.set_ylabel(r"$\mathcal{F}$", fontsize = fs)
 
 # effect of ND and FD on relative yield
 
-ax_coex = fig.add_subplot(2,2,2)
+ax_coex = fig.add_subplot(1,2,2)
 x = np.linspace(0,1,1000)
 for i in range(len(NO_all)):
     im = ax_coex.scatter(1-NO_all[i][:,0], FD_all[i][:,0], s = 5, linewidth = 0,
@@ -162,39 +162,6 @@ ax_coex.set_ylabel(r"$-\mathcal{F}$", fontsize = fs)
 ax_coex.set_xlabel(r"$\mathcal{N}$", fontsize = fs)
 cbar = fig.colorbar(im,ax = ax_coex)
 cbar.ax.set_ylabel("relative yield")
-
-# prediction of EF via ND and FD
-# FD and equilibrium density in community
-ax_ryt = fig.add_subplot(2,2,3)
-x = np.linspace(*ryt_bounds,1000)
-for i in range(len(NO_all)):
-    ax_ryt.scatter(np.sum((1-NO_all[i]*(1-FD_all[i])), axis = -1)
-    -np.average(FD_all[i],axis = -1)*np.average(NO_all[i], axis = -1), 
-            ryt[i], s = 5, linewidth = 0)
-ax_ryt.set_xlabel(r'$\overline{\mathcal{N}}+\overline{\mathcal{F}}-'
-                  '\overline{\mathcal{NF}}$', fontsize = fs)
-ax_ryt.set_ylabel("RYT", fontsize = fs)
-ax_ryt.plot(x,x, linewidth = 2, color = "black", linestyle = ":")
-ax_ryt.set_xlim(ryt_bounds)
-ax_ryt.set_ylim(ryt_bounds)
-
-# prediction of EF via ND and FD
-# FD and equilibrium density in community
-ax_ryt2 = fig.add_subplot(2,2,4)
-for i in range(len(NO_all)):
-    ax_ryt2.scatter(np.sum((1-NO_all[i]*(1-FD_all[i]))
-        /(1-np.prod(NO_all[i],axis = -1,keepdims = True)), axis = -1)
-        ,ryt[i], s = 5, linewidth = 0)
-ax_ryt2.plot(x,x, linewidth = 2, color = "black", linestyle = ":")
-ax_ryt2.set_xlim(ryt_bounds)
-ax_ryt2.set_ylim(ryt_bounds)
-xlab = r'$\frac{\overline{\mathcal{N}}+\overline{\mathcal{F}}-'\
-                   +'\overline{\mathcal{NF}}}{1-(1-\mathcal{N})^2}$'
-ax_ryt2.set_xlabel(xlab, fontsize = fs)
-ax_ryt2.set_ylabel("RYT", fontsize = fs)
-
-
-fig.suptitle(title, fontsize = 16)
 
 fig.savefig("Figure, NFD effect on RYT,{},{},{},{}.pdf".format(
         min_alpha, max_alpha, symm, diag_one))

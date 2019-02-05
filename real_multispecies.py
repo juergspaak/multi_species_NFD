@@ -4,7 +4,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-from LV_real_multispec_com import LV_pars, ND_LV, FD_LV
+from LV_real_multispec_com import LV_pars, ND_LV, FD_LV, LV_multi_spec, max_spec
 
 fig = plt.figure(figsize = (10,10))
 
@@ -50,6 +50,17 @@ stab_LV = [sum(np.array(LV_pars["stable"][i]) * LV_pars["feasible"][i])
 
 tot_com_LV = [len(ND) for ND in LV_pars["feasible"]]
 plt.show()
+# actual measured communities
+print([sum(LV_multi_spec.n_spec == i) for i in range(max_spec+1)])
+# communities for which all parameters exist and are nonzero
 print(tot_com_LV)
+# communities which can coexist
 print(stab_LV)
+# communities for which we can compute NFD parameters
 print(ND_comp_LV)
+
+# current number of communities
+# [0, 0, 0, 8, 11, 1, 5, 4, 2, 3]
+# [0, 0, 495, 631, 676, 525, 293, 113, 27, 3]
+# [0, 0, 376, 306, 172, 69, 13, 0, 0, 0]
+# [0, 0, 467, 395, 166, 60, 9, 0, 0, 0]
