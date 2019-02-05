@@ -89,14 +89,10 @@ for n_spec in range(2, max_spec+1):
                 "c": np.full((n_spec, n_spec), np.nan)}
     for i,A in enumerate(LV_pars["matrix"][n_spec]):
         try:
-            if (A!=0).all():
-                pars = NFD_model(LV_model, n_spec, args = (A,))
-                LV_pars["NFD_comp"][n_spec].append(True)
-                ND_LV[n_spec].append(pars["ND"])
-                FD_LV[n_spec].append(pars["FD"])
-            else:
-                pars = def_pars
-                LV_pars["NFD_comp"][n_spec].append(False)
+            pars = NFD_model(LV_model, n_spec, args = (A,))
+            LV_pars["NFD_comp"][n_spec].append(True)
+            ND_LV[n_spec].append(pars["ND"])
+            FD_LV[n_spec].append(pars["FD"])
         except InputError:
             pars = def_pars
             LV_pars["NFD_comp"][n_spec].append(False)
