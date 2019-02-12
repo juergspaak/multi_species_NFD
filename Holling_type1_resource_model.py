@@ -13,8 +13,9 @@ from itertools import combinations
 
 # global parameters
 n_res = 2 # number of resources species share
-n_spe_max = 5 # maximal number of species
-n_com = 50 # number of communities to generate
+n_spe_max = 6 # maximal number of species
+n_com = 10 # number of communities to generate
+K = 1 # carrying capacity, assume constant for all resources
 
 # generater species parameters
 # utilisation of resources by each species for common resources
@@ -54,8 +55,8 @@ mort = np.random.uniform(size = (n_spe_max, n_com))
 mort = B_u_r + mort*(u_spec_diag - B_u_r)
 
 # compute LV model parameters assuming no resources go extinct
-mu = np.sum(util, axis = 1) - mort
-A = np.sum(util*util[:,np.newaxis]/regen, axis = 2)
+mu = K*np.sum(util, axis = 1) - mort
+A = np.sum(K*util*util[:,np.newaxis]/regen, axis = 2)
 
 class ResourceError(Exception):
     pass
@@ -63,7 +64,7 @@ class ResourceError(Exception):
 def res_dens(N,u,r,m):
     """ growth of species with density N and trats u,r,m"""
     # resources density
-    R_star = 1-np.einsum("s,sr->r", N, u)/r
+    R_star = K*(1-np.einsum("s,sr->r", N, u)/r)
     if (R_star<0).any(): # check whether no resource went extinct
         print(N)
         print(R_star)
@@ -100,7 +101,7 @@ for i in range(n_com):
         pars = NFD_model(LV, n_spec = n_spe, 
             args = (mu[comb,i], A[comb[:,None], comb,i]))
         ND_c[n_spe].append(pars["ND"].copy())   # save values
-        FD_c[n_spe].append(pars["ND"].copy())
+        FD_c[n_spe].append(pars["FD"].copy())
         
         # compute NFD values for the resource model
         # use pars of LV model as starting estimates
@@ -108,7 +109,7 @@ for i in range(n_com):
             args = (util[comb,:,i], regen[:,i], mort[comb,i]),
                          pars = pars)
         ND[n_spe].append(pars["ND"])
-        FD[n_spe].append(pars["ND"])
+        FD[n_spe].append(pars["FD"])
         
         if not np.isclose(ND[n_spe][-1], ND_c[n_spe][-1]).all():
             pars2 = NFD_model(LV, n_spec = n_spe, 
@@ -125,4 +126,34 @@ check = [np.sum(~np.isclose(ND[i], ND_c[i]))/ND_c[i].size
          for i in range(len(ND))]
 print(check)
 
-plt.boxplot(ND)
+fig = plt.figure(figsize = (10,10))
+
+
+ax_FD_LV = fig.add_subplot(2,2,3)
+ax_ND_LV = fig.add_subplot(2,2,1)
+
+ax_ND_LV.boxplot(ND[2:], positions = range(2,7))
+ax_FD_LV.boxplot(FD[2:], positions = range(2,7))
+ax_coex_LV = fig.add_subplot(1,2,2)
+
+for i in range(2,7):
+    ax_coex_LV.scatter(ND[i], -np.array(FD[i]))      
+
+y_lim = ax_coex_LV.get_ylim()
+ND_bound = np.linspace(-2,2,101)
+ax_coex_LV.plot(ND_bound, ND_bound/(1-ND_bound), "black")
+ax_coex_LV.set_xlim(0,1)
+ax_coex_LV.set_ylim(-np.array(ax_FD_LV.get_ylim())[::-1])
+# add layout
+ax_ND_LV.set_title("Lotka Volterra")
+
+ax_FD_LV.set_xlabel("species richness")
+ax_FD_LV.set_ylabel("FD")
+ax_ND_LV.set_ylabel("ND")
+
+ax_coex_LV.set_ylabel("-FD")
+ax_coex_LV.set_xlabel("ND")
+
+fig.tight_layout()
+
+fig.savefig("Holling_type1_resource_explicit.png")

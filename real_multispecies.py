@@ -40,7 +40,7 @@ ax_coex_LV.set_xlabel("ND")
 
 fig.tight_layout()
 
-fig.savefig("real_multispecies.png")
+fig.savefig("real_multispecies.pdf")
 
 # compute number of ND we have compute
 ND_comp_LV = [len(ND) for ND in ND_LV]
