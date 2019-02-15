@@ -66,15 +66,18 @@ def diag_fill(A, values):
     A[:, np.diag_indices(n)[0], np.diag_indices(n)[1]] = values
     return
 
-NO_all = []
-FD_all = []
-A_all = []
+n_spe_max = 7 # maximal number of species
+n_com_prime = 1000 # number of communities at the beginning
+n_coms = np.zeros(n_spe_max+1, dtype = int)
+NO_all, FD_all  = np.full((2, n_spe_max+1, n_com_prime, n_spe_max), np.nan)
+A_all = np.full((n_spe_max+1, n_com_prime, n_spe_max, n_spe_max), np.nan)
 equi_all = []
 equi_mono = []
-n_com_prime = 1000 # number of communities at the beginning
-max_alpha = 0.5
-min_alpha = 0
+
+max_alpha = 0.3
+min_alpha = 0.1
 mu = 1
+n_specs = np.arange(2,n_spe_max + 1)
 
 diag_one = True
 symm = False
@@ -84,9 +87,11 @@ if diag_one:
 if symm:
         title += "; symm"
 # number of species ranging from 2 to 7
-for n in range(2,11):
+for n in n_specs:
     # create random interaction matrices
-    A_prime = np.random.uniform(min_alpha,max_alpha,size = (n_com_prime,n,n))
+    #A_prime = np.exp(np.random.uniform(np.log(min_alpha),np.log(max_alpha)
+    #                ,size = (n_com_prime,n,n)))
+    A_prime = np.random.uniform(min_alpha, max_alpha,size = (n_com_prime,n,n))
     
     # intraspecific competition is assumed to be 1
     diag_fill(A_prime, np.random.uniform(1,2,(n_com_prime,n)))
@@ -98,38 +103,29 @@ for n in range(2,11):
     r_prime = np.ones((n_com_prime,n))
     
     real, A, equi, sub_equi = find_real_communities(A_prime, r_prime)
+    n_coms[n] = len(A)
     NO, FD = NFD_LV_multispecies(A,sub_equi)
     print(len(NO),n)
-    NO_all.append(NO)
-    FD_all.append(FD)
-    A_all.append(A)
-    equi_mono.append(mu/A[:,np.diag_indices(n)[0], np.diag_indices(n)[0]])
-    equi_all.append(equi)
+    NO_all[n, :n_coms[n], :n] = NO
+    FD_all[n, :n_coms[n], :n] = FD
+    A_all[n, :n_coms[n], :n, :n] = A
 
-# compute relative yield
-ry = [equi_all[i]/equi_mono[i] for i in range(len(equi_all))]
 
+ND_all = 1-NO_all
 # check result with random index
-n_test = np.random.randint(len(A_all))
-test_ind = np.random.randint(len(A_all[n_test]))
+n_test = np.random.choice(n_specs)
+test_ind = np.random.randint(n_coms[n_test])
 def test_f(N):
-    return 1 - np.dot(A_all[n_test][test_ind],N)
+    return 1 - np.dot(A_all[n_test,test_ind, :n_test, :n_test],N)
     
-pars = NFD_model(test_f, n_test+2)
+pars = NFD_model(test_f,int(n_test))
 print(pars["NO"])
-print(NO_all[n_test][test_ind])
-print(FD_all[n_test][test_ind])
+print(NO_all[n_test,test_ind, :n_test])
+print(FD_all[n_test,test_ind, :n_test])
 print(pars["FD"])
 
-def bounds(array, percents =  [5,95]):
-    start = np.array([np.percentile(arr,percents) for arr in array])
-    return np.array([min(start[:,0]), max(start[:,1])])
-FD_bounds = bounds(FD_all)
-NO_bounds = bounds(NO_all)
-ND_bounds = 1-NO_bounds[::-1]
-ry_bounds = bounds(ry)
-ryt = [np.sum(ry_i, axis = -1) for ry_i in ry]
-ryt_bounds = bounds(ryt)
+ND_box = [ND_all[i, :n_coms[i], :i].flatten() for i in n_specs]
+FD_box = [FD_all[i, :n_coms[i], :i].flatten() for i in n_specs]
 
 ###############################################################################
 # plot the results
@@ -139,30 +135,40 @@ fs = 14
 # NO and FD versus species richness    
 fig = plt.figure(figsize = (11,11))
 ax_NO = fig.add_subplot(2,2,1)
-ax_NO.boxplot(NO_all, positions = range(2,11), showfliers = False)
+ax_NO.boxplot(ND_box, positions = n_specs,
+              showfliers = False)
+ax_NO.plot(n_specs, np.nanmean(ND_all[2:], axis = (1,2)), 'o')
 ax_NO.set_ylabel(r"$\mathcal{NO}$")
 
+
 ax_FD = fig.add_subplot(2,2,3, sharex = ax_NO)
-ax_FD.boxplot(FD_all, positions = range(2,11), showfliers = False)
+ax_FD.boxplot(FD_box, positions = n_specs, showfliers = False)
 ax_FD.set_xlabel("number of species")
 ax_FD.set_ylabel(r"$\mathcal{F}$", fontsize = fs)
-
+ax_FD.plot(n_specs, np.nanmean(FD_all[2:], axis = (1,2)), 'o')
+ax_NO.set_xlim(1.5, n_spe_max + 0.5)
 # effect of ND and FD on relative yield
 
 ax_coex = fig.add_subplot(1,2,2)
 x = np.linspace(0,1,1000)
-for i in range(len(NO_all)):
-    im = ax_coex.scatter(1-NO_all[i][:,0], FD_all[i][:,0], s = 5, linewidth = 0,
-                c = ry[i][:,0], vmin = ry_bounds[0], vmax = ry_bounds[1])
+im = ax_coex.scatter(ND_all[2:, :, 0], FD_all[2:, :, 0], s = 16,
+        c = n_specs.reshape(-1,1)*np.ones(NO_all[2:,:,0].shape),
+        linewidth = 0, alpha = 0.5)
 ax_coex.plot(x,-x/(1-x), color = "black")
-ax_coex.set_xlim(ND_bounds)
-ax_coex.set_ylim(FD_bounds)
+ax_coex.set_xlim(np.nanpercentile(ND_all, (1,99)))
+ax_coex.set_ylim(np.nanpercentile(FD_all, (1,99)))
 plt.gca().invert_yaxis()
 ax_coex.set_ylabel(r"$-\mathcal{F}$", fontsize = fs)
 ax_coex.set_xlabel(r"$\mathcal{N}$", fontsize = fs)
-cbar = fig.colorbar(im,ax = ax_coex)
-cbar.ax.set_ylabel("relative yield")
 
-fig.savefig("Figure, NFD effect on RYT,{},{},{},{}.pdf".format(
+cbar = fig.colorbar(im,ax = ax_coex)
+cbar.ax.set_ylabel("species richness")
+
+alpha_geom = np.sqrt(min_alpha*max_alpha)
+alpha_av = (min_alpha + max_alpha)/2
+ax_FD.plot(n_specs, 1-(n_specs-1)/(1+alpha_av*(n_specs-2)))
+ax_FD.plot(n_specs, 1-(n_specs-1)/(1+alpha_geom*(n_specs-2)))
+
+fig.savefig("Figure, NFD effect on RYT,{},{},{},{}.png".format(
         min_alpha, max_alpha, symm, diag_one))
 #"""
