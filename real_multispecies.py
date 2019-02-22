@@ -65,3 +65,26 @@ print(ND_comp_LV)
 [0, 0, 376, 307, 172, 69, 13, 0, 0, 0]
 [0, 0, 490, 407, 169, 60, 9, 0, 0, 0]
 """
+
+fig, ax = plt.subplots(2,2, figsize = (9,9), sharey = "row", sharex = "col")
+ax[0,0].boxplot(LV_pars["interaction_geom"][2:])
+ax[1,0].boxplot(LV_pars["interaction_artm"][2:])
+
+
+
+ax[0,1].boxplot([LV_pars["interaction_geom"][i][LV_pars["NFD_comp"][i]] for i
+                 in range(2,7)])
+ax[1,1].boxplot([LV_pars["interaction_artm"][i][LV_pars["NFD_comp"][i]] for i
+                 in range(2,7)])
+ax[1,0].set_ylim(-5,5)
+ax[0,0].set_ylim(0,2)
+
+ax[1,1].set_xlabel("Species richness")
+ax[1,0].set_xlabel("Species richness")
+ax[0,0].set_ylabel("Geometric mean(A)")
+ax[1,0].set_ylabel("Arithemtic mean(A)")
+
+ax[0,0].set_title("All communities")
+ax[0,1].set_title("NFD_computed communities")
+
+fig.savefig("real_communities_interaction_strenght.pdf")

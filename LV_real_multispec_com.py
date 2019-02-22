@@ -70,7 +70,11 @@ LV_pars["feasible"] = [[] for i in range(max_spec+1)] # existence of a feasible 
 LV_pars["stable"] = [[] for i in range(max_spec+1)]  # stability of equilibrium
 LV_pars["c"] = [[] for i in range(max_spec+1)] # c matrix to convert densities
 LV_pars["NFD_comp"] = [[] for i in range(max_spec+1)] # whether NFD can be computed
-LV_pars["interaction"] = [[] for i in range(max_spec+1)] # mean interaction strength
+# geometricalmean interaction strength of the offdiagonal entries (diag = 1)
+LV_pars["interaction_geom"] = [[] for i in range(max_spec+1)]
+# arithmetic mean interaction strength of the offdiagonal entries (diag = 1)
+LV_pars["interaction_artm"] = [[] for i in range(max_spec+1)]
+
 
         
 def LV_model(N,A):
@@ -83,8 +87,10 @@ for n_spec in range(2, max_spec+1):
     LV_pars["feasible"][n_spec] = np.all(equi>0, axis = 1)
     LV_pars["stable"][n_spec] = np.all(np.real(
             np.linalg.eigvals(-equi[:,None]*A_all))<0, axis = -1)
-    LV_pars["interaction"][n_spec] = np.prod(np.abs(A_all),
-           axis = (1,2))**(1/n_spec**2)
+    LV_pars["interaction_geom"][n_spec] = np.prod(np.abs(A_all),
+           axis = (1,2))**(1/(n_spec**2))
+    LV_pars["interaction_artm"][n_spec] = (np.sum(A_all,
+           axis = (1,2)) - n_spec) / (n_spec**2-n_spec)
     def_pars = {"ND": np.full(n_spec, np.nan), "FD": np.full(n_spec, np.nan),
                 "c": np.full((n_spec, n_spec), np.nan)}
     for i,A in enumerate(LV_pars["matrix"][n_spec]):
@@ -103,3 +109,16 @@ for n_spec in range(2, max_spec+1):
 
 for key in ["ND", "FD", "c", "NFD_comp"]:
     LV_pars[key] = [np.array(entry) for entry in LV_pars[key]]
+
+# check whether there is a community in which ND<0 and has coexistence    
+for i in range(2, max_spec + 1):
+    ND, FD = LV_pars["ND"][i], LV_pars["FD"][i]
+    coex = np.all(ND+FD-ND*FD>0, axis = 1)
+    try:
+        j = np.argmin(np.amin(ND[coex], axis = 1))
+        print(i, ND[coex][j], FD[coex][j],(ND+FD-ND*FD)[coex][j] )
+    except ValueError:
+        continue
+    
+    
+    

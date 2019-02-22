@@ -151,18 +151,19 @@ ax_NO.set_xlim(1.5, n_spe_max + 0.5)
 
 ax_coex = fig.add_subplot(1,2,2)
 x = np.linspace(0,1,1000)
-im = ax_coex.scatter(ND_all[2:, :, 0], FD_all[2:, :, 0], s = 16,
+if False:
+    im = ax_coex.scatter(ND_all[2:, :, 0], FD_all[2:, :, 0], s = 16,
         c = n_specs.reshape(-1,1)*np.ones(NO_all[2:,:,0].shape),
         linewidth = 0, alpha = 0.5)
-ax_coex.plot(x,-x/(1-x), color = "black")
-ax_coex.set_xlim(np.nanpercentile(ND_all, (1,99)))
-ax_coex.set_ylim(np.nanpercentile(FD_all, (1,99)))
-plt.gca().invert_yaxis()
-ax_coex.set_ylabel(r"$-\mathcal{F}$", fontsize = fs)
-ax_coex.set_xlabel(r"$\mathcal{N}$", fontsize = fs)
+    ax_coex.plot(x,-x/(1-x), color = "black")
+    ax_coex.set_xlim(np.nanpercentile(ND_all, (1,99)))
+    ax_coex.set_ylim(np.nanpercentile(FD_all, (1,99)))
+    plt.gca().invert_yaxis()
+    ax_coex.set_ylabel(r"$-\mathcal{F}$", fontsize = fs)
+    ax_coex.set_xlabel(r"$\mathcal{N}$", fontsize = fs)
 
-cbar = fig.colorbar(im,ax = ax_coex)
-cbar.ax.set_ylabel("species richness")
+    cbar = fig.colorbar(im,ax = ax_coex)
+    cbar.ax.set_ylabel("species richness")
 
 alpha_geom = np.sqrt(min_alpha*max_alpha)
 alpha_av = (min_alpha + max_alpha)/2
