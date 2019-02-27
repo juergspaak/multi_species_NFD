@@ -4,11 +4,11 @@ Data are taken from:
     Fort and Segure 2018 for the Lotka volterra community"""
 
 import numpy as np
-import matplotlib.pyplot as plt
 import pandas as pd
 from itertools import combinations
+from nfd_definitions.numerical_NFD import InputError, NFD_model
 
-from nfd_definitions.numerical_NFD import NFD_model, InputError
+import LV_multi_functions as lmf
 
 # load real LV communities        
 fort_2_spec = pd.read_csv("LV_param_fort2018.csv")
@@ -32,14 +32,14 @@ LV_pars["matrix"] = [[] for i in range(max_spec+1)] # store the LV matrix
 
 LV_pars["origin"] = [[] for i in range(max_spec+1)] # source of the data
 LV_pars["species"] = [[] for i in range(max_spec+1)] # species taken
-              
+        
 # create matrices from the data
-A = np.ones((len(fort_2_spec),2,2))
-A[:,0,1] = fort_2_spec.a_ij
-A[:,1,0] = fort_2_spec.a_ji
-LV_pars["matrix"][2] = list(A)
-LV_pars["origin"][2] = len(A)*["Fort et al. 2 spec"]
-LV_pars["species"][2] = [[i,i] for i in range(len(A))]
+A_fort = np.ones((len(fort_2_spec),2,2))
+A_fort[:,0,1] = fort_2_spec.a_ij
+A_fort[:,1,0] = fort_2_spec.a_ji
+LV_pars["matrix"][2] = list(A_fort)
+LV_pars["origin"][2] = len(A_fort)*["Fort et al. 2 spec"]
+LV_pars["species"][2] = [[i,i] for i in range(len(A_fort))]
 
 for key in matrices.keys():
     multi = matrices[key]
@@ -64,52 +64,62 @@ LV_pars["origin"] = [[],[]] + [LV_pars["origin"][i][real_coms[i-2]]
 LV_pars["species"] = [[],[]] + [LV_pars["species"][i][real_coms[i-2]] 
                             for i in range(2, max_spec+1)]
 
-LV_pars["ND"] = [[] for i in range(max_spec+1)] # to store the ND values
-LV_pars["FD"] = [[] for i in range(max_spec+1)] # to store the FD values
-LV_pars["feasible"] = [[] for i in range(max_spec+1)] # existence of a feasible equilibrium
-LV_pars["stable"] = [[] for i in range(max_spec+1)]  # stability of equilibrium
-LV_pars["c"] = [[] for i in range(max_spec+1)] # c matrix to convert densities
-LV_pars["NFD_comp"] = [[] for i in range(max_spec+1)] # whether NFD can be computed
+LV_pars["ND"] = (max_spec+1)*[[]] # to store the ND values
+LV_pars["FD"] = (max_spec+1)*[[]] # to store the FD values
+LV_pars["c"] = (max_spec+1)*[[]] # c matrix to convert densities
+LV_pars["A_NFD"] = (max_spec+1)*[[]] # interaction matrix of NFD_comp
+LV_pars["NFD_comp"] = (max_spec+1)*[[]] # whether NFD can be computed
 # geometricalmean interaction strength of the offdiagonal entries (diag = 1)
-LV_pars["interaction_geom"] = [[] for i in range(max_spec+1)]
+LV_pars["interaction_geom"] = (max_spec+1)*[[]]
 # arithmetic mean interaction strength of the offdiagonal entries (diag = 1)
-LV_pars["interaction_artm"] = [[] for i in range(max_spec+1)]
+LV_pars["interaction_artm"] = (max_spec+1)*[[]]
 
-
-        
 def LV_model(N,A):
     return 1-A.dot(N)
+        
 ND_LV = [[] for i in range(max_spec+1)]
 FD_LV = [[] for i in range(max_spec+1)]
-for n_spec in range(2, max_spec+1):
-    A_all = LV_pars["matrix"][n_spec]
-    equi = np.linalg.solve(A_all,np.ones((len(A_all), n_spec)))
-    LV_pars["feasible"][n_spec] = np.all(equi>0, axis = 1)
-    LV_pars["stable"][n_spec] = np.all(np.real(
-            np.linalg.eigvals(-equi[:,None]*A_all))<0, axis = -1)
-    LV_pars["interaction_geom"][n_spec] = np.prod(np.abs(A_all),
+comp = [[] for i in range(max_spec+1)]
+for n_spec in range(2,7):
+    print(n_spec)
+    A_n = LV_pars["matrix"][n_spec]
+    LV_pars["interaction_geom"][n_spec] = np.prod(np.abs(A_n),
            axis = (1,2))**(1/(n_spec**2))
-    LV_pars["interaction_artm"][n_spec] = (np.sum(A_all,
+    LV_pars["interaction_artm"][n_spec] = (np.sum(A_n,
            axis = (1,2)) - n_spec) / (n_spec**2-n_spec)
-    def_pars = {"ND": np.full(n_spec, np.nan), "FD": np.full(n_spec, np.nan),
-                "c": np.full((n_spec, n_spec), np.nan)}
-    for i,A in enumerate(LV_pars["matrix"][n_spec]):
+    
+    NFD_comp, sub_equi = lmf.find_NFD_computables(A_n)
+    A_comp = A_n[NFD_comp]
+    sub_equi = sub_equi[NFD_comp]
+    ND, FD = lmf.NFD_LV_multispecies(A_comp,sub_equi)
+    LV_pars["ND"][n_spec] = ND
+    LV_pars["FD"][n_spec] = FD
+    LV_pars["A_NFD"][n_spec] = A_comp
+    LV_pars["NFD_comp"][n_spec] = NFD_comp
+    
+    
+    # check whether results are equivalent to the ones from NFD_model
+    for i,A_ in enumerate(LV_pars["matrix"][n_spec]):
         try:
-            pars = NFD_model(LV_model, n_spec, args = (A,))
-            LV_pars["NFD_comp"][n_spec].append(True)
+            pars = {}
+            pars = NFD_model(LV_model, n_spec, args = (A_,), pars = pars)
             ND_LV[n_spec].append(pars["ND"])
             FD_LV[n_spec].append(pars["FD"])
+            comp[n_spec].append(True)
+            if not LV_pars["NFD_comp"][n_spec][i]:
+                print(i, LV_pars["NFD_comp"][n_spec][i], True)
+                raise ValueError
         except InputError:
-            pars = def_pars
-            LV_pars["NFD_comp"][n_spec].append(False)
+            comp[n_spec].append(False)
+            if LV_pars["NFD_comp"][n_spec][i]:
+                print(i, LV_pars["NFD_comp"][n_spec][i], False)
+                raise
             
-        LV_pars["ND"][n_spec].append(pars["ND"])
-        LV_pars["FD"][n_spec].append(pars["FD"])
-        LV_pars["c"][n_spec].append(pars["c"])
 
-for key in ["ND", "FD", "c", "NFD_comp"]:
-    LV_pars[key] = [np.array(entry) for entry in LV_pars[key]]
+ND_LV = LV_pars["ND"]
 
+FD_LV = LV_pars["FD"]
+"""
 # check whether there is a community in which ND<0 and has coexistence    
 for i in range(2, max_spec + 1):
     ND, FD = LV_pars["ND"][i], LV_pars["FD"][i]
@@ -118,7 +128,4 @@ for i in range(2, max_spec + 1):
         j = np.argmin(np.amin(ND[coex], axis = 1))
         print(i, ND[coex][j], FD[coex][j],(ND+FD-ND*FD)[coex][j] )
     except ValueError:
-        continue
-    
-    
-    
+        continue"""
