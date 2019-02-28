@@ -1,4 +1,5 @@
 import numpy as np
+from nfd_definitions.numerical_NFD import InputError, NFD_model
 
 def find_NFD_computables(A,r = None):
     """find all communities for which NFD can be computed
@@ -49,9 +50,23 @@ def find_NFD_computables(A,r = None):
     sub_feasible = np.sum(sub_equi>0, axis = (1,2)) == should
     sub_stable = np.all(np.real(sub_jacobi)<0, axis = (1,2))
     computable = sub_feasible & sub_stable
+    
+    # check whether results obtained by automatic comp. is equivalent
+    i = np.random.randint(n_com)
+    try:
+        NFD_model(lambda N: r[i] - A[i].dot(N), n_spec = A.shape[1])
+        if not computable[i]:
+            raise ValueError("Cannot compute NFD values for com. {}".format(i)
+                +"with LV-specific method, but with automatic")
+    except InputError:
+        if computable[i]:
+            raise ValueError("Cannot compute NFD values for com. {}".format(i)
+               + "with automatic method, but with LV_specific")
+    
     return computable, sub_equi
     
-def NFD_LV_multispecies(A,sub_equi, r = None):
+def NFD_LV_multispecies(A,sub_equi, r = None, check = True,
+                        c_one = False):
     """compute NFD values for communities A
     
     LV model is assume to be of the form 
@@ -81,6 +96,7 @@ def NFD_LV_multispecies(A,sub_equi, r = None):
     FD_ij: np.array, shape = n_com, n_spec, n_spec
         FD values of two species subcommunities        
     """
+    np.seterr(divide='ignore') # division by 0 is handled correctly
     if r is None:
         r = np.ones(A.shape[:2])
     
@@ -96,14 +112,17 @@ def NFD_LV_multispecies(A,sub_equi, r = None):
     # NO is a weighted average of the two species NO
     # weights = sqrt(a_ij/a_ji*a_jj/a_ii)
     c = own_einsum("nij,nji,njj,nii->nij", A,1/A,A,1/A)
-    c[np.isinf(c)] = 0
+    c[np.isnan(c)] = 0
+    if c_one: # set all c to one, assume same resource use of all species
+        c = np.ones(c.shape)
+        check = False # checking results would always result in false
     try:
         NO = np.average(NO_ij, axis = -1, 
                         weights = c*sub_equi)
-    except ZeroDivisionError:
+    except ZeroDivisionError: # avoid error of zero weights
         weights_sum = np.sum(c*sub_equi, axis = -1)
         NO = np.sum(NO_ij*c*sub_equi,axis = -1)/weights_sum
-        NO[np.isnan(NO)] = 1
+        NO[np.isnan(NO)] = 0
     
     # compute monoculture equilibrium density
     specs = np.arange(A.shape[-1])
@@ -114,7 +133,30 @@ def NFD_LV_multispecies(A,sub_equi, r = None):
     FD = 1 - np.einsum("nij,nij,nj->ni",
                        1-FD_ij,sub_equi, mono_equi)
     
-    return 1-NO, FD
+    # check whether results are correct with a random index
+    if check:
+        i = np.random.randint(len(FD))
+        try:
+            pars = {"N_star": sub_equi[i], "c": c[i]}
+            pars = NFD_model(lambda N: r[i] - A[i].dot(N), 
+                             n_spec = A.shape[1], pars = pars)
+            if not np.allclose([pars["ND"], pars["FD"]],[1-NO[i], FD[i]],
+                              rtol = 1e-5, atol = 1e-5):
+                print("ND automatic:", pars["ND"])
+                print("ND LV_specific:", 1-NO[i])
+                print("FD automatic:", pars["FD"])
+                print("FD LV_specific:", FD[i])
+                print(NO_ij[i],"NO_ij\n")
+                print(A[i], "A\n")
+                print(c[i], "c\n")
+                raise ValueError("Computed NFD values are not exact enough"
+                                 +" for {}th community".format(i))
+        except InputError:
+            print(A[i], r[i])
+            raise ValueError("Could not compute NFD " +
+                             "values for {}th com.".format(i))
+    
+    return 1-NO, FD, c, NO_ij, FD_ij
 
 def diag_fill(A, values):
     # fill the diagonal of a multidimensional array `A` with `values`
