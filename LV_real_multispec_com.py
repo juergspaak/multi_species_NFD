@@ -1,12 +1,12 @@
-"""compute the NFD for real multispecies communities
-Data are taken from:
-    Godoy and Levine 2014 for the annual plant community
-    Fort and Segure 2018 for the Lotka volterra community"""
+"""
+@author: J.W.Spaak
+compute the NFD for real multispecies communities
+Data are taken from real LV communities"""
 
 import numpy as np
 import pandas as pd
 from itertools import combinations
-from nfd_definitions.numerical_NFD import InputError, NFD_model
+import warnings
 
 import LV_multi_functions as lmf
 
@@ -66,22 +66,23 @@ LV_pars["species"] = [[],[]] + [LV_pars["species"][i][real_coms[i-2]]
 
 LV_pars["ND"] = (max_spec+1)*[[]] # to store the ND values
 LV_pars["FD"] = (max_spec+1)*[[]] # to store the FD values
+LV_pars["ND_no_indir"] = (max_spec+1)*[[]] # to store the ND values
+LV_pars["FD_no_indir"] = (max_spec+1)*[[]] # to store the FD values
 LV_pars["c"] = (max_spec+1)*[[]] # c matrix to convert densities
+LV_pars["NO_ij"] = (max_spec+1)*[[]] # c matrix to convert densities
+LV_pars["FD_ij"] = (max_spec+1)*[[]] # c matrix to convert densities
+LV_pars["sub_equi"] = (max_spec+1)*[[]] # c matrix to convert densities
 LV_pars["A_NFD"] = (max_spec+1)*[[]] # interaction matrix of NFD_comp
 LV_pars["NFD_comp"] = (max_spec+1)*[[]] # whether NFD can be computed
 # geometricalmean interaction strength of the offdiagonal entries (diag = 1)
 LV_pars["interaction_geom"] = (max_spec+1)*[[]]
 # arithmetic mean interaction strength of the offdiagonal entries (diag = 1)
 LV_pars["interaction_artm"] = (max_spec+1)*[[]]
-
-def LV_model(N,A):
-    return 1-A.dot(N)
         
 ND_LV = [[] for i in range(max_spec+1)]
 FD_LV = [[] for i in range(max_spec+1)]
 comp = [[] for i in range(max_spec+1)]
 for n_spec in range(2,7):
-    print(n_spec)
     A_n = LV_pars["matrix"][n_spec]
     LV_pars["interaction_geom"][n_spec] = np.prod(np.abs(A_n),
            axis = (1,2))**(1/(n_spec**2))
@@ -91,34 +92,27 @@ for n_spec in range(2,7):
     NFD_comp, sub_equi = lmf.find_NFD_computables(A_n)
     A_comp = A_n[NFD_comp]
     sub_equi = sub_equi[NFD_comp]
-    ND, FD = lmf.NFD_LV_multispecies(A_comp,sub_equi)
+    with warnings.catch_warnings():
+        warnings.simplefilter("ignore")
+        ND, FD, c, NO_ij, FD_ij = lmf.NFD_LV_multispecies(A_comp,sub_equi)
     LV_pars["ND"][n_spec] = ND
     LV_pars["FD"][n_spec] = FD
     LV_pars["A_NFD"][n_spec] = A_comp
     LV_pars["NFD_comp"][n_spec] = NFD_comp
+    LV_pars["c"][n_spec] = c
+    LV_pars["NO_ij"][n_spec] = NO_ij
+    LV_pars["FD_ij"][n_spec] = FD_ij
+    LV_pars["sub_equi"][n_spec] = sub_equi
     
-    
-    # check whether results are equivalent to the ones from NFD_model
-    for i,A_ in enumerate(LV_pars["matrix"][n_spec]):
-        try:
-            pars = {}
-            pars = NFD_model(LV_model, n_spec, args = (A_,), pars = pars)
-            ND_LV[n_spec].append(pars["ND"])
-            FD_LV[n_spec].append(pars["FD"])
-            comp[n_spec].append(True)
-            if not LV_pars["NFD_comp"][n_spec][i]:
-                print(i, LV_pars["NFD_comp"][n_spec][i], True)
-                raise ValueError
-        except InputError:
-            comp[n_spec].append(False)
-            if LV_pars["NFD_comp"][n_spec][i]:
-                print(i, LV_pars["NFD_comp"][n_spec][i], False)
-                raise
+    # compute effects in absence of indirect effects
+    sub_equi2 = np.ones(sub_equi.shape)
+    sub_equi2[:,np.arange(n_spec),np.arange(n_spec)] = 0
+    with warnings.catch_warnings():
+        warnings.simplefilter("ignore")
+        ND2, FD2, c, NO_ij, FD_ij = lmf.NFD_LV_multispecies(A_comp,sub_equi)
+    LV_pars["ND_no_indir"][n_spec] = ND2
+    LV_pars["FD_no_indir"][n_spec] = FD2
             
-
-ND_LV = LV_pars["ND"]
-
-FD_LV = LV_pars["FD"]
 """
 # check whether there is a community in which ND<0 and has coexistence    
 for i in range(2, max_spec + 1):

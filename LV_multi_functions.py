@@ -96,7 +96,6 @@ def NFD_LV_multispecies(A,sub_equi, r = None, check = True,
     FD_ij: np.array, shape = n_com, n_spec, n_spec
         FD values of two species subcommunities        
     """
-    np.seterr(divide='ignore') # division by 0 is handled correctly
     if r is None:
         r = np.ones(A.shape[:2])
     
