@@ -79,9 +79,6 @@ LV_pars["interaction_geom"] = (max_spec+1)*[[]]
 # arithmetic mean interaction strength of the offdiagonal entries (diag = 1)
 LV_pars["interaction_artm"] = (max_spec+1)*[[]]
         
-ND_LV = [[] for i in range(max_spec+1)]
-FD_LV = [[] for i in range(max_spec+1)]
-comp = [[] for i in range(max_spec+1)]
 for n_spec in range(2,7):
     A_n = LV_pars["matrix"][n_spec]
     LV_pars["interaction_geom"][n_spec] = np.prod(np.abs(A_n),

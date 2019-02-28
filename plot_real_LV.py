@@ -4,7 +4,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-from LV_real_multispec_com import LV_pars, ND_LV, FD_LV, LV_multi_spec,max_spec
+from LV_real_multispec_com import LV_pars, LV_multi_spec,max_spec
 
 fig = plt.figure(figsize = (10,10))
 
