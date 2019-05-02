@@ -14,13 +14,13 @@ def diag_fill(A, values):
     return
 
 n_spe_max = 6 # maximal number of species
-n_com_prime = 10000 # number of communities at the beginning
+n_com_prime = 1000 # number of communities at the beginning
 n_coms = np.zeros(n_spe_max+1, dtype = int)
 NO_all, FD_all  = np.full((2, n_spe_max+1, n_com_prime, n_spe_max), np.nan)
 A_all, c_all, NO_ij_all, FD_ij_all, sub_equi_all = np.full((5, n_spe_max + 1,
                 n_com_prime, n_spe_max, n_spe_max), np.nan)
 
-max_alpha = 0.3
+max_alpha = 0.26
 min_alpha = 0.01
 mu = 1
 n_specs = np.arange(2,n_spe_max + 1)
@@ -28,8 +28,8 @@ n_specs = np.arange(2,n_spe_max + 1)
 # number of species ranging from 2 to 7
 for n in n_specs:
     # create random interaction matrices
-    A_prime = np.exp(np.random.uniform(np.log(min_alpha),np.log(max_alpha)
-                    ,size = (n_com_prime,n,n)))
+    #A_prime = np.exp(np.random.uniform(np.log(min_alpha),np.log(max_alpha)
+    #                ,size = (n_com_prime,n,n)))
     A_prime = np.random.uniform(min_alpha, max_alpha,size = (n_com_prime,n,n))
     
     # intraspecific competition is assumed to be 1
@@ -50,7 +50,7 @@ for n in n_specs:
     FD_ij_all[n, :n_coms[n], :n, :n] = FD_ij
     A_all[n, :n_coms[n], :n, :n] = A
     c_all[n, :n_coms[n], :n, :n] = c
-    sub_equi_all[n, :n_coms[n], :n, :n] = sub_equi[NFD_comp]
+    sub_equi_all[n, :n_coms[n], :n, :n] = sub_equi
 
 
 ND_all = 1-NO_all
@@ -70,13 +70,13 @@ ax_ND.boxplot(ND_box, positions = n_specs,
               showfliers = False)
 
 ax_ND.plot(n_specs, lmf.geo_mean(ND_all[2:], axis = (1,2)), 'ro')
-ax_ND.plot(n_specs, np.nanmean(ND_all[2:], axis = (1,2)), 'ro')
 ax_ND.set_ylabel(r"$\mathcal{ND}$")
 
 alpha_geom = lmf.geo_mean(A_all[2,:,0,1])
 ax_ND.set_xlim(1.5, n_spe_max + 0.5)
 
-ax_ND.axhline(np.nanmean(ND_box[0]), color = "red", label = "theory")
+ax_ND.axhline(np.nanmean(ND_box[0]), color = "red",
+              label = "Prediction with constant matrix")
 ax_ND.legend()
 
 ax_FD = fig.add_subplot(2,2,3, sharex = ax_ND)

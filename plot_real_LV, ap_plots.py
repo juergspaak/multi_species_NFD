@@ -4,13 +4,15 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-from LV_real_multispec_com import LV_pars, LV_multi_spec,max_spec
+from LV_real_multispec_com import LV_pars, max_spec
 
 n_specs = np.arange(2,7)
-fig, ax = plt.subplots(2,2, figsize = (9,9), sharey = "row", sharex = "col")
+fig, ax = plt.subplots(3,2, figsize = (9,9), sharey = "row", sharex = "col")
 ax[0,0].boxplot(LV_pars["interaction_geom"][2:],
       positions = range(2, max_spec+1))
 ax[1,0].boxplot(LV_pars["interaction_artm"][2:],
+      positions = range(2, max_spec+1))
+ax[2,0].boxplot(LV_pars["interaction_medi"][2:],
       positions = range(2, max_spec+1))
 
 
@@ -19,18 +21,23 @@ ax[0,1].boxplot([LV_pars["interaction_geom"][i][LV_pars["NFD_comp"][i]] for i
                  in range(2,7)], positions = range(2,7))
 ax[1,1].boxplot([LV_pars["interaction_artm"][i][LV_pars["NFD_comp"][i]] for i
                  in range(2,7)], positions = range(2,7))
-ax[1,0].set_ylim(-1,1)
-ax[0,0].set_ylim(0,2)
+ax[2,1].boxplot([LV_pars["interaction_medi"][i][LV_pars["NFD_comp"][i]] for i
+                 in range(2,7)], positions = range(2,7))
 
-ax[1,1].set_xlabel("Species richness")
-ax[1,0].set_xlabel("Species richness")
+ax[0,0].set_ylim(0,2)
+ax[1,0].set_ylim(-1,1)
+ax[2,0].set_ylim(-1,1)
+
+ax[2,1].set_xlabel("Species richness")
+ax[2,0].set_xlabel("Species richness")
 ax[0,0].set_ylabel("Geometric mean(A)")
 ax[1,0].set_ylabel("Arithemtic mean(A)")
+ax[2,0].set_ylabel("Median (A)")
 
 ax[0,0].set_title("All communities")
 ax[0,1].set_title("NFD_computed communities")
 
-fig.savefig("Figure, real_communities_interaction_strenght.pdf")
+fig.savefig("Figure, real_communities_interaction_strenght.png")
 
 fig, ax = plt.subplots(3,1, figsize = (7,7), sharex = True)
 interact_comp = [LV_pars["interaction_artm"][i][LV_pars["NFD_comp"][i]] for i
