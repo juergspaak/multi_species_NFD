@@ -34,12 +34,12 @@ LV_pars["origin"] = [[] for i in range(max_spec+1)] # source of the data
 LV_pars["species"] = [[] for i in range(max_spec+1)] # species taken
         
 # create matrices from the data
-A_fort = np.ones((len(fort_2_spec),2,2))
+"""A_fort = np.ones((len(fort_2_spec),2,2))
 A_fort[:,0,1] = fort_2_spec.a_ij
 A_fort[:,1,0] = fort_2_spec.a_ji
 LV_pars["matrix"][2] = list(A_fort)
 LV_pars["origin"][2] = len(A_fort)*["Fort et al. 2 spec"]
-LV_pars["species"][2] = [[i,i] for i in range(len(A_fort))]
+LV_pars["species"][2] = [[i,i] for i in range(len(A_fort))]"""
 
 for key in matrices.keys():
     multi = matrices[key]
@@ -78,20 +78,32 @@ LV_pars["NFD_comp"] = (max_spec+1)*[[]] # whether NFD can be computed
 LV_pars["interaction_geom"] = (max_spec+1)*[[]]
 # arithmetic mean interaction strength of the offdiagonal entries (diag = 1)
 LV_pars["interaction_artm"] = (max_spec+1)*[[]]
+LV_pars["interaction_medi"] = (max_spec+1)*[[]]
+
+# values concerning coexistence
+LV_pars["invasion_growth"] = (max_spec+1)*[np.array([])] # the invasion growth rates
+LV_pars["coex_invasion"] = (max_spec+1)*[np.array([])] # do all species have r_i>0
+LV_pars["real_coex"] = (max_spec+1)*[np.array([])] # is there a stable steady state?
         
 for n_spec in range(2,7):
     A_n = LV_pars["matrix"][n_spec]
-    LV_pars["interaction_geom"][n_spec] = np.prod(np.abs(A_n),
-           axis = (1,2))**(1/(n_spec**2))
-    LV_pars["interaction_artm"][n_spec] = (np.sum(A_n,
-           axis = (1,2)) - n_spec) / (n_spec**2-n_spec)
+    
+    # to compute average interaction strength remove intraspecific interaction
+    B_n = A_n.copy()
+    B_n[:,np.arange(n_spec), np.arange(n_spec)] = np.nan
+    LV_pars["interaction_geom"][n_spec] = np.nanprod(np.abs(B_n),
+           axis = (1,2))**(1/(n_spec*(n_spec-1)))
+    LV_pars["interaction_artm"][n_spec] = (np.nansum(B_n,
+           axis = (1,2))) / (n_spec*(n_spec-1))
+    # compute the median of 
+    LV_pars["interaction_medi"][n_spec] = np.nanmedian(B_n, axis = (1,2))
     
     NFD_comp, sub_equi = lmf.find_NFD_computables(A_n)
     A_comp = A_n[NFD_comp]
     sub_equi = sub_equi[NFD_comp]
     with warnings.catch_warnings():
         warnings.simplefilter("ignore")
-        ND, FD, c, NO_ij, FD_ij = lmf.NFD_LV_multispecies(A_comp,sub_equi)
+        ND, FD, c, NO_ij, FD_ij, r_i = lmf.NFD_LV_multispecies(A_comp,sub_equi)
     LV_pars["ND"][n_spec] = ND
     LV_pars["FD"][n_spec] = FD
     LV_pars["A_NFD"][n_spec] = A_comp
@@ -100,13 +112,23 @@ for n_spec in range(2,7):
     LV_pars["NO_ij"][n_spec] = NO_ij
     LV_pars["FD_ij"][n_spec] = FD_ij
     LV_pars["sub_equi"][n_spec] = sub_equi
+    LV_pars["coex_invasion"][n_spec] = np.all(r_i>0, axis = 1)
+    LV_pars["invasion_growth"][n_spec] = r_i
+    
+    # compute which communities have a stable equilibrium
+    equi = np.linalg.solve(A_n,np.ones(A_n.shape[:2]))
+    # compute eigenvalues at equilibrium
+    jacobi = np.linalg.eig(-equi[...,np.newaxis]* A_n)[0]
+    LV_pars["real_coex"][n_spec] = np.logical_and(np.all(equi>0,axis = 1),
+           np.all(np.real(jacobi)<0, axis = 1))
+    # compute which communities are stable
     
     # compute effects in absence of indirect effects
     sub_equi2 = np.ones(sub_equi.shape)
     sub_equi2[:,np.arange(n_spec),np.arange(n_spec)] = 0
     with warnings.catch_warnings():
         warnings.simplefilter("ignore")
-        ND2, FD2, c, NO_ij, FD_ij = lmf.NFD_LV_multispecies(A_comp,sub_equi)
+        ND2, FD2, c, NO_ij, FD_ij, r_i = lmf.NFD_LV_multispecies(A_comp,sub_equi)
     LV_pars["ND_no_indir"][n_spec] = ND2
     LV_pars["FD_no_indir"][n_spec] = FD2
             

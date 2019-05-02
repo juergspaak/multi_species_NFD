@@ -132,6 +132,11 @@ def NFD_LV_multispecies(A,sub_equi, r = None, check = True,
     FD = 1 - np.einsum("nij,nij,nj->ni",
                        1-FD_ij,sub_equi, mono_equi)
     
+    # compute invasion growth rates of each species
+    r_i = 1 - np.einsum("nji,nki->njk", A, sub_equi)
+    # take only invasion growth rates, not resident growth rates
+    r_i = r_i[:,np.arange(A.shape[1]), np.arange(A.shape[1])]
+    
     # check whether results are correct with a random index
     if check:
         i = np.random.randint(len(FD))
@@ -139,8 +144,9 @@ def NFD_LV_multispecies(A,sub_equi, r = None, check = True,
             pars = {"N_star": sub_equi[i], "c": c[i]}
             pars = NFD_model(lambda N: r[i] - A[i].dot(N), 
                              n_spec = A.shape[1], pars = pars)
-            if not np.allclose([pars["ND"], pars["FD"]],[1-NO[i], FD[i]],
-                              rtol = 1e-5, atol = 1e-5):
+            if not (np.allclose([pars["ND"], pars["FD"]],[1-NO[i], FD[i]],
+                                rtol = 1e-5, atol = 1e-5)
+                                and np.allclose(r_i[i],pars["r_i"])):
                 print("ND automatic:", pars["ND"])
                 print("ND LV_specific:", 1-NO[i])
                 print("FD automatic:", pars["FD"])
@@ -155,7 +161,7 @@ def NFD_LV_multispecies(A,sub_equi, r = None, check = True,
             raise ValueError("Could not compute NFD " +
                              "values for {}th com.".format(i))
     
-    return 1-NO, FD, c, NO_ij, FD_ij
+    return 1-NO, FD, c, NO_ij, FD_ij, r_i
 
 def diag_fill(A, values):
     # fill the diagonal of a multidimensional array `A` with `values`
