@@ -46,6 +46,7 @@ def NFD_higher_order_LV(mu,A,B = None, C = None):
         C = np.zeros(A.shape + (n,n))
     
     NO,FD = np.empty((2,n_com,n))
+    c = np.empty((n_com, n,n))
     index = np.full(n_com,False,dtype = "bool")
     for i in range(n_com):
         try:
@@ -55,4 +56,5 @@ def NFD_higher_order_LV(mu,A,B = None, C = None):
             continue
         NO[i] = pars["NO"]
         FD[i] = pars["FD"]
-    return NO[index], FD[index]
+        c[i] = pars["c"]
+    return NO[index], FD[index], c[index]
