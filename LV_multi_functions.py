@@ -65,8 +65,7 @@ def find_NFD_computables(A,r = None):
     
     return computable, sub_equi
     
-def NFD_LV_multispecies(A,sub_equi, r = None, check = True,
-                        c_one = False):
+def NFD_LV_multispecies(A,sub_equi, r = None, check = True, c_one = False):
     """compute NFD values for communities A
     
     LV model is assume to be of the form 
@@ -166,9 +165,15 @@ def NFD_LV_multispecies(A,sub_equi, r = None, check = True,
 def diag_fill(A, values):
     # fill the diagonal of a multidimensional array `A` with `values`
     n = A.shape[-1]
-    A[:, np.diag_indices(n)[0], np.diag_indices(n)[1]] = values
+    A[..., np.diag_indices(n)[0], np.diag_indices(n)[1]] = values
     return
 
 def geo_mean(A,axis = None):
     # compute geometric mean
     return np.exp(np.nanmean(np.log(A), axis = axis))
+
+def NFD_average(A_in):
+    A = A_in.reshape(A_in.shape[:-2] + (-1,))
+    A_all_inter = A[...,np.newaxis]*A[...,np.newaxis,:]
+    diag_fill(A_all_inter, np.nan)
+    return np.nanmean(np.sqrt(A_all_inter), axis = (1,2,3))

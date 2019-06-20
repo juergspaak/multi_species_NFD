@@ -44,7 +44,7 @@ for n in n_specs:
     A = A_prime[NFD_comp]
     sub_equi = sub_equi[NFD_comp]
     n_coms[n] = len(A)
-    ND, FD, c, NO_ij, FD_ij = lmf.NFD_LV_multispecies(A,sub_equi)
+    ND, FD, c, NO_ij, FD_ij, r_i = lmf.NFD_LV_multispecies(A,sub_equi)
     print(len(ND),n)
     NO_all[n, :n_coms[n], :n] = 1 - ND
     NO_ij_all[n, :n_coms[n], :n, :n] = NO_ij

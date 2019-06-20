@@ -128,17 +128,22 @@ for n_spec in range(2,7):
     sub_equi2[:,np.arange(n_spec),np.arange(n_spec)] = 0
     with warnings.catch_warnings():
         warnings.simplefilter("ignore")
-        ND2, FD2, c, NO_ij, FD_ij, r_i = lmf.NFD_LV_multispecies(A_comp,sub_equi)
+        ND2, FD2, c, NO_ij, FD_ij, r_i = lmf.NFD_LV_multispecies(A_comp,
+                                                    sub_equi2, check = False)
     LV_pars["ND_no_indir"][n_spec] = ND2
     LV_pars["FD_no_indir"][n_spec] = FD2
-            
-"""
-# check whether there is a community in which ND<0 and has coexistence    
-for i in range(2, max_spec + 1):
-    ND, FD = LV_pars["ND"][i], LV_pars["FD"][i]
-    coex = np.all(ND+FD-ND*FD>0, axis = 1)
-    try:
-        j = np.argmin(np.amin(ND[coex], axis = 1))
-        print(i, ND[coex][j], FD[coex][j],(ND+FD-ND*FD)[coex][j] )
-    except ValueError:
-        continue"""
+    
+# create dataframe for testing differences in distributions of ND
+ls = []
+for i in range(max_spec):
+    if np.any(LV_pars["NFD_comp"][i]):
+        ND = LV_pars["ND"][i].flatten()
+        FD = LV_pars["FD"][i].flatten()
+        n_spec = i*np.ones(ND.size)
+        origin = LV_pars["origin"][i][LV_pars["NFD_comp"][i]]
+        origin = np.repeat(origin, i)
+        ls.append(pd.DataFrame({"ND": ND, "FD":FD,
+                                "n_spec": n_spec, "origin": origin}))
+df = pd.concat(ls)
+df.to_csv("NFD_real_LV.csv")
+    
