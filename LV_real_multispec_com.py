@@ -6,24 +6,29 @@ Data are taken from real LV communities"""
 import numpy as np
 import pandas as pd
 from itertools import combinations
+from collections import Counter
 import warnings
 
 import LV_multi_functions as lmf
 
 # load real LV communities        
-fort_2_spec = pd.read_csv("LV_param_fort2018.csv")
-LV_multi_spec = pd.read_csv("LV_multispec.csv")
+LV_multi_spec = pd.read_csv("LV_multispec.csv", usecols = np.arange(14))
 
 # load all matrices
 matrices = {}
 ind = np.where(np.isfinite(LV_multi_spec.n_spec))[0]
 max_spec = int(np.nanmax(LV_multi_spec.n_spec))
+interaction_index = ["A_{}".format(i) for i in range(1,max_spec + 1)]
 for i in ind:
     n_spec = int(LV_multi_spec.n_spec[i])
-    matrices[LV_multi_spec.Source[i]] = LV_multi_spec.iloc[i+1:i+n_spec+1,
-            2:2+n_spec].values
+    matrices[LV_multi_spec.Source[i]] = LV_multi_spec.loc[i+1:i+n_spec,
+            interaction_index[:n_spec]].values
 
 LV_pars = {} # stores all parameters for LV systems
+
+# to know community types
+Counter(LV_multi_spec.Community_type)
+Counter(LV_multi_spec.Experiment_type)
 
 # adding keywords to the dictionary
 # each entry is a list of length max_spec+1
@@ -32,14 +37,6 @@ LV_pars["matrix"] = [[] for i in range(max_spec+1)] # store the LV matrix
 
 LV_pars["origin"] = [[] for i in range(max_spec+1)] # source of the data
 LV_pars["species"] = [[] for i in range(max_spec+1)] # species taken
-        
-# create matrices from the data
-"""A_fort = np.ones((len(fort_2_spec),2,2))
-A_fort[:,0,1] = fort_2_spec.a_ij
-A_fort[:,1,0] = fort_2_spec.a_ji
-LV_pars["matrix"][2] = list(A_fort)
-LV_pars["origin"][2] = len(A_fort)*["Fort et al. 2 spec"]
-LV_pars["species"][2] = [[i,i] for i in range(len(A_fort))]"""
 
 for key in matrices.keys():
     multi = matrices[key]

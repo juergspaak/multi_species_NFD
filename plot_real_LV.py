@@ -20,13 +20,10 @@ ax_FD_LV = fig.add_subplot(2,2,3)
 ax_ND_LV = fig.add_subplot(2,2,1)
 pos = list(range(2,7))
 # plot box plots of NFD distributions
-ax_ND_LV.boxplot(ND_LV[2:7], positions = pos)
-ax_FD_LV.boxplot(FD_LV[2:7], positions = pos)
-# add means 
-ax_ND_LV.plot(pos, [np.mean(ND[np.isfinite(ND)]) for ND in ND_LV[2:7]], 'go',
-                    label = "mean")
-ax_FD_LV.plot(pos, [np.mean(FD[np.isfinite(FD)]) for FD in FD_LV[2:7]], 'go',
-                    label = "mean")
+ax_ND_LV.boxplot(ND_LV[2:7], positions = pos,
+                 medianprops = dict(color = "black"))
+ax_FD_LV.boxplot(FD_LV[2:7], positions = pos,
+                 medianprops = dict(color = "black"))
 
 ax_ND_LV.set_ylim([-1,2.5])
 ax_FD_LV.set_ylim([-15,1])
@@ -36,18 +33,19 @@ alpha_mean = [np.median(LV_pars["interaction_medi"][i][LV_pars["NFD_comp"][i]])
         for i in n_specs]
 alpha_mean = np.array(alpha_mean)
 ax_ND_LV.plot(n_specs, 1-alpha_mean, 'r^', markersize = 10,
-              label = "Prediction with \nconst. matrix")
+              label = "Prediction with \nconst. matrix", alpha = 0.5)
 
 ax_FD_LV.plot(n_specs, 1- (n_specs-1)/(1-(n_specs-2)*alpha_mean), 'r^',
-              markersize = 10)
+              markersize = 10, alpha = 0.5)
 
 # add communities without indirect effects
 ax_FD_LV.plot(pos, [np.median(FD[np.isfinite(FD)]) for FD in 
                     LV_pars["FD_no_indir"][2:7]], 'sb',
-                    label = "no indirect effects")
+                    label = "no indirect effects", alpha = 0.5)
 ax_ND_LV.plot(pos, [np.median(ND[np.isfinite(ND)]) for ND in 
                     LV_pars["ND_no_indir"][2:7]], 'sb',
-                    label = "no indirect effects")
+                    label = "no indirect effects", alpha = 0.5)
+ax_FD_LV.invert_yaxis()
 ax_ND_LV.legend()
 
 ax_coex_LV = fig.add_subplot(1,2,2)
@@ -55,7 +53,7 @@ color = rainbow(np.linspace(0,1,len(n_specs)))
 for i in n_specs:
     ax_coex_LV.scatter(ND_LV[i], -np.array(FD_LV[i]), s = (i+2)**2, alpha = 0.5
                        ,label = "{} species".format(i), c = color[i-2])
-ax_coex_LV.legend()   
+ax_coex_LV.legend()
 
 y_lim = ax_coex_LV.get_ylim()
 ND_bound = np.linspace(-2,2,101)
@@ -127,19 +125,29 @@ com_sum["NFD_coex"] = com_sum["coex"]-com_sum["no_inv"]
 com_sum["NFD_no_coex"] = com_sum["NFD_comp"] -com_sum["NFD_coex"]
 com_sum = com_sum.T
 
-com_sum["total"] = np.sum(com_sum.values, axis = 1)    
-
+com_sum["total"] = np.sum(com_sum.values, axis = 1)
 print(com_sum)
+com_sum.index = ["Original matrices", "Subcommunities",
+                 "Complete\n int. matrix", "NFD computed", "coexistence",
+                 "comp. exclusion", "no invasion analysis", "invasion wrong",
+                 "NFD coexistence", "NFD comp. excl"]
+del(com_sum[0])
+del(com_sum[1])
+com_sum.to_csv("literature_data_overview.csv", index = True)
+
 
 # communities in which invasion analysis is wrong
 inv_wrong_com = [LV_pars["matrix"][i][LV_pars["NFD_comp"][i]][inv_wrong[i-2]]
                 for i in n_specs]
-""" current number of communities
-[0, 0, 0, 8, 10, 1, 5, 4, 2, 3] # actual communities
-[33, 170, 417, 662, 748, 605, 341, 128, 29, 3] # possible communities
-[0, 0, 411, 629, 676, 525, 293, 0, 0, 0] #communities with finite values
-[0, 0, 411, 429, 167, 58, 9, 0, 0, 0] # communities for which we comp NFD
-[0, 0, 343, 340, 209, 86, 19, 0, 0, 0] # communities with stable equilibrium
-[0, 0, 396, 426, 167, 58, 9, 0, 0, 0]
 """
-
+              0    1    2    3    4    5    6    7   8  9  total
+dist_com      0    0    0    8   12    1    5    4   2  3     35
+max_com      35  178  429  670  750  605  341  128  29  3   3168
+full_com      0    0  423  637  678  525  293    0   0  0   2556
+NFD_comp      0    0  423  441  170   58    9    0   0  0   1101
+coex          0    0  345  319  175   69   13    0   0  0    921
+no_coex       0    0   78  318  503  456  280    0   0  0   1635
+no_inv        0    0    0   11   26   14    4    0   0  0     55
+inv_wrong     0    0    0    3    0    0    0    0   0  0      3
+NFD_coex      0    0  345  308  149   55    9    0   0  0    866
+NFD_no_coex   0    0   78  133   21    3    0    0   0  0    235"""

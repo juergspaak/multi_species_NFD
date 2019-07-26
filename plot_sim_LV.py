@@ -65,9 +65,10 @@ np.seterr(divide='ignore') # division by 0 is handled correctly
 fs = 14
 
 # NO and FD versus species richness    
-fig = plt.figure(figsize = (11,11))
+fig = plt.figure(figsize = (12,12))
 ax_ND = fig.add_subplot(2,2,1)
-ax_ND.boxplot(ND_box, positions = n_specs, showfliers = False)
+ax_ND.boxplot(ND_box, positions = n_specs, showfliers = False,
+              medianprops = dict(color = "black"))
 
 ax_ND.set_ylabel(r"$\mathcal{N}$")
 ax_ND.set_title("A")
@@ -78,28 +79,25 @@ alpha_geom = lmf.NFD_average(A_geo_mean[2:])
 
 ax_ND.set_xlim(1.5, n_spe_max + 0.5)
 
-ax_ND.plot(n_specs, [np.nanmean(ND) for ND in ND_box], 'go', markersize = 10,
-              label = "mean")
 ax_ND.plot(n_specs, 1 - alpha_geom, 'r^', markersize = 10,
-              label = "Prediction with constant matrix")
+              label = "prediction with constant matrix", alpha = 0.5)
 ax_ND.plot(n_specs, 1 - alpha_geom, 'sb', markersize = 10,
-              label = "no indirect effects")
+              label = "no indirect effects", alpha = 0.5)
 ax_ND.legend()
 
 ax_FD = fig.add_subplot(2,2,3, sharex = ax_ND)
-ax_FD.boxplot(FD_box, positions = n_specs, showfliers = False)
-ax_FD.set_xlabel("speceis richness")
-ax_FD.set_ylabel(r"$\mathcal{F}$", fontsize = fs)
+ax_FD.boxplot(FD_box, positions = n_specs, showfliers = False,
+              medianprops = dict(color = "black"))
+ax_FD.set_xlabel("species richness")
+ax_FD.set_ylabel(r"$-\mathcal{F}$", fontsize = fs)
 ax_FD.set_title("B")
 
-ax_FD.plot(n_specs, [np.nanmean(FD) for FD in FD_box], 'go', markersize = 10,
-              label = "mean")
 ax_FD.plot(n_specs, 1-(n_specs-1)/(1+alpha_geom*(n_specs-2)), "r^",
-           markersize = 10)
+           markersize = 10, alpha = 0.5)
 ax_FD.plot(n_specs, 2 - n_specs, 'sb', markersize = 10,
-              label = "no indirect effects")
+              label = "no indirect effects", alpha = 0.5)
 
-
+ax_FD.invert_yaxis()
 ax_coex = fig.add_subplot(1,2,2)
 x = np.linspace(0,1,1000)
 
