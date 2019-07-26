@@ -1,7 +1,5 @@
 
-import matplotlib.pyplot as plt
 import numpy as np
-from scipy.integrate import odeint
 from nfd_definitions.numerical_NFD import NFD_model, InputError
 
 n = 2
@@ -33,7 +31,7 @@ def tensor(N,d):
                     for i in range(d)], axis = 0)
 
 def LV_model(N, A = A_def, B = B_def, C = C_def):
-    return mu + interaction(A,N,2) + interaction(B,N,3) + interaction(C,N,4)
+    return mu - interaction(A,N,2) - interaction(B,N,3) - interaction(C,N,4)
 
 
 index = np.full(n_com,False, dtype = "bool")
@@ -48,9 +46,27 @@ def NFD_higher_order_LV(mu,A,B = None, C = None):
     NO,FD = np.empty((2,n_com,n))
     c = np.empty((n_com, n,n))
     index = np.full(n_com,False,dtype = "bool")
+    
+    # compute sub-community equilibrium based on 1. order interaction
+    sub_equi = np.zeros((n_com,n,n))
+    
+    for i in range(n):
+        # to remove species i
+        inds = np.arange(n)[np.arange(n)!=i]
+        # compute subcommunities equilibrium
+        sub_equi[:,i,inds] = np.linalg.solve(
+                A[:,inds[:,np.newaxis],inds],mu[:, inds])
+    c = np.sqrt(np.abs(np.einsum("nij,nji-> nij", A, 1/A)))
+    c[np.isnan(c)] = 1
+    c[~np.isfinite(c)] = 1
+    c[c == 0] = 1
+    pars = {}
     for i in range(n_com):
         try:
-            pars = NFD_model(LV_model,n,args = (A[i],B[i], C[i]))
+            # assume c and equilibrium densities based on first order
+            pars["c"] = c[i]
+            pars["N_star"] = sub_equi[i]
+            pars = NFD_model(LV_model,n,args = (A[i],B[i], C[i]), pars = pars)
             index[i] = True
         except InputError:
             continue
