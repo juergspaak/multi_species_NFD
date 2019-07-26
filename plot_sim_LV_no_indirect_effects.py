@@ -15,14 +15,14 @@ def diag_fill(A, values):
     return
 
 n_spe_max = 6 # maximal number of species
-n_com_prime = 1000 # number of communities at the beginning
+n_com_prime = 10000 # number of communities at the beginning
 n_coms = np.zeros(n_spe_max+1, dtype = int)
 NO_all, FD_all  = np.full((2, n_spe_max+1, n_com_prime, n_spe_max), np.nan)
 A_all, c_all, NO_ij_all, FD_ij_all, sub_equi_all = np.full((5, n_spe_max + 1,
                 n_com_prime, n_spe_max, n_spe_max), np.nan)
 
-max_alpha = 0.3
-min_alpha = 0.01
+max_alpha = 0.26
+min_alpha = 0.08
 mu = 1
 n_specs = np.arange(2,n_spe_max + 1)
 
@@ -47,7 +47,7 @@ for n in n_specs:
     sub_equi = np.ones(sub_equi.shape)
     sub_equi[:,np.arange(n), np.arange(n)] = 0
     
-    ND, FD, c, NO_ij, FD_ij = lmf.NFD_LV_multispecies(A,sub_equi,check = False)
+    ND, FD, c, NO_ij, FD_ij, r_i = lmf.NFD_LV_multispecies(A,sub_equi,check = False)
     print(len(ND),n)
     NO_all[n, :n_coms[n], :n] = 1 - ND
     NO_ij_all[n, :n_coms[n], :n, :n] = NO_ij

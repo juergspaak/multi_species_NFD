@@ -1,44 +1,56 @@
 
 import numpy as np
 import matplotlib.pyplot as plt
+import pandas as pd
+from matplotlib.cm import viridis
 
 # determine string and parameter settings for run   
-interaction = ["neg, ", "bot, ", "pos, "] # 1. order interaction
-ord_2 = ["neg, ", "bot, ", "pos, ", "abs, "] # second order interaction
-ord_3 = ["pre, ", "abs, "] # presence of third order interaction
-correlation = ["pos, ", "neg, ", "nul, "]
-connectance = ["h, ", "m, ", "l, "] # connectance
+ord1 = ["neg, ", "bot, ", "pos, "] # 1. order interaction
+ord2 = ["neg, ", "bot, ", "pos, ", "abs, "] # second order interaction
+ord3 = ["pre, ", "abs, "] # presence of third order interaction
+cor = ["pos, ", "nul, ", "neg, "]
+con = ["h, ", "m, ", "l, "] # connectance
+n_max = 6
+degA = np.arange(1, n_max + 1)
+factors = dict(ord1 = ord1, ord2 = ord2, ord3 = ord3, con = con, cor = cor
+               ,degA = degA)
+try:
+    data
+    
+except NameError:
+    data = pd.read_csv("test2.csv")
+    data = data[data.con == "l, "]
+    data = data[data.ord1 == "pos, "]
+    data = data[data.ord2 == "abs, "]
 
-interaction = [inter + o2 for inter in interaction for o2 in ord_2]
-cor_con = [con + cor for cor in correlation for con in connectance]
-
-string = "C:/Users/jspaak/Documents UNamur/NFD_values_multispecies"
-string += "/NFD_values_ {}.npz"
-add_FD = 9 + 1
-richness = np.arange(2, 7)
-col = ["green", "blue"]
-
-
-for inter in interaction:        
-    fig = plt.figure(figsize = (18,9))         
-    for i, cc in enumerate(cor_con):
-        if i == 0:
-            ax_ND = fig.add_subplot(6,3,1)
-            ax_FD = fig.add_subplot(6,3,add_FD)
-            ax_ND.set_title(cc)
-        else:
-            ax_ND = fig.add_subplot(6,3,i + 1, sharey = ax_ND)
-            ax_ND.set_title(cc)
-            ax_FD = fig.add_subplot(6,3,i + add_FD, sharey = ax_FD)
-        for k, o3 in enumerate(ord_3):
-            add = (k-1)/4
-            data = np.load(string.format(inter + o3 + cc))
-            ax_ND.boxplot([ND[np.isfinite(ND)] for ND in data["ND"]]
-                , positions = richness + add,
-                           showfliers = False, boxprops = dict(color = col[k]))
-            ax_FD.boxplot([FD[np.isfinite(FD)] for FD in data["FD"]]
-                , positions = richness + add,
-                           showfliers = False, boxprops = dict(color = col[k]))
-    fig.tight_layout()
+colors = viridis(np.linspace(0,1,4))
+richness = np.array(sorted(set(data.richness)))
+for key in ["ord1", "ord2", "ord3", "con", "cor", "degA"]:
+    legend = []
+    fig, ax = plt.subplots(2,1,figsize = (9,9), sharex = True)
+    set_key = factors[key]
+    colors = viridis(np.linspace(0,1,len(set_key)))
+    add = np.linspace(-0.25,0.25, len(set_key))
+    for i,factor in enumerate(set_key):
+        props = dict(color = colors[i], alpha = 2/len(set_key))
+        ax[0].boxplot([data[(data[key] == factor) & (data.richness == j)].ND
+          for j in richness], showfliers = False, positions = richness + add[i],
+            boxprops = props, whiskerprops = props, widths = 0.4
+            , capprops = props)
+        bp = ax[1].boxplot([data[(data[key] == factor)&(data.richness == j)].FD
+          for j in richness], showfliers = False, positions = richness + add[i],
+            boxprops = props, whiskerprops = props, widths = 0.4
+            , capprops = props)
+        legend.append(bp["boxes"][0])
+        
+        
+    ax[0].set_xlim(richness[[0,-1]] + [-1,0.5])    
+    ax[0].set_title(key)
+    ax[0].set_ylabel(r"$\mathcal{N}$", fontsize = 16)
+    ax[1].set_ylabel(r"$\mathcal{F}$", fontsize = 16)
+    ax[1].set_xlabel("species richness")
+    ax[1].set_xticks(richness)
+    ax[1].set_xticklabels(richness)
+    ax[1].legend(legend, set_key, loc = "lower left")
+    fig.savefig("Figure_cluster_{}.png".format(key))
     plt.show()
-    fig.savefig("Figure{}.png".format(inter))
