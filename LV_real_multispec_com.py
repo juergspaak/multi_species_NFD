@@ -11,7 +11,8 @@ import warnings
 
 import LV_multi_functions as lmf
 
-# load real LV communities        
+# load real LV communities
+# do not load the reference line
 LV_multi_spec = pd.read_csv("LV_multispec.csv", usecols = np.arange(14))
 
 # load all matrices
@@ -82,7 +83,7 @@ LV_pars["invasion_growth"] = (max_spec+1)*[np.array([])] # the invasion growth r
 LV_pars["coex_invasion"] = (max_spec+1)*[np.array([])] # do all species have r_i>0
 LV_pars["real_coex"] = (max_spec+1)*[np.array([])] # is there a stable steady state?
         
-for n_spec in range(2,7):
+for n_spec in range(2,max_spec + 1):
     A_n = LV_pars["matrix"][n_spec]
     
     # to compute average interaction strength remove intraspecific interaction
@@ -96,6 +97,8 @@ for n_spec in range(2,7):
     LV_pars["interaction_medi"][n_spec] = np.nanmedian(B_n, axis = (1,2))
     
     NFD_comp, sub_equi = lmf.find_NFD_computables(A_n)
+    if sum(NFD_comp) == 0:
+        continue
     A_comp = A_n[NFD_comp]
     sub_equi = sub_equi[NFD_comp]
     with warnings.catch_warnings():

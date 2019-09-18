@@ -24,7 +24,7 @@ def plot_res_use(spec, color = "red", ax = plt):
 fig, ax = plt.subplots(2,2,figsize = (9,9), sharex = True, sharey = "row")
 
 res_spec = [[1,7,5], [3,9,4], [0.5,6.5,3]]
-col = ["red", "blue", "blue"]
+col = ["red", "blue", "lime"]
 
 # two species, fitness differences
 plot_res_use(res_spec[0], ax = ax[0,0], color = col[0])

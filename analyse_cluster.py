@@ -9,7 +9,7 @@ ord3 = ["pre, ", "abs, "] # presence of third order interaction
 correlation = ["pos, ", "neg, ", "nul, "]
 connectance = ["h, ", "m, ", "l, "] # connectance
 
-n = 100
+n = 1000
 richness = np.arange(2,7)
 strings = [i+j+k+l+m for i in ord1 for j in ord2 for k in ord3
            for l in connectance for m in correlation]
@@ -41,7 +41,7 @@ for i, string in enumerate(strings):
         df.loc[df.id == string, "deg" + order] = np.sum(link, axis = 
               tuple(np.arange(2, link.ndim))).flatten()
 df["degA"] = df.degA -1 # remove self-link
-df.to_csv("test2.csv", index = False)
+df.to_csv("test.csv", index = False)
 
 print(np.sum(np.isfinite(df.ND)))
 print(np.sum(np.isfinite(df.FD)))

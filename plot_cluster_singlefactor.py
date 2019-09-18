@@ -19,13 +19,12 @@ try:
     
 except NameError:
     data = pd.read_csv("test2.csv")
-    data = data[data.con == "l, "]
-    data = data[data.ord1 == "pos, "]
+    data = data[data.con == "h, "]
     data = data[data.ord2 == "abs, "]
 
 colors = viridis(np.linspace(0,1,4))
 richness = np.array(sorted(set(data.richness)))
-for key in ["ord1", "ord2", "ord3", "con", "cor", "degA"]:
+for key in ["ord1", "ord2", "ord3", "cor"]:
     legend = []
     fig, ax = plt.subplots(2,1,figsize = (9,9), sharex = True)
     set_key = factors[key]

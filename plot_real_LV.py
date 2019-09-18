@@ -88,19 +88,20 @@ fig.savefig("Figure_NFD_in_LV_real.pdf")
 
 plt.show()
 
+
+###############################################################################
 # simple summary for number of communities
 com_sum = pd.DataFrame()
 # distinct communities from papers
 dist_com = [sum(LV_multi_spec.n_spec == i) for i in range(max_spec+1)]
 com_sum["dist_com"] = dist_com
-
-
 # maximal number of communities
 com_sum["max_com"] = [int(sum(dist_com * comb(np.arange(0,max_spec +1),i)))
         for i in range(0,max_spec+1)]
 # communities for which all parameters exist and are nonzero
-com_sum["full_com"] = [len(comp) for comp in LV_pars["NFD_comp"]]
+com_sum["full_com"] = [len(mat) for mat in LV_pars["matrix"]]
 # communities for which we can compute NFD parameters
+[sum(comp) for comp in LV_pars["NFD_comp"]]
 com_sum["NFD_comp"] = [len(ND) for ND in LV_pars["ND"]]
 # communities with stable equilibrium
 com_sum["coex"] = [sum(coex) for coex in LV_pars["real_coex"]]
