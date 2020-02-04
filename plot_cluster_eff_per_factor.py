@@ -17,11 +17,12 @@ try:
     data
     
 except NameError:
-    data = pd.read_csv("test.csv")
+    data = pd.read_csv("fullfactorial_data.csv")
     #data = data[data.con == "h, "]
     
-data["case"] = np.sum(data[["ord1", "ord2", "ord3", "cor", "con"]], axis = 1)
-data_num = data[["ord1", "ord2", "ord3", "cor", "con"]].copy()
+data["case"] = np.sum(data[["ord1", "ord2", "ord3", "cor", "con", "indirect"]]
+                , axis = 1)
+data_num = data[["ord1", "ord2", "ord3", "cor", "con", "indirect"]].copy()
 
 cases = sorted(list(set(data.case)))
 n_specs = np.arange(2, n_max + 1)
@@ -40,7 +41,7 @@ markers = {"neg, ": 1, "pos, ": "+", "bot, ": "o", "abs, ": "x", "pre, ": "o",
 colors = {"neg, ": "r", "pos, ": "g", "bot, ": "b", "abs, ": "k", "pre, ": "b",
            "nul, ": "b", "h, ": "g", "m, ": "b", "l, ": "r"}
 
-for i,factor in enumerate(["ord1", "ord2", "ord3", "cor", "con"]):
+for i,factor in enumerate(["ord1", "ord2", "ord3", "cor", "con", "indirect"]):
     for case in list(set(data[factor])):
         print(case)
         marker = markers[case]
@@ -49,8 +50,10 @@ for i,factor in enumerate(["ord1", "ord2", "ord3", "cor", "con"]):
         
         NFDs = np.array([data_c[["ND", "FD"]][data_c.richness == i].values
            for i in range(2, n_max +1)])
-        NFDs_var = np.percentile(NFDs, [25,75], axis = 1)
+        NFDs_var = np.nanpercentile(NFDs, [25,75], axis = 1)
         NFDs_var = (NFDs_var[1]-NFDs_var[0])
+        if not np.all(np.isfinite(NFDs_var)):
+            raise
         
         for j, par in enumerate(["ND", "FD"]):
             data_save = data_c[np.isfinite(data_c[par])]
@@ -70,5 +73,7 @@ for i,factor in enumerate(["ord1", "ord2", "ord3", "cor", "con"]):
             ax[3,j].plot(i, var[0], marker = marker, color = color,
               alpha = 0.8)
 
-ax[-1,0].set_xticklabels(["","1st\nord", "2nd\nord", "3rd\nord", "cor", "con"])
+ax[-1,0].set_xticks(np.arange(6))
+ax[-1,0].set_xticklabels(["1st\nord", "2nd\nord", "3rd\nord", "cor", "con",
+  "indirect"])
 fig.savefig("figure_cluster_eff_per_factor.pdf")

@@ -10,6 +10,7 @@ ord2 = ["neg, ", "bot, ", "pos, ", "abs, "] # second order interaction
 ord3 = ["pre, ", "abs, "] # presence of third order interaction
 cor = ["pos, ", "nul, ", "neg, "]
 con = ["h, ", "m, ", "l, "] # connectance
+indir = ["pre, ", "abs, "]
 n_max = 6
 degA = np.arange(1, n_max + 1)
 factors = dict(ord1 = ord1, ord2 = ord2, ord3 = ord3, con = con, cor = cor

@@ -41,6 +41,7 @@ richness = np.arange(2,7)
 mu = np.ones((n_com, richness[-1]))
 
 NO_all, FD_all = np.full((2,len(richness),n_com,richness[-1]),np.nan)
+NO_no_indir, FD_no_indir = np.full((2,len(richness),n_com,richness[-1]),np.nan)
 c_all = np.full((len(richness), n_com, richness[-1], richness[-1]),
                  np.nan)
 interaction = [0,0]
@@ -128,15 +129,18 @@ for r,n in enumerate(richness):
     A_all[r, :, :n, :n] = A.copy()
     B_all[r, :, :n, :n, :n] = B.copy()
     C_all[r, :, :n, :n, :n, :n] = C.copy()
-    NO,FD,c = NFD_higher_order_LV(mu[:,:n],*interactions)
+    NO,FD,c, NO_no, FD_no = NFD_higher_order_LV(mu[:,:n],*interactions)
     NO_all[r,:len(NO),:n] = NO
     FD_all[r,:len(FD),:n] = FD
+    NO_no_indir[r,:len(NO),:n] = NO_no
+    FD_no_indir[r,:len(FD),:n] = FD_no
     c_all[r,:len(c),:n,:n] = c
     print(timer()-start)
 
 np.savez("NFD_val/NFD_values {}".format(string),
          FD = FD_all, ND = 1-NO_all, c = c_all, parameters = parameters,
-         A = A_all, B = B_all, C = C_all)
+         A = A_all, B = B_all, C = C_all, ND_no_indir = 1-NO_no_indir,
+         FD_no_indir = FD_no_indir)
 print(np.isfinite(NO_all[...,0]).sum(axis = 1))
 
 

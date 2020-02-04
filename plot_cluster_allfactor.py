@@ -8,6 +8,7 @@ ord_2 = ["neg, ", "bot, ", "pos, ", "abs, "] # second order interaction
 ord_3 = ["pre, ", "abs, "] # presence of third order interaction
 correlation = ["pos, ", "neg, ", "nul, "]
 connectance = ["h, ", "m, ", "l, "] # connectance
+indir = ["pre, ", "abs, "] # indirect effects
 
 interaction = [inter + o2 for inter in interaction for o2 in ord_2]
 cor_con = [con + cor for cor in correlation for con in connectance]

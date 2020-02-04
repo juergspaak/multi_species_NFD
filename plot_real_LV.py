@@ -126,7 +126,7 @@ com_sum["NFD_coex"] = com_sum["coex"]-com_sum["no_inv"]
 com_sum["NFD_no_coex"] = com_sum["NFD_comp"] -com_sum["NFD_coex"]
 com_sum = com_sum.T
 
-com_sum["total"] = np.sum(com_sum.values, axis = 1)
+com_sum["Total"] = np.sum(com_sum.values, axis = 1)
 print(com_sum)
 com_sum.index = ["Original matrices", "Subcommunities",
                  "Complete\n int. matrix", "NFD computed", "coexistence",

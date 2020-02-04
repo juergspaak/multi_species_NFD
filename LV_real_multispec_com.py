@@ -77,11 +77,15 @@ LV_pars["interaction_geom"] = (max_spec+1)*[[]]
 # arithmetic mean interaction strength of the offdiagonal entries (diag = 1)
 LV_pars["interaction_artm"] = (max_spec+1)*[[]]
 LV_pars["interaction_medi"] = (max_spec+1)*[[]]
+LV_pars["EF"] = (max_spec+1)*[[]] # ecosystem function, sum of all species
 
 # values concerning coexistence
-LV_pars["invasion_growth"] = (max_spec+1)*[np.array([])] # the invasion growth rates
-LV_pars["coex_invasion"] = (max_spec+1)*[np.array([])] # do all species have r_i>0
-LV_pars["real_coex"] = (max_spec+1)*[np.array([])] # is there a stable steady state?
+# the invasion growth rates
+LV_pars["invasion_growth"] = (max_spec+1)*[np.array([])] 
+ # do all species have r_i>0
+LV_pars["coex_invasion"] = (max_spec+1)*[np.array([], bool)]
+# is there a stable steady state?
+LV_pars["real_coex"] = (max_spec+1)*[np.array([], bool)] 
         
 for n_spec in range(2,max_spec + 1):
     A_n = LV_pars["matrix"][n_spec]
@@ -97,6 +101,7 @@ for n_spec in range(2,max_spec + 1):
     LV_pars["interaction_medi"][n_spec] = np.nanmedian(B_n, axis = (1,2))
     
     NFD_comp, sub_equi = lmf.find_NFD_computables(A_n)
+    LV_pars["NFD_comp"][n_spec] = NFD_comp
     if sum(NFD_comp) == 0:
         continue
     A_comp = A_n[NFD_comp]
@@ -107,13 +112,14 @@ for n_spec in range(2,max_spec + 1):
     LV_pars["ND"][n_spec] = ND
     LV_pars["FD"][n_spec] = FD
     LV_pars["A_NFD"][n_spec] = A_comp
-    LV_pars["NFD_comp"][n_spec] = NFD_comp
     LV_pars["c"][n_spec] = c
     LV_pars["NO_ij"][n_spec] = NO_ij
     LV_pars["FD_ij"][n_spec] = FD_ij
     LV_pars["sub_equi"][n_spec] = sub_equi
     LV_pars["coex_invasion"][n_spec] = np.all(r_i>0, axis = 1)
     LV_pars["invasion_growth"][n_spec] = r_i
+    LV_pars["EF"][n_spec] = np.sum(np.linalg.solve(A_comp,
+                           np.ones((len(A_comp), n_spec))), axis = -1)
     
     # compute which communities have a stable equilibrium
     equi = np.linalg.solve(A_n,np.ones(A_n.shape[:2]))
@@ -146,4 +152,10 @@ for i in range(max_spec):
                                 "n_spec": n_spec, "origin": origin}))
 df = pd.concat(ls)
 df.to_csv("NFD_real_LV.csv")
+
+###############################################################################
+# how many communities contain facilitation, such that we can't
+# compute Carroll et al.
+contain_fac = [sum(np.any(ND>1, axis = 1)) for ND in LV_pars["ND"][2:7]]
+tot_communities = [len(ND) for ND in LV_pars["ND"][2:7]]
     
