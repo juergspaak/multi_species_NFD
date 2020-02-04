@@ -3,7 +3,6 @@ import matplotlib.pyplot as plt
 from matplotlib.cm import rainbow
 from scipy.stats import linregress
 from scipy.optimize import curve_fit
-from sklearn.linear_model import TheilSenRegressor
 
 from LV_real_multispec_com import LV_pars, matrices, max_spec
 
@@ -11,7 +10,7 @@ from LV_real_multispec_com import LV_pars, matrices, max_spec
 origin = {}
 spec_range = np.arange(2,7)
 
-fig = plt.figure(figsize = (10,10))
+fig = plt.figure(figsize = (7,7))
 
 ND_LV = LV_pars["ND"]
 FD_LV = LV_pars["FD"]
@@ -34,7 +33,7 @@ for i in spec_range:
                   color = "grey")
     ax_FD_LV.scatter(np.full(FD_LV[i].shape, i), -FD_LV[i], s = 4, alpha = 0.2,
                   color = "grey")
-ax_coex_LV.legend()
+
 
 y_lim = ax_coex_LV.get_ylim()
 ND_bound = np.linspace(-2,2,101)
@@ -44,26 +43,35 @@ ax_coex_LV.axvline(0, color = "grey", linestyle = "--")
 ax_coex_LV.set_ylim(ax_FD_LV.get_ylim())
 ax_coex_LV.set_xlim(ax_ND_LV.get_ylim())
 
+fs = 18
+fs_label = fs-2
+fs_axis = fs-6
+
 # add layout
-ax_ND_LV.set_title("A")
-ax_FD_LV.set_title("B")
-ax_coex_LV.set_title("C")
+ax_ND_LV.set_title("A", fontsize = fs)
+ax_FD_LV.set_title("B", fontsize = fs)
+ax_coex_LV.set_title("C", fontsize = fs)
 
-ax_FD_LV.set_xlabel("species richness")
-ax_FD_LV.set_ylabel(r"$-\mathcal{F}$")
-ax_ND_LV.set_ylabel(r"$\mathcal{N}$")
+ax_coex_LV.legend(fontsize = fs_axis)
 
-ax_coex_LV.set_ylabel(r"$-\mathcal{F}$")
-ax_coex_LV.set_xlabel(r"$\mathcal{N}$")
+ax_FD_LV.set_xlabel("species richness",fontsize = fs_label)
+ax_FD_LV.set_ylabel(r"$-\mathcal{F}=\mathcal{E}-1$",fontsize = fs_label)
+ax_ND_LV.set_ylabel(r"$\mathcal{N}=1-\rho$",fontsize = fs_label)
+
+ax_coex_LV.set_ylabel(r"$-\mathcal{F}=\mathcal{E}-1$",fontsize = fs_label)
+ax_coex_LV.set_xlabel(r"$\mathcal{N}=1-\rho$",fontsize = fs_label)
 
 # add ticks
 ND_ticks, FD_ticks = [-1,0,1,2], np.array([-10,-5,0,1])
 ax_ND_LV.set_yticks(ND_ticks)
-ax_ND_LV.set_xticks(spec_range)
+#ax_ND_LV.set_xticks(spec_range)
 ax_FD_LV.set_yticks(-FD_ticks)
 ax_FD_LV.set_xticks(spec_range)
 ax_coex_LV.set_xticks(ND_ticks)
 ax_coex_LV.set_yticks(-FD_ticks)
+ax_ND_LV.tick_params(axis='both', which='major', labelsize=fs_label)
+ax_FD_LV.tick_params(axis='both', which='major', labelsize=fs_label)
+ax_coex_LV.tick_params(axis='both', which='major', labelsize=fs_label)
 
 ND_reg_all = []
 FD_reg_all = []
@@ -146,6 +154,8 @@ def sat_fit(y):
 def shapes(X):
     return np.array([len(x) for x in X])
 
+slopes = []
+rs = []
 for key in matrices.keys():
     index = [np.array(LV_pars["origin"][i]) == key for i in spec_range]
     for i in spec_range:
@@ -161,11 +171,13 @@ for key in matrices.keys():
     if len(ND_org) != 1:
         y = FD_org
         r,h = sat_fit(FD_org)
+        rs.append(r)
         richness = np.linspace(2, len(FD_org)+1, 51)
         FD_fit = r*(richness-2)/(richness-2+h)
         ax_FD_LV.plot(richness, FD_fit, color = "grey")
         
         slope, intercept = linear_theil_senn(ND_org)
+        slopes.append(slope)
         key_range = np.array([2, len(ND_org) + 1])
         ax_ND_LV.plot(key_range, intercept + slope*key_range, color = "grey")
 

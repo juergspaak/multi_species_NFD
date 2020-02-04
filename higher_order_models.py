@@ -1,6 +1,7 @@
 
 import numpy as np
 from nfd_definitions.numerical_NFD import NFD_model, InputError
+from scipy.optimize import fsolve
 
 n = 2
 n_com = 100
@@ -30,7 +31,7 @@ def tensor(N,d):
     return np.prod([N.reshape((-1,)+i*(1,))*np.ones(d*(len(N),)) 
                     for i in range(d)], axis = 0)
 
-def LV_model(N, A = A_def, B = B_def, C = C_def):
+def LV_model(N, mu = mu, A = A_def, B = B_def, C = C_def):
     return mu - interaction(A,N,2) - interaction(B,N,3) - interaction(C,N,4)
 
 
@@ -44,6 +45,7 @@ def NFD_higher_order_LV(mu,A,B = None, C = None):
         C = np.zeros(A.shape + (n,n))
     
     NO,FD = np.empty((2,n_com,n))
+    NO_no_indir,FD_no_indir = np.empty((2,n_com,n))
     c = np.empty((n_com, n,n))
     index = np.full(n_com,False,dtype = "bool")
     
@@ -61,16 +63,42 @@ def NFD_higher_order_LV(mu,A,B = None, C = None):
     c[~np.isfinite(c)] = 1
     c[c == 0] = 1
     pars = {}
+    
     for i in range(n_com):
         try:
             # assume c and equilibrium densities based on first order
             pars["c"] = c[i]
             pars["N_star"] = sub_equi[i]
-            pars = NFD_model(LV_model,n,args = (A[i],B[i], C[i]), pars = pars)
+            pars = NFD_model(LV_model,n,args = (mu[i], A[i],B[i], C[i]),
+                             pars = pars)
             index[i] = True
         except InputError:
             continue
         NO[i] = pars["NO"]
         FD[i] = pars["FD"]
         c[i] = pars["c"]
-    return NO[index], FD[index], c[index]
+        
+        # compute NFD without indirect effects by setting N_j^(-i,*) = N_j^*
+        nind = np.arange(n)
+        # equilibrium in monoculutre
+        equi_mono = fsolve(lambda N: mu[i] - A[i,nind, nind]*N*
+                           (1 + B[i,nind,nind, nind]*N*
+                            (1 + C[i,nind,nind,nind,nind]*N)), np.ones(n))
+        f0 = mu[i] # monoculutre growth rates
+        r_i = np.empty(n) # invasion growth rate
+        fc = np.empty(n) # no-niche growth rate
+        for focal in range(n):
+            equi_min_focal = equi_mono.copy()
+            equi_min_focal[focal] = 0
+            r_i[focal] = LV_model(equi_min_focal, mu[i] ,A[i], B[i], 
+                           C[i])[focal]
+            sum_cN = np.zeros(n)
+            sum_cN[focal] = np.sum(equi_min_focal*pars["c"][focal])
+            fc[focal] = LV_model(sum_cN, mu[i] ,A[i], B[i], 
+                           C[i])[focal]
+            
+        NO_no_indir[i] = (f0-r_i)/(f0-fc)
+        FD_no_indir[i] = fc/f0
+        
+    return (NO[index], FD[index], c[index],
+            NO_no_indir[index], FD_no_indir[index])
