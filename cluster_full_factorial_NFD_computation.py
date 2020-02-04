@@ -2,11 +2,12 @@ import numpy as np
 
 import sys
 from higher_order_models import NFD_higher_order_LV
+from interaction_estimation import resample
 from timeit import default_timer as timer
 
 # determine string and parameter settings for run   
 interaction = ["neg, ", "bot, ", "pos, "] # 1. order interaction
-ord_2 = ["neg, ", "bot, ", "pos, ", "abs, "] # second order interaction
+ord_2 = ["neg, ", "bot, ", "pos, ", "abs, "] # 2. order interaction
 ord_3 = ["pre, ", "abs, "] # presence of third order interaction
 correlation = ["pos, ", "neg, ", "nul, "]
 connectance = ["h, ", "m, ", "l, "] # connectance
@@ -33,7 +34,7 @@ parameters = parameters[job_id]
 keys = ["ord1", "ord2", "ord3", "con", "cor"]
 parameters = {key: parameters[i] for i, key in enumerate(keys)}
 print(parameters)
-alpha = beta = gamma = 0.05
+beta = gamma = 0.05
 
 n_order = 3
 
@@ -49,8 +50,8 @@ fac = 10 # probability of not being connected is 2.6% in the worst case
 start = timer()
 A_all, B_all, C_all = np.full((3, len(richness),n_com) + 4*(richness[-1],),
                            np.nan)
-A_all = A_all[...,0,0].copy()
-B_all = B_all[...,0].copy()
+A_all = A_all[...,0,0].copy() # reduce dimension of A
+B_all = B_all[...,0].copy() # reduce dimension
 for r,n in enumerate(richness):
     print(r,n)
     ind_u = np.triu_indices(n, 1) # indices of a_ij, i<j
@@ -58,14 +59,18 @@ for r,n in enumerate(richness):
     
     # baseline parameters, effects on the interactions
     # Create interaction matrix first
-    A = np.random.uniform(*parameters["ord1"],
-                size = (fac*n_com, n,n)) # create to many, to ensure connectanc
+    # resample interaction distribution
+    aij = resample(5*fac*n_com*n*n) # create to many
+    aij = aij[(aij>parameters["ord1"][0]) # minimal value
+                & (aij<parameters["ord1"][1])] # maximal value
+    A = aij[:fac*n_com*n*n].reshape(fac*n_com, n,n) # reshape into matrix
+    
     # change correlation between species
     if parameters["cor"] == 1: # same entries
         A[:, ind_u[1], ind_u[0]] = A[:, ind_u[0], ind_u[1]]
     elif parameters["cor"] == -1:
         A[:, ind_u[1], ind_u[0]] = - A[:, ind_u[0], ind_u[1]]
-        A[:, ind_u[1], ind_u[0]] += sum(parameters["ord1"])
+        A[:, ind_u[1], ind_u[0]] += np.mean(aij)
     # change connectance between species
     conn = np.random.uniform(size = A.shape)
     conn[:, ind_l[0], ind_l[1]] = np.nan
@@ -89,7 +94,7 @@ for r,n in enumerate(richness):
         np.savez("no_com{}.npz".format(string), A = A)
         raise ValueError("not enough good graphs")
         
-    A = alpha * A[connected][:n_com]
+    A = A[connected][:n_com]
     A[:,np.arange(n), np.arange(n)] = 1 # set intraspecific effects
     con_lower = conn[connected][:n_com]
     

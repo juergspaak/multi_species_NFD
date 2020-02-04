@@ -79,9 +79,12 @@ LV_pars["interaction_artm"] = (max_spec+1)*[[]]
 LV_pars["interaction_medi"] = (max_spec+1)*[[]]
 
 # values concerning coexistence
-LV_pars["invasion_growth"] = (max_spec+1)*[np.array([])] # the invasion growth rates
-LV_pars["coex_invasion"] = (max_spec+1)*[np.array([])] # do all species have r_i>0
-LV_pars["real_coex"] = (max_spec+1)*[np.array([])] # is there a stable steady state?
+# the invasion growth rates
+LV_pars["invasion_growth"] = (max_spec+1)*[np.array([],bool)] 
+# do all species have r_i>0
+LV_pars["coex_invasion"] = (max_spec+1)*[np.array([], bool)] 
+# is there a stable steady state?
+LV_pars["real_coex"] = (max_spec+1)*[np.array([], bool)] 
         
 for n_spec in range(2,max_spec + 1):
     A_n = LV_pars["matrix"][n_spec]
