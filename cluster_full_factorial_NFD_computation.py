@@ -32,6 +32,7 @@ except IndexError:
 
 string = strings[job_id]
 parameters = parameters[job_id]
+parameters = [[-1,0], [-1,0], [0,0], 1, 0]
 keys = ["ord1", "ord2", "ord3", "con", "cor"]
 parameters = {key: parameters[i] for i, key in enumerate(keys)}
 print(parameters)
@@ -130,6 +131,11 @@ for r,n in enumerate(richness):
         
     B = A[...,np.newaxis] * interaction[0] * beta # expand multiplication
     C = B[...,np.newaxis] * interaction[1] * gamma# expand multiplication
+    
+    # ensure that specie have negative effect on themselves
+    ns = np.arange(n)
+    B[:, ns, ns, ns] = -np.abs(B[:, ns, ns, ns])
+    C[:, ns, ns, ns, ns] = -np.abs(C[:, ns, ns, ns, ns])
     
     interactions = [A,B,C]
     A_all[r, :, :n, :n] = A.copy()

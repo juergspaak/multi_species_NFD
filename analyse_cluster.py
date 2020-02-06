@@ -24,7 +24,7 @@ file_str = "C:/Users/jspaak/Documents UNamur/NFD_values_multispecies"
 file_str += "/NFD_values {}.npz"
 
 df = pd.DataFrame(parameters)
-df.columns = ["case", "ord1", "ord2", "ord3", "con", "cor", "indirect"]
+df.columns = ["ord1", "ord2", "ord3", "con", "cor", "indirect"]
 df.case = df.ord1 + df.ord2 + df.ord3 + df.cor + df.con + df.indirect
 df["id"] = np.repeat(strings, n*len(richness))
 df["richness"] = np.tile(np.repeat(richness, n), 432)
