@@ -32,8 +32,10 @@ for i,row in regressions.iterrows():
            for n in n_specs])
     
     # outlier save version of variance
-    NFDs_var = np.percentile(NFDs, [25,75], axis = 1)
+    NFDs_var = np.nanpercentile(NFDs, [25,75], axis = 1)
     NFDs_var = NFDs_var[1]-NFDs_var[0]
+    
+    data_c = data_c[np.isfinite(data_c.ND*data_c.FD)]
     
     # how factors affect variance and average of NFD
     n = np.arange(3,n_max +1).reshape(-1,1)

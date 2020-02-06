@@ -6,8 +6,10 @@ compute NFD values for randomly generated matrices and plot NFD distributions
 import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.cm import rainbow
+import pandas as pd
 
 import LV_multi_functions as lmf
+from interaction_estimation import resample
 
 def diag_fill(A, values):
     n = A.shape[-1]
@@ -29,9 +31,7 @@ n_specs = np.arange(2,n_spe_max + 1)
 # number of species ranging from 2 to 7
 for n in n_specs:
     # create random interaction matrices
-    #A_prime = np.exp(np.random.uniform(np.log(min_alpha),np.log(max_alpha)
-    #                ,size = (n_com_prime,n,n)))
-    A_prime = np.random.uniform(min_alpha, max_alpha,size = (n_com_prime,n,n))
+    A_prime = resample(n_com_prime*n*n).reshape((n_com_prime, n,n))
     
     # intraspecific competition is assumed to be 1
     diag_fill(A_prime,1)
@@ -56,9 +56,6 @@ for n in n_specs:
 
 ND_all = 1-NO_all
 
-ND_box = [ND_all[i, :n_coms[i], :i].flatten() for i in n_specs]
-FD_box = [FD_all[i, :n_coms[i], :i].flatten() for i in n_specs]
-
 ###############################################################################
 # plot the results
 np.seterr(divide='ignore') # division by 0 is handled correctly
@@ -66,36 +63,18 @@ fs = 14
 
 # NO and FD versus species richness    
 fig = plt.figure(figsize = (12,12))
+
+ax_FD = fig.add_subplot(2,2,3)
 ax_ND = fig.add_subplot(2,2,1)
-ax_ND.boxplot(ND_box, positions = n_specs, showfliers = False,
-              medianprops = dict(color = "black"))
 
-ax_ND.set_ylabel(r"$\mathcal{N}$")
-ax_ND.set_title("A")
-
-A_geo_mean = A_all.copy()
-diag_fill(A_geo_mean, np.nan)
-alpha_geom = lmf.NFD_average(A_geo_mean[2:])
-
-ax_ND.set_xlim(1.5, n_spe_max + 0.5)
-
-ax_ND.plot(n_specs, 1 - alpha_geom, 'r^', markersize = 10,
-              label = "prediction with constant matrix", alpha = 0.5)
-ax_ND.plot(n_specs, 1 - alpha_geom, 'sb', markersize = 10,
-              label = "no indirect effects", alpha = 0.5)
-ax_ND.legend()
-
-ax_FD = fig.add_subplot(2,2,3, sharex = ax_ND)
-ax_FD.boxplot(FD_box, positions = n_specs, showfliers = False,
-              medianprops = dict(color = "black"))
-ax_FD.set_xlabel("species richness")
-ax_FD.set_ylabel(r"$-\mathcal{F}$", fontsize = fs)
-ax_FD.set_title("B")
-
-ax_FD.plot(n_specs, 1-(n_specs-1)/(1+alpha_geom*(n_specs-2)), "r^",
-           markersize = 10, alpha = 0.5)
-ax_FD.plot(n_specs, 2 - n_specs, 'sb', markersize = 10,
-              label = "no indirect effects", alpha = 0.5)
+# load the regression lines
+regress = pd.read_csv("regression_fullfactorial.csv")
+color = {"neg, ": "green", "bot, ": "blue", "pos, ": "red"}
+for i,row in regress.iterrows():
+    ax_ND.plot(n_specs, row.ND_intercept + row.ND_slope*n_specs,
+               color = color[row.ord1], alpha = 0.1)
+    ax_FD.plot(n_specs, row.FD_intercept + row.FD_slope*n_specs,
+               color = color[row.ord1], alpha = 0.1)
 
 ax_FD.invert_yaxis()
 ax_coex = fig.add_subplot(1,2,2)
@@ -106,32 +85,28 @@ color = rainbow(np.linspace(0,1,len(n_specs)))
 for i in n_specs:
     ax_coex.scatter(ND_all[i,:,0], FD_all[i,:,0], s = 16, alpha = 0.5,
                 linewidth = 0, label = "{} species".format(i),
-                c = color[i-2]*np.ones((n_coms[i],1)))
+                c = color[i-2]*np.ones((n_com_prime,1)))
     
+ 
+ax_FD.set_ylabel(r"$-\mathcal{F} = \mathcal{E}-1$", fontsize = fs)
+ax_FD.set_xlabel("species richness", fontsize = fs)
+ax_FD.set_xticks(n_specs)
+ax_ND.set_xticks(n_specs)
+ax_ND.set_xticklabels([])
+ax_ND.set_ylabel(r"$\mathcal{N} = 1-\rho$", fontsize = fs)
+ax_ND.set_title("A")
+ax_FD.set_title("B")
+
+# axis layout coexistence plot
 ax_coex.plot(x,-x/(1-x), color = "black")
 ax_coex.set_xlim(np.nanpercentile(ND_all, (0,100)))
 ax_coex.set_ylim(np.nanpercentile(FD_all, (1,100)))
-plt.gca().invert_yaxis()
-ax_coex.set_ylabel(r"$-\mathcal{F}$", fontsize = fs)
-ax_coex.set_xlabel(r"$\mathcal{N}$", fontsize = fs)
+ax_coex.invert_yaxis()
+ax_coex.set_ylabel(r"$-\mathcal{F} = \mathcal{E}-1$", fontsize = fs)
+ax_coex.set_xlabel(r"$\mathcal{N} = 1-\rho$", fontsize = fs)
 ax_coex.set_title("C")
 
 ax_coex.legend(fontsize = 12)
 fig.tight_layout()
 fig.savefig("Figure_NFD_sim_{}_alpha_{}.pdf".format(
     min_alpha, max_alpha))
-
-# test the results
-for test in range(5):
-    n = np.random.randint(2,7)
-    i = np.random.randint(n_coms[n])
-    A = A_all[n,i,:n,:n]
-    
-    pars1 = lmf.NFD_model(lambda N: 1-A.dot(N), n_spec = n)
-    a_geom =lmf.geo_mean(A_geo_mean[n,i,:n,:n])
-    A_const = np.ones((n,n))*a_geom
-    np.fill_diagonal(A_const, 1)
-    pars2 = lmf.NFD_model(lambda N: 1-A_const.dot(N), n_spec = n)
-    if np.amax(np.abs((pars1["ND"]- ND_all[n,i,:n])))>1e-5:
-        raise
-    print(lmf.geo_mean(pars1["ND"]), np.nanmean(pars1["ND"]), pars2["ND"][0],n)
