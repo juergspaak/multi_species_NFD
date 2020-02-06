@@ -18,7 +18,10 @@ LV_multi_spec = pd.read_csv("LV_multispec.csv", usecols = np.arange(14))
 # load all matrices
 matrices = {}
 ind = np.where(np.isfinite(LV_multi_spec.n_spec))[0]
-max_spec = int(np.nanmax(LV_multi_spec.n_spec))
+try:
+    max_spec = int(np.nanmax(LV_multi_spec.n_spec))
+except TypeError:
+    max_spec = int(np.nanmax(LV_multi_spec.n_spec)[0])
 interaction_index = ["A_{}".format(i) for i in range(1,max_spec + 1)]
 for i in ind:
     n_spec = int(LV_multi_spec.n_spec[i])

@@ -43,8 +43,8 @@ def NFD_higher_order_LV(mu,A,B = None, C = None):
     if C is None:
         C = np.zeros(A.shape + (n,n))
     
-    NO,FD = np.empty((2,n_com,n))
-    c = np.empty((n_com, n,n))
+    NO,FD, NO_no_indir, FD_no_indir = np.empty((4,n_com,n))
+    c, c_no_indir = np.empty((2,n_com, n,n))
     index = np.full(n_com,False,dtype = "bool")
     
     # compute sub-community equilibrium based on 1. order interaction
@@ -73,4 +73,15 @@ def NFD_higher_order_LV(mu,A,B = None, C = None):
         NO[i] = pars["NO"]
         FD[i] = pars["FD"]
         c[i] = pars["c"]
-    return NO[index], FD[index], c[index]
+        # compute ND when indirect effects are not present
+        pars["N_star"] = np.ones(pars["N_star"].shape)
+        np.fill_diagonal(pars["N_star"],0) # set equilibrium density to 1
+        for s in range(n):
+            pars["r_i"][s] = LV_model(pars["N_star"][s], A[i], B[i], C[i])[s]
+        pars = NFD_model(LV_model,n,args = (A[i],B[i], C[i]), pars = pars,
+                         experimental=True)
+        NO_no_indir[i] = pars["NO"]
+        FD_no_indir[i] = pars["FD"]
+        c_no_indir[i] = pars["c"]
+    return (NO[index], FD[index], c[index],
+            NO_no_indir[index], FD_no_indir[index], c_no_indir[index])

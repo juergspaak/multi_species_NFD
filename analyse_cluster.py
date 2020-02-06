@@ -9,7 +9,7 @@ correlation = ["pos, ", "neg, ", "nul, "]
 connectance = ["h, ", "m, ", "l, "] # connectance
 indirect = ["pre, ", "abs, "] # indirect interactiosn between species
 
-n = 100
+n = 1000
 richness = np.arange(2,7)
 strings = [i+j+k+l+m+n for i in ord1 for j in ord2 for k in ord3
            for l in connectance for m in correlation for n in indirect]
@@ -24,7 +24,8 @@ file_str = "C:/Users/jspaak/Documents UNamur/NFD_values_multispecies"
 file_str += "/NFD_values {}.npz"
 
 df = pd.DataFrame(parameters)
-df.columns = ["ord1", "ord2", "ord3", "con", "cor", "indirect"]
+df.columns = ["case", "ord1", "ord2", "ord3", "con", "cor", "indirect"]
+df.case = df.ord1 + df.ord2 + df.ord3 + df.cor + df.con + df.indirect
 df["id"] = np.repeat(strings, n*len(richness))
 df["richness"] = np.tile(np.repeat(richness, n), 432)
 df["ND"] = np.nan

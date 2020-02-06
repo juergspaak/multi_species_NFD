@@ -4,7 +4,7 @@ Compute realistic distributions of interaction matrices"""
 
 import numpy as np
 from LV_real_multispec_com import LV_pars, max_spec 
-import matplotlib.pyplot as plt
+
 from scipy.stats import gaussian_kde
 
 
@@ -42,7 +42,8 @@ interaction_kde = gaussian_kde(data)
 resample = lambda N: interaction_kde.resample(int(N)).reshape(-1)
 #resample = lambda N: np.random.normal(np.median(data), np.var(data)**0.5, int(N))
 
-if __name__ == "__main__":    
+if __name__ == "__main__":   
+    import matplotlib.pyplot as plt
     plt.hist(data, 100, density = True)
     print(np.var(data))
     plt.hist(np.random.normal(np.median(data), np.var(data)**0.5, int(1e5)),

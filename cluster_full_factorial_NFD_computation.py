@@ -25,10 +25,11 @@ parameters = [[i,j,k,l,m] for i in interaction for j in ord_2 for k in ord_3
 # try getting parameters from jobscript
 try:
     job_id = int(sys.argv[1])-1
-    n_com = 1000 # number of communities at the beginning
+    n_com = 100 # number of communities at the beginning
 except IndexError:
     job_id = np.random.randint(len(strings))
     n_com = 100 # number of communities at the beginning
+
 string = strings[job_id]
 parameters = parameters[job_id]
 keys = ["ord1", "ord2", "ord3", "con", "cor"]
@@ -41,9 +42,10 @@ n_order = 3
 richness = np.arange(2,7)
 mu = np.ones((n_com, richness[-1]))
 
-NO_all, FD_all = np.full((2,len(richness),n_com,richness[-1]),np.nan)
-c_all = np.full((len(richness), n_com, richness[-1], richness[-1]),
-                 np.nan)
+NO_all, FD_all, NO_all_no_indir, FD_all_no_indir = np.full((4,len(richness),
+                                                    n_com,richness[-1]),np.nan)
+c_all, c_all_no_indir = np.full((2,len(richness), n_com, richness[-1],
+                                 richness[-1]), np.nan)
 interaction = [0,0]
 conns = [0,0]
 fac = 10 # probability of not being connected is 2.6% in the worst case
@@ -133,14 +135,20 @@ for r,n in enumerate(richness):
     A_all[r, :, :n, :n] = A.copy()
     B_all[r, :, :n, :n, :n] = B.copy()
     C_all[r, :, :n, :n, :n, :n] = C.copy()
-    NO,FD,c = NFD_higher_order_LV(mu[:,:n],*interactions)
+    NO,FD,c, NO_no_indir,FD_no_indir,c_no_indir =\
+                    NFD_higher_order_LV(mu[:,:n],*interactions)
     NO_all[r,:len(NO),:n] = NO
     FD_all[r,:len(FD),:n] = FD
     c_all[r,:len(c),:n,:n] = c
+    NO_all_no_indir[r,:len(NO),:n] = NO_no_indir
+    FD_all_no_indir[r,:len(FD),:n] = FD_no_indir
+    c_all_no_indir[r,:len(c),:n,:n] = c_no_indir
     print(timer()-start)
 
 np.savez("NFD_val/NFD_values {}".format(string),
          FD = FD_all, ND = 1-NO_all, c = c_all, parameters = parameters,
+         FD_no_indir = FD_all_no_indir, ND_no_indir = 1- NO_all_no_indir,
+         c_no_indir = c_all_no_indir,
          A = A_all, B = B_all, C = C_all)
 print(np.isfinite(NO_all[...,0]).sum(axis = 1))
 
