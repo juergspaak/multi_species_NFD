@@ -32,7 +32,7 @@ except IndexError:
 
 string = strings[job_id]
 parameters = parameters[job_id]
-parameters = [[-1,0], [-1,0], [0,0], 1, 0]
+#parameters = [[-1,0], [-1,0], [0,0], 1, 0]
 keys = ["ord1", "ord2", "ord3", "con", "cor"]
 parameters = {key: parameters[i] for i, key in enumerate(keys)}
 print(parameters)
@@ -132,17 +132,17 @@ for r,n in enumerate(richness):
     B = A[...,np.newaxis] * interaction[0] * beta # expand multiplication
     C = B[...,np.newaxis] * interaction[1] * gamma# expand multiplication
     
-    # ensure that specie have negative effect on themselves
-    ns = np.arange(n)
-    B[:, ns, ns, ns] = -np.abs(B[:, ns, ns, ns])
-    C[:, ns, ns, ns, ns] = -np.abs(C[:, ns, ns, ns, ns])
-    
     interactions = [A,B,C]
     A_all[r, :, :n, :n] = A.copy()
     B_all[r, :, :n, :n, :n] = B.copy()
     C_all[r, :, :n, :n, :n, :n] = C.copy()
     NO,FD,c, NO_no_indir,FD_no_indir,c_no_indir =\
                     NFD_higher_order_LV(mu[:,:n],*interactions)
+    # remove cases with strong allee effects, i.e. FD>1
+    NO[np.any(FD>1, axis = -1)] = np.nan
+    FD[np.any(FD>1, axis = -1)] = np.nan
+    NO_no_indir[np.any(FD_no_indir>1, axis = -1)] = np.nan
+    FD_no_indir[np.any(FD_no_indir>1, axis = -1)] = np.nan
     NO_all[r,:len(NO),:n] = NO
     FD_all[r,:len(FD),:n] = FD
     c_all[r,:len(c),:n,:n] = c
@@ -158,4 +158,14 @@ np.savez("NFD_val/NFD_values {}".format(string),
          A = A_all, B = B_all, C = C_all)
 print(np.isfinite(NO_all[...,0]).sum(axis = 1))
 
-
+if __name__ == "__main__":
+    import matplotlib.pyplot as plt
+    from matplotlib.cm import rainbow
+    color = rainbow(np.linspace(0,1,len(richness)))
+    for i,n in enumerate(richness):
+        plt.scatter(1-NO_all[i], FD_all[i],
+                    c = color[i]*np.ones((FD_all[i].size,1)),
+                    s = 2)
+    
+    plt.ylim(np.nanpercentile(FD_all, [10, 100]))
+    plt.gca().invert_yaxis()

@@ -68,11 +68,12 @@ def NFD_higher_order_LV(mu,A,B = None, C = None):
             pars["N_star"] = sub_equi[i]
             pars = NFD_model(LV_model,n,args = (A[i],B[i], C[i]), pars = pars)
             index[i] = True
+            NO[i] = pars["NO"]
+            FD[i] = pars["FD"]
+            c[i] = pars["c"]
         except InputError:
-            continue
-        NO[i] = pars["NO"]
-        FD[i] = pars["FD"]
-        c[i] = pars["c"]
+            pass
+        
         # compute ND when indirect effects are not present
         pars["N_star"] = np.ones(pars["N_star"].shape)
         np.fill_diagonal(pars["N_star"],0) # set equilibrium density to 1
