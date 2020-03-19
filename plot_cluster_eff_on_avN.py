@@ -1,4 +1,3 @@
-import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
 
@@ -20,33 +19,33 @@ ax[1,1].set_xlabel("slope")
 s = 25
 alpha = 0.5
 marker = ["o",1,"+"]
-c = ["blue", "red", "green"]
-cases_ord1 = np.array([case[:5] for case in regress.case])
-for i,case in enumerate(sorted(set(regress.ord1))):
-    ind = regress.ord1 == case
-    print(case)
-    # plot the mean of ND
-    ax[0,0].scatter(regress["ND_slope"][ind],
-                  regress["ND_intercept"][ind],
-                  s = s,  c = c[i], alpha = alpha, marker = marker[i])
+c = ["yellow", "purple"]
+
+for i,case1 in enumerate(sorted(set(regress.ord1))):
+    ind1 = regress.ord1 == case1
+    for j, case2 in enumerate(sorted(set(regress.ord1_strength))):
+        ind2 = regress.ord1_strength == case2
+        ind = ind1 & ind2
+        # plot the mean of ND
+        ax[0,0].scatter(regress["ND_slope"][ind],
+                      regress["ND_intercept"][ind],
+                      s = s,  c = c[j], alpha = alpha, marker = marker[i])
+        
+        # mean of FD
+        ax[0,1].scatter(regress["FD_slope"][ind],
+                      regress["FD_intercept"][ind],
+                      s = s,  c = c[j], alpha = alpha, marker = marker[i])
+        
+        # variance of ND
+        ax[1,0].scatter(regress["ND_var_slope"][ind],
+                      regress["ND_var_intercept"][ind],
+                      s = s,  c = c[j], alpha = alpha, marker = marker[i])
+        
+        # variance of FD
+        ax[1,1].scatter(regress["FD_var_slope"][ind],
+                      regress["FD_var_intercept"][ind],
+                      s = s,  c = c[j], alpha = alpha, marker = marker[i])
     
-    # mean of FD
-    ax[0,1].scatter(regress["FD_slope"][ind],
-                  regress["FD_intercept"][ind],
-                  s = s,  c = c[i], alpha = alpha, marker = marker[i])
-    
-    # variance of ND
-    ax[1,0].scatter(regress["ND_var_slope"][ind],
-                  regress["ND_var_intercept"][ind],
-                  s = s,  c = c[i], alpha = alpha, marker = marker[i])
-    
-    # variance of FD
-    ax[1,1].scatter(regress["FD_var_slope"][ind],
-                  regress["FD_var_intercept"][ind],
-                  s = s,  c = c[i], alpha = alpha, marker = marker[i])
-    
-ax[0,0].set_xlim([-0.003, 0.003])
-ax[1,0].set_xlim([-0.01, 0.001])
-ax[1,0].set_ylim([0,None])
+
 fig.tight_layout()
 fig.savefig("figure_eff_combinations.pdf")

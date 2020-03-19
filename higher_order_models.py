@@ -79,8 +79,11 @@ def NFD_higher_order_LV(mu,A,B = None, C = None):
         np.fill_diagonal(pars["N_star"],0) # set equilibrium density to 1
         for s in range(n):
             pars["r_i"][s] = LV_model(pars["N_star"][s], A[i], B[i], C[i])[s]
-        pars = NFD_model(LV_model,n,args = (A[i],B[i], C[i]), pars = pars,
+        try:
+            pars = NFD_model(LV_model,n,args = (A[i],B[i], C[i]), pars = pars,
                          experimental=True)
+        except InputError:
+            continue
         NO_no_indir[i] = pars["NO"]
         FD_no_indir[i] = pars["FD"]
         c_no_indir[i] = pars["c"]

@@ -10,18 +10,21 @@ try:
     data
 except NameError:
     data = pd.read_csv("fullfactorial_data.csv")
-    #data = data[data.con == "h, "]
 
-factors = ["ord1", "ord2", "ord3", "cor", "con", "indirect"]
-factors_dict = []
-for factor in factors:
-    factors_dict.append(sorted(set(data[factor])))
-    
-case = np.array(list(product(*factors_dict)))
-regressions = pd.DataFrame(case, columns = factors)
-regressions["case"] = np.sum(regressions, axis = 1)
+
+cases = sorted(set(data.case))
+keys = data.keys()[:7]
+regressions = pd.DataFrame(index = np.arange(len(cases)), columns = keys)
+regressions["case"] = cases
 for fit in product(["ND", "FD"], ["", "_var"], ["_slope", "_intercept"]):
     regressions[fit[0]+fit[1]+fit[2]] = np.nan
+    
+for fit in ["a_slope", "a_intercept"]:
+    regressions[fit] = np.nan
+
+n_coms = ["n_com_{}".format(i) for i in range(2, n_max+1)] 
+for n_com in n_coms:
+    regressions[n_com] = np.nan
 
 n_specs = np.arange(2, n_max +1)
 
@@ -47,6 +50,14 @@ for i,row in regressions.iterrows():
                   ,NFDs_var[:,0])[:2]
     regressions.at[i,["FD_var_slope", "FD_var_intercept"]] = linregress(n_specs
                   ,NFDs_var[:,1])[:2]
-    print(i)
+    
+    regressions.at[i, ["a_slope", "a_intercept"]] = linregress(data_c.richness,
+                  data_c.a)[:2]
+    regressions.at[i, n_coms] = np.sum(np.isfinite(NFDs[...,0]), axis = 1)
+    
+    for key in keys:
+        regressions.at[i, key] = data_c[key].iloc[0]
+    print(i, regressions.loc[i, "ord1_strength"],
+          np.sum(np.isfinite(NFDs[...,0]), axis = 1))
     
 regressions.to_csv("regression_fullfactorial.csv", index = False)

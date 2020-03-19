@@ -2,40 +2,43 @@ import numpy as np
 
 import sys
 from higher_order_models import NFD_higher_order_LV
-from interaction_estimation import resample
+from interaction_estimation import resample_short, resample_wide
 from timeit import default_timer as timer
 
 # determine string and parameter settings for run   
 interaction = ["neg, ", "bot, ", "pos, "] # 1. order interaction
+ord_1_strength = ["weak, ", "strong, "]
 ord_2 = ["neg, ", "bot, ", "pos, ", "abs, "] # 2. order interaction
 ord_3 = ["pre, ", "abs, "] # presence of third order interaction
 correlation = ["pos, ", "neg, ", "nul, "]
 connectance = ["h, ", "m, ", "l, "] # connectance
 
-strings = [i+j+k+l+m for i in interaction for j in ord_2 for k in ord_3
-           for l in connectance for m in correlation]
+strings = [i+j+k+l+m+n for i in interaction for j in ord_2 for k in ord_3
+           for l in connectance for m in correlation for n in ord_1_strength]
 interaction = [[-1,0], [-1,1], [0,1]]
+ord_1_strength = [resample_short, resample_wide]
 ord_2 = [[-1,0], [-1,1], [0,1], [0,0]]
 ord_3 = [[-1,1],[0,0]]
 correlation = [1,-1,0]
 connectance = [1, 4/5, 2/3]
 
-parameters = [[i,j,k,l,m] for i in interaction for j in ord_2 for k in ord_3
-           for l in connectance for m in correlation]
+parameters = [[i,j,k,l,m,n] for i in interaction for j in ord_2 for k in ord_3
+           for l in connectance for m in correlation for n in ord_1_strength]
 # try getting parameters from jobscript
 try:
     job_id = int(sys.argv[1])-1
     n_com = 100 # number of communities at the beginning
 except IndexError:
     job_id = np.random.randint(len(strings))
+    job_id = 411
     n_com = 100 # number of communities at the beginning
 
 string = strings[job_id]
 parameters = parameters[job_id]
-#parameters = [[-1,0], [-1,0], [0,0], 1, 0]
-keys = ["ord1", "ord2", "ord3", "con", "cor"]
+keys = ["ord1", "ord2", "ord3", "con", "cor", "ord1_strength"]
 parameters = {key: parameters[i] for i, key in enumerate(keys)}
 print(parameters)
+print(string)
 beta = gamma = 0.05
 
 n_order = 3
@@ -63,7 +66,7 @@ for r,n in enumerate(richness):
     # baseline parameters, effects on the interactions
     # Create interaction matrix first
     # resample interaction distribution
-    aij = resample(5*fac*n_com*n*n) # create to many
+    aij = parameters["ord1_strength"](5*fac*n_com*n*n) # create to many
     aij = aij[(aij>parameters["ord1"][0]) # minimal value
                 & (aij<parameters["ord1"][1])] # maximal value
     A = aij[:fac*n_com*n*n].reshape(fac*n_com, n,n) # reshape into matrix
@@ -151,6 +154,7 @@ for r,n in enumerate(richness):
     c_all_no_indir[r,:len(c),:n,:n] = c_no_indir
     print(timer()-start)
 
+del parameters["ord1_strength"]
 np.savez("NFD_val/NFD_values {}".format(string),
          FD = FD_all, ND = 1-NO_all, c = c_all, parameters = parameters,
          FD_no_indir = FD_all_no_indir, ND_no_indir = 1- NO_all_no_indir,
@@ -158,14 +162,4 @@ np.savez("NFD_val/NFD_values {}".format(string),
          A = A_all, B = B_all, C = C_all)
 print(np.isfinite(NO_all[...,0]).sum(axis = 1))
 
-if __name__ == "__main__":
-    import matplotlib.pyplot as plt
-    from matplotlib.cm import rainbow
-    color = rainbow(np.linspace(0,1,len(richness)))
-    for i,n in enumerate(richness):
-        plt.scatter(1-NO_all[i], FD_all[i],
-                    c = color[i]*np.ones((FD_all[i].size,1)),
-                    s = 2)
-    
-    plt.ylim(np.nanpercentile(FD_all, [10, 100]))
-    plt.gca().invert_yaxis()
+
