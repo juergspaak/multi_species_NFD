@@ -44,9 +44,9 @@ def NFD_higher_order_LV(mu,A,B = None, C = None):
     if C is None:
         C = np.zeros(A.shape + (n,n))
     
-    NO,FD = np.empty((2,n_com,n))
-    NO_no_indir,FD_no_indir = np.empty((2,n_com,n))
-    c = np.empty((n_com, n,n))
+
+    NO,FD, NO_no_indir, FD_no_indir = np.empty((4,n_com,n))
+    c, c_no_indir = np.empty((2,n_com, n,n))
     index = np.full(n_com,False,dtype = "bool")
     
     # compute sub-community equilibrium based on 1. order interaction
@@ -72,33 +72,26 @@ def NFD_higher_order_LV(mu,A,B = None, C = None):
             pars = NFD_model(LV_model,n,args = (mu[i], A[i],B[i], C[i]),
                              pars = pars)
             index[i] = True
+            NO[i] = pars["NO"]
+            FD[i] = pars["FD"]
+            c[i] = pars["c"]
+        except InputError:
+            pass
+        
+        # compute ND when indirect effects are not present
+        pars["N_star"] = np.ones(pars["N_star"].shape)
+        np.fill_diagonal(pars["N_star"],0) # set equilibrium density to 1
+        for s in range(n):
+            pars["r_i"][s] = LV_model(pars["N_star"][s], mu[i], 
+                A[i], B[i], C[i])[s]
+        try:
+            pars = NFD_model(LV_model,n,args = (mu[i],
+                A[i],B[i], C[i]), pars = pars, experimental=True)
         except InputError:
             continue
-        NO[i] = pars["NO"]
-        FD[i] = pars["FD"]
-        c[i] = pars["c"]
-        
-        # compute NFD without indirect effects by setting N_j^(-i,*) = N_j^*
-        nind = np.arange(n)
-        # equilibrium in monoculutre
-        equi_mono = fsolve(lambda N: mu[i] - A[i,nind, nind]*N*
-                           (1 + B[i,nind,nind, nind]*N*
-                            (1 + C[i,nind,nind,nind,nind]*N)), np.ones(n))
-        f0 = mu[i] # monoculutre growth rates
-        r_i = np.empty(n) # invasion growth rate
-        fc = np.empty(n) # no-niche growth rate
-        for focal in range(n):
-            equi_min_focal = equi_mono.copy()
-            equi_min_focal[focal] = 0
-            r_i[focal] = LV_model(equi_min_focal, mu[i] ,A[i], B[i], 
-                           C[i])[focal]
-            sum_cN = np.zeros(n)
-            sum_cN[focal] = np.sum(equi_min_focal*pars["c"][focal])
-            fc[focal] = LV_model(sum_cN, mu[i] ,A[i], B[i], 
-                           C[i])[focal]
-            
-        NO_no_indir[i] = (f0-r_i)/(f0-fc)
-        FD_no_indir[i] = fc/f0
-        
+
+        NO_no_indir[i] = pars["NO"]
+        FD_no_indir[i] = pars["FD"]
+        c_no_indir[i] = pars["c"]
     return (NO[index], FD[index], c[index],
-            NO_no_indir[index], FD_no_indir[index])
+            NO_no_indir[index], FD_no_indir[index], c_no_indir[index])

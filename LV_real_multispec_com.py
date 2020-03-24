@@ -18,7 +18,10 @@ LV_multi_spec = pd.read_csv("LV_multispec.csv", usecols = np.arange(14))
 # load all matrices
 matrices = {}
 ind = np.where(np.isfinite(LV_multi_spec.n_spec))[0]
-max_spec = int(np.nanmax(LV_multi_spec.n_spec))
+try:
+    max_spec = int(np.nanmax(LV_multi_spec.n_spec))
+except TypeError:
+    max_spec = int(np.nanmax(LV_multi_spec.n_spec)[0])
 interaction_index = ["A_{}".format(i) for i in range(1,max_spec + 1)]
 for i in ind:
     n_spec = int(LV_multi_spec.n_spec[i])
@@ -81,9 +84,9 @@ LV_pars["EF"] = (max_spec+1)*[[]] # ecosystem function, sum of all species
 
 # values concerning coexistence
 # the invasion growth rates
-LV_pars["invasion_growth"] = (max_spec+1)*[np.array([])] 
- # do all species have r_i>0
-LV_pars["coex_invasion"] = (max_spec+1)*[np.array([], bool)]
+LV_pars["invasion_growth"] = (max_spec+1)*[np.array([], bool)] 
+# do all species have r_i>0
+LV_pars["coex_invasion"] = (max_spec+1)*[np.array([], bool)] 
 # is there a stable steady state?
 LV_pars["real_coex"] = (max_spec+1)*[np.array([], bool)] 
         

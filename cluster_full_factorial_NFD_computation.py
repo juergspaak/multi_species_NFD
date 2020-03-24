@@ -2,56 +2,64 @@ import numpy as np
 
 import sys
 from higher_order_models import NFD_higher_order_LV
+from interaction_estimation import resample_short, resample_wide
 from timeit import default_timer as timer
 
 # determine string and parameter settings for run   
 interaction = ["neg, ", "bot, ", "pos, "] # 1. order interaction
-ord_2 = ["neg, ", "bot, ", "pos, ", "abs, "] # second order interaction
+ord_1_strength = ["weak, ", "strong, "]
+ord_2 = ["neg, ", "bot, ", "pos, ", "abs, "] # 2. order interaction
 ord_3 = ["pre, ", "abs, "] # presence of third order interaction
 correlation = ["pos, ", "neg, ", "nul, "]
 connectance = ["h, ", "m, ", "l, "] # connectance
 
-strings = [i+j+k+l+m for i in interaction for j in ord_2 for k in ord_3
-           for l in connectance for m in correlation]
+strings = [i+j+k+l+m+n for i in interaction for j in ord_2 for k in ord_3
+           for l in connectance for m in correlation for n in ord_1_strength]
 interaction = [[-1,0], [-1,1], [0,1]]
+ord_1_strength = [resample_short, resample_wide]
 ord_2 = [[-1,0], [-1,1], [0,1], [0,0]]
 ord_3 = [[-1,1],[0,0]]
 correlation = [1,-1,0]
 connectance = [1, 4/5, 2/3]
 
-parameters = [[i,j,k,l,m] for i in interaction for j in ord_2 for k in ord_3
-           for l in connectance for m in correlation]
+parameters = [[i,j,k,l,m,n] for i in interaction for j in ord_2 for k in ord_3
+           for l in connectance for m in correlation for n in ord_1_strength]
 # try getting parameters from jobscript
 try:
     job_id = int(sys.argv[1])-1
-    n_com = 1000 # number of communities at the beginning
+    n_com = 100 # number of communities at the beginning
 except IndexError:
     job_id = np.random.randint(len(strings))
+    job_id = 411
     n_com = 100 # number of communities at the beginning
+
 string = strings[job_id]
 parameters = parameters[job_id]
-keys = ["ord1", "ord2", "ord3", "con", "cor"]
+keys = ["ord1", "ord2", "ord3", "con", "cor", "ord1_strength"]
 parameters = {key: parameters[i] for i, key in enumerate(keys)}
 print(parameters)
-alpha = beta = gamma = 0.05
+print(string)
+beta = gamma = 0.05
 
 n_order = 3
 
 richness = np.arange(2,7)
 mu = np.ones((n_com, richness[-1]))
 
-NO_all, FD_all = np.full((2,len(richness),n_com,richness[-1]),np.nan)
-NO_no_indir, FD_no_indir = np.full((2,len(richness),n_com,richness[-1]),np.nan)
-c_all = np.full((len(richness), n_com, richness[-1], richness[-1]),
-                 np.nan)
+
+NO_all, FD_all, NO_all_no_indir, FD_all_no_indir = np.full((4,len(richness),
+                                                    n_com,richness[-1]),np.nan)
+c_all, c_all_no_indir = np.full((2,len(richness), n_com, richness[-1],
+                                 richness[-1]), np.nan)
+
 interaction = [0,0]
 conns = [0,0]
 fac = 10 # probability of not being connected is 2.6% in the worst case
 start = timer()
 A_all, B_all, C_all = np.full((3, len(richness),n_com) + 4*(richness[-1],),
                            np.nan)
-A_all = A_all[...,0,0].copy()
-B_all = B_all[...,0].copy()
+A_all = A_all[...,0,0].copy() # reduce dimension of A
+B_all = B_all[...,0].copy() # reduce dimension
 for r,n in enumerate(richness):
     print(r,n)
     ind_u = np.triu_indices(n, 1) # indices of a_ij, i<j
@@ -59,14 +67,18 @@ for r,n in enumerate(richness):
     
     # baseline parameters, effects on the interactions
     # Create interaction matrix first
-    A = np.random.uniform(*parameters["ord1"],
-                size = (fac*n_com, n,n)) # create to many, to ensure connectanc
+    # resample interaction distribution
+    aij = parameters["ord1_strength"](5*fac*n_com*n*n) # create to many
+    aij = aij[(aij>parameters["ord1"][0]) # minimal value
+                & (aij<parameters["ord1"][1])] # maximal value
+    A = aij[:fac*n_com*n*n].reshape(fac*n_com, n,n) # reshape into matrix
+    
     # change correlation between species
     if parameters["cor"] == 1: # same entries
         A[:, ind_u[1], ind_u[0]] = A[:, ind_u[0], ind_u[1]]
     elif parameters["cor"] == -1:
         A[:, ind_u[1], ind_u[0]] = - A[:, ind_u[0], ind_u[1]]
-        A[:, ind_u[1], ind_u[0]] += sum(parameters["ord1"])
+        A[:, ind_u[1], ind_u[0]] += np.mean(aij)
     # change connectance between species
     conn = np.random.uniform(size = A.shape)
     conn[:, ind_l[0], ind_l[1]] = np.nan
@@ -90,7 +102,7 @@ for r,n in enumerate(richness):
         np.savez("no_com{}.npz".format(string), A = A)
         raise ValueError("not enough good graphs")
         
-    A = alpha * A[connected][:n_com]
+    A = A[connected][:n_com]
     A[:,np.arange(n), np.arange(n)] = 1 # set intraspecific effects
     con_lower = conn[connected][:n_com]
     
@@ -129,18 +141,30 @@ for r,n in enumerate(richness):
     A_all[r, :, :n, :n] = A.copy()
     B_all[r, :, :n, :n, :n] = B.copy()
     C_all[r, :, :n, :n, :n, :n] = C.copy()
-    NO,FD,c, NO_no, FD_no = NFD_higher_order_LV(mu[:,:n],*interactions)
+
+    NO,FD,c, NO_no_indir,FD_no_indir,c_no_indir =\
+                    NFD_higher_order_LV(mu[:,:n],*interactions)
+    # remove cases with strong allee effects, i.e. FD>1
+    NO[np.any(FD>1, axis = -1)] = np.nan
+    FD[np.any(FD>1, axis = -1)] = np.nan
+    NO_no_indir[np.any(FD_no_indir>1, axis = -1)] = np.nan
+    FD_no_indir[np.any(FD_no_indir>1, axis = -1)] = np.nan
     NO_all[r,:len(NO),:n] = NO
     FD_all[r,:len(FD),:n] = FD
-    NO_no_indir[r,:len(NO),:n] = NO_no
-    FD_no_indir[r,:len(FD),:n] = FD_no
     c_all[r,:len(c),:n,:n] = c
+    
+    # save indirect cases
+    NO_all_no_indir[r,:len(NO),:n] = NO_no_indir
+    FD_all_no_indir[r,:len(FD),:n] = FD_no_indir
+    c_all_no_indir[r,:len(c),:n,:n] = c_no_indir
     print(timer()-start)
 
+del parameters["ord1_strength"]
 np.savez("NFD_val/NFD_values {}".format(string),
          FD = FD_all, ND = 1-NO_all, c = c_all, parameters = parameters,
-         A = A_all, B = B_all, C = C_all, ND_no_indir = 1-NO_no_indir,
-         FD_no_indir = FD_no_indir)
+         FD_no_indir = FD_all_no_indir, ND_no_indir = 1- NO_all_no_indir,
+         c_no_indir = c_all_no_indir,
+         A = A_all, B = B_all, C = C_all)
 print(np.isfinite(NO_all[...,0]).sum(axis = 1))
 
 
