@@ -30,10 +30,6 @@ n_specs = np.arange(2,n_spe_max + 1)
 for n in n_specs:
     # create random interaction matrices
     A_prime = resample(n_com_prime*n*n).reshape((n_com_prime, n,n))
-    interactions = resample(5*n_com_prime*n*n)
-    interactions = interactions[interactions>0][:n_com_prime*n*n]
-    A_prime = resample(n_com_prime*n*n).reshape((n_com_prime, n,n))
-    A_prime = interactions.reshape((n_com_prime, n, n))
     
     # intraspecific competition is assumed to be 1
     diag_fill(A_prime,1)
@@ -91,8 +87,7 @@ color = rainbow(np.linspace(0,1,len(n_specs)))
 for i in n_specs:
     ax_coex.scatter(ND_all[i,:,0], FD_all[i,:,0], s = 16, alpha = 0.5,
                 linewidth = 0, label = "{} species".format(i),
-                c = color[i-2]*np.ones((n_com_prime,1)))
-ax_coex.plot(np.nanmean(ND_all, axis = (1,2)), np.nanmean(FD_all, axis = (1,2)), 'ok')    
+                c = color[i-2]*np.ones((n_com_prime,1)))   
     
  
 ax_FD.set_ylabel(r"$-\mathcal{F} = \mathcal{E}-1$", fontsize = fs)
@@ -110,7 +105,7 @@ ax_FD.set_ylim([1, -10])
 # axis layout coexistence plot
 ax_coex.plot(x,-x/(1-x), color = "black")
 ax_coex.set_xlim([0,1])
-#ax_coex.set_xticks([0,0.5,1,1.5,2])
+ax_coex.set_xticks([0,0.5,1,1.5,2])
 ax_coex.set_ylim([-20,1])
 ax_coex.set_yticks([-20,-15,-10,-5,0])
 ax_coex.invert_yaxis()
