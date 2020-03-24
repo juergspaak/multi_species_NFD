@@ -1,16 +1,17 @@
 import matplotlib.pyplot as plt
 import pandas as pd
+import numpy as np
 
 regress = pd.read_csv("regression_fullfactorial.csv")
 
-fig, ax = plt.subplots(2,2,figsize = (7,7))
+fig, ax = plt.subplots(2,2,figsize = (8,8))
 ax[0,0].set_title("$\mathcal{N}$", fontsize = 14)
 ax[0,1].set_title("$\mathcal{F}$", fontsize = 14)
 
 ax_label = fig.add_subplot(111,frameon = False)
 ax_label.tick_params(labelcolor="none", top = False,
                      bottom=False, left=False, right=False)
-ax_label.set_ylabel("intercept")
+ax_label.set_ylabel("intercept", fontsize = 16)
 
 ax[0,0].set_ylabel("mean")
 ax[1,0].set_ylabel("variation")
@@ -19,7 +20,7 @@ ax[1,1].set_xlabel("slope")
 s = 25
 alpha = 0.5
 marker = ["o",1,"+"]
-c = ["yellow", "purple"]
+c = ["blue", "red"]
 
 for i,case1 in enumerate(sorted(set(regress.ord1))):
     ind1 = regress.ord1 == case1
@@ -29,7 +30,8 @@ for i,case1 in enumerate(sorted(set(regress.ord1))):
         # plot the mean of ND
         ax[0,0].scatter(regress["ND_slope"][ind],
                       regress["ND_intercept"][ind],
-                      s = s,  c = c[j], alpha = alpha, marker = marker[i])
+                      s = s,  c = c[j], alpha = alpha, marker = marker[i],
+                      label = None)
         
         # mean of FD
         ax[0,1].scatter(regress["FD_slope"][ind],
@@ -45,7 +47,14 @@ for i,case1 in enumerate(sorted(set(regress.ord1))):
         ax[1,1].scatter(regress["FD_var_slope"][ind],
                       regress["FD_var_intercept"][ind],
                       s = s,  c = c[j], alpha = alpha, marker = marker[i])
-    
+
+ax[0,0].plot(np.nan, np.nan, 'rs', label = "weak")
+ax[0,0].plot(np.nan, np.nan, 'bs', label = "strong")   
+ax[0,0].plot(np.nan, np.nan, 'k+', label = "facilitation")
+ax[0,0].scatter([np.nan, np.nan],[np.nan, np.nan],
+  color = 'k', label = "competition", marker = 1, s = s)   
+ax[0,0].plot(np.nan, np.nan, 'ko', label = "both")
+ax[0,0].legend(loc = "lower left")
 
 fig.tight_layout()
 fig.savefig("figure_eff_combinations.pdf")
