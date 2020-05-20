@@ -1,3 +1,8 @@
+"""
+Combines the files `NFD_val/NFD_values *.npz` into the file
+    `fullfactorial_data.csv`
+"""
+
 import numpy as np
 import pandas as pd
 from timeit import default_timer as timer

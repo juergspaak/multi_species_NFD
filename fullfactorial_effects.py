@@ -1,6 +1,6 @@
 import numpy as np
 import pandas as pd
-from scipy.stats import kruskal, f_oneway
+from scipy.stats import kruskal
 from itertools import product
 
 regress = pd.read_csv("regression_fullfactorial.csv")

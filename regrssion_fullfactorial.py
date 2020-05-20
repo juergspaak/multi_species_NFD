@@ -1,4 +1,6 @@
-
+"""
+computes the linear regressions for the fullfactorial design
+"""
 import numpy as np
 import pandas as pd
 from scipy.stats import linregress
@@ -47,17 +49,7 @@ for i,row in regressions.iterrows():
     regressions.at[i,["ND_var_slope", "ND_var_intercept"]] = linregress(n_specs
                   ,NFDs_var[:,0])[:2]
     regressions.at[i,["FD_var_slope", "FD_var_intercept"]] = linregress(n_specs
-                  ,NFDs_var[:,1])[:2]
-    if linregress(n_specs
-                  ,NFDs_var[:,1])[1]<-1:
-        plt.scatter(n_specs, NFDs_var[:,1])
-        m,q = linregress(n_specs
-                  ,NFDs_var[:,1])[:2]
-        x = np.linspace(0,7)
-        plt.plot(x, m*x + q)
-        raise
-
-    
+                  ,NFDs_var[:,1])[:2]    
     regressions.at[i, ["a_slope", "a_intercept"]] = linregress(data_c.richness,
                   data_c.a)[:2]
     regressions.at[i, n_coms] = np.sum(np.isfinite(NFDs[...,0]), axis = 1)

@@ -1,5 +1,11 @@
-import numpy as np
+"""
+Wrapper that computes fullfactorial design to compute NFD
+must be called by the jobarray_flullfactorial.sh file on a cluster
+(can also be run directly)
+generates the files "NFD_val/NFD_values *.npz"
+"""
 
+import numpy as np
 import sys
 from higher_order_models import NFD_higher_order_LV
 from interaction_estimation import resample_short, resample_wide
@@ -30,7 +36,6 @@ try:
     n_com = 100 # number of communities at the beginning
 except IndexError:
     job_id = np.random.randint(len(strings))
-    job_id = 411
     n_com = 100 # number of communities at the beginning
 
 string = strings[job_id]

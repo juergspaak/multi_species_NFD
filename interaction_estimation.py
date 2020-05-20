@@ -1,6 +1,7 @@
 """
 @author: J.W. Spaak
-Compute realistic distributions of interaction matrices"""
+Compute realistic distributions of interaction matrices
+generates Interaction_strength.pdf, a figure from the appendix"""
 
 import numpy as np
 from LV_real_multispec_com import LV_pars, max_spec 

@@ -1,7 +1,8 @@
-
+"""
+Computes NFD for communities with higher order interactions
+"""
 import numpy as np
 from nfd_definitions.numerical_NFD import NFD_model, InputError
-from scipy.optimize import fsolve
 
 n = 2
 n_com = 100
@@ -38,6 +39,7 @@ def LV_model(N, mu = mu, A = A_def, B = B_def, C = C_def):
 index = np.full(n_com,False, dtype = "bool")
 
 def NFD_higher_order_LV(mu,A,B = None, C = None):
+    # compute NFD for a model 1/N dN/dt = mu+N*A(1+N*B(1+N*C))
     n_com, n = A.shape[:2]
     if B is None:
         B = np.zeros(A.shape + (n,))
