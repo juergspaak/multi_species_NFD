@@ -23,7 +23,7 @@ def plot_res_use(spec, color = "red", ax = plt):
 
 fig, ax = plt.subplots(2,2,figsize = (9,9), sharex = True, sharey = "row")
 
-res_spec = [[1,7,5], [3,9,3], [0.5,6.5,1.5]]
+res_spec = [[1,7,5], [3,9,3], [0.5,6.5,5]]
 col = ["red", "blue", "lime"]
 
 # two species, fitness differences
@@ -63,8 +63,8 @@ ax[0,1].set_title("B")
 ax[1,0].set_title("C")
 ax[1,1].set_title("D")
 
-ax[0,0].set_ylabel("utilisation")
-ax[1,0].set_ylabel("rescaled utilisation")
+ax[0,0].set_ylabel("comsumption")
+ax[1,0].set_ylabel("rescaled consumption")
 
 ax[1,0].set_xlabel("resources")
 ax[1,1].set_xlabel("resources")

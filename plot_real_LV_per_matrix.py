@@ -1,11 +1,9 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.cm import rainbow
-import pandas as pd
 from scipy.optimize import curve_fit
-from scipy.special import comb
 
-from LV_real_multispec_com import LV_pars, matrices, max_spec, LV_multi_spec
+from LV_real_multispec_com import LV_pars, matrices
 
 
 origin = {}
@@ -34,7 +32,32 @@ for i in spec_range:
                   color = "grey")
     ax_FD_LV.scatter(np.full(FD_LV[i].shape, i), -FD_LV[i], s = 4, alpha = 0.2,
                   color = "grey")
+    
+###############################################################################    
+# find a community with negative ND, but still coexistes
+special_ND = [[],[]]
+special_FD = [[],[]]
+for i in spec_range:
+    # species that coexist for which ND can be computed
+    coex = LV_pars["real_coex"][i][LV_pars["NFD_comp"][i]]
+    neg_ND = np.amin(LV_pars["ND"][i], axis = -1)<0
+    special_ND.append(LV_pars["ND"][i][neg_ND & coex])
+    special_FD.append(LV_pars["FD"][i][neg_ND & coex])
 
+i = 3
+j = 10
+
+ax_coex_LV.plot(special_ND[i][j], -special_FD[i][j], 'dimgrey',
+                label = "example\ncommunity", linewidth = 3, zorder = 5)
+lab = "cba"
+s = [100,200,100]
+for ind in range(len(lab)):
+    plt.scatter(special_ND[i][j][ind], -special_FD[i][j][ind],
+                       marker = r"${}$".format(lab[ind]), c = "k",zorder = 10,
+                       s = s[ind])
+
+###############################################################################
+# add layout
 
 y_lim = ax_coex_LV.get_ylim()
 ND_bound = np.linspace(-2,2,101)
@@ -53,19 +76,20 @@ ax_ND_LV.set_title("A", fontsize = fs)
 ax_FD_LV.set_title("B", fontsize = fs)
 ax_coex_LV.set_title("C", fontsize = fs)
 
-ax_coex_LV.legend(fontsize = fs_axis)
+ax_coex_LV.legend(fontsize = fs_axis-2)
 
 ax_FD_LV.set_xlabel("species richness",fontsize = fs_label)
-ax_FD_LV.set_ylabel(r"$-\mathcal{F}=\mathcal{E}-1$",fontsize = fs_label)
-ax_ND_LV.set_ylabel(r"$\mathcal{N}=1-\rho$",fontsize = fs_label)
+ax_FD_LV.set_ylabel(r"$-\mathcal{F}$",fontsize = fs_label)
+ax_ND_LV.set_ylabel(r"$\mathcal{N}$",fontsize = fs_label)
 
-ax_coex_LV.set_ylabel(r"$-\mathcal{F}=\mathcal{E}-1$",fontsize = fs_label)
-ax_coex_LV.set_xlabel(r"$\mathcal{N}=1-\rho$",fontsize = fs_label)
+ax_coex_LV.set_ylabel(r"$-\mathcal{F}$",fontsize = fs_label)
+ax_coex_LV.set_xlabel(r"$\mathcal{N}$",fontsize = fs_label)
 
 # add ticks
 ND_ticks, FD_ticks = [-1,0,1,2], np.array([-10,-5,0,1])
 ax_ND_LV.set_yticks(ND_ticks)
-#ax_ND_LV.set_xticks(spec_range)
+ax_ND_LV.set_xticks(spec_range)
+ax_ND_LV.set_xticklabels(len(spec_range)*[""])
 ax_FD_LV.set_yticks(-FD_ticks)
 ax_FD_LV.set_xticks(spec_range)
 ax_coex_LV.set_xticks(ND_ticks)
@@ -104,7 +128,7 @@ def linear_theil_senn(y, random = False):
                               for item in sublist.flatten()])
     
     return slope, intercept
-    
+ 
 def saturation_theil_senn(y, random = False):
     # fit a saturating function through the data, y = r*x/(x+h)
     y = [np.array(yi).flatten() for yi in y]
@@ -198,51 +222,3 @@ ax_FD_LV.plot(richness, FD_fit, color = "black", linewidth = 2)
 fig.tight_layout()
 
 fig.savefig("Figure_NFD_in_LV_real_per_origin.pdf")
-
-###############################################################################
-# simple summary for number of communities
-n_specs = np.arange(2,7)
-com_sum = pd.DataFrame()
-# distinct communities from papers
-dist_com = [sum(LV_multi_spec.n_spec == i) for i in range(max_spec+1)]
-com_sum["dist_com"] = dist_com
-# maximal number of communities
-com_sum["max_com"] = [int(sum(dist_com * comb(np.arange(0,max_spec +1),i)))
-        for i in range(0,max_spec+1)]
-# communities for which all parameters exist and are nonzero
-com_sum["full_com"] = [len(mat) for mat in LV_pars["matrix"]]
-# communities for which we can compute NFD parameters
-[sum(comp) for comp in LV_pars["NFD_comp"]]
-com_sum["NFD_comp"] = [len(ND) for ND in LV_pars["ND"]]
-# communities with stable equilibrium
-com_sum["coex"] = [sum(coex) for coex in LV_pars["real_coex"]]
-com_sum["no_coex"] = com_sum["full_com"]-com_sum["coex"]
-
-
-
-# number of communities, for which invasion is not possible, or does not
-# predict coexistnece, but can coexist
-coex_real = LV_pars["real_coex"]
-NFD_comp = LV_pars["NFD_comp"]
-coex_invasion = LV_pars["coex_invasion"]
-
-
-coex_no_inv = [coex_real[i] & (~NFD_comp[i]) for i in n_specs]
-inv_wrong = [coex_real[i][NFD_comp[i]]  != coex_invasion[i] for i in n_specs]
-com_sum["no_inv"] = 0
-com_sum["no_inv"].iloc[n_specs] = [sum(c) for c in coex_no_inv]
-com_sum["inv_wrong"] = 0
-com_sum["inv_wrong"].iloc[n_specs] = [sum(c) for c in inv_wrong]
-com_sum["NFD_coex"] = com_sum["coex"]-com_sum["no_inv"]
-com_sum["NFD_no_coex"] = com_sum["NFD_comp"] -com_sum["NFD_coex"]
-com_sum = com_sum.T
-
-com_sum["total"] = np.sum(com_sum.values, axis = 1)
-print(com_sum)
-com_sum.index = ["Original matrices", "Subcommunities",
-                 "Complete\n int. matrix", "NFD computed", "coexistence",
-                 "comp. exclusion", "no invasion analysis", "invasion wrong",
-                 "NFD coexistence", "NFD comp. excl"]
-del(com_sum[0])
-del(com_sum[1])
-com_sum.to_csv("literature_data_overview.csv", index = True)  
