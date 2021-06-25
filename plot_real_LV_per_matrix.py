@@ -26,11 +26,11 @@ ax_FD_LV.set_ylim([-1,10])
 ax_coex_LV = fig.add_subplot(1,2,2)
 color = rainbow(np.linspace(0,1,len(spec_range)))
 for i in spec_range:
-    ax_coex_LV.scatter(ND_LV[i], -FD_LV[i], s = (i+2)**2, alpha = 0.5
+    ax_coex_LV.scatter(ND_LV[i], FD_LV[i], s = (i+2)**2, alpha = 0.5
                        ,label = "{} species".format(i), c = color[i-2])
     ax_ND_LV.scatter(np.full(ND_LV[i].shape, i), ND_LV[i], s = 4, alpha = 0.2,
                   color = "grey")
-    ax_FD_LV.scatter(np.full(FD_LV[i].shape, i), -FD_LV[i], s = 4, alpha = 0.2,
+    ax_FD_LV.scatter(np.full(FD_LV[i].shape, i), FD_LV[i], s = 4, alpha = 0.2,
                   color = "grey")
     
 ###############################################################################    
@@ -47,25 +47,19 @@ for i in spec_range:
 i = 3
 j = 10
 
-ax_coex_LV.plot(special_ND[i][j], -special_FD[i][j], 'dimgrey',
+ax_coex_LV.plot(special_ND[i][j], special_FD[i][j], 'dimgrey',
                 label = "example\ncommunity", linewidth = 3, zorder = 5)
 lab = "cba"
 s = [100,200,100]
 for ind in range(len(lab)):
-    plt.scatter(special_ND[i][j][ind], -special_FD[i][j][ind],
+    ax_coex_LV.scatter(special_ND[i][j][ind], special_FD[i][j][ind],
                        marker = r"${}$".format(lab[ind]), c = "k",zorder = 10,
                        s = s[ind])
 
 ###############################################################################
 # add layout
 
-y_lim = ax_coex_LV.get_ylim()
-ND_bound = np.linspace(-2,2,101)
-ax_coex_LV.plot(ND_bound, ND_bound/(1-ND_bound), "black")
-ax_coex_LV.axhline(0, color = "grey", linestyle = "--")
-ax_coex_LV.axvline(0, color = "grey", linestyle = "--")
-ax_coex_LV.set_ylim(ax_FD_LV.get_ylim())
-ax_coex_LV.set_xlim(ax_ND_LV.get_ylim())
+
 
 fs = 18
 fs_label = fs-2
@@ -79,10 +73,10 @@ ax_coex_LV.set_title("C", fontsize = fs)
 ax_coex_LV.legend(fontsize = fs_axis-2)
 
 ax_FD_LV.set_xlabel("species richness",fontsize = fs_label)
-ax_FD_LV.set_ylabel(r"$-\mathcal{F}$",fontsize = fs_label)
+ax_FD_LV.set_ylabel(r"$\mathcal{F}$",fontsize = fs_label)
 ax_ND_LV.set_ylabel(r"$\mathcal{N}$",fontsize = fs_label)
 
-ax_coex_LV.set_ylabel(r"$-\mathcal{F}$",fontsize = fs_label)
+ax_coex_LV.set_ylabel(r"$\mathcal{F}$",fontsize = fs_label)
 ax_coex_LV.set_xlabel(r"$\mathcal{N}$",fontsize = fs_label)
 
 # add ticks
@@ -90,13 +84,24 @@ ND_ticks, FD_ticks = [-1,0,1,2], np.array([-10,-5,0,1])
 ax_ND_LV.set_yticks(ND_ticks)
 ax_ND_LV.set_xticks(spec_range)
 ax_ND_LV.set_xticklabels(len(spec_range)*[""])
-ax_FD_LV.set_yticks(-FD_ticks)
+ax_FD_LV.set_yticks(FD_ticks)
 ax_FD_LV.set_xticks(spec_range)
+ax_FD_LV.set_ylim([-10,1])
+ax_FD_LV.invert_yaxis()
 ax_coex_LV.set_xticks(ND_ticks)
-ax_coex_LV.set_yticks(-FD_ticks)
+ax_coex_LV.set_yticks(FD_ticks)
+ax_coex_LV.set_ylim([-10,1])
+ax_coex_LV.invert_yaxis()
 ax_ND_LV.tick_params(axis='both', which='major', labelsize=fs_label)
 ax_FD_LV.tick_params(axis='both', which='major', labelsize=fs_label)
 ax_coex_LV.tick_params(axis='both', which='major', labelsize=fs_label)
+
+
+ND_bound = np.linspace(-2,2,101)
+ax_coex_LV.plot(ND_bound, -ND_bound/(1-ND_bound), "black")
+ax_coex_LV.axhline(0, color = "grey", linestyle = "--")
+ax_coex_LV.axvline(0, color = "grey", linestyle = "--")
+ax_coex_LV.set_xlim(ax_ND_LV.get_ylim())
 
 ND_reg_all = []
 FD_reg_all = []
@@ -160,7 +165,7 @@ def saturation_theil_senn(y, random = False):
 
 
 def sat_fit(y):
-    y = [-yi.flatten() for yi in y]
+    y = [yi.flatten() for yi in y]
     if len(y) == 2:
         min_h = 1e5 # fit a line, not a saturating function
     else:

@@ -91,7 +91,7 @@ fs = 18
 fs_label = fs-2
 fs_axis = fs-6    
  
-ax_FD.set_ylabel(r"$-\mathcal{F}$", fontsize = fs_label)
+ax_FD.set_ylabel(r"$\mathcal{F}$", fontsize = fs_label)
 ax_FD.set_xlabel("species richness", fontsize = fs)
 ax_FD.set_xticks(n_specs)
 ax_ND.set_xticks(n_specs)
@@ -123,7 +123,7 @@ ax_coex.set_xticks([0,1,2])
 ax_coex.set_ylim([-20,1])
 ax_coex.set_yticks([-20,-15,-10,-5,0])
 ax_coex.invert_yaxis()
-ax_coex.set_ylabel(r"$-\mathcal{F}$", fontsize = fs_label)
+ax_coex.set_ylabel(r"$\mathcal{F}$", fontsize = fs_label)
 ax_coex.set_xlabel(r"$\mathcal{N}$", fontsize = fs_label)
 ax_coex.set_title("C")
 
