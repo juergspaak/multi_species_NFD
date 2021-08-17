@@ -133,5 +133,5 @@ ax_coex.tick_params(axis='both', which='major', labelsize=fs_label)
 
 ax_coex.legend(fontsize = fs_axis-2)
 fig.tight_layout()
-fig.savefig("Figure_NFD_sim_strong.pdf")
+fig.savefig("Figure_2.pdf")
 print(np.round(np.nanmean(ND_all, axis = (1,2)),3))
