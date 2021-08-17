@@ -49,4 +49,4 @@ ax.text(0,-0.05,"$\mu_1$", ha = "center")
 ax.text(1,-0.05,"$\mu_2$", ha = "center")
 ax.text(0.5,1+0.05,"$\mu_3$", ha = "center")
 
-fig.savefig("Figure_ap_noncoex.pdf")
+fig.savefig("Figure_S7.pdf")

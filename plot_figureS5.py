@@ -90,4 +90,4 @@ ax[1,3].set_xlabel("Niche differences")
 
 fig.tight_layout()
 
-fig.savefig("Figure_ap_all_methods.pdf")
+fig.savefig("Figure_S5.pdf")

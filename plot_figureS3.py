@@ -29,4 +29,4 @@ ax.set_ylabel(r"interaction strength $|a|$")
 ax.set_xlabel("species richness")
 ax.set_xticks(n_specs)
 
-fig.savefig("species_richenss_on_alpha.pdf")
+fig.savefig("FigureS3.pdf")

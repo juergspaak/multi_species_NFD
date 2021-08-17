@@ -85,4 +85,4 @@ plt.legend()
 plt.xlabel("Relative distance of equilibria")
 plt.ylabel("Probability")
 
-fig.savefig("Figure_ap_multiple_equilibria.pdf")
+fig.savefig("Figure_S4.pdf")

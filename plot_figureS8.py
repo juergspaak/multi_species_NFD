@@ -3,8 +3,8 @@ import matplotlib.pyplot as plt
 from itertools import combinations
 
 from nfd_definitions.numerical_NFD import NFD_model, InputError
-from plot_intuitive_explanation import mu, var_cons, mean_cons, n_specs
-import plot_intuitive_explanation as pi
+from plot_figure1 import mu, var_cons, mean_cons, n_specs
+import plot_figure1 as pi
 
 ###############################################################################
 #
@@ -137,4 +137,4 @@ for i in range(len(n_specs)):
 ax_res.legend(handles, labels, loc = 1)
 fig.tight_layout()
 
-fig.savefig("Figure_ap_species_packing.pdf")
+fig.savefig("Figure_S8.pdf")

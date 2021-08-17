@@ -62,4 +62,4 @@ ax[0,0].legend(loc = "lower left")
 
 fig.tight_layout()
 
-fig.savefig("figure_eff_combinations.pdf")
+fig.savefig("Figure_S2.pdf")

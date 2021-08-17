@@ -36,4 +36,4 @@ plt.fill_between(resources, res_use[0],
                                 facecolor = [1,1,1,0],
                                 linewidth = 0)
 
-fig.savefig("Figure_ap_three_species_community.pdf")
+fig.savefig("Figure_S6.pdf")

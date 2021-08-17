@@ -67,4 +67,4 @@ ax[1].set_ylabel(r"$\mathcal{F}$", fontsize = fs_label)
 ax[0].set_title("A")
 ax[1].set_title("B")
 
-fig.savefig("Figure_ap_nonconstant_connectance.pdf")
+fig.savefig("Figure_S9.pdf")
