@@ -1,5 +1,6 @@
 import numpy as np
 from nfd_definitions.numerical_NFD import InputError, NFD_model
+import warnings
 
 def find_NFD_computables(A,r = None):
     """find all communities for which NFD can be computed
@@ -127,6 +128,7 @@ def NFD_LV_multispecies(A,sub_equi, r = None, check = True, c_one = False):
     mono_equi = r/A[:,specs, specs]
     # F_i^j = 1- r_j/r_i*sqrt(a_ij/a_ji*a_ii/a_jj)
     FD_ij = own_einsum("nij,nji,nii,njj->nij",A,1/A,A,1/A)
+    FD_ij[np.isnan(FD_ij)] = 0
     FD_ij = 1 - r[:,np.newaxis]/r[...,np.newaxis]*FD_ij
     FD = 1 - np.einsum("nij,nij,nj->ni",
                        1-FD_ij,sub_equi, mono_equi)
@@ -140,9 +142,10 @@ def NFD_LV_multispecies(A,sub_equi, r = None, check = True, c_one = False):
     if check:
         i = np.random.randint(len(FD))
         try:
-            pars = {"N_star": sub_equi[i], "c": c[i]}
-            pars = NFD_model(lambda N: r[i] - A[i].dot(N), 
-                             n_spec = A.shape[1], pars = pars)
+            with warnings.catch_warnings(record = True):
+                pars = {"N_star": sub_equi[i], "c": c[i]}
+                pars = NFD_model(lambda N: r[i] - A[i].dot(N), 
+                                 n_spec = A.shape[1], pars = pars)
             if not (np.allclose([pars["ND"], pars["FD"]],[1-NO[i], FD[i]],
                                 rtol = 1e-5, atol = 1e-5)
                                 and np.allclose(r_i[i],pars["r_i"])):

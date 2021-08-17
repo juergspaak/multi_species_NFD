@@ -47,6 +47,8 @@ for i in spec_range:
 i = 3
 j = 10
 
+special_matrix = LV_pars["matrix"][i][LV_pars["NFD_comp"][i]][j]
+
 ax_coex_LV.plot(special_ND[i][j], special_FD[i][j], 'dimgrey',
                 label = "example\ncommunity", linewidth = 3, zorder = 5)
 lab = "cba"

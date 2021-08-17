@@ -3,10 +3,10 @@ import matplotlib.pyplot as plt
 
 from interaction_estimation import resample_short
 import LV_multi_functions as lmf
+from scipy.stats import mvn
 
 
 itera = 1000
-n_monte_carlo = 10000
 
 r_specs = np.arange(2,7)
 ND_spaak, FD_spaak = np.full((2,len(r_specs), itera, max(r_specs)), np.nan)
@@ -39,13 +39,11 @@ for i,n in enumerate(r_specs):
     FD_chesson[i,:,:n] = r_i - np.mean(r_i, axis = 1, keepdims = True)
     
     # compute saavedra
-
     for j in range(itera):
-        # perform a montecarlo approach for the integral
-        points = np.random.multivariate_normal(np.zeros(n), A[j].T.dot(A[j]),
-                                               n_monte_carlo)
-        integral[j] = np.sum(np.all(points > 0, axis = 1))/n_monte_carlo
-    ND_saavedra[i] = integral*np.abs(np.linalg.det(A))/np.sqrt(np.pi/2)**n
+        sig = np.linalg.inv(A[j].T.dot(A[j]))
+        ND_saavedra[i][j] = mvn.mvnun(np.zeros(len(A[j])),
+                                      np.full(len(A[j]),np.inf),
+                               np.zeros(len(A[j])), sig)[0]
     
     # compute fitness differences
     norm = np.sqrt(np.sum(A**2, axis = 1, keepdims = True))
