@@ -33,7 +33,7 @@ parameters = [[i,j,k,l,m,n] for i in interaction for j in ord_2 for k in ord_3
 # try getting parameters from jobscript
 try:
     job_id = int(sys.argv[1])-1
-    n_com = 100 # number of communities at the beginning
+    n_com = 1000 # number of communities at the beginning
 except IndexError:
     job_id = np.random.randint(len(strings))
     n_com = 100 # number of communities at the beginning

@@ -228,4 +228,4 @@ ax_FD_LV.plot(richness, FD_fit, color = "black", linewidth = 2)
  
 fig.tight_layout()
 
-fig.savefig("Figure_figure4.pdf")
+fig.savefig("Figure_4.pdf")

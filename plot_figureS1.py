@@ -24,4 +24,4 @@ ax[1].set_xlabel("interaction strength", fontsize = 14)
 ax[0].set_title("A: Weak interactions", loc = "left")
 ax[1].set_title("B: Strong interactions", loc = "left")
 
-fig.savefig("Interaction_strength.pdf")
+fig.savefig("Figure_S1.pdf")

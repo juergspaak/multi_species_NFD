@@ -27,7 +27,6 @@ parameters = np.array([[i,j,k,l,m,n,o] for i in ord1
     for j in ord2 for k in ord3 for l in connectance for m in correlation
     for n in ord_1_strength for o in indirect])
 parameters = np.repeat(parameters, n*len(richness), 0)
-file_str = "C:/Users/jspaak/Documents UNamur/NFD_values_multispecies"
 file_str = "NFD_val"
 file_str += "/NFD_values {}.npz"
 

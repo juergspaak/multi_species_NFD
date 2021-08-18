@@ -15,7 +15,7 @@ import LV_multi_functions as lmf
 # do not load the reference line
 LV_multi_spec = pd.read_csv("LV_multispec.csv", usecols = np.arange(14))
 
-# load all matrices
+# generate all sub matrices of all subucommunities
 matrices = {}
 ind = np.where(np.isfinite(LV_multi_spec.n_spec))[0]
 try:
@@ -153,12 +153,4 @@ for i in range(max_spec):
         origin = np.repeat(origin, i)
         ls.append(pd.DataFrame({"ND": ND, "FD":FD,
                                 "n_spec": n_spec, "origin": origin}))
-df = pd.concat(ls)
-df.to_csv("NFD_real_LV.csv")
-
-###############################################################################
-# how many communities contain facilitation, such that we can't
-# compute Carroll et al.
-contain_fac = [sum(np.any(ND>1, axis = 1)) for ND in LV_pars["ND"][2:7]]
-tot_communities = [len(ND) for ND in LV_pars["ND"][2:7]]
     

@@ -10,7 +10,7 @@ def find_NFD_computables(A,r = None):
     Parameters:
     -----------
     A: np.array, shape = n_com, n_spec, n_spec
-        The interaction matrices of a n_com communities
+        The interaction matrices of n_com communities
         with n_spec species per community
     r: np.array, shape = n_com, n_spec, optional
         Intrinsic growth rate of each species
@@ -25,6 +25,7 @@ def find_NFD_computables(A,r = None):
     """
     n_com, n_spec = A.shape[:2]
     
+    # create intrinsic growth rate
     if r is None:
         r = np.ones((n_com, n_spec))
     
@@ -164,19 +165,3 @@ def NFD_LV_multispecies(A,sub_equi, r = None, check = True, c_one = False):
                              "values for {}th com.".format(i))
     
     return 1-NO, FD, c, NO_ij, FD_ij, r_i
-
-def diag_fill(A, values):
-    # fill the diagonal of a multidimensional array `A` with `values`
-    n = A.shape[-1]
-    A[..., np.diag_indices(n)[0], np.diag_indices(n)[1]] = values
-    return
-
-def geo_mean(A,axis = None):
-    # compute geometric mean
-    return np.exp(np.nanmean(np.log(A), axis = axis))
-
-def NFD_average(A_in):
-    A = A_in.reshape(A_in.shape[:-2] + (-1,))
-    A_all_inter = A[...,np.newaxis]*A[...,np.newaxis,:]
-    diag_fill(A_all_inter, np.nan)
-    return np.nanmean(np.sqrt(A_all_inter), axis = (1,2,3))

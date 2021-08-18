@@ -1,0 +1,12 @@
+,2,3,4,5,6,7,8,9,total
+Original matrices,0,8,13,1,5,3,0,3,33
+Subcommunities,358,527,576,472,278,111,27,3,2544
+"Complete
+ int. matrix",356,517,557,455,271,110,27,3,2296
+NFD computed,356,371,140,45,8,0,0,0,920
+coexistence,290,270,142,55,11,0,0,0,768
+comp. exclusion,66,247,415,400,260,110,27,3,1528
+no invasion analysis,0,8,23,12,3,0,0,0,46
+invasion wrong,0,3,0,0,0,0,0,0,3
+NFD coexistence,290,262,119,43,8,0,0,0,722
+NFD comp. excl,66,109,21,2,0,0,0,0,198
